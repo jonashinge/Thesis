@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,tabularx}
+\usepackage[a4paper]{geometry}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+\title{A music player user interface based on head-gestures and 3D audio feedback}
+\author{Jonas Hinge}
+\date{June 2014}
+
+\begin{document}
+
+\maketitle
+
+\section{Background}
+Rise in mobile computing resulting in more interaction while people are on the move e.g. listening to music while biking...
+
+PROJECT FORMULATION (TEMP)
+Smartphone interfaces often require use of the hands and eyes in form of gesture navigating through menus and application user interfaces. In some everyday scenarios however it is challenging to navigate the smartphone in this traditional way e.g. when biking as this requires steering and eyes on the road. Emerging accessories with built in sensor hardware e.g. Google Glass or Intelligent Headset (http://intelligentheadset.com/developer/) offer alternate ways of using gestures and getting feedback when interacting with the music player. In this project it will be investigated how and to which degree the use of head gestures in combination with spatial audio feedback could be used to navigate and control through a music library. 
+
+More specifically the following questions should be answered: 
+- Can a user interface based on head gestures and 3d audio compete with existing user interfaces for music players (e.g. touch and vision-based) with respect to for instance a) navigation and control efficiency b) learnability, c) general usability (cognitive/perceptive load), c) suitability to real-world hands-occupied situations. 
+
+- With the chosen combination of input and output modalities, there is a high risk for the system to misinterpret normal everyday actions performed by the user as commands for controlling the system ("behavioural cluttering" (Janlert et al., in press)). How can features in the user interface prevent unwanted manipulation of the system?
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Introduction}
+Motivation : Use references to claim that using eyes and hands as interaction could be a potential problem in some scenarios or that it could be preferred to use eyes- and handsfree interaction model instead...
+
+Pascoe et al. investigated HCI issues when people are on the move and trials showed that a vital factor was to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}.
+
+Visual displays can be obtrusive and hard to use in bright daylight, plus they occupy the users’ visual attention \cite{geelhoed_safety_2000}
+
+Short description of what and in which order this project will be executed. What is in the report?
+
+
+\section{Related work}
+Kajastila and Lokki has done a user study comparing auditory and visual menus controlled by the same free-hand gestures where the majority of the participants felt that an auditory circular menu was faster than a visual based menu \cite{kajastila_interaction_2013}.
+
+Brewster et al. showed that novel interaction techniques based on sound and gesture can significantly improve the usability of a wearable device in particular under "eyes-free" mobile conditions and that head gestures was a successful interaction technique with egocentric sounds the most effective \cite{brewster_multimodaleyes-freeinteraction_2003}.
+
+William W. Gaver, a pioneer in audio interfaces, has explored several aspects of using sound in interfaces including the intuitiveness of presenting complex information to users in the form of audio \cite{gaver_sonicfinder:_1989}. Similarly Graham explores the advantages in reaction time when using ”auditory icons” \cite{graham_use_1999}. In \cite{gaver_auditory_1986} Gaver presents the use of spatial sound icons. In doing so, he draws forward the unutilized potential of creating natural interaction through spatial audio.
+
+
+\section{Interaction design}
+
+\subsection{Auditory menu}
+Several studies show that circular auditory menus are the way to go because of horizontally positioned sounds 
+
+\subsection{Multimodal interaction}
+Research area in HCI (Human Computer Interaction)
+
+\subsection{3D audio feedback}
+HRTF, pilot example from pervasive project
+
+\subsection{Music player interface design}
+Idea: Nod/shake -> yes/no reference (ref from Diako paper)
+
+
+\section{Implementation}
+
+\subsection{Application design}
+SDK's, APIs, Processing sensor data
+
+
+\section{Evaluation}
+Iterations, measurable comparison between new system and traditional?
+
+Final evaluation: Time to find a song, level of frustration (cognitive load) for finding song
+
+\section{Discussion}
+Other scenarios e.g. visual impaired people, car driving
+
+
+\section{Conclusion}
+
+
+%\begin{figure}[H]
+%\begin{center}
+%\includegraphics[scale=0.45]{graph_4clique.png}
+%\end{center}
+%caption{\small {\it {4 clique example}}} 
+%\label{fig: 4clique example}
+%\end{figure}
+
+\clearpage
+
+\bibliography{references}
+\bibliographystyle{plain}
+
+
+\end{document}
+
+
+
+
