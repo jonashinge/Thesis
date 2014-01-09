@@ -56,6 +56,7 @@ DerivedData
 
 #other
 sphinxtr/
+!thesis.log
 
 
 

@@ -1,0 +1,111 @@
+-----------------------------------
+20-11-2013 - First physical meeting
+-----------------------------------
+
+Design interaction considerations
+
+Cluttering
+	Gesture to activate interaction
+	Should be very rare gesture
+	Maybe one could define its own?
+	Voice command?
+	Paper (not accepted yet):
+		Perceptual vs behavioral cluttering
+
+References
+	Handsfree-ness is a motivation factor
+	Also cognitive load from earlier project
+	Modes - related to “cludge” problem, window based vs text based, back in the 30’s
+	
+
+Evaluation
+	Biking example, period could variate
+	Testing concept on paper first
+	Physical test
+	How many design iterations
+	Handsfree audio vs “the old way”
+	at least 3 iterations
+	Other real world scenarios besides biking example
+
+Implementation
+	clear, start to model
+
+Deadline
+	Project description
+		Invite Thomas as supervisor
+		1. draft
+
+
+Plan (have multiple “threads”)
+	References
+	Technical challenges
+	Design considerations
+	Start/setup the project (writing), think about a title
+
+Problem formulation
+	Be very clear - it has to be something measurable
+	Be very precise
+
+
+-----------------------------------------
+18-12-2013 - physical meeting with Thomas
+-----------------------------------------
+
+Questionaire
+short as possible
+At the end an example/sketch
+Complement maybe with interviews (2)
+	Better quality
+
+If research is already there - do not make questionaire!
+
+PHD thesis, paper on head gestures, ETRA "head gestures"
+
+How easy is it for people to learn!
+
+Learnability - long study, maybe 2 weeks evaluation
+
+Background description in report
+	building up the actual problem(s)
+	start up with e.g. bike example problem
+	argument
+
+multimodal interaction
+
+RESEARCH!
+
+Next time:
+	Send a draft of the thesis
+	background + related work are important
+	Design (implementation) section, technical stuff
+
+
+-------------------------------------
+09-01-2014 - Research + project setup
+-------------------------------------
+
+Report setup, research, version control (github)
+
+Next:
+More research - learnability
+Background
+Xcode project setup - workspace, ihs
+Start coding!
+
+
+--------------------------
+22-01-2014 - Skype meeting
+--------------------------
+
+Questions for Thomas:
+Can a master thesis work as a reference?
+If several contributions to a subject, how many references?
+
+
+
+
+
+
+
+
+
