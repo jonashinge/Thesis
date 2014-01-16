@@ -58,5 +58,7 @@ DerivedData
 sphinxtr/
 !thesis.log
 
-
+# IHS tools, doc
+iOS/GN/IHS/Distribution/doc
+iOS/GN/IHS/Distribution/tools
 
