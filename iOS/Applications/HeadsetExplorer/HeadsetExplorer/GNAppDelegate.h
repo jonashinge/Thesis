@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <IHS/IHS.h>
+#import "CocoaLibSpotify.h"
 
 @class CLLocation;
 
