@@ -597,7 +597,7 @@
 		50AF49D31439CBFE00E4A5EF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 50AF49D61439CBFE00E4A5EF /* Build configuration list for PBXProject "CocoaLibSpotify iOS Library" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -764,6 +764,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -829,7 +830,6 @@
 		50D4F547156BCDE800E237DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaLibSpotify iOS Test Container/CocoaLibSpotify iOS Test Container-Prefix.pch";
@@ -846,7 +846,6 @@
 		50D4F548156BCDE800E237DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaLibSpotify iOS Test Container/CocoaLibSpotify iOS Test Container-Prefix.pch";

@@ -8,6 +8,7 @@
 
 #import "GNAppDelegate.h"
 #import "Constants.h"
+#import "MixerCoreAudioController.h"
 
 
 #define DEBUG_PRINTOUT      0
@@ -22,8 +23,12 @@
 #include "appkey.c"
 
 
-@interface GNAppDelegate () <IHSSoftwareUpdateDelegate>
+@interface GNAppDelegate () <IHSSoftwareUpdateDelegate, SPSessionDelegate, SPSessionPlaybackDelegate>
 @property UIBackgroundTaskIdentifier bgTask;
+
+@property (nonatomic, strong) SPTrack *currentTrack;
+@property (nonatomic, strong) SPPlaybackManager *playbackManager;
+
 @end;
 
 
@@ -50,8 +55,40 @@
     }
     self.automaticSoftwareUpdate = [[NSUserDefaults standardUserDefaults] boolForKey:kStandardUserDefaultsAutomaticSoftwareUpdate];
     self.softwareUpdateCheckSchedule = [[NSUserDefaults standardUserDefaults] integerForKey:kStandardUserDefaultsSoftwareUpdateCheckSchedule];
+    
+    
+    // Spotify
+    NSError *error = nil;
+	[SPSession initializeSharedSessionWithApplicationKey:[NSData dataWithBytes:&g_appkey length:g_appkey_size]
+											   userAgent:@"dk.creuna.jonas.thesis.Headset-X"
+										   loadingPolicy:SPAsyncLoadingManual
+												   error:&error];
+	if (error != nil) {
+		NSLog(@"CocoaLibSpotify init failed: %@", error);
+		abort();
+	}
+    
+	//self.playbackManager = [[SPPlaybackManager alloc] initWithPlaybackSession:[SPSession sharedSession]];
+    self.audioController = [[MixerCoreAudioController alloc] init];
+    self.playbackManager = [[SPPlaybackManager alloc] initWithAudioController:self.audioController playbackSession:[SPSession sharedSession]];
+	[[SPSession sharedSession] setDelegate:self];
+    
+    [self performSelector:@selector(showLogin) withObject:nil afterDelay:0.0];
+    
 
     return YES;
+}
+
+-(void)showLogin {
+    
+	SPLoginViewController *controller = [SPLoginViewController loginControllerForSession:[SPSession sharedSession]];
+	controller.allowsCancel = NO;
+    
+    [self.window setRootViewController:controller];
+	
+	/*[self.window.rootViewController presentModalViewController:controller
+											   animated:NO];*/
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -176,5 +213,91 @@
         self.bgTask = UIBackgroundTaskInvalid;
     }
 }
+
+#pragma mark - Spotify methods/callbacks
+
+/*-(UIViewController *)viewControllerToPresentLoginViewForSession:(SPSession *)aSession {
+	return self.window.rootViewController;
+}*/
+
+-(void)sessionDidLoginSuccessfully:(SPSession *)aSession; {
+	// Invoked by SPSession after a successful login.
+    
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"MainStoryBoard_iPhone" bundle:nil];
+    UIViewController *controller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"vcMain"];
+    [self.window setRootViewController:controller];
+    
+    // testing playback
+    /*NSString *songUrl = @"spotify:track:1gDUBjhXOTd7iQhwIk7rln";
+    NSURL *trackURL = [NSURL URLWithString:songUrl];
+    [[SPSession sharedSession] trackForURL:trackURL callback:^(SPTrack *track) {
+        
+        if (track != nil) {
+            
+            [SPAsyncLoading waitUntilLoaded:track timeout:kSPAsyncLoadingDefaultTimeout then:^(NSArray *tracks, NSArray *notLoadedTracks) {
+                [self.playbackManager playTrack:track callback:^(NSError *error) {
+                    
+                    if (error) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot Play Track"
+                                                                        message:[error localizedDescription]
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                    } else {
+                        self.currentTrack = track;
+                        
+                        // test panning
+                        //[self.audioController applyPanningToMixer:10];
+                    }
+                    
+                }];
+            }];
+        }
+    }];*/
+    
+}
+
+-(void)session:(SPSession *)aSession didFailToLoginWithError:(NSError *)error; {
+	// Invoked by SPSession after a failed login.
+}
+
+-(void)sessionDidLogOut:(SPSession *)aSession {
+	
+	/*SPLoginViewController *controller = [SPLoginViewController loginControllerForSession:[SPSession sharedSession]];
+	
+	if (self.mainViewController.presentedViewController != nil) return;
+	
+	controller.allowsCancel = NO;
+	
+	[self.mainViewController presentModalViewController:controller
+											   animated:YES];*/
+}
+
+-(void)session:(SPSession *)aSession didEncounterNetworkError:(NSError *)error; {}
+-(void)session:(SPSession *)aSession didLogMessage:(NSString *)aMessage; {}
+-(void)sessionDidChangeMetadata:(SPSession *)aSession; {}
+
+-(void)session:(SPSession *)aSession recievedMessageForUser:(NSString *)aMessage; {
+	return;
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message from Spotify"
+													message:aMessage
+												   delegate:nil
+										  cancelButtonTitle:@"OK"
+										  otherButtonTitles:nil];
+	[alert show];
+}
+
+
+- (void)dealloc {
+	
+	/*[self removeObserver:self forKeyPath:@"currentTrack.name"];
+	[self removeObserver:self forKeyPath:@"currentTrack.artists"];
+	[self removeObserver:self forKeyPath:@"currentTrack.album.cover.image"];
+	[self removeObserver:self forKeyPath:@"playbackManager.trackPosition"];*/
+	
+}
+
+
 
 @end

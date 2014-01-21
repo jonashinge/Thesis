@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FB86080188D35EF00942789 /* MixerCoreAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB15D38188D1AAE006FC8C5 /* MixerCoreAudioController.m */; };
+		3FB86083188D44EF00942789 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB86082188D44EF00942789 /* MainViewController.m */; };
 		3FE168A218880BC700E148C6 /* SPLoginResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3FE168A118880BC700E148C6 /* SPLoginResources.bundle */; };
 		3FE168A518880D7300E148C6 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE168A418880D7300E148C6 /* libstdc++.dylib */; };
 		3FE168A718880D8200E148C6 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE168A618880D8200E148C6 /* CoreAudio.framework */; };
@@ -104,6 +106,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FB15D37188D1AAE006FC8C5 /* MixerCoreAudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixerCoreAudioController.h; sourceTree = "<group>"; };
+		3FB15D38188D1AAE006FC8C5 /* MixerCoreAudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixerCoreAudioController.m; sourceTree = "<group>"; };
+		3FB86081188D44EF00942789 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		3FB86082188D44EF00942789 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3FE1689618880B3700E148C6 /* CocoaLibSpotify iOS Library.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CocoaLibSpotify iOS Library.xcodeproj"; path = "../../cocoalibspotify/iOS Library/CocoaLibSpotify iOS Library.xcodeproj"; sourceTree = "<group>"; };
 		3FE168A118880BC700E148C6 /* SPLoginResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SPLoginResources.bundle; path = "../../../cocoalibspotify/iOS Library/SPLoginResources.bundle"; sourceTree = "<group>"; };
 		3FE168A418880D7300E148C6 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
@@ -365,6 +371,10 @@
 				ADE5264E176709D50029FAA9 /* NSString+IHSDeviceConnectionState.m */,
 				AD40EB1517688C19001AE48A /* Resources */,
 				D24EC634175CB0F100EF888C /* Supporting Files */,
+				3FB15D37188D1AAE006FC8C5 /* MixerCoreAudioController.h */,
+				3FB15D38188D1AAE006FC8C5 /* MixerCoreAudioController.m */,
+				3FB86081188D44EF00942789 /* MainViewController.h */,
+				3FB86082188D44EF00942789 /* MainViewController.m */,
 			);
 			path = HeadsetExplorer;
 			sourceTree = "<group>";
@@ -538,9 +548,11 @@
 				D24EC63E175CB0F100EF888C /* GNAppDelegate.m in Sources */,
 				D24EC64D175CB0F100EF888C /* GNMainViewController.m in Sources */,
 				D24EC650175CB0F100EF888C /* GNFlipsideViewController.m in Sources */,
+				3FB86083188D44EF00942789 /* MainViewController.m in Sources */,
 				AD9E8DA11765CD22005167EC /* Constants.m in Sources */,
 				ADE5264F176709D50029FAA9 /* NSString+IHSDeviceConnectionState.m in Sources */,
 				AD971FD517736B9B009C0566 /* GNSoftwareUpdateViewController.m in Sources */,
+				3FB86080188D35EF00942789 /* MixerCoreAudioController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +669,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HeadsetExplorer/HeadsetExplorer-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "HeadsetExplorer/HeadsetExplorer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
@@ -680,6 +696,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HeadsetExplorer/HeadsetExplorer-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "HeadsetExplorer/HeadsetExplorer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (

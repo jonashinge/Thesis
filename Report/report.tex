@@ -8,6 +8,7 @@
 \usepackage{mathtools}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{verbatim}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
@@ -21,38 +22,22 @@
 \maketitle
 
 \section{Background}
-- Scenario description
-- Emerging mobile technology
-- Can 
+Music applications on smartphones makes listening to your favourite music very accessible and mobile. Although the possibility of listening to music at any time and place immediately seems like a positive development this could introduce other challenges. E.g. biking and controlling a music application will conflict in the sense that biking demands hands on the handlebars and eyes on the road, and a smartphone application demands hands (or at least one hand) and eyes for navigating resulting in an increase of the users cognitive load.
 
-Smartphones and music applications makes listening to your favourite music very accessible and mobile. Especially when people are on the move e.g. biking this seems to be quite a common scenario. While the most ordinary way of interacting with a music application would be using the hands (touch gestures) and eyes... Distraction... Cognitive load...
+At the same time emerging accessories with built in sensor hardware e.g. Google Glass or Intelligent Headset (http://intelligentheadset.com/developer/) offer alternate ways of using gestures in form of GPS location, rotation, acceleration, speech etc.
 
-Biking while listening to music is a very common scenario in todays everyday life. But what happens when a person wants to switch song or just explore his/her music library?..
+Encouraged by the biking scenario challenge and todays emerging mobile technology - alternative ways of controlling a music application should be explored. In this project an alternative way of navigating using head gestures and audio feedback will be explored.
 
-One could argue that the eyes and hands are quite important...
+\begin{comment}
+PROJECT FORMULATION FROM COURSE BASE
 
-It seems quite obvious that when biking a person is dependant on the eyes and hands...
-
-Encouraged by these challenges and todays emerging mobile technology - alternative ways of controlling a music player should be explored...
-
-In particular would it be possible to use head gestures with audio feedback to control a music library and thereby achieve ?..
-
-Emerging accessories with built in sensor hardware in particular the Intelligent Headset [REF!] offer alternate ways of using gestures and getting feedback when interacting with a mobile application. 
-
-In this project it will be investigated how and to which degree the use of head gestures in combination with spatial audio feedback could be used to navigate and control a music application on a mobile device.
-
-
-
-
-Rise in mobile computing resulting in more interaction while people are on the move e.g. listening to music while biking...
-
-PROJECT FORMULATION (TEMP)
 Smartphone interfaces often require use of the hands and eyes in form of gesture navigating through menus and application user interfaces. In some everyday scenarios however it is challenging to navigate the smartphone in this traditional way e.g. when biking as this requires steering and eyes on the road. Emerging accessories with built in sensor hardware e.g. Google Glass or Intelligent Headset (http://intelligentheadset.com/developer/) offer alternate ways of using gestures and getting feedback when interacting with the music player. In this project it will be investigated how and to which degree the use of head gestures in combination with spatial audio feedback could be used to navigate and control through a music library. 
 
 More specifically the following questions should be answered: 
 - Can a user interface based on head gestures and 3d audio compete with existing user interfaces for music players (e.g. touch and vision-based) with respect to for instance a) navigation and control efficiency b) learnability, c) general usability (cognitive/perceptive load), c) suitability to real-world hands-occupied situations. 
 
 - With the chosen combination of input and output modalities, there is a high risk for the system to misinterpret normal everyday actions performed by the user as commands for controlling the system ("behavioural cluttering" (Janlert et al., in press)). How can features in the user interface prevent unwanted manipulation of the system?
+\end{comment}
 
 \clearpage
 
@@ -89,24 +74,57 @@ Research area in HCI (Human Computer Interaction)
 \subsection{3D audio feedback}
 HRTF, pilot example from pervasive project
 
-\subsection{Music player interface design}
+\subsection{Music player interaction design}
 Idea: Nod/shake -> yes/no reference (ref from Diako paper)
 
 
 \section{Implementation}
 
+\subsection{NOTES}
+
+Milestones - POC:
+\begin{enumerate}
+\item Create and setup xcode project including lib references for Intelligent Headset and Spotify
+\item Play a users Spotify songs and be able to use panning and volume
+\item Place multiple songs in the horizontal range 0-180 degrees of the user using IHS rotation
+\item Implement nodding and shaking feedback
+\end{enumerate}
+
+Milestones - further improvements (dependent on user interaction feedback / research):
+\begin{enumerate}
+\item Exploring the Spotify lib/playlists
+\item Activation of head gestures
+\item Fine tuning
+\end{enumerate}
+
+Learnings:
+
+Streaming from Spotify to OpenAL could be difficult. It requires decompressing of the stream; 1) maybe not possible with libspotify, 2) If so very heavy - could affect user experience, 3) OpenAL restrictions
+
+Idea (avoiding OpenAL's limited audio input properties):
+
+As we only need horizontal 180 degrees we could use panning. Place x songs from 0-180 degrees. As the user rotates head a song pans in from the direction with increasing volume.
+
+
+
 \subsection{Application design}
 SDK's, APIs, Processing sensor data
 
-
 \section{Evaluation}
+
+\subsection{NOTES}
+
 Iterations, measurable comparison between new system and traditional?
 
 2 evaluations - closed lab (1 day) and open (real life, week(s))
 
 Idea for closed lab exercise - Multiple lists of songs. A user shouls navigate and play the different songs with head gestures and normal navigation. Compare these in relation to time taken, cognitive load (eyes and at least one hand occupied), user feel of frustration (cognitive load) when navigating
 
-Final evaluation: Time to find a song, level of frustration (cognitive load) for finding song
+Final evaluation:
+
+Idea: Time to find a song, level of frustration (cognitive load) for finding song
+
+NB: For final evaluation - device with 3G+ connection and added to apple developer team, should be executed latest mid of April so finished end of April (1/2 weeks trial), 2 testpersons -> 1 experienced tech person and 1 non-tech/average user
 
 \section{Discussion}
 Other scenarios e.g. visual impaired people, car driving
