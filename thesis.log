@@ -98,8 +98,28 @@ Start coding!
 --------------------------
 
 Questions for Thomas:
-Can a master thesis work as a reference?
-If several contributions to a subject, how many references?
+Can a master thesis work as a reference? -> Yes, but low priority
+If several contributions to a subject, how many references? -> The more the better!
+
+Outcome:
+introduction
+	explain problem (high level)
+	formalise (more concrete)
+	goal, more economic, less cognitive load, concrete
+Discussion
+	refer back to the goals in problem statement
+
+Focus on related work, scientific part
+	Multimodal interaction
+	Gesturebased interaction
+	Mobile HCI
+
+Related work
+	Venn diagram, circles overlap in my project
+	After go through every related work ref
+	at the end a table, list all work found, columns -> properties for the system e.g.handsfree, put in my system at the final row
+
+References, layout formatting, ubicomp
 
 
 
