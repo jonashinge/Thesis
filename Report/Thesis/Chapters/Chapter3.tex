@@ -1,0 +1,18 @@
+\chapter{Implementation}
+SDK's, APIs, Processing sensor data...
+
+% Milestones - POC
+% - Create and setup xcode project including lib references for Intelligent Headset and Spotify
+% - Play a users Spotify songs and be able to use panning and volume
+% - Place multiple songs in the horizontal range 0-180 degrees of the user using IHS rotation
+% - Implement nodding and shaking feedback
+
+% Further improvement
+% - Exploring the Spotify lib/playlists
+% - Activation of head gestures
+% - Fine tuning
+
+% Learnings
+% Streaming from Spotify to OpenAL could be difficult. It requires decompressing of the stream; 1) maybe not possible with libspotify, 2) If so very heavy - could affect user experience, 3) OpenAL restrictions
+% Idea (avoiding OpenAL's limited audio input properties):
+% As we only need horizontal 180 degrees we could use panning. Place x songs from 0-180 degrees. As the user rotates head a song pans in from the direction with increasing volume.
