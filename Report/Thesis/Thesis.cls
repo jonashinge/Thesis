@@ -153,7 +153,7 @@
                 {University Name}}
                 {University Name}}
 \UNIVERSITY  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
-                {UNIVERSITY NAME (IN BLOCK CAPITALS)}}
+                {IT University of Copenhagen}}
                 {UNIVERSITY NAME (IN BLOCK CAPITALS)}}
 \department  {\texorpdfstring{\href{Department or School Web Site URL Here (include http://)}
                 {Department or School Name}}
@@ -192,24 +192,24 @@
     \vskip 60\p@
     \begin{center}
       \setlength{\parskip}{0pt}
-      {\large\textbf{\UNIVNAME}\par}
-      \vfill
       {\huge \bf \@title \par}
       \vfill
       {\LARGE by \par}
       \smallskip
       {\LARGE \authornames \par}
       \vfill
-      {\large A thesis submitted in partial fulfillment for the \par}
-      {\large degree of Doctor of Philosophy \par}
-      \bigskip
-      \bigskip
-      {\large in the \par}
-      {\large \facname \par}
-      {\large \deptname \par}
-      \bigskip
-      \bigskip
-      \bigskip
+      {\large\textbf{\UNIVNAME}\par}
+      %\vfill
+      %{\large A thesis submitted in partial fulfillment for the \par}
+      %{\large degree of Doctor of Philosophy \par}
+      %\bigskip
+      %\bigskip
+      %{\large in the \par}
+      %{\large \facname \par}
+      %{\large \deptname \par}
+      %\bigskip
+      %\bigskip
+      %\bigskip
       {\Large \@date \par}
       \bigskip
     \end{center}
@@ -234,21 +234,20 @@
 {
   \btypeout{Abstract Page}
   \thispagestyle{empty}
-  \null\vfil
   \begin{center}
     \setlength{\parskip}{0pt}
-    {\normalsize \UNIVNAME \par}
-    \bigskip
+    %{\normalsize \UNIVNAME \par}
+    %\bigskip
     {\huge{\textit{Abstract}} \par}
-    \bigskip
-    {\normalsize \facname \par}
-    {\normalsize \deptname \par}
-    \bigskip
-    {\normalsize Doctor of Philosophy\par}
-    \bigskip
+    %\bigskip
+    %{\normalsize \facname \par}
+    %{\normalsize \deptname \par}
+    %\bigskip
+    %{\normalsize Doctor of Philosophy\par}
+    %\bigskip
     {\normalsize\bf \@title \par}
-    \medskip
-    {\normalsize by \authornames \par}
+    %\medskip
+    %{\normalsize by \authornames \par}
     \bigskip
   \end{center}
 }
