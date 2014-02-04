@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  3 FEB 2014 16:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  4 FEB 2014 12:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -646,19 +646,27 @@ Chapter 2.
 ------------------------------------------------------------------------------
  2 Background
 ------------------------------------------------------------------------------
-[3
+<./Figures/venn-diagram.pdf, id=203, 710.655pt x 619.31375pt>
+File: ./Figures/venn-diagram.pdf Graphic file (type pdf)
+
+<use ./Figures/venn-diagram.pdf>
+Package pdftex.def Info: ./Figures/venn-diagram.pdf used on input line 10.
+(pdftex.def)             Requested size: 417.48276pt x 363.82326pt.
+ [3
 
 ]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
+ [4 <./Figures/venn-diagram.pdf>]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
-) (./Chapters/Chapter3.tex [4] [5]
+)
+(./Chapters/Chapter3.tex [5]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Design
@@ -763,29 +771,30 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 5C3FFCC4814BBA7EFF2297EEFC664D66;3881.
+(rerunfilecheck)             Checksum: 6567FBE36C31C9CE5298316A267C753C;3748.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
  ) 
 Here is how much of TeX's memory you used:
- 12992 strings out of 493315
- 185099 string characters out of 6137903
- 255765 words of memory out of 5000000
- 16173 multiletter control sequences out of 15000+600000
- 12178 words of font info for 45 fonts, out of 8000000 for 9000
+ 13003 strings out of 493315
+ 185337 string characters out of 6137903
+ 255810 words of memory out of 5000000
+ 16181 multiletter control sequences out of 15000+600000
+ 12479 words of font info for 46 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,11n,45p,916b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,916b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
 usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (23 pages, 152972 bytes).
+Output written on Thesis.pdf (23 pages, 205279 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 338 compressed objects within 4 object streams
+ 396 PDF objects out of 1000 (max. 8388607)
+ 353 compressed objects within 4 object streams
  80 named destinations out of 1000 (max. 500000)
- 225 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
