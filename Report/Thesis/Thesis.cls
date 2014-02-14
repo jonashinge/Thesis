@@ -194,9 +194,13 @@
       \setlength{\parskip}{0pt}
       {\huge \bf \@title \par}
       \vfill
-      {\LARGE by \par}
-      \smallskip
+      %{\LARGE by \par}
+      %\smallskip
       {\LARGE \authornames \par}
+      \smallskip
+      {\LARGE Supervisor: Thomas Olof Pederson \par}
+      {\LARGE M.Sc. Thesis \par}
+      \smallskip
       \vfill
       {\large\textbf{\UNIVNAME}\par}
       %\vfill

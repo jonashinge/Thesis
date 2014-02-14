@@ -1,0 +1,22 @@
+Chapter 1
+---------
+- intro should be longer
+- goal
+- method
+
+Chapter 2
+---------
+- chapter intro
+- HCI section
+- hands-free
+- eyes-free
+- spatial sound
+- head gestures
+- related work
+
+Chapter 3
+---------
+
+
+
+
