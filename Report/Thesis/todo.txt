@@ -1,3 +1,18 @@
+Thomas questions
+----------------
+My contribution:
+Evaluate interfaces against a "real world" scenario, application and with accessible hardware
+Use evaluated improved interface/interaction ideas from closely related systems
+
+Design/evaluation plan:
+Iterative design process
+- First investigate and design an early prototype containing all requirements with minimal effort. Build two/three interaction menus
+- Test this prototype on users while observing. Get feedback on menus, improvement suggestions, preferred menu interface
+- Finetune and implement suggestions
+- Final evaluation on testpersons where traditional music application is compaired
+
+
+
 Chapter 1
 ---------
 - intro should be longer
