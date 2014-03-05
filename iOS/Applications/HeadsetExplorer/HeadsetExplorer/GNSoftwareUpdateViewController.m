@@ -9,7 +9,7 @@
 #import "GNSoftwareUpdateViewController.h"
 #import "GNAppDelegate.h"
 
-@interface GNSoftwareUpdateViewController () <IHSSoftwareUpdateDelegate>
+@interface GNSoftwareUpdateViewController () <UIAlertViewDelegate, IHSSoftwareUpdateDelegate>
 
 @property (weak, nonatomic) IBOutlet UISwitch*  autoUpdateSwitch;
 @property (weak, nonatomic) IBOutlet UILabel*   currentVersionLabel;
@@ -24,7 +24,14 @@
 @property (weak, nonatomic) id<IHSSoftwareUpdateDelegate> previousSoftwareUpdateDelegate;
 @end
 
-@implementation GNSoftwareUpdateViewController
+
+#pragma mark - GNSoftwareUpdateViewController
+
+@implementation GNSoftwareUpdateViewController {
+    UIAlertView*                _softwareUpdateAlert;
+    UIActivityIndicatorView*    _waitActivityIndicator;
+}
+
 
 - (void)viewDidLoad
 {
@@ -45,32 +52,40 @@
 {
     [super viewWillAppear:animated];
     
-    if ( self.previousSoftwareUpdateDelegate != self ) {
+    if (self.previousSoftwareUpdateDelegate != self) {
         self.previousSoftwareUpdateDelegate = APP_DELEGATE.ihsDevice.softwareUpdateDelegate;
         APP_DELEGATE.ihsDevice.softwareUpdateDelegate = self;
     }
     
-    [self updateUI];
+    [self updateUI:APP_DELEGATE.ihsDevice];
 }
 
 
-- (void)updateUI
+- (void)viewWillDisappear:(BOOL)animated
 {
-    self.autoUpdateSwitch.on = APP_DELEGATE.ihsDevice.softwareUpdateConnectedDevicesAutomatically;
+    [super viewWillDisappear:animated];
+    [_softwareUpdateAlert dismissWithClickedButtonIndex:_softwareUpdateAlert.cancelButtonIndex animated:NO];
+}
+
+
+- (void)updateUI:(IHSDevice*)ihsDevice
+{
+    self.autoUpdateSwitch.on = ihsDevice.softwareUpdateConnectedDevicesAutomatically;
     
-    self.softwareUpdateScheduleSegment.selectedSegmentIndex = APP_DELEGATE.ihsDevice.softwareUpdateSchedule;
-    self.currentVersionLabel.text = [APP_DELEGATE.ihsDevice.currentBuildNumber stringValue];
-    self.latestVersionLabel.text  = [APP_DELEGATE.ihsDevice.latestBuildNumber  stringValue];
-    self.updateProgressSlider.enabled = APP_DELEGATE.ihsDevice.softwareUpdateAvailable;
+    self.softwareUpdateScheduleSegment.selectedSegmentIndex = ihsDevice.softwareUpdateSchedule;
+    self.currentVersionLabel.text = [ihsDevice.currentBuildNumber stringValue];
+    self.latestVersionLabel.text  = [ihsDevice.latestBuildNumber  stringValue];
+    self.updateProgressSlider.enabled = ihsDevice.softwareUpdateAvailable;
     [self.updateProgressSlider setThumbImage:[UIImage new] forState:UIControlStateNormal];
-    self.etaLabel.enabled = APP_DELEGATE.ihsDevice.softwareUpdateAvailable;
+    self.etaLabel.enabled = ihsDevice.softwareUpdateAvailable;
     self.etaLabel.text = @"";
     
     [self updateUpdateButtonTitle];
     self.performSoftwareUpdateButton.enabled = (self.updateProgressSlider.value < 100.0);
     
-    self.softwareUpdateProgressBlock.hidden = APP_DELEGATE.ihsDevice.softwareUpdateAvailable ? NO : YES;
+    self.softwareUpdateProgressBlock.hidden = ihsDevice.softwareUpdateAvailable ? NO : YES;
 }
+
 
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -78,29 +93,33 @@
     APP_DELEGATE.ihsDevice.softwareUpdateDelegate = self.previousSoftwareUpdateDelegate;
 }
 
+
 - (IBAction)checkForUpdateButtonClicked:(id)sender {
     [APP_DELEGATE.ihsDevice checkForSoftwareUpdate];
 }
+
 
 - (IBAction)softwareUpdateCheckScheduleChanged:(id)sender {
     APP_DELEGATE.softwareUpdateCheckSchedule = self.softwareUpdateScheduleSegment.selectedSegmentIndex;
 }
 
+
 - (IBAction)performSoftwareUpdateButtonClicked:(id)sender {
-    if ( APP_DELEGATE.ihsDevice.softwareUpdateInProgress ) {
+    if (APP_DELEGATE.ihsDevice.softwareUpdateInProgress) {
         [APP_DELEGATE.ihsDevice abortSoftwareUpdate];
     }
     else {
-        [APP_DELEGATE.ihsDevice beginSoftwareUpdate];
+        [self startSoftwareUpload];
     }
-
-    [self updateUI];
+    [self updateUI:APP_DELEGATE.ihsDevice];
 }
+
 
 - (IBAction)doneClicked:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
     [self.delegate softwareUpdateViewControllerDidFinish:self];
 }
+
 
 - (IBAction)autoUpdateSwitchClicked:(id)sender {
     APP_DELEGATE.automaticSoftwareUpdate = self.autoUpdateSwitch.on;
@@ -108,13 +127,29 @@
 
 - (void)updateUpdateButtonTitle
 {
-    NSString*  title = @"Perform software update";
+    NSString*  title = NSLocalizedString(@"Perform software update", @"Button title for starting software update");
     
-    if ( APP_DELEGATE.ihsDevice.softwareUpdateInProgress ) {
-        title = (self.updateProgressSlider.value < 100.0) ? @"Cancel software update" : @"Please wait - finalizing";
+    if (APP_DELEGATE.ihsDevice.softwareUpdateInProgress) {
+        title = self.updateProgressSlider.value < 100.0 ? NSLocalizedString(@"Cancel software update", @"Button title for canceling software update") : NSLocalizedString(@"Please wait - finalizing", @"Button title when finalizing software update");
     }
     
     [self.performSoftwareUpdateButton setTitle:title forState:UIControlStateNormal];
+}
+
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (alertView == _softwareUpdateAlert) {
+        if (buttonIndex != alertView.cancelButtonIndex) {
+            if (!APP_DELEGATE.ihsDevice.softwareUpdateInProgress) {
+                [self startSoftwareUpload];
+                [self updateUI:APP_DELEGATE.ihsDevice];
+            }
+        }
+        _softwareUpdateAlert = nil;
+    }
 }
 
 
@@ -125,8 +160,12 @@
     return [APP_DELEGATE ihsDeviceShouldCheckForSoftwareUpdateNow:ihs];
 }
 
+
 - (void)ihsDevice:(id)ihs willBeginSoftwareUpdateWithInfo:(NSDictionary *)info
 {
+    [_waitActivityIndicator removeFromSuperview];
+    _waitActivityIndicator = nil;
+    
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     self.checkForUpdateButton.userInteractionEnabled = NO;
     self.updateProgressSlider.value = 0;
@@ -134,27 +173,32 @@
     self.softwareUpdateProgressBlock.hidden = NO;
 }
 
+
 - (void)ihsDevice:(id)ihs softwareUpdateProgressedTo:(float)percent ETA:(NSDate *)eta
 {
     self.updateProgressSlider.value = MAX(percent,3.5);    //3.5: else the slider will look empty in the beginning.
     
-    if ( percent >= 100.0 ) {
-        self.etaLabel.text = @"Download complete, finalizing...";
+    if (percent >= 100.0) {
+        self.etaLabel.text = NSLocalizedString(@"Download complete, finalizing...", @"Label when finalizing software update");
         self.performSoftwareUpdateButton.enabled = NO;
         [self updateUpdateButtonTitle];
     }
-    else if ( percent <= 0.5 ) {
-        self.etaLabel.text = @"Initializing...";
+    else if (percent <= 0.5) {
+        self.etaLabel.text = NSLocalizedString(@"Initializing...", @"Label for initializing software update");
     }
     else {
-        self.etaLabel.text = [NSString stringWithFormat:@"%.1f%% done, finish ~ %@", percent, [NSDateFormatter localizedStringFromDate:eta dateStyle:kCFDateFormatterNoStyle timeStyle:kCFDateFormatterMediumStyle] ];
+        self.etaLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%.1f%% done, finish ~ %@", @"Software update progress label"), percent, [NSDateFormatter localizedStringFromDate:eta dateStyle:kCFDateFormatterNoStyle timeStyle:kCFDateFormatterMediumStyle] ];
     }
 }
 
+
 - (void)ihsDevice:(id)ihs didFinishSoftwareUpdateWithResult:(BOOL)success
 {
+    [_waitActivityIndicator removeFromSuperview];
+    _waitActivityIndicator = nil;
+
     [UIApplication sharedApplication].idleTimerDisabled = NO;
-    self.etaLabel.text = success ? @"Update succeeded" :  @"Update failed";
+    self.etaLabel.text = success ? NSLocalizedString(@"Update succeeded", @"Text when software update succeeded") :  NSLocalizedString(@"Update failed", @"Text when software update failed");
     self.checkForUpdateButton.userInteractionEnabled = YES;
     self.performSoftwareUpdateButton.enabled = YES;
     self.updateProgressSlider.value = 0;
@@ -163,12 +207,34 @@
     [APP_DELEGATE ihsDevice:ihs didFinishSoftwareUpdateWithResult:success];
 }
 
+
 - (void)ihsDevice:(id)ihs didFindDeviceWithBuildNumber:(NSNumber *)deviceBuildNumber latestBuildNumber:(NSNumber *)latestBuildNumber
 {
-    [self updateUI];
+    [self updateUI:ihs];
 }
 
+
+- (void)ihsDevice:(id)ihs didFailSoftwareUpdateWithError:(NSError *)error
+{
+    [_waitActivityIndicator removeFromSuperview];
+    _waitActivityIndicator = nil;
+
+    NSString* message = error.localizedDescription;
+    if (error.localizedRecoverySuggestion != nil) {
+        message = [message stringByAppendingFormat:@"\n\n%@", error.localizedRecoverySuggestion];
+    }
+
+    _softwareUpdateAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Software Update Failure", @"Title for software update error")
+                                                      message:message
+                                                     delegate:self
+                                            cancelButtonTitle:NSLocalizedString(@"Cancel", @"Generic cancel button text")
+                                            otherButtonTitles:NSLocalizedString(@"Retry", @"Generic retry button text"), nil];
+    [_softwareUpdateAlert show];
+}
+
+
 #pragma mark - app state handling
+
 - (void)appDidEnterBackground:(NSNotification *)notification
 {
     APP_DELEGATE.ihsDevice.softwareUpdateDelegate = self.previousSoftwareUpdateDelegate;
@@ -176,12 +242,26 @@
 
 - (void)appDidBecomeActive:(NSNotification *)notification
 {
-    if ( self.previousSoftwareUpdateDelegate != self ) {
+    if (self.previousSoftwareUpdateDelegate != self) {
         self.previousSoftwareUpdateDelegate = APP_DELEGATE.ihsDevice.softwareUpdateDelegate;
         APP_DELEGATE.ihsDevice.softwareUpdateDelegate = self;
     }
     
-    [self updateUI];
+    [self updateUI:APP_DELEGATE.ihsDevice];
+}
+
+
+#pragma mark - Internal Helper Methods
+
+- (void)startSoftwareUpload
+{
+    [_waitActivityIndicator removeFromSuperview];
+    _waitActivityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _waitActivityIndicator.frame = self.view.bounds;
+    _waitActivityIndicator.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+    [_waitActivityIndicator startAnimating];
+    [self.view addSubview:_waitActivityIndicator];
+    [APP_DELEGATE.ihsDevice beginSoftwareUpdate];
 }
 
 @end

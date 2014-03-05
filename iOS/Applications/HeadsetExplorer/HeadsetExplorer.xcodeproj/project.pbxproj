@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FB86080188D35EF00942789 /* MixerCoreAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB15D38188D1AAE006FC8C5 /* MixerCoreAudioController.m */; };
-		3FB86083188D44EF00942789 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB86082188D44EF00942789 /* MainViewController.m */; };
-		3FE168A218880BC700E148C6 /* SPLoginResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3FE168A118880BC700E148C6 /* SPLoginResources.bundle */; };
-		3FE168A518880D7300E148C6 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE168A418880D7300E148C6 /* libstdc++.dylib */; };
-		3FE168A718880D8200E148C6 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE168A618880D8200E148C6 /* CoreAudio.framework */; };
-		3FE168A918880D9B00E148C6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE168A818880D9B00E148C6 /* Security.framework */; };
-		3FE168AA18880F1A00E148C6 /* libCocoaLibSpotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE1689C18880B3700E148C6 /* libCocoaLibSpotify.a */; };
 		5B0BCAE517E71295002E6389 /* IHS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0BCAE417E71295002E6389 /* IHS.framework */; };
 		5B0C214217FDB3FD00BDFBE6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0C214117FDB3FD00BDFBE6 /* MobileCoreServices.framework */; };
 		5B0C214417FDB41600BDFBE6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0C214317FDB41600BDFBE6 /* SystemConfiguration.framework */; };
@@ -81,41 +74,8 @@
 		D2527546175E124F00F4931F /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2527545175E124F00F4931F /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3FE1689B18880B3700E148C6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FE1689618880B3700E148C6 /* CocoaLibSpotify iOS Library.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 50AF49DC1439CBFE00E4A5EF;
-			remoteInfo = CocoaLibSpotify;
-		};
-		3FE1689D18880B3700E148C6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FE1689618880B3700E148C6 /* CocoaLibSpotify iOS Library.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 50D4F52B156BCDE800E237DD;
-			remoteInfo = CocoaLSTests;
-		};
-		3FE1689F18880B7600E148C6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3FE1689618880B3700E148C6 /* CocoaLibSpotify iOS Library.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 50AF49DB1439CBFE00E4A5EF;
-			remoteInfo = CocoaLibSpotify;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		3FB15D37188D1AAE006FC8C5 /* MixerCoreAudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixerCoreAudioController.h; sourceTree = "<group>"; };
-		3FB15D38188D1AAE006FC8C5 /* MixerCoreAudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixerCoreAudioController.m; sourceTree = "<group>"; };
-		3FB86081188D44EF00942789 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		3FB86082188D44EF00942789 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		3FE1689618880B3700E148C6 /* CocoaLibSpotify iOS Library.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CocoaLibSpotify iOS Library.xcodeproj"; path = "../../cocoalibspotify/iOS Library/CocoaLibSpotify iOS Library.xcodeproj"; sourceTree = "<group>"; };
-		3FE168A118880BC700E148C6 /* SPLoginResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SPLoginResources.bundle; path = "../../../cocoalibspotify/iOS Library/SPLoginResources.bundle"; sourceTree = "<group>"; };
-		3FE168A418880D7300E148C6 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
-		3FE168A618880D8200E148C6 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		3FE168A818880D9B00E148C6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		5B0BCAE417E71295002E6389 /* IHS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IHS.framework; path = ../../GN/IHS/Distribution/IHS.framework; sourceTree = "<group>"; };
+		5B0BCAE417E71295002E6389 /* IHS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IHS.framework; sourceTree = "<group>"; };
 		5B0C214117FDB3FD00BDFBE6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5B0C214317FDB41600BDFBE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5B7CD80317FECC6E00EC3879 /* GN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GN.png; sourceTree = "<group>"; };
@@ -196,10 +156,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE168AA18880F1A00E148C6 /* libCocoaLibSpotify.a in Frameworks */,
-				3FE168A918880D9B00E148C6 /* Security.framework in Frameworks */,
-				3FE168A718880D8200E148C6 /* CoreAudio.framework in Frameworks */,
-				3FE168A518880D7300E148C6 /* libstdc++.dylib in Frameworks */,
 				5B0BCAE517E71295002E6389 /* IHS.framework in Frameworks */,
 				5B0C214417FDB41600BDFBE6 /* SystemConfiguration.framework in Frameworks */,
 				5B0C214217FDB3FD00BDFBE6 /* MobileCoreServices.framework in Frameworks */,
@@ -220,15 +176,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3FE1689718880B3700E148C6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3FE1689C18880B3700E148C6 /* libCocoaLibSpotify.a */,
-				3FE1689E18880B3700E148C6 /* CocoaLSTests.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		5B7CD80217FECC6E00EC3879 /* IHS-Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,7 +196,7 @@
 				5B7CD81117FECC6E00EC3879 /* WMM.COF */,
 			);
 			name = "IHS-Resources";
-			path = "../../GN/IHS/Distribution/IHS.framework/Versions/A/Resources/IHS-Resources";
+			path = "IHS.framework/Versions/A/Resources/IHS-Resources";
 			sourceTree = "<group>";
 		};
 		5BACD168177787C50047E71D /* Graphics */ = {
@@ -288,7 +235,8 @@
 				5B0BCAE417E71295002E6389 /* IHS.framework */,
 			);
 			name = IHS;
-			sourceTree = "<group>";
+			path = ./sdk_ios/Distribution;
+			sourceTree = SOURCE_ROOT;
 		};
 		AD40EB1517688C19001AE48A /* Resources */ = {
 			isa = PBXGroup;
@@ -312,7 +260,6 @@
 		D24EC621175CB0F100EF888C = {
 			isa = PBXGroup;
 			children = (
-				3FE1689618880B3700E148C6 /* CocoaLibSpotify iOS Library.xcodeproj */,
 				D24EC633175CB0F100EF888C /* HeadsetExplorer */,
 				D24EC62C175CB0F100EF888C /* Frameworks */,
 				D24EC62B175CB0F100EF888C /* Products */,
@@ -330,9 +277,6 @@
 		D24EC62C175CB0F100EF888C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3FE168A818880D9B00E148C6 /* Security.framework */,
-				3FE168A618880D8200E148C6 /* CoreAudio.framework */,
-				3FE168A418880D7300E148C6 /* libstdc++.dylib */,
 				5BEFF63717FD8E7A0090985C /* IHS */,
 				D24EC6A0175CB96300EF888C /* libc++.dylib */,
 				AD40EB12176882B9001AE48A /* AVFoundation.framework */,
@@ -354,7 +298,6 @@
 		D24EC633175CB0F100EF888C /* HeadsetExplorer */ = {
 			isa = PBXGroup;
 			children = (
-				3FE168A118880BC700E148C6 /* SPLoginResources.bundle */,
 				D24EC63C175CB0F100EF888C /* GNAppDelegate.h */,
 				D24EC63D175CB0F100EF888C /* GNAppDelegate.m */,
 				D24EC645175CB0F100EF888C /* MainStoryboard_iPhone.storyboard */,
@@ -371,10 +314,6 @@
 				ADE5264E176709D50029FAA9 /* NSString+IHSDeviceConnectionState.m */,
 				AD40EB1517688C19001AE48A /* Resources */,
 				D24EC634175CB0F100EF888C /* Supporting Files */,
-				3FB15D37188D1AAE006FC8C5 /* MixerCoreAudioController.h */,
-				3FB15D38188D1AAE006FC8C5 /* MixerCoreAudioController.m */,
-				3FB86081188D44EF00942789 /* MainViewController.h */,
-				3FB86082188D44EF00942789 /* MainViewController.m */,
 			);
 			path = HeadsetExplorer;
 			sourceTree = "<group>";
@@ -402,11 +341,11 @@
 				D24EC627175CB0F100EF888C /* Frameworks */,
 				D24EC628175CB0F100EF888C /* Resources */,
 				ADF740B1178D31D900C3843D /* ShellScript */,
+				D2735C0C18B36967001B4C6B /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3FE168A018880B7600E148C6 /* PBXTargetDependency */,
 			);
 			name = HeadsetExplorer;
 			productName = HeadsetExplorer;
@@ -422,11 +361,6 @@
 				CLASSPREFIX = GN;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "GN Store Nord A/S";
-				TargetAttributes = {
-					D24EC629175CB0F100EF888C = {
-						DevelopmentTeam = 9XB739Z72R;
-					};
-				};
 			};
 			buildConfigurationList = D24EC625175CB0F100EF888C /* Build configuration list for PBXProject "HeadsetExplorer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -438,12 +372,6 @@
 			mainGroup = D24EC621175CB0F100EF888C;
 			productRefGroup = D24EC62B175CB0F100EF888C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3FE1689718880B3700E148C6 /* Products */;
-					ProjectRef = 3FE1689618880B3700E148C6 /* CocoaLibSpotify iOS Library.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D24EC629175CB0F100EF888C /* HeadsetExplorer */,
@@ -451,29 +379,11 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		3FE1689C18880B3700E148C6 /* libCocoaLibSpotify.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCocoaLibSpotify.a;
-			remoteRef = 3FE1689B18880B3700E148C6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3FE1689E18880B3700E148C6 /* CocoaLSTests.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = CocoaLSTests.app;
-			remoteRef = 3FE1689D18880B3700E148C6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		D24EC628175CB0F100EF888C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE168A218880BC700E148C6 /* SPLoginResources.bundle in Resources */,
 				D24EC638175CB0F100EF888C /* InfoPlist.strings in Resources */,
 				D24EC647175CB0F100EF888C /* MainStoryboard_iPhone.storyboard in Resources */,
 				D24EC64A175CB0F100EF888C /* MainStoryboard_iPad.storyboard in Resources */,
@@ -535,7 +445,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n# Auto increment build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBuildNumber\" \"${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\nbuildNumber=$(printf \"%d\" $buildNumber)\n/usr/libexec/PlistBuddy -c \"Set :CFBuildNumber $buildNumber\" \"${INFOPLIST_FILE}\"\n\n# Update version in settings.bundle:\nCFBundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\nCFBuildVersion=\"$CFBundleVersion.$buildNumber\"\n\nsettingsPlist=${PROJECT_DIR}/${PROJECT}/Settings.bundle/Root.plist\n/usr/libexec/PlistBuddy \"$settingsPlist\" -c \"set PreferenceSpecifiers:1:DefaultValue $CFBuildVersion\"\n";
+			shellScript = "# Auto increment build number in Info.plist\nCFBuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBuildNumber\" \"${INFOPLIST_FILE}\")\nCFBuildNumber=$(($CFBuildNumber + 1))\nCFBuildNumber=$(printf \"%d\" $CFBuildNumber)\n/usr/libexec/PlistBuddy -c \"Set :CFBuildNumber $CFBuildNumber\" \"${INFOPLIST_FILE}\"\n\n# Update build date in Info.plist\nCFBuildDate=$(date)\n/usr/libexec/PlistBuddy -c \"Set :CFBuildDate \\\"$CFBuildDate\\\"\" \"${INFOPLIST_FILE}\"\n";
+		};
+		D2735C0C18B36967001B4C6B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Update version in settings.bundle:\nCFBuildDate=$(date)\nCFBuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBuildNumber\" \"${INFOPLIST_FILE}\")\nCFBundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\nCFBundleShortVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${INFOPLIST_FILE}\")\n\nCFBuildVersion=\"$CFBundleShortVersion.$CFBundleVersion.$CFBuildNumber\"\nIndexFromBottom=4\n\nsettingsPlist=${PROJECT_DIR}/${PROJECT}/Settings.bundle/Root.plist\nArrayLength=$(/usr/libexec/PlistBuddy \"$settingsPlist\" -c \"Print PreferenceSpecifiers\" | grep -c \"    Dict {\")\nIndexVersion=$(($ArrayLength - $IndexFromBottom)) # Number 'IndexFromBottom' from the buttom\nIndexDate=$(($ArrayLength - $IndexFromBottom + 1))    # Number 'IndexFromBottom-1' from the buttom\n/usr/libexec/PlistBuddy \"$settingsPlist\" -c \"Set :PreferenceSpecifiers:$IndexVersion:DefaultValue $CFBuildVersion\"\n/usr/libexec/PlistBuddy \"$settingsPlist\" -c \"Set :PreferenceSpecifiers:$IndexDate:DefaultValue $CFBuildDate\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -548,23 +471,13 @@
 				D24EC63E175CB0F100EF888C /* GNAppDelegate.m in Sources */,
 				D24EC64D175CB0F100EF888C /* GNMainViewController.m in Sources */,
 				D24EC650175CB0F100EF888C /* GNFlipsideViewController.m in Sources */,
-				3FB86083188D44EF00942789 /* MainViewController.m in Sources */,
 				AD9E8DA11765CD22005167EC /* Constants.m in Sources */,
 				ADE5264F176709D50029FAA9 /* NSString+IHSDeviceConnectionState.m in Sources */,
 				AD971FD517736B9B009C0566 /* GNSoftwareUpdateViewController.m in Sources */,
-				3FB86080188D35EF00942789 /* MixerCoreAudioController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3FE168A018880B7600E148C6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CocoaLibSpotify;
-			targetProxy = 3FE1689F18880B7600E148C6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D24EC636175CB0F100EF888C /* InfoPlist.strings */ = {
@@ -609,7 +522,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../GN/IHS/Distribution\"",
+					"\"$(SRCROOT)/sdk_ios/Distribution\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -644,7 +557,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../GN/IHS/Distribution\"",
+					"\"$(SRCROOT)/sdk_ios/Distribution\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -662,23 +575,10 @@
 		D24EC654175CB0F100EF888C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../GN/IHS/Distribution\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HeadsetExplorer/HeadsetExplorer-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
 				INFOPLIST_FILE = "HeadsetExplorer/HeadsetExplorer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
 				PRODUCT_NAME = "Headset X";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -688,24 +588,12 @@
 		D24EC655175CB0F100EF888C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../GN/IHS/Distribution\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HeadsetExplorer/HeadsetExplorer-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
 				INFOPLIST_FILE = "HeadsetExplorer/HeadsetExplorer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
 				PRODUCT_NAME = "Headset X";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

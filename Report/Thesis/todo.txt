@@ -3,6 +3,13 @@ Thomas questions
 My contribution:
 Evaluate interfaces against a "real world" scenario, application and with accessible hardware
 Use evaluated improved interface/interaction ideas from closely related systems
+- "real world" scenario, application evaluation
+- accessible hardware
+
+Research/related work
+- Section name: Research vs Related work?
+- Venn diagram
+- Table comparison, how many related systems
 
 Design/evaluation plan:
 Iterative design process

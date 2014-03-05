@@ -8,7 +8,6 @@
 
 #import "GNAppDelegate.h"
 #import "Constants.h"
-#import "MixerCoreAudioController.h"
 
 
 #define DEBUG_PRINTOUT      0
@@ -19,16 +18,9 @@
 #define DEBUGLog(format, ...) NSLog(format, ## __VA_ARGS__)
 #endif
 
-//#error Please get an appkey.c file from developer.spotify.com and remove this error before building.
-#include "appkey.c"
 
-
-@interface GNAppDelegate () <IHSSoftwareUpdateDelegate, SPSessionDelegate, SPSessionPlaybackDelegate>
+@interface GNAppDelegate () <IHSSoftwareUpdateDelegate>
 @property UIBackgroundTaskIdentifier bgTask;
-
-@property (nonatomic, strong) SPTrack *currentTrack;
-@property (nonatomic, strong) SPPlaybackManager *playbackManager;
-
 @end;
 
 
@@ -40,14 +32,14 @@
     _preferredDevice    = [[NSUserDefaults standardUserDefaults] stringForKey:kStandardUserDefaultsLastConnectedDevice];
     double lastKnownLatitude  = [[NSUserDefaults standardUserDefaults] doubleForKey:kStandardUserDefaultsLastKnownLatitudeKey];
     double lastKnownLongitude = [[NSUserDefaults standardUserDefaults] doubleForKey:kStandardUserDefaultsLastKnownLongitudeKey];
-    if ( lastKnownLongitude && lastKnownLatitude ) {
+    if (lastKnownLongitude && lastKnownLatitude) {
         self.lastKnownLocation = [[CLLocation alloc] initWithLatitude:lastKnownLatitude longitude:lastKnownLongitude];
     }
     self.mapType = [[NSUserDefaults standardUserDefaults] integerForKey:kStandardUserDefaultsMapType];
     self.hideNorthAnnotation = [[NSUserDefaults standardUserDefaults] boolForKey:kStandardUserDefaultsHideNorthAnnotation];
     self.hideSouthAnnotation = [[NSUserDefaults standardUserDefaults] boolForKey:kStandardUserDefaultsHideSouthAnnotation];
     self.hideSouthAnnotation = self.hideNorthAnnotation = NO;
-    if ( nil == [[NSUserDefaults standardUserDefaults] objectForKey:kStandardUserDefaultsPlayNorthSound] ) {
+    if (nil == [[NSUserDefaults standardUserDefaults] objectForKey:kStandardUserDefaultsPlayNorthSound]) {
         self.playNorthSound = self.playSouthSound = YES;
     } else {
         self.playNorthSound  = [[NSUserDefaults standardUserDefaults] boolForKey:kStandardUserDefaultsPlayNorthSound];
@@ -55,46 +47,14 @@
     }
     self.automaticSoftwareUpdate = [[NSUserDefaults standardUserDefaults] boolForKey:kStandardUserDefaultsAutomaticSoftwareUpdate];
     self.softwareUpdateCheckSchedule = [[NSUserDefaults standardUserDefaults] integerForKey:kStandardUserDefaultsSoftwareUpdateCheckSchedule];
-    
-    
-    // Spotify
-    NSError *error = nil;
-	[SPSession initializeSharedSessionWithApplicationKey:[NSData dataWithBytes:&g_appkey length:g_appkey_size]
-											   userAgent:@"dk.creuna.jonas.thesis.Headset-X"
-										   loadingPolicy:SPAsyncLoadingManual
-												   error:&error];
-	if (error != nil) {
-		NSLog(@"CocoaLibSpotify init failed: %@", error);
-		abort();
-	}
-    
-	//self.playbackManager = [[SPPlaybackManager alloc] initWithPlaybackSession:[SPSession sharedSession]];
-    self.audioController = [[MixerCoreAudioController alloc] init];
-    self.playbackManager = [[SPPlaybackManager alloc] initWithAudioController:self.audioController playbackSession:[SPSession sharedSession]];
-	[[SPSession sharedSession] setDelegate:self];
-    
-    [self performSelector:@selector(showLogin) withObject:nil afterDelay:0.0];
-    
 
     return YES;
-}
-
--(void)showLogin {
-    
-	SPLoginViewController *controller = [SPLoginViewController loginControllerForSession:[SPSession sharedSession]];
-	controller.allowsCancel = NO;
-    
-    [self.window setRootViewController:controller];
-	
-	/*[self.window.rootViewController presentModalViewController:controller
-											   animated:NO];*/
-    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     [[NSUserDefaults standardUserDefaults] setValue:self.preferredDevice forKey:kStandardUserDefaultsLastConnectedDevice];
-    if ( self.lastKnownLocation ) {
+    if (self.lastKnownLocation) {
         [[NSUserDefaults standardUserDefaults] setDouble:self.lastKnownLocation.coordinate.latitude forKey:kStandardUserDefaultsLastKnownLatitudeKey];
         [[NSUserDefaults standardUserDefaults] setDouble:self.lastKnownLocation.coordinate.longitude forKey:kStandardUserDefaultsLastKnownLongitudeKey];
     }
@@ -109,9 +69,9 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    if ( _ihsDevice ) {
-        if ( self.ihsDevice.softwareUpdateInProgress ) {
-            DEBUGLog( @"APP: launching background task to finish sw update" );
+    if (_ihsDevice) {
+        if (self.ihsDevice.softwareUpdateInProgress) {
+            DEBUGLog(@"APP: launching background task to finish sw update");
             
             self.bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
                 // Clean up any unfinished task business by marking where you
@@ -130,8 +90,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    if ( self.bgTask != UIBackgroundTaskInvalid ) {
-        DEBUGLog( @"APP: Entering foreground, clearing background task" );
+    if (self.bgTask != UIBackgroundTaskInvalid) {
+        DEBUGLog(@"APP: Entering foreground, clearing background task");
         
         [application endBackgroundTask:self.bgTask];
         self.bgTask = UIBackgroundTaskInvalid;
@@ -151,12 +111,12 @@
 
 - (IHSDevice *)ihsDevice
 {
-    if ( _ihsDevice == nil ) {
+    if (_ihsDevice == nil) {
         // Initialize with the name of the IHS device the app was most recently connected to
         _ihsDevice = [[IHSDevice alloc] initWithPreferredDevice:self.preferredDevice];
         // Provide the API key for this app. NOTE! The API key is unique for each app
         // Go to https://developer.intelligentheadset.com to get an API key for your app
-        [_ihsDevice provideAPIKey:@"bCgVZ5DuB7sKOXo5xgn/HWU13spfzvoUyPBPiI0CVNLVvfLctMTt+Fs7s897y1Fx"];
+        [_ihsDevice provideAPIKey:@"ZkUgoDMR+WE/N5cTCpltPtW98ty0xO34Wzuzz3vLUXE="];
         _ihsDevice.softwareUpdateSchedule = _softwareUpdateCheckSchedule;
         _ihsDevice.softwareUpdateConnectedDevicesAutomatically = self.automaticSoftwareUpdate;
         _ihsDevice.softwareUpdateDelegate = self;
@@ -164,17 +124,18 @@
     return _ihsDevice;
 }
 
+
 - (void)resetDeviceConnection
 {
     self.preferredDevice = nil;
     [self.ihsDevice disconnect];
     self.ihsDevice = nil;
-    [self.ihsDevice connect];
 }
+
 
 - (void)setSoftwareUpdateCheckSchedule:(int)softwareUpdateCheckSchedule
 {
-    if ( _softwareUpdateCheckSchedule != softwareUpdateCheckSchedule ) {
+    if (_softwareUpdateCheckSchedule != softwareUpdateCheckSchedule) {
         _softwareUpdateCheckSchedule = softwareUpdateCheckSchedule;
         self.ihsDevice.softwareUpdateSchedule = _softwareUpdateCheckSchedule;
     }
@@ -184,9 +145,9 @@
 
 - (BOOL)ihsDeviceShouldCheckForSoftwareUpdateNow:(id)ihs
 {
-    if ( self.ihsDevice.softwareUpdateInProgress == NO ) {
+    if (self.ihsDevice.softwareUpdateInProgress == NO) {
         IHSSoftwareUpdateCheckLatestVersionSchedule sched = APP_DELEGATE.softwareUpdateCheckSchedule;
-        switch ( sched ) {
+        switch (sched) {
             case IHSSoftwareUpdateCheckLatestVersionScheduleManual:
                 return NO;
             case IHSSoftwareUpdateCheckLatestVersionScheduleAlways:
@@ -198,106 +159,26 @@
     return NO;
 }
 
+
 - (void)ihsDevice:(id)ihs didFinishSoftwareUpdateWithResult:(BOOL)success
 {
-    if ( self.bgTask == UIBackgroundTaskInvalid ) {
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
+    if (self.bgTask == UIBackgroundTaskInvalid) {
         // Must be in foreground then...
-        [UIApplication sharedApplication].idleTimerDisabled = NO;
-        UIAlertView*    alert = [UIAlertView alloc];
-        NSString*       msg = (success) ? @"completed successfully\nplease restart headset to use new software" : @"Failed";
-        [[alert initWithTitle:@"IHS software update" message:msg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+        if (success) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"IHS software update"
+                                                            message:@"completed successfully\nplease restart headset to use new software"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
     }
     else {
-        DEBUGLog( @"APP: sw update finished, clearing background task" );
+        DEBUGLog(@"APP: sw update finished, clearing background task");
         [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
         self.bgTask = UIBackgroundTaskInvalid;
     }
 }
-
-#pragma mark - Spotify methods/callbacks
-
-/*-(UIViewController *)viewControllerToPresentLoginViewForSession:(SPSession *)aSession {
-	return self.window.rootViewController;
-}*/
-
--(void)sessionDidLoginSuccessfully:(SPSession *)aSession; {
-	// Invoked by SPSession after a successful login.
-    
-    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"MainStoryBoard_iPhone" bundle:nil];
-    UIViewController *controller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"vcMain"];
-    [self.window setRootViewController:controller];
-    
-    // testing playback
-    /*NSString *songUrl = @"spotify:track:1gDUBjhXOTd7iQhwIk7rln";
-    NSURL *trackURL = [NSURL URLWithString:songUrl];
-    [[SPSession sharedSession] trackForURL:trackURL callback:^(SPTrack *track) {
-        
-        if (track != nil) {
-            
-            [SPAsyncLoading waitUntilLoaded:track timeout:kSPAsyncLoadingDefaultTimeout then:^(NSArray *tracks, NSArray *notLoadedTracks) {
-                [self.playbackManager playTrack:track callback:^(NSError *error) {
-                    
-                    if (error) {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot Play Track"
-                                                                        message:[error localizedDescription]
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                    } else {
-                        self.currentTrack = track;
-                        
-                        // test panning
-                        //[self.audioController applyPanningToMixer:10];
-                    }
-                    
-                }];
-            }];
-        }
-    }];*/
-    
-}
-
--(void)session:(SPSession *)aSession didFailToLoginWithError:(NSError *)error; {
-	// Invoked by SPSession after a failed login.
-}
-
--(void)sessionDidLogOut:(SPSession *)aSession {
-	
-	/*SPLoginViewController *controller = [SPLoginViewController loginControllerForSession:[SPSession sharedSession]];
-	
-	if (self.mainViewController.presentedViewController != nil) return;
-	
-	controller.allowsCancel = NO;
-	
-	[self.mainViewController presentModalViewController:controller
-											   animated:YES];*/
-}
-
--(void)session:(SPSession *)aSession didEncounterNetworkError:(NSError *)error; {}
--(void)session:(SPSession *)aSession didLogMessage:(NSString *)aMessage; {}
--(void)sessionDidChangeMetadata:(SPSession *)aSession; {}
-
--(void)session:(SPSession *)aSession recievedMessageForUser:(NSString *)aMessage; {
-	return;
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message from Spotify"
-													message:aMessage
-												   delegate:nil
-										  cancelButtonTitle:@"OK"
-										  otherButtonTitles:nil];
-	[alert show];
-}
-
-
-- (void)dealloc {
-	
-	/*[self removeObserver:self forKeyPath:@"currentTrack.name"];
-	[self removeObserver:self forKeyPath:@"currentTrack.artists"];
-	[self removeObserver:self forKeyPath:@"currentTrack.album.cover.image"];
-	[self removeObserver:self forKeyPath:@"playbackManager.trackPosition"];*/
-	
-}
-
-
 
 @end

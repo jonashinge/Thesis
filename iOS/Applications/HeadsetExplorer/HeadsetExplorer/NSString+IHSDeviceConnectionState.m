@@ -12,7 +12,7 @@
 
 + (NSString*) stringFromIHSDeviceConnectionState:(IHSDeviceConnectionState)connectionState
 {
-    switch ( connectionState )
+    switch (connectionState)
     {
         case IHSDeviceConnectionStateNone:              return @"(none)";
         case IHSDeviceConnectionStateBluetoothOff:      return @"N/A";

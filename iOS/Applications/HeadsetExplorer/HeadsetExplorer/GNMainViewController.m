@@ -35,7 +35,10 @@
 #define DEBUGLog(format, ...) NSLog(format, ## __VA_ARGS__)
 #endif
 
-@implementation GNMainViewController
+@implementation GNMainViewController {
+    BOOL _allowDeviceSelectionToBeShown;
+    GNFlipsideViewController* _flipsideViewController;
+}
 
 - (void)viewDidLoad
 {
@@ -65,6 +68,7 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
         [self dismissViewControllerAnimated:YES completion:nil];
+        _flipsideViewController = nil;
     }
     else
     {
@@ -73,25 +77,37 @@
     }
 }
 
+
 - (void)flipsideViewControllerDidResetConnection:(GNFlipsideViewController *)controller
 {
-    [self connectIHSDevice];
+    // If you want the app to connect again immediately after disconnect
+    // uncomment the line below
+    // [self connectIHSDevice];
 }
+
+
+- (void)flipsideViewControllerManuallyConnectWasSelected:(GNFlipsideViewController *)controller
+{
+    [self connectIHSDevice];
+    _allowDeviceSelectionToBeShown = YES;
+}
+
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     self.flipsidePopoverController = nil;
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showAlternate"])
     {
-        GNFlipsideViewController*   vc = segue.destinationViewController;
-        vc.playNorthSound = APP_DELEGATE.playNorthSound;
-        vc.playSouthSound = APP_DELEGATE.playSouthSound;
-        vc.mapType = self.mapview.mapType;
-        vc.delegate = self;
+        _flipsideViewController = segue.destinationViewController;
+        _flipsideViewController.playNorthSound = APP_DELEGATE.playNorthSound;
+        _flipsideViewController.playSouthSound = APP_DELEGATE.playSouthSound;
+        _flipsideViewController.mapType = self.mapview.mapType;
+        _flipsideViewController.delegate = self;
         
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
         {
@@ -101,6 +117,7 @@
         }
     }
 }
+
 
 - (IBAction)togglePopover:(id)sender
 {
@@ -116,18 +133,20 @@
 #pragma mark - IHSDeviceDelegate implementation
 
 - (void)ihsDevice:(IHSDevice*)ihsDevice connectedStateChanged:(IHSDeviceConnectionState)connectionState
-{    
-    DEBUGLog( @"IHS Device:connectedStateChanged:  %d", connectionState );
-    
+{
+    DEBUGLog(@"IHS Device:connectedStateChanged:  %@", [NSString stringFromIHSDeviceConnectionState:connectionState]);
+
+    [_flipsideViewController ihsDevice:ihsDevice connectedStateChanged:connectionState];
+
     NSString* connectionString = [NSString stringFromIHSDeviceConnectionState:connectionState];
     NSString* deviceName = APP_DELEGATE.ihsDevice.name ?: @"Headset X";
-    NSString* statusText = [NSString stringWithFormat:@"%@ (%@)", deviceName, connectionString ];
+    NSString* statusText = [NSString stringWithFormat:@"%@ (%@)", deviceName, connectionString];
     
     self.statusLabel.text = statusText;
-    
-    switch ( connectionState )
+
+    switch (connectionState)
     {
-        case IHSDeviceConnectionStateConnected:
+        case IHSDeviceConnectionStateConnected: {
             // Save the name of the connected IHS device to automatically connect to it next time the app starts
             APP_DELEGATE.preferredDevice = ihsDevice.preferredDevice;
 
@@ -136,11 +155,24 @@
             // Play a sound through the standard player to indicate that the IHS is connected
             [self playSystemSoundWithName:@"TestConnectSound"];
             break;
-            
+        }
+
+        case IHSDeviceConnectionStateDisconnected: {
+            if (self.presentedViewController != nil) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            break;
+        }
+
+        case IHSDeviceConnectionStateDiscovering: {
+            if (_allowDeviceSelectionToBeShown) {
+                [self connectIHSDevice];
+            }
+            break;
+        }
+
         case IHSDeviceConnectionStateNone:
         case IHSDeviceConnectionStateBluetoothOff:
-        case IHSDeviceConnectionStateDiscovering:
-        case IHSDeviceConnectionStateDisconnected:
         case IHSDeviceConnectionStateLingering:
         case IHSDeviceConnectionStateConnecting:
         case IHSDeviceConnectionStateConnectionFailed:
@@ -148,11 +180,30 @@
     }
 }
 
+
+- (void)ihsDeviceFoundAmbiguousDevices:(IHSDevice *)ihs
+{
+    // If you want the IHS device selection UI to be presented if the
+    // SDK does not have a preferred device to connect to, remove
+    // the if-statement around [ihs showDeviceSelection:self]
+    // Just make sure the main view is in the window hierarchy before
+    // showDeviceSelection: is called
+
+    if (_allowDeviceSelectionToBeShown) {
+        // Set _allowDeviceSelectionToBeShown = NO to be able to dismiss the
+        // device selection UI without having it pop-up again just after closing
+        _allowDeviceSelectionToBeShown = NO;
+        [ihs showDeviceSelection:self];
+    }
+}
+
+
 #pragma mark - Map and coordinate handling
 
-- (void)moveMapCenterToLocation:(CLLocation*)location {
+- (void)moveMapCenterToLocation:(CLLocation*)location
+{
     
-    if ( location && (CLLocationCoordinate2DIsValid(location.coordinate)) )
+    if (location && (CLLocationCoordinate2DIsValid(location.coordinate)))
     {
         // Store the last known location, so we can go there one the app is started from fresh again
         APP_DELEGATE.lastKnownLocation = location;
@@ -169,6 +220,7 @@
         [self updateMapAnnotations:location];
     }
 }
+
 
 - (void) updateMapRotation:(float)heading
 {
@@ -191,14 +243,12 @@
     if (fabs(deltaHeading) >= 1.0)
     {
         self.lastHeading = heading;
-        
+
         // Rotate map
         [self.mapview setTransform:CGAffineTransformMakeRotation(heading * M_PI / -180.0)];
-        
         // rotate user annotation back so it appears non-rotated:
         CGAffineTransform counterRotateTransform = CGAffineTransformMakeRotation(heading * M_PI / 180.0);
         [[self.mapview viewForAnnotation:self.userAnnotation] setTransform:counterRotateTransform];
-        
     }
 }
 
@@ -206,7 +256,7 @@
 
 - (MKPointAnnotation *)userAnnotation
 {
-    if ( ! _userAnnotation )
+    if (!_userAnnotation)
     {
         _userAnnotation = [MKPointAnnotation new];
         _userAnnotation.title = @"UserAnnotation";
@@ -216,9 +266,10 @@
     return _userAnnotation;
 }
 
+
 - (MKPointAnnotation *)northAnnotation
 {
-    if ( ! _northAnnotation && ! APP_DELEGATE.hideNorthAnnotation )
+    if (!_northAnnotation && !APP_DELEGATE.hideNorthAnnotation)
     {
         _northAnnotation = [MKPointAnnotation new];
         _northAnnotation.title = @"North";
@@ -227,9 +278,10 @@
     return _northAnnotation;
 }
 
+
 - (MKPointAnnotation *)southAnnotation
 {
-    if ( ! _southAnnotation && ! APP_DELEGATE.hideSouthAnnotation )
+    if (!_southAnnotation && !APP_DELEGATE.hideSouthAnnotation)
     {
         _southAnnotation = [MKPointAnnotation new];
         _southAnnotation.title = @"South";
@@ -237,6 +289,7 @@
     }
     return _southAnnotation;
 }
+
 
 - (void) updateMapAnnotations:(CLLocation*)userLocation
 {
@@ -249,12 +302,13 @@
     self.southAnnotation.coordinate = [[CLLocation alloc] initWithLatitude:lat -0.0015 longitude:lon].coordinate;
 }
 
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     static NSString*  viewId = @"AnnotationId";
     MKAnnotationView* annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:viewId];
     
-    if ( annotationView == nil )
+    if (annotationView == nil)
     {
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:viewId];
     }
@@ -326,7 +380,7 @@
 - (void)ihsDevice:(IHSDevice*)ihs locationChangedToLatitude:(double)latitude andLogitude:(double)longitude
 {
     DEBUGLog(@"8: Position: (%.4g, %.4g)", latitude, longitude);
-    DEBUGLog(@"   %@", APP_DELEGATE.ihsDevice.location );
+    DEBUGLog(@"   %@", APP_DELEGATE.ihsDevice.location);
     
     [self moveMapCenterToLocation:APP_DELEGATE.ihsDevice.location];
 }
@@ -334,19 +388,19 @@
 
 #pragma mark - IHSButtonDelegate implementation
 
-- (void)ihsDevice:(id)ihs didPressIHSButton:(IHSButton)button withEvent:(IHSButtonEvent)event
+- (void)ihsDevice:(id)ihs didPressIHSButton:(IHSButton)button withEvent:(IHSButtonEvent)event fromSource:(IHSButtonSource)source
 {
     IHSDevice*  ihsDevice = ihs;
     
     switch (button) {
-        case IHSButtonLeft: {
+        case IHSButtonRight: {
             [ihsDevice stop];
             [ihsDevice clearSounds];
 
-            if ( APP_DELEGATE.playNorthSound || APP_DELEGATE.playSouthSound ) {
+            if (APP_DELEGATE.playNorthSound || APP_DELEGATE.playSouthSound) {
                 ihsDevice.sequentialSounds = YES;
                 
-                if ( APP_DELEGATE.playNorthSound ) {
+                if (APP_DELEGATE.playNorthSound) {
                     // Create north and south IHSAudio3DSound objects from embedded sound resources:
                     NSURL* northUrl = [[NSBundle mainBundle] URLForResource:@"ThisIsNorth" withExtension:@"wav"];
                     IHSAudio3DSound* northSound = [[IHSAudio3DSound alloc] initWithURL:northUrl];
@@ -358,7 +412,7 @@
                     [ihsDevice addSound:northSound];
                 }
                 
-                if ( APP_DELEGATE.playSouthSound ) {
+                if (APP_DELEGATE.playSouthSound) {
                     NSURL *southUrl = [[NSBundle mainBundle] URLForResource:@"ThisIsSouth" withExtension:@"wav"];
                     IHSAudio3DSound* southSound = [[IHSAudio3DSound alloc] initWithURL:southUrl];
                     
@@ -374,7 +428,7 @@
             break;
         }
             
-        case IHSButtonRight: {
+        case IHSButtonLeft: {
             // Stop the playback
             [ihsDevice stop];
             // Clear the list of sounds
@@ -397,12 +451,14 @@
     APP_DELEGATE.ihsDevice.sensorsDelegate = self;  // ... receive data from the IHS sensors
     APP_DELEGATE.ihsDevice.buttonDelegate = self;   // ... receive button presses
     APP_DELEGATE.ihsDevice.audioDelegate = self;    // ... receive 3daudio notifications.
-    
+
     // Establish connection to the physical IHS
-    if ( APP_DELEGATE.ihsDevice.connectionState != IHSDeviceConnectionStateConnected ) {
+    if (APP_DELEGATE.ihsDevice.connectionState != IHSDeviceConnectionStateConnected) {
+        _allowDeviceSelectionToBeShown = APP_DELEGATE.ihsDevice.connectionState != IHSDeviceConnectionStateNone;
         [APP_DELEGATE.ihsDevice connect];
     }
 }
+
 
 - (void)appDidBecomeActive:(NSNotification *)notification
 {

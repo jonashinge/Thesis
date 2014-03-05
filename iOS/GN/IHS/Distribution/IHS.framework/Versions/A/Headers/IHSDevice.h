@@ -6,8 +6,9 @@
 ///  Copyright (c) 2012 GN Store Nord A/S. All rights reserved.
 ///
 #import <CoreLocation/CoreLocation.h>
+#import <IHS/IHSAudio3D.h>
+#import <IHS/IHSAudio3DSound.h>
 
-@class IHSAudio3DSound;
 @class IHSDevice;
 
 
@@ -46,6 +47,14 @@ typedef enum {
     IHSButtonEventNoEvent               = -1
 } IHSButtonEvent;
 
+/**
+ @brief                 IHS Button Source
+ */
+typedef enum {
+    IHSButtonSourceHeadset,                         ///< Identifying wireless button
+    IHSButtonSourceGeneric,                         ///< Identifying generic button - e.g. button on a wire
+    IHSButtonSourceUnknown              = -1        ///< Identifying unknown source
+} IHSButtonSource;
 
 /**
  @brief                 Structure used when handling 3 axis data (x, y, z)
@@ -68,46 +77,13 @@ typedef enum {
 
 
 /**
- @brief                 The reverb preset to be added to all sound sources
+ @brief                 IHS audio error codes
  */
 typedef enum {
-    // Reverb off preset
-    IHSAudioReverbPresetOff = 0,
-    // Environmental presets
-    IHSAudioReverbPresetAlley = 1,
-    IHSAudioReverbPresetArena,
-    IHSAudioReverbPresetAuditorium,
-    IHSAudioReverbPresetBathroom,
-    IHSAudioReverbPresetCave,
-    IHSAudioReverbPresetHallway,
-    IHSAudioReverbPresetHangar,
-    IHSAudioReverbPresetLivingroom,
-    IHSAudioReverbPresetMountains,
-    IHSAudioReverbPresetRoom,
-    IHSAudioReverbPresetUnderwater,
-    // Musical presets
-    IHSAudioReverbPresetSmallRoom,
-    IHSAudioReverbPresetMediumRoom,
-    IHSAudioReverbPresetLargeRoom,
-    IHSAudioReverbPresetMediumHall,
-    IHSAudioReverbPresetLargeHall,
-    IHSAudioReverbPresetPlate,
-    // Additional environmental presets
-    IHSAudioReverbPresetCarpetedHallway,
-    IHSAudioReverbPresetCity,
-    IHSAudioReverbPresetConcertHall,
-    IHSAudioReverbPresetForrest,
-    IHSAudioReverbPresetPaddedCell,
-    IHSAudioReverbPresetParkingLot,
-    IHSAudioReverbPresetPlain,
-    IHSAudioReverbPresetQuarry,
-    IHSAudioReverbPresetSewerPipe,
-    IHSAudioReverbPresetStoneCorridor,
-    IHSAudioReverbPresetStoneRoom
-} IHSAudioReverbPreset;
+    IHSAudioErrorIHSNotConnected = 'noih',
+} IHSAudioErrorCodes;
 
-
-#pragma mark IHSDeviceDelegate
+#pragma mark - IHSDeviceDelegate
 
 @protocol IHSDeviceDelegate <NSObject>
 @optional
@@ -120,10 +96,19 @@ typedef enum {
  */
 - (void)ihsDevice:(IHSDevice*)ihs connectedStateChanged:(IHSDeviceConnectionState)connectionState;
 
+@required
+/**
+ @brief                 Notify that no connection to either paired headset or preferred device could be made.
+ @details               Called when other devices besides any paired headset or devices matching preferredDevice has been found.
+                        The method showDeviceSelection: should be called in order for the user to be able to select a device.
+ @param ihs             The IHS device reprting ambigous devices.
+ */
+- (void)ihsDeviceFoundAmbiguousDevices:(IHSDevice*)ihs;
+
 @end
 
 
-#pragma mark IHSSensorsDelegate
+#pragma mark - IHSSensorsDelegate
 
 @protocol IHSSensorsDelegate <NSObject>
 @optional
@@ -203,9 +188,10 @@ typedef enum {
 @end
 
 
-#pragma mark IHSButtonDelegate
+#pragma mark - IHSButtonDelegate
 
 @protocol IHSButtonDelegate <NSObject>
+
 @required
 /**
  @brief                 Notify that an IHS button was pressed
@@ -213,13 +199,16 @@ typedef enum {
  @param ihs             The IHS device which the IHS button was pressed on
  @param button          The IHS button that was pressed
  @param event           The IHS button event on the pressed button
+ @param source          The source of the button.
+ @note                  This message replaces ihsDevice:didPressIHSButton:withEvent
+                        The old message will still be called, if the new one is not yet implemented.
  */
-- (void)ihsDevice:(id)ihs didPressIHSButton:(IHSButton)button withEvent:(IHSButtonEvent)event;
+- (void)ihsDevice:(IHSDevice*)ihs didPressIHSButton:(IHSButton)button withEvent:(IHSButtonEvent)event fromSource:(IHSButtonSource)source;
 
 @end
 
 
-#pragma mark IHS3DAudioDelegate
+#pragma mark - IHS3DAudioDelegate
 
 @protocol IHS3DAudioDelegate <NSObject>
 @optional
@@ -229,7 +218,7 @@ typedef enum {
  @param ihs             The IHS device instance the playback is requested started on
  @param success         YES if playback has started, else NO
  */
-- (void)ihsDevice:(id)ihs playerDidStartSuccessfully:(BOOL)success;
+- (void)ihsDevice:(IHSDevice*)ihs playerDidStartSuccessfully:(BOOL)success;
 
 
 /**
@@ -237,7 +226,7 @@ typedef enum {
  @param ihs             The IHS device instance the playback is requested paused on
  @param success         YES if playback was paused, else NO
  */
-- (void)ihsDevice:(id)ihs playerDidPauseSuccessfully:(BOOL)success;
+- (void)ihsDevice:(IHSDevice*)ihs playerDidPauseSuccessfully:(BOOL)success;
 
 
 /**
@@ -245,7 +234,7 @@ typedef enum {
  @param ihs             The IHS device instance the playback is requested stopped on
  @param success         YES if playback was stopped, else NO
  */
-- (void)ihsDevice:(id)ihs playerDidStopSuccessfully:(BOOL)success;
+- (void)ihsDevice:(IHSDevice*)ihs playerDidStopSuccessfully:(BOOL)success;
 
 
 /**
@@ -255,23 +244,23 @@ typedef enum {
  @param currentTime     The current time in seconds
  @param duration        The duration of the sound resource
  */
-- (void)ihsDevice:(id)ihs playerCurrentTime:(NSTimeInterval)currentTime duration:(NSTimeInterval)duration;
+- (void)ihsDevice:(IHSDevice*)ihs playerCurrentTime:(NSTimeInterval)currentTime duration:(NSTimeInterval)duration;
 
 
 /**
- @brief                 Sent if an error occured during sound rendering
+ @brief                 Sent if an error occurred during sound rendering
  @details               A typical error that can occur is an unsupported file or data format.
                         E.g. 32bit samples are not supported
  @param ihs             The IHS device instance
- @param status          Error status '0x3dee' indicates that 3D audio playback was attempted started
+ @param status          Error status 'IHSAudioErrorIHSNotConnected' indicates that 3D audio playback was attempted started
                         before the IHS device was connected.
  */
-- (void)ihsDevice:(id)ihs playerRenderError:(OSStatus)status;
+- (void)ihsDevice:(IHSDevice*)ihs playerRenderError:(OSStatus)status;
 
 @end
 
 
-#pragma mark - Software update delegate
+#pragma mark - IHSSoftwareUpdateDelegate
 
 @protocol IHSSoftwareUpdateDelegate <NSObject>
 @required
@@ -288,7 +277,7 @@ typedef enum {
  @return YES            If the application allows the IHSDevice to access the software update server.
  @return NO             If network access is not permitted.
  */
-- (BOOL)ihsDeviceShouldCheckForSoftwareUpdateNow:(id)ihs;
+- (BOOL)ihsDeviceShouldCheckForSoftwareUpdateNow:(IHSDevice*)ihs;
 
 @optional
 
@@ -298,7 +287,7 @@ typedef enum {
  @param deviceBuildNumber Build number of the currently connected device, may be nil of the build number is not yet available.
  @param latestBuildNumber Build number of the latest sowftare available, may be nil of the build number is not yet available.
  */
-- (void)ihsDevice:(id)ihs didFindDeviceWithBuildNumber:(NSNumber*)deviceBuildNumber latestBuildNumber:(NSNumber*)latestBuildNumber;
+- (void)ihsDevice:(IHSDevice*)ihs didFindDeviceWithBuildNumber:(NSNumber*)deviceBuildNumber latestBuildNumber:(NSNumber*)latestBuildNumber;
 
 /**
  @brief                 Called by ihs to see if the application allows the currently connected headset to be updated now.
@@ -311,14 +300,14 @@ typedef enum {
  @return YES            If the application allows the IHSDevice to update the software in the connected headset.
  @return NO             If software update is not permitted now.
  */
-- (BOOL)ihsDevice:(id)ihs shouldBeginSoftwareUpdateWithInfo:(NSDictionary*)info;
+- (BOOL)ihsDevice:(IHSDevice*)ihs shouldBeginSoftwareUpdateWithInfo:(NSDictionary*)info;
 
 /**
  @brief                 Called by ihs is about to start the software update of the connected headset.
  @param ihs             The IHS device about to software update the connected headset.
  @param info            Metadata about the update.  (currently always nil or empty dictionary)
  */
-- (void)ihsDevice:(id)ihs willBeginSoftwareUpdateWithInfo:(NSDictionary*)info;
+- (void)ihsDevice:(IHSDevice*)ihs willBeginSoftwareUpdateWithInfo:(NSDictionary*)info;
 
 /**
  @brief                 Called by ihs to inform about.
@@ -326,21 +315,29 @@ typedef enum {
  @param percent         The current progress of the update. 0..100.
  @param eta             The expected point in time the update will finish.
  */
-- (void)ihsDevice:(id)ihs softwareUpdateProgressedTo:(float)percent ETA:(NSDate*)eta;
+- (void)ihsDevice:(IHSDevice*)ihs softwareUpdateProgressedTo:(float)percent ETA:(NSDate*)eta;
 
 /**
  @brief                 Called by ihs when the software update has finished.
  @param ihs             The IHS device performing the software update of the connected headset.
  @param success         YES or NO.
  */
-- (void)ihsDevice:(id)ihs didFinishSoftwareUpdateWithResult:(BOOL)success;
+- (void)ihsDevice:(IHSDevice*)ihs didFinishSoftwareUpdateWithResult:(BOOL)success;
+
+/**
+ @brief                 Called by ihs if the software update fails.
+ @param ihs             The IHS device performing the software update of the connected headset.
+ @param error           The error that occurred.
+ */
+- (void)ihsDevice:(id)ihs didFailSoftwareUpdateWithError:(NSError*)error;
+
 
 @end
 
 
 #pragma mark - IHSDevice interface
 
-@interface IHSDevice: NSObject
+@interface IHSDevice : NSObject
 
 #pragma mark Delegates
 
@@ -377,7 +374,7 @@ typedef enum {
 /**
  @brief                 Name of the preferred physical IHS device
  */
-@property (readonly, nonatomic) NSString* preferredDevice;
+@property (copy, nonatomic) NSString* preferredDevice;
 
 /**
  @brief                 YES when a valid API key has been provided through provideAPIKey:, NO otherwise
@@ -480,6 +477,11 @@ typedef enum {
 @property (readonly, nonatomic) NSString* firmwareRevision;
 
 /**
+ @brief                 Hardware revision of the connected IHS device
+ */
+@property (readonly, nonatomic) NSString* hardwareRevision;
+
+/**
  @brief                 Software revision of the connected IHS device
  */
 @property (readonly, nonatomic) NSString* softwareRevision;
@@ -535,11 +537,11 @@ typedef enum {
 @property (nonatomic, assign) SInt32 playerReverbLevel;
 
 /**
- @brief                 The reverb preset. @see IHSAudioReverbPreset
+ @brief                 The reverb preset. @see IHSAudio3DReverbPreset
  @details               Each reverb preset also has a default reverberation time when selected. When selecting a 
                         new preset, the reverb time parameter is changed to the default value for that preset.
  */
-@property (nonatomic, assign) IHSAudioReverbPreset playerReverbPreset;
+@property (nonatomic, assign) IHSAudio3DReverbPreset playerReverbPreset;
 
 /**
  @brief                 The reverb time
@@ -571,7 +573,7 @@ typedef enum {
  @details               The API will attempt to connect to the preferred set here, when connect is called
  @param preferredDevice Name of the preferred device to connect to
  */
-- (id)initWithPreferredDevice:(NSString*)preferredDevice;
+- (IHSDevice*)initWithPreferredDevice:(NSString*)preferredDevice;
 
 /**
  @brief                 Provide the API key unique to your app to unlock the functionality of the IHS API
@@ -594,6 +596,16 @@ typedef enum {
  @brief                 Close the connection to the physical IHS and pause all 3D audio playback
  */
 - (void)disconnect;
+
+
+/**
+ @brief                 Show a list of discovered devices it is possible to connect to.
+ @details               This method should only be called after receiving the
+                        ihsDeviceFoundAmbiguousDevices: message on the deviceDelegate.
+ @param parentViewController
+                        The view controller that the device selection should be placed "on top of".
+ */
+- (void)showDeviceSelection:(UIViewController*)parentViewController;
 
 
 #pragma mark 3D audio handling
@@ -620,7 +632,7 @@ typedef enum {
  @brief                 Start the playback of the sound resource
  @details               The sound resource to playback must have been set with loadURL: before calling this method.
  @note                  Playback can only be started when the IHS device is connected. If the play method is called
-                        while the IHS device is not connected, error status '0x3dee' will be returned through the delegate via
+                        while the IHS device is not connected, error status 'IHSAudioErrorIHSNotConnected' will be returned through the delegate via
                         ihsDevice:playerRenderError:
  */
 - (void)play;

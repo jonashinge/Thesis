@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <IHS/IHS.h>
-#import "CocoaLibSpotify.h"
 
 @class CLLocation;
-@class MixerCoreAudioController;
 
 @interface GNAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -26,8 +24,6 @@
 @property (nonatomic) BOOL playSouthSound;
 @property (nonatomic) BOOL automaticSoftwareUpdate;
 @property (nonatomic) int softwareUpdateCheckSchedule;
-
-@property (nonatomic, readwrite, strong) MixerCoreAudioController *audioController;
 
 - (void) resetDeviceConnection;
 

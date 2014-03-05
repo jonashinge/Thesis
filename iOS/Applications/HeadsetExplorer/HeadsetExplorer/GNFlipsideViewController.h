@@ -15,6 +15,7 @@
 @protocol GNFlipsideViewControllerDelegate
 - (void)flipsideViewControllerDidFinish:(GNFlipsideViewController *)controller;
 - (void)flipsideViewControllerDidResetConnection:(GNFlipsideViewController *)controller;
+- (void)flipsideViewControllerManuallyConnectWasSelected:(GNFlipsideViewController *)controller;
 @end
 
 @interface GNFlipsideViewController : UIViewController
@@ -25,5 +26,7 @@
 @property (nonatomic) BOOL      playSouthSound;
 
 - (IBAction)done:(id)sender;
+
+- (void)ihsDevice:(IHSDevice*)ihsDevice connectedStateChanged:(IHSDeviceConnectionState)connectionState;
 
 @end

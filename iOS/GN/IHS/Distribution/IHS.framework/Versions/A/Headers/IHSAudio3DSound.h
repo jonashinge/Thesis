@@ -1,9 +1,12 @@
 ///
 ///  @file IHSAudio3DSound.h
+///  IHS API
 ///
 ///  Created by Lars Johansen on 10/06/13.
 ///  Copyright (c) 2013 GN Store Nord A/S. All rights reserved.
 ///
+
+#import "IHSAudio3D.h"
 
 /**
  @brief                 Class representing one sound to playback
@@ -71,6 +74,7 @@
                         Use this to e.g. make the volume lower of this sound if it is a background sound.
  */
 @property (nonatomic, assign) float volume;
+
 
 /**
  @brief                 The url of the sound file to load

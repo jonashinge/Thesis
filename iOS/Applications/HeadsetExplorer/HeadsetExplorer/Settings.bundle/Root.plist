@@ -12,11 +12,21 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>3.544</string>
+			<string>1.2.0.754</string>
 			<key>Key</key>
 			<string>CFBundleVersion</string>
 			<key>Title</key>
 			<string>Version</string>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>Mon Mar  3 16:31:45 CET 2014</string>
+			<key>Key</key>
+			<string>CFBundleDate</string>
+			<key>Title</key>
+			<string> </string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
 		</dict>
