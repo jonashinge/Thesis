@@ -315,7 +315,12 @@
     
     // Apply the heading to our audio grid model.
     // See IHSDevice.fusedHeading for more info.
-    self.view3DAudioGrid.audioModel.listenerHeading = heading;
+    self.view3DAudioGrid.audioModel.listenerHeading = heading + 90;
+    
+    // setting position
+    float x = 0 + (3000*cos((heading*M_PI)/180));
+    float y = 0 - (3000*sin((heading*M_PI)/180));
+    self.view3DAudioGrid.audioModel.listenerPosition = CGPointMake(x, y);
 }
 
 - (void)ihsDevice:(IHSDevice*)ihs compassHeadingChanged:(float)heading

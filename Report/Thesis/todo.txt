@@ -19,6 +19,63 @@ Iterative design process
 - Final evaluation on testpersons where traditional music application is compaired
 
 
+Feedback
+--------
+
+Research -> Related work
+------------------------
+
+Start out with my design, not research areas
+Music players, how have they looked before
+Mention the problems
+Then talk about improvements, look into other madalities, what has been done before
+Mobile HCI (good heading)
+Shahram term: "Interaction on the move", short paper from 2013
+Interaction on the move subsection to the mobile hci
+Drop HCI, just mobile HCI
+
+Mobile HCI
+
+Multimodal interaction (wider)
+Talk about it in general
+Then go into details about head gestures, audio feedback
+
+Venn diagram
+Circles (also subsection):
+- Mobile music player UI (start with this) (music players right now)
+- Mobile HCI (interaction on the move "problem", cognitive load)
+- Multimodal interaction (what kind of modalities have people done, spatial sound)
+
+
+Method
+------
+How do you intend to address the problem in pr.statement and arrive to the goal
+- Describe shortly each iteration
+
+
+Design
+------
+Abstract design of the final prototype
+Shold solve some of the problems mentioned in related work (head gesture control, etc..)
+Menu description here
+
+
+Implementation
+--------------
+Early prototype evaluation can be discussed here
+
+
+Evaluation
+----------
+Linear format
+
+Combined evaluation:
+- Controlled environment (ecological factor low)
+- Realistic environment ()
+
+
+
+
 
 Chapter 1
 ---------
@@ -38,6 +95,16 @@ Chapter 2
 
 Chapter 3
 ---------
+
+
+
+Implementation
+--------------
+Interaction menus:
+- 3D grid, circular menu, 120 degrees, direction attached to head rotation
+- 3D grid, circular menu, 360 degrees, "wheel"
+
+
 
 
 
