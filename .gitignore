@@ -32,6 +32,7 @@
 *.xdy
 *.tdo
 *.fls
+*.pdf
 
 
 # Xcode
@@ -56,6 +57,7 @@ DerivedData
 
 #other
 sphinxtr/
+Litterature/
 !thesis.log
 
 # IHS tools, doc
