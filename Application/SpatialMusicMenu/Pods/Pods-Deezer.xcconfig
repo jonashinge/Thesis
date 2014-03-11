@@ -1,0 +1,4 @@
+PODS_DEEZER_ARCHS = armv7
+PODS_DEEZER_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/Deezer" "$(PODS_ROOT)/Deezer/deezer-ios-sdk-0.8.2"
+PODS_DEEZER_ONLY_ACTIVE_ARCH = NO
+PODS_DEEZER_OTHER_LDFLAGS = -lDeezer -framework AudioToolBox -framework CoreAudio -framework SystemConfiguration

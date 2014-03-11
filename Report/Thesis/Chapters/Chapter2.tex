@@ -12,19 +12,23 @@ In this chapter specific research areas and systems related to this thesis are p
 
 
 \section{Mobile Music Player UI}
-% Intro
-Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, there is still one property that remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in our smartphone music application.
+% intro
+The rise of the smartphone and the introduction of music streaming services e.g. Spotify, Deezer, Pandora, WIMP and more have resulted in an increase in mobile music listening - in fact the number of mobile music listeners has more than doubled from 2011 to 2013 according to a study in America \cite{emarketer_music_2014}. Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, there is still a factor that remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in todays "typical" smartphone music application.
 
-% Problems
-Maybe some statistic about music listening on the go
-Ref to chapter 1 when talking about distractions
-Maybe add this: In these situations a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}
+% typical interfaces, challenges
+Todays "typical" Music Player UI could cause interaction challenges when a user is on the move. Imagine a biking scenario where the user wants to change music track in a smartphone music application. This would require: Fetching the device e.g. from a pocket, switching the screen on, maybe unlocking the screen with a password, navigating through the music application GUI, switch the screen of, put smartphone back in pocket. Also the smartphone touch interface requires bare fingers for input recognition so removing gloves (in winter season) could also be a step in the process. A process that happens while the user is navigating through traffic. Studies show that while a user is doing an activity a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}.
 
-% Alternatives in music players
-- iPod shuffle, no visual interface (not user decision)
-- xpod, based on emotions... (not user decision)
-- leg shifting music track while running \cite{smus_running_2010}
-- body pose
+\subsection{Alternative Music Player UI's}
+There exists music player interfaces that tries to avoid the before mentioned process when listening to music on the go.
+
+% headset controller
+Headset music controllers are physical buttons attached to the wire between headset and device. This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of interaction menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
+
+% voice recognition
+Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could request simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
+
+% other alternatives
+Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. Both these systems avoids the users visual attention but they are limited to basic controls, like the headset controller and voice recognition systems, such as play, stop, next/previous track, volume up/down.
 
 
 \section{Mobile Human Computer Interaction}
@@ -49,7 +53,9 @@ Maybe add this: In these situations a vital factor is to minimize the amount of 
 Several work on both audio \cite{kajastila_eyes-free_2013,bonner_no-look_2010,brewster_multimodaleyes-freeinteraction_2003,zhao_earpod:_2007,vazquez-alvarez_eyes-free_2011} and haptic \cite{pasquero_haptic_2011,pielot_tactile_2011} displays use the term eyes-free which refers to controlling the state of a system without visual attention. This kind of interaction has shown to be desirable in some situations \cite{oakley_designing_2007,yi_exploring_2012} and even improve efficiency compaired to traditional visual displays \cite{zhao_earpod:_2007}.
 
 % visual competition, concentration
-One of the main motivations behind this eyes-free use is to design interfaces that do not compete with the users visual attention. That is this "visual competition" could introduce risks when people are on the move e.g. travelling in traffic. In these situations a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}. Eyes-free interfaces can keep the users visual attention on the road while driving \cite{sodnik_user_2008} or walking around in the city \cite{vazquez-alvarez_eyes-free_2011}. [TODO: rephrase, at this point you should also tell the reader about the complexity of human attention which can to some degree sometimes be decoupled from modalities and that just because information comes in a modality different from the one currently in use doesnt mean that it doesnt distract cognitively]
+One of the main motivations behind this eyes-free use is to design interfaces that do not compete with the users visual attention. That is this "visual competition" could introduce risks when people are on the move e.g. travelling in traffic. In these situations a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}. 
+
+Eyes-free interfaces can keep the users visual attention on the road while driving \cite{sodnik_user_2008} or walking around in the city \cite{vazquez-alvarez_eyes-free_2011}. [TODO: rephrase, at this point you should also tell the reader about the complexity of human attention which can to some degree sometimes be decoupled from modalities and that just because information comes in a modality different from the one currently in use doesnt mean that it doesnt distract cognitively]
 
 % visual display problems
 Much of the interfaces work in wearable computing tends to focus on visual headmounted displays \cite{barfield_fundamentals_2000} e.g. Google Project Glass. But not only as mentioned does visual displays occupy the users visual attention, they can also be obtrusive and hard to use in bright daylight \cite{geelhoed_safety_2000}. Another disadvantage with visual displays is that their power consumption is high i.e. they drain a mobile device battery and they are expensive. By using eyes-free interfaces it is possible to use cheaper and less power consuming hardware.

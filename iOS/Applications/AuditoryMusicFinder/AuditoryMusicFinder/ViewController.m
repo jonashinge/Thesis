@@ -90,7 +90,7 @@
 {
     AudioSource* audioSource;
     
-    audioSource = [[AudioSource alloc] initWithSound:@"test@44100" andImage:@"daftpunk.jpg"];
+    audioSource = [[AudioSource alloc] initWithSound:@"track_converted" andImage:@"daftpunk.jpg"];
     audioSource.position = CGPointMake(0, 3500);
     audioSource.sound.repeats = YES;
     [self.view3DAudioGrid.audioModel addSource:audioSource];

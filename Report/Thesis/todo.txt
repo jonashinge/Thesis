@@ -79,23 +79,21 @@ Combined evaluation:
 
 Chapter 1
 ---------
-- intro should be longer
-- goal
-- method
 
 Chapter 2
 ---------
-- chapter intro
-- HCI section
-- hands-free
-- eyes-free
-- spatial sound
-- head gestures
-- related work
 
 Chapter 3
 ---------
 
+Chapter 4
+---------
+
+Chapter 5
+---------
+
+Chapter 6
+---------
 
 
 Implementation
@@ -103,9 +101,6 @@ Implementation
 Interaction menus:
 - 3D grid, circular menu, 120 degrees, direction attached to head rotation
 - 3D grid, circular menu, 360 degrees, "wheel"
-
-
-
 
 
 

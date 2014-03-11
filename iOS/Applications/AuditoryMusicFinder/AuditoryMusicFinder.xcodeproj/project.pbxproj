@@ -26,6 +26,7 @@
 		3F1D98CA18C72E9D00B76C0D /* daftpunk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D98C718C72E9D00B76C0D /* daftpunk.jpg */; };
 		3F1D98CB18C72E9D00B76C0D /* kingsofleon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D98C818C72E9D00B76C0D /* kingsofleon.jpg */; };
 		3F5665D918C4BBB80061AAD4 /* test@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F5665D818C4BBB80061AAD4 /* test@44100.wav */; };
+		3F5B8AA218CDF62C001396D4 /* track_converted.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8AA118CDF62C001396D4 /* track_converted.wav */; };
 		3FD60A4218C4C0B500982CFD /* test@22050.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3FD60A4118C4C0B500982CFD /* test@22050.wav */; };
 		3FD60A4418C4C18500982CFD /* test@11025.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3FD60A4318C4C18500982CFD /* test@11025.wav */; };
 		3FD60A4618C4C40200982CFD /* test2@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3FD60A4518C4C40200982CFD /* test2@44100.wav */; };
@@ -107,6 +108,7 @@
 		3F1D98C718C72E9D00B76C0D /* daftpunk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daftpunk.jpg; sourceTree = "<group>"; };
 		3F1D98C818C72E9D00B76C0D /* kingsofleon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kingsofleon.jpg; sourceTree = "<group>"; };
 		3F5665D818C4BBB80061AAD4 /* test@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@44100.wav"; sourceTree = "<group>"; };
+		3F5B8AA118CDF62C001396D4 /* track_converted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = track_converted.wav; sourceTree = "<group>"; };
 		3FD60A4118C4C0B500982CFD /* test@22050.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@22050.wav"; sourceTree = "<group>"; };
 		3FD60A4318C4C18500982CFD /* test@11025.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@11025.wav"; sourceTree = "<group>"; };
 		3FD60A4518C4C40200982CFD /* test2@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test2@44100.wav"; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 		3FD6350318C4AD7C009EC824 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				3F5B8AA118CDF62C001396D4 /* track_converted.wav */,
 				3FD60A4718C4CC8400982CFD /* test4@44100.wav */,
 				3FD60A4818C4CC8400982CFD /* test3@44100.wav */,
 				3FD60A4518C4C40200982CFD /* test2@44100.wav */,
@@ -460,6 +463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5B8AA218CDF62C001396D4 /* track_converted.wav in Resources */,
 				3F5665D918C4BBB80061AAD4 /* test@44100.wav in Resources */,
 				3F1D98C118C7239500B76C0D /* Listener-2@2x.png in Resources */,
 				3FD60A4A18C4CC8400982CFD /* test3@44100.wav in Resources */,
@@ -610,6 +614,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -643,6 +649,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -663,7 +671,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AuditoryMusicFinder/AuditoryMusicFinder-Prefix.pch";
 				INFOPLIST_FILE = "AuditoryMusicFinder/AuditoryMusicFinder-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jonashinge/Projects/ITU/Thesis/iOS/deezer-ios-sdk-0.8.2",
+				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -684,7 +697,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AuditoryMusicFinder/AuditoryMusicFinder-Prefix.pch";
 				INFOPLIST_FILE = "AuditoryMusicFinder/AuditoryMusicFinder-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jonashinge/Projects/ITU/Thesis/iOS/deezer-ios-sdk-0.8.2",
+				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
