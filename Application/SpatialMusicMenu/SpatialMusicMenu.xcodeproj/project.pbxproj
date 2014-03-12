@@ -55,6 +55,7 @@
 		3F5B8A9C18CCAE3A001396D4 /* MusicAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A9B18CCAE3A001396D4 /* MusicAPI.m */; };
 		3F5B8AA018CDC36A001396D4 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A9F18CDC36A001396D4 /* Track.m */; };
 		3F5B8AA518CE1058001396D4 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8AA418CE1058001396D4 /* PersistencyManager.m */; };
+		3F5B8AA818D0C012001396D4 /* DTWGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8AA718D0C012001396D4 /* DTWGestureRecognizer.m */; };
 		3FAFFCDE18CA4C9700B2CFDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAFFCDD18CA4C9700B2CFDC /* Foundation.framework */; };
 		3FAFFCE018CA4C9700B2CFDC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAFFCDF18CA4C9700B2CFDC /* CoreGraphics.framework */; };
 		3FAFFCE218CA4C9700B2CFDC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAFFCE118CA4C9700B2CFDC /* UIKit.framework */; };
@@ -124,12 +125,12 @@
 		3F5B8A6218CBB374001396D4 /* AudioMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioMenuView.m; sourceTree = "<group>"; };
 		3F5B8A6318CBB374001396D4 /* AudioMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioMenuController.h; sourceTree = "<group>"; };
 		3F5B8A6418CBB374001396D4 /* AudioMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioMenuController.m; sourceTree = "<group>"; };
-		3F5B8A6918CBB388001396D4 /* AudioListenerAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioListenerAnnotation.h; sourceTree = "<group>"; };
-		3F5B8A6A18CBB388001396D4 /* AudioListenerAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioListenerAnnotation.m; sourceTree = "<group>"; };
-		3F5B8A6B18CBB388001396D4 /* AudioSoundAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSoundAnnotation.h; sourceTree = "<group>"; };
-		3F5B8A6C18CBB388001396D4 /* AudioSoundAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSoundAnnotation.m; sourceTree = "<group>"; };
-		3F5B8A6D18CBB388001396D4 /* AudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSource.h; sourceTree = "<group>"; };
-		3F5B8A6E18CBB388001396D4 /* AudioSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSource.m; sourceTree = "<group>"; };
+		3F5B8A6918CBB388001396D4 /* AudioListenerAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioListenerAnnotation.h; path = AudioGrid/AudioListenerAnnotation.h; sourceTree = "<group>"; };
+		3F5B8A6A18CBB388001396D4 /* AudioListenerAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioListenerAnnotation.m; path = AudioGrid/AudioListenerAnnotation.m; sourceTree = "<group>"; };
+		3F5B8A6B18CBB388001396D4 /* AudioSoundAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioSoundAnnotation.h; path = AudioGrid/AudioSoundAnnotation.h; sourceTree = "<group>"; };
+		3F5B8A6C18CBB388001396D4 /* AudioSoundAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioSoundAnnotation.m; path = AudioGrid/AudioSoundAnnotation.m; sourceTree = "<group>"; };
+		3F5B8A6D18CBB388001396D4 /* AudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioSource.h; path = AudioGrid/AudioSource.h; sourceTree = "<group>"; };
+		3F5B8A6E18CBB388001396D4 /* AudioSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioSource.m; path = AudioGrid/AudioSource.m; sourceTree = "<group>"; };
 		3F5B8A7418CBB3CB001396D4 /* GN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GN.png; sourceTree = "<group>"; };
 		3F5B8A7518CBB3CB001396D4 /* GN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GN@2x.png"; sourceTree = "<group>"; };
 		3F5B8A7618CBB3CB001396D4 /* Signal0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Signal0.png; sourceTree = "<group>"; };
@@ -154,6 +155,8 @@
 		3F5B8A9F18CDC36A001396D4 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		3F5B8AA318CE1058001396D4 /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
 		3F5B8AA418CE1058001396D4 /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
+		3F5B8AA618D0C012001396D4 /* DTWGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTWGestureRecognizer.h; sourceTree = "<group>"; };
+		3F5B8AA718D0C012001396D4 /* DTWGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTWGestureRecognizer.m; sourceTree = "<group>"; };
 		3FAFFCDA18CA4C9700B2CFDC /* SpatialMusicMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialMusicMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAFFCDD18CA4C9700B2CFDC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FAFFCDF18CA4C9700B2CFDC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -281,19 +284,6 @@
 			path = "IHS-Resources";
 			sourceTree = "<group>";
 		};
-		3F5B8A6818CBB388001396D4 /* AudioGrid */ = {
-			isa = PBXGroup;
-			children = (
-				3F5B8A6918CBB388001396D4 /* AudioListenerAnnotation.h */,
-				3F5B8A6A18CBB388001396D4 /* AudioListenerAnnotation.m */,
-				3F5B8A6B18CBB388001396D4 /* AudioSoundAnnotation.h */,
-				3F5B8A6C18CBB388001396D4 /* AudioSoundAnnotation.m */,
-				3F5B8A6D18CBB388001396D4 /* AudioSource.h */,
-				3F5B8A6E18CBB388001396D4 /* AudioSource.m */,
-			);
-			path = AudioGrid;
-			sourceTree = "<group>";
-		};
 		3F5B8A7218CBB3CB001396D4 /* IHS */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +319,10 @@
 		3F5B8A9418CBC086001396D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F5B8A6918CBB388001396D4 /* AudioListenerAnnotation.h */,
+				3F5B8A6A18CBB388001396D4 /* AudioListenerAnnotation.m */,
+				3F5B8A6B18CBB388001396D4 /* AudioSoundAnnotation.h */,
+				3F5B8A6C18CBB388001396D4 /* AudioSoundAnnotation.m */,
 				3F5B8A6118CBB374001396D4 /* AudioMenuView.h */,
 				3F5B8A6218CBB374001396D4 /* AudioMenuView.m */,
 			);
@@ -358,6 +352,8 @@
 			children = (
 				3F5B8A9E18CDC36A001396D4 /* Track.h */,
 				3F5B8A9F18CDC36A001396D4 /* Track.m */,
+				3F5B8A6D18CBB388001396D4 /* AudioSource.h */,
+				3F5B8A6E18CBB388001396D4 /* AudioSource.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -412,7 +408,6 @@
 				3F5B8A9918CCACE6001396D4 /* API */,
 				3F5B8A9518CBC0BA001396D4 /* Controller */,
 				3F5B8A9418CBC086001396D4 /* View */,
-				3F5B8A6818CBB388001396D4 /* AudioGrid */,
 				3F5B8A5F18CBB374001396D4 /* NSString+IHSDeviceConnectionState.h */,
 				3F5B8A6018CBB374001396D4 /* NSString+IHSDeviceConnectionState.m */,
 				3FAFFCEC18CA4C9700B2CFDC /* AppDelegate.h */,
@@ -423,6 +418,8 @@
 				3F5B8A9718CBC513001396D4 /* DeezerClient.m */,
 				3F5B8AA318CE1058001396D4 /* PersistencyManager.h */,
 				3F5B8AA418CE1058001396D4 /* PersistencyManager.m */,
+				3F5B8AA618D0C012001396D4 /* DTWGestureRecognizer.h */,
+				3F5B8AA718D0C012001396D4 /* DTWGestureRecognizer.m */,
 			);
 			path = SpatialMusicMenu;
 			sourceTree = "<group>";
@@ -625,6 +622,7 @@
 				3F5B8A6618CBB374001396D4 /* AudioMenuView.m in Sources */,
 				3FAFFCEA18CA4C9700B2CFDC /* main.m in Sources */,
 				3F5B8AA518CE1058001396D4 /* PersistencyManager.m in Sources */,
+				3F5B8AA818D0C012001396D4 /* DTWGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
