@@ -15,28 +15,140 @@
 @property (strong, nonatomic) NSMutableArray *labels;
 
 // Size of obeservations vectors.
-@property int dimension;
+@property NSInteger dimension;
 // Maximum DTW distance between an example and a sequence being classified.
-@property double globalThreshold;
+@property CGFloat globalThreshold;
 // Maximum distance between the last observations of each sequence.
-@property double firstThreshold;
+@property CGFloat firstThreshold;
 // Maximum vertical or horizontal steps in a row.
-@property int maxSlope;
+@property NSInteger maxSlope;
 
 @end
 
 @implementation DTWGestureRecognizer
 
-- (id)initWithDimension:(int)dimension GlobalThreshold:(double)threshold FirstThreshold:(double)firstThreshold AndMaxSlope:(int)maxSlope
+- (id)initWithDimension:(NSInteger)dimension GlobalThreshold:(CGFloat)threshold FirstThreshold:(CGFloat)firstThreshold AndMaxSlope:(NSInteger)maxSlope
 {
     self = [super init];
     if(self) {
+        self.sequences = [[NSMutableArray alloc] init];
+        self.labels = [[NSMutableArray alloc] init];
+        
         self.dimension = dimension;
         self.globalThreshold = threshold;
         self.firstThreshold = firstThreshold;
         self.maxSlope = maxSlope;
+        
+        // Testing
+        [self.labels addObject:@"EASY_SEQUENCE"];
+        self.sequences = [NSMutableArray arrayWithObject:[NSArray arrayWithObjects:
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:10]],
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:20]],
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:30]],
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:100]],
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:200]],
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:300]],
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:1000]],
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:2000]],
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:3000]], nil]];
     }
     return self;
+}
+
+- (void)addKnownSequence:(NSMutableArray *)seq WithLabel:(NSString *)label
+{
+    [self.sequences addObject:seq];
+    [self.labels addObject:label];
+}
+
+- (NSString *)recognizeSequence:(NSArray *)seq
+{
+    CGFloat minDist = INFINITY;
+    //double minDist = double.INFINITY;
+    NSString *class = @"__UNKNOWN";
+    for(int i=0; i<[self.sequences count]; i++)
+    {
+        NSArray *example = [self.sequences objectAtIndex:i];
+        if([self euclDist:[seq objectAtIndex:[seq count]-1] :[example objectAtIndex:[example count]-1]] < self.firstThreshold)
+        {
+            CGFloat d = [self dtw:seq :example] / [example count];
+            if(d < minDist)
+            {
+                minDist = d;
+                class = [self.labels objectAtIndex:i];
+            }
+        }
+    }
+    return (minDist < self.globalThreshold ? class : @"__UNKNOWN");
+}
+
+// Squared euclidian distance
+- (double)euclDist:(NSArray*)a :(NSArray*)b
+{
+    CGFloat d = 0;
+    for (int i=0; i<self.dimension; i++) {
+        CGFloat aFloat = [(NSNumber*)[a objectAtIndex:i] floatValue];
+        CGFloat bFloat = [(NSNumber*)[b objectAtIndex:i] floatValue];
+        d += pow(aFloat-bFloat, 2);
+    }
+    return d;
+}
+
+- (CGFloat)dtw:(NSArray*)seqA :(NSArray*)seqB
+{
+    // Init
+    NSArray *seqARev = [[seqA reverseObjectEnumerator] allObjects];
+    NSArray *seqBRev = [[seqB reverseObjectEnumerator] allObjects];
+    double tab[[seqA count]+1][[seqB count]+1];
+    int slopeI[[seqA count]+1][[seqB count]+1];
+    int slopeJ[[seqA count]+1][[seqB count]+1];
+    
+    for(int i=0; i<[seqARev count]+1; i++)
+    {
+        for(int j=0; j<[seqBRev count]+1; j++)
+        {
+            tab[i][j] = INFINITY;
+            slopeI[i][j] = 0;
+            slopeJ[i][j] = 0;
+        }
+    }
+    tab[0][0] = 0;
+    
+    // Dynamic computation of the DTW matrix.
+    for(int i=1; i<[seqARev count]+1; i++)
+    {
+        for(int j=1; j<[seqBRev count]+1; j++)
+        {
+            if(tab[i][j - 1] < tab[i - 1][j - 1] && tab[i][j - 1] < tab[i - 1][j] && slopeI[i][j - 1] < self.maxSlope)
+            {
+                tab[i][j] = [self euclDist:[seqARev objectAtIndex:i-1] :[seqBRev objectAtIndex:j-1]] + tab[i][j - 1];
+                slopeI[i][j] = slopeJ[i][j-1] + 1;
+                slopeJ[i][j] = 0;
+            }
+            else if(tab[i - 1][j] < tab[i - 1][j - 1] && tab[i - 1][j] < tab[i][j - 1] && slopeJ[i - 1][j] < self.maxSlope)
+            {
+                tab[i][j] = [self euclDist:[seqARev objectAtIndex:i-1] :[seqBRev objectAtIndex:j-1]] + tab[i - 1][j];
+                slopeI[i][j] = 0;
+                slopeJ[i][j] = slopeJ[i - 1][j] + 1;
+            }
+            else
+            {
+                tab[i][j] = [self euclDist:[seqARev objectAtIndex:i-1] :[seqBRev objectAtIndex:j-1]] + tab[i - 1][j - 1];
+                slopeI[i][j] = 0;
+                slopeJ[i][j] = 0;
+            }
+        }
+    }
+    
+    // Find best between seq2 and an ending (postfix) of seq1.
+    double bestMatch = INFINITY;
+    for (int i=0; i<[seqARev count]+1; i++) {
+        if(tab[i][[seqBRev count]] < bestMatch)
+        {
+            bestMatch = tab[i][[seqBRev count]];
+        }
+    }
+    return bestMatch;
 }
 
 @end

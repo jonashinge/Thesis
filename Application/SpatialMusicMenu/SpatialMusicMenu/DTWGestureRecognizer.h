@@ -10,6 +10,8 @@
 
 @interface DTWGestureRecognizer : NSObject
 
-- (id)initWithDimension:(int)dimension GlobalThreshold:(double)threshold FirstThreshold:(double)firstThreshold AndMaxSlope:(int)maxSlope;
+- (id)initWithDimension:(NSInteger)dimension GlobalThreshold:(CGFloat)threshold FirstThreshold:(CGFloat)firstThreshold AndMaxSlope:(NSInteger)maxSlope;
+- (void)addKnownSequence:(NSMutableArray *)seq WithLabel:(NSString *)label;
+- (NSString *)recognizeSequence:(NSArray *)seq;
 
 @end

@@ -15,6 +15,7 @@
 #import "AudioSoundAnnotation.h"
 #import "AudioListenerAnnotation.h"
 #import "MusicAPI.h"
+#import "DTWGestureRecognizer.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <IHS/IHS.H>
@@ -56,12 +57,27 @@
     
     // Create an instance of IHSDevice, set it up and provide API Key
     // The API Key can be obtained from https://developer.intelligentheadset.com
-    NSString* preferredDevice = [[NSUserDefaults standardUserDefaults] stringForKey:@"preferredDevice"];
+    /*NSString* preferredDevice = [[NSUserDefaults standardUserDefaults] stringForKey:@"preferredDevice"];
     self.ihsDevice = [[IHSDevice alloc] initWithPreferredDevice:preferredDevice];
     self.ihsDevice.deviceDelegate = self;
     self.ihsDevice.sensorsDelegate = self;
     [self.ihsDevice provideAPIKey:@"3tXvpy2WbqLIkaxaiEtYt2DF8sjf8rt0lOGqjDNesGG+/gFDZ6Rpjs19KFRZALrvzMWJQuJfdjtNI//k0Gl2cA=="];
-    [self.ihsDevice connect];
+    [self.ihsDevice connect];*/
+    
+    // Test recognizer
+    NSArray *testSequence = [NSArray arrayWithObjects:
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:15]],
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:25]],
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:35]],
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:100]],
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:200]],
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:300]],
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:1000]],
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:2000]],
+                             [NSArray arrayWithObject:[NSNumber numberWithDouble:3000]], nil];
+    DTWGestureRecognizer *recognizer = [[DTWGestureRecognizer alloc] initWithDimension:1 GlobalThreshold:10 FirstThreshold:20 AndMaxSlope:10];
+    NSString *result = [recognizer recognizeSequence:testSequence];
+    DEBUGLog(@"Sequence recognized with class: %@",result);
 }
 
 - (void)viewDidAppear:(BOOL)animated
