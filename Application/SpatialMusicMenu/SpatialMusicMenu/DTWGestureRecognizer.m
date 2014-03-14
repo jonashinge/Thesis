@@ -40,7 +40,7 @@
         self.maxSlope = maxSlope;
         
         // Testing
-        [self.labels addObject:@"EASY_SEQUENCE"];
+        /*[self.labels addObject:@"EASY_SEQUENCE"];
         self.sequences = [NSMutableArray arrayWithObject:[NSArray arrayWithObjects:
                                                           [NSArray arrayWithObject:[NSNumber numberWithDouble:10]],
                                                           [NSArray arrayWithObject:[NSNumber numberWithDouble:20]],
@@ -50,7 +50,7 @@
                                                           [NSArray arrayWithObject:[NSNumber numberWithDouble:300]],
                                                           [NSArray arrayWithObject:[NSNumber numberWithDouble:1000]],
                                                           [NSArray arrayWithObject:[NSNumber numberWithDouble:2000]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:3000]], nil]];
+                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:3000]], nil]];*/
     }
     return self;
 }
