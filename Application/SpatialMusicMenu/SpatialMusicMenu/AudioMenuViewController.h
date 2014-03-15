@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AudioMenuController : UIViewController
+@interface AudioMenuViewController : UIViewController
 
 @end

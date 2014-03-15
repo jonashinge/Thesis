@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMMDeviceManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) SMMDeviceManager *smmDeviceManager;
+
+// Convenience getter for app delegate:
+#define APP_DELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 
 @end

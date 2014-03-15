@@ -7,10 +7,26 @@
 //
 
 #import "AppDelegate.h"
-
-#import "AudioMenuController.h"
+#import "AudioMenuViewController.h"
+#import "MusicViewController.h"
+#import "GesturesViewController.h"
+#import "NSString+IHSDeviceConnectionState.h"
+#import "SMMDeviceManager.h"
 
 #import <TSMessages/TSMessage.h>
+
+@interface AppDelegate () <SMMDeviceManagerConnectionDelegate>
+
+@end
+
+// Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
+#define DEBUG_PRINTOUT      1
+
+#if !DEBUG_PRINTOUT
+#define DEBUGLog(format, ...)
+#else
+#define DEBUGLog(format, ...) NSLog(format, ## __VA_ARGS__)
+#endif
 
 @implementation AppDelegate
 
@@ -18,7 +34,16 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.RootViewController = [[AudioMenuController alloc] init];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+    AudioMenuViewController *audioVC = [[AudioMenuViewController alloc] init];
+    MusicViewController *musicVC = [[MusicViewController alloc] init];
+    GesturesViewController *gesturesVC = [[GesturesViewController alloc] init];
+    
+    NSArray *controllers = [NSArray arrayWithObjects:audioVC, musicVC, gesturesVC, nil];
+    tabBarController.viewControllers = controllers;
+    
+    self.window.RootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -52,6 +77,51 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Custom DeviceManager methods
+
+- (SMMDeviceManager *)smmDeviceManager
+{
+    if(_smmDeviceManager == nil)
+    {
+        _smmDeviceManager = [[SMMDeviceManager alloc] init];
+        _smmDeviceManager.connectionDelegate = self;
+        [_smmDeviceManager connectToDevice];
+    }
+    return _smmDeviceManager;
+}
+
+- (void)smmDeviceManagerFoundAmbiguousDevices:(SMMDeviceManager *)manager
+{
+    // Needed when running in simulator or
+    // when headset is connected via wire.
+    [manager showDeviceSelection:self.window.rootViewController];
+}
+
+- (void)smmDeviceManager:(SMMDeviceManager *)manager connectedStateChanged:(IHSDeviceConnectionState)connectionState
+{
+    NSString* connectionString = [NSString stringFromIHSDeviceConnectionState:connectionState];
+    DEBUGLog(@"%@", connectionString);
+    
+    // Here we will get information about the connection state.
+    switch (connectionState) {
+        case IHSDeviceConnectionStateConnecting:
+            // Once we have initiated a connection to a headset,
+            // the state will change to "Connecting".
+            [TSMessage showNotificationWithTitle:@"Intelligent Headset is trying to connect..." type:TSMessageNotificationTypeMessage];
+            break;
+        case IHSDeviceConnectionStateConnected:
+            // Fully connected
+            [TSMessage showNotificationWithTitle:@"Intelligent Headset is connected" type:TSMessageNotificationTypeSuccess];
+            break;
+        case IHSDeviceConnectionStateConnectionFailed:
+            [TSMessage showNotificationWithTitle:@"Intelligent Headset failed to connect" type:TSMessageNotificationTypeError];
+            break;
+        default:
+            
+            break;
+    }
 }
 
 @end

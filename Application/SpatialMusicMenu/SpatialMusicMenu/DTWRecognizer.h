@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DTWGestureRecognizer : NSObject
+@interface DTWRecognizer : NSObject
 
 - (id)initWithDimension:(NSInteger)dimension GlobalThreshold:(CGFloat)threshold FirstThreshold:(CGFloat)firstThreshold AndMaxSlope:(NSInteger)maxSlope;
-- (void)addKnownSequence:(NSMutableArray *)seq WithLabel:(NSString *)label;
+- (void)addSequence:(NSMutableArray *)seq WithLabel:(NSString *)label;
 - (NSString *)recognizeSequence:(NSArray *)seq;
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Jonas Hinge. All rights reserved.
 //
 
-#import "DTWGestureRecognizer.h"
+#import "DTWRecognizer.h"
 
-@interface DTWGestureRecognizer ()
+@interface DTWRecognizer ()
 
 // Known sequences and their labels
 @property (strong, nonatomic) NSMutableArray *sequences;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation DTWGestureRecognizer
+@implementation DTWRecognizer
 
 - (id)initWithDimension:(NSInteger)dimension GlobalThreshold:(CGFloat)threshold FirstThreshold:(CGFloat)firstThreshold AndMaxSlope:(NSInteger)maxSlope
 {
@@ -38,19 +38,6 @@
         self.globalThreshold = threshold;
         self.firstThreshold = firstThreshold;
         self.maxSlope = maxSlope;
-        
-        // Testing
-        /*[self.labels addObject:@"EASY_SEQUENCE"];
-        self.sequences = [NSMutableArray arrayWithObject:[NSArray arrayWithObjects:
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:10]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:20]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:30]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:100]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:200]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:300]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:1000]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:2000]],
-                                                          [NSArray arrayWithObject:[NSNumber numberWithDouble:3000]], nil]];*/
     }
     return self;
 }
