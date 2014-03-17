@@ -28,7 +28,7 @@ Research -> Related work
 Start out with my design, not research areas
 Music players, how have they looked before
 Mention the problems
-Then talk about improvements, look into other madalities, what has been done before
+Then talk about improvements, look into other modalities, what has been done before
 Mobile HCI (good heading)
 Shahram term: "Interaction on the move", short paper from 2013
 Interaction on the move subsection to the mobile hci
