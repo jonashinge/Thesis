@@ -68,27 +68,34 @@ This class relates to other people during a interaction. For example in a crowde
 
 
 \section{Multimodal interaction}
-While the previous section was about planning and designing the interaction between humans and computers, this section describes how the actual information between a human and computer could be exchanged. Bolt was one of the first to define the term modality in a study where speech and gesture in combination was used as input to a system \cite{bolt_put-that-there:_1980}. Modalities has something to do with the mode of communication according to the human senses and input devices activated by humans \cite{jaimes_multimodal_2007,tzovaras_dimitrios_multimodal_2008}. The human senses are \textit{sight}, \textit{touch}, \textit{hearing}, \textit{smell} and \textit{taste}. Input modalities of many computer input devices can then be considered to correspond to these senses e.g. cameras (\textit{sight}), haptic sensors (\textit{touch}), microphones (\textit{hearing}). While the term multimodal has been used in many different contexts and disciplines this thesis will focus on Tzovaras definition: \textit{"During interaction, the user produces input modalities to the system and the system produces output modalities to the user. A multimodal interactive system is a system that uses at least two different modalities for input and/or output. And a unimodal system is a system which uses the same single modality for input and output"} \cite{tzovaras_dimitrios_multimodal_2008}.
+While the previous section was about planning and designing the interaction between humans and computers, this section describes how the actual information between a human and computer could be exchanged. 
 
+Bolt was one of the first to define the term modality in a study where speech and gesture in combination was used as input to a system \cite{bolt_put-that-there:_1980}. Modalities has something to do with the mode of communication according to the human senses and input devices activated by humans \cite{jaimes_multimodal_2007,tzovaras_dimitrios_multimodal_2008}. The human senses are \textit{sight}, \textit{touch}, \textit{hearing}, \textit{smell} and \textit{taste}. Input modalities of many computer input devices can then be considered to correspond to these senses e.g. cameras (\textit{sight}), haptic sensors (\textit{touch}), microphones (\textit{hearing}). While the term multimodal has been used in many different contexts and disciplines this thesis will focus on Tzovaras definition: \textit{"During interaction, the user produces input modalities to the system and the system produces output modalities to the user. A multimodal interactive system is a system that uses at least two different modalities for input and/or output. And a unimodal system is a system which uses the same single modality for input and output"} \cite{tzovaras_dimitrios_multimodal_2008}. The word input is defined by \cite{jaimes_multimodal_2007} to be of great importance as in practice most interactions take place using multiple modalities e.g. typing a keyboard (\textit{touch}) while looking at the keys or screen (\textit{sight}) to see whats being typed.
 
-%\subsection{Hands-free interaction}
-%This term refers to controlling a system without using the hands including no hand gestures. Achieving this hands-freeness interaction often relates to speech recognition or gaze/head tracking techniques but also other body parts are used for simple interactions e.g. leg shifting music track while running \cite{smus_running_2010}. Speech recognition is becoming a more common interaction modality but there exists accuracy and stability challenges especially in mobile noisy environments. In contrast head tracking could possibly provide a more stable interaction detection in mobile environments. [TODO: Last sentence rephrase and explain why you think this is the case]
+% modality combinations
+Modalities can be used in combination with each other in different ways. In the "Put that there" system \cite{bolt_put-that-there:_1980} modalities are used in a complementary combination as the user can point the items on a large display and select or move them by vocal commands. In this case gestures and speech modalities are strengthening each other. In other cases modalities can act simultaneously giving different kind of information about the same feature e.g. visual and acoustic alarms in a building. Both these modality combinations have no unexpected implications in terms of the information that needs to be delivered. Either the information can only be gained in one way (complimentary approach) or the user can choose which way to gain the information (simultaneous approach). A case where modality combinations can have unexpected behaviour is when a modality is replaced with another to deliver the exact same information e.g. gaining an overview of a music collection would seem unnatural with voice commands compaired to a visual overview. This causes a non-linear effect and introduce more complexity to the interaction system.
 
-\subsection{Eyes- and handsfree interaction}
+\subsection{Eyes-free interaction}
 % visual display problems
-Much of the interfaces work in wearable computing tends to focus on visual headmounted displays \cite{barfield_fundamentals_2000} e.g. Google Project Glass. But not only as mentioned does visual displays occupy the users visual attention, they can also be obtrusive and hard to use in bright daylight \cite{geelhoed_safety_2000}. Another disadvantage with visual displays is that their power consumption is high i.e. they drain a mobile device battery and they are expensive. By using eyes-free interfaces it is possible to use cheaper and less power consuming hardware.
+Much of the interfaces work especially in wearable computing tends to focus on visual headmounted displays \cite{barfield_fundamentals_2000} e.g. Google Project Glass. But not only does visual displays occupy the users visual attention, they can also be obtrusive and hard to use in bright daylight \cite{geelhoed_safety_2000}. Visual displays power consumption is must often also high i.e. they drain a mobile device battery and they are expensive.
 
 Several work on both audio \cite{kajastila_eyes-free_2013,bonner_no-look_2010,brewster_multimodaleyes-freeinteraction_2003,zhao_earpod:_2007,vazquez-alvarez_eyes-free_2011} and haptic \cite{pasquero_haptic_2011,pielot_tactile_2011} displays use the term eyes-free which refers to controlling the state of a system without visual attention. This kind of interaction has shown to be desirable in some situations \cite{oakley_designing_2007,yi_exploring_2012} and even improve efficiency compaired to traditional visual displays \cite{zhao_earpod:_2007}.
 
 % visual competition, concentration
-One of the main motivations behind this eyes-free use is to design interfaces that do not compete with the users visual attention. That is this "visual competition" could introduce risks when people are on the move e.g. travelling in traffic. In these situations a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}. 
+%One of the main motivations behind this eyes-free use is to design interfaces that do not compete with the users visual attention. That is this "visual competition" could introduce risks when people are on the move e.g. travelling in traffic. In these situations a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}. 
 
 Eyes-free interfaces can keep the users visual attention on the road while driving \cite{sodnik_user_2008} or walking around in the city \cite{vazquez-alvarez_eyes-free_2011}. [TODO: rephrase, at this point you should also tell the reader about the complexity of human attention which can to some degree sometimes be decoupled from modalities and that just because information comes in a modality different from the one currently in use doesnt mean that it doesnt distract cognitively]
 
-% handsfree interaction
+\subsection{Gesture based interaction}
+
+% head gestures
+There exists different kinds of approaches when it comes to controlling a system with head gestures. Using cameras it is possible to effectively track head movements via facial recognition \cite{morimoto_recognition_1996} and gaze tracking makes it possible to control an object by fixating the eyes on that object while moving the head \cite{mardanbegi_eye-based_2012}. Thus these techniques do not require any hardware sensors e.g. accelerometer and gyroscope but in return a camera placed in front of the user. [TODO: you need to explain this better. our recently graduated phd student diakonhas developed a wearable solution]
+
+%\subsection{Hands-free interaction}
+%This term refers to controlling a system without using the hands including no hand gestures. Achieving this hands-freeness interaction often relates to speech recognition or gaze/head tracking techniques but also other body parts are used for simple interactions e.g. leg shifting music track while running \cite{smus_running_2010}. Speech recognition is becoming a more common interaction modality but there exists accuracy and stability challenges especially in mobile noisy environments. In contrast head tracking could possibly provide a more stable interaction detection in mobile environments. [TODO: Last sentence rephrase and explain why you think this is the case]
 
 
-\section{Spatial sound}
+\section{Sound localization}
 [TODO]
 
 % motivation for audio and spatial sound feedback
@@ -96,19 +103,16 @@ William W. Gaver, a pioneer in audio interfaces, has explored several aspects of
 
 By compairing visual and audio feedback when pushing buttons on the same GUI, Brewster showed that it was difficult for users to devote all their visual attention to an interface while walking, running og driving and that the interaction workload decreased with audio feedback \cite{brewster_overcoming_2002}.
 
-\subsection{Non-speech audio}
+% Non-speech audio
 Work has shown that non-speech audio is effective in improving the interaction with mobile devices \cite{pirhonen_gestural_2002, sawhney_nomadic_2000}.
 
-\subsection{Head Related Transfer Function}
+\subsection{Spatial sound}
 [TODO]
 
-Good reference for 3d sound \cite{begault_3dd_1994}
+% HRTF
+HRTF: Good reference for 3d sound \cite{begault_3dd_1994}
 
-
-\section{Head gesture interaction}
-There exists different kinds of approaches when it comes to controlling a system with head gestures. Using cameras it is possible to effectively track head movements via facial recognition \cite{morimoto_recognition_1996} and gaze tracking makes it possible to control an object by fixating the eyes on that object while moving the head \cite{mardanbegi_eye-based_2012}. Thus these techniques do not require any hardware sensors e.g. accelerometer and gyroscope but in return a camera placed in front of the user. [TODO: you need to explain this better. our recently graduated phd student diakonhas developed a wearable solution]
-
-\subsection{Intelligent Headset}
+\subsection{Audio menus}
 [TODO]
 
 
