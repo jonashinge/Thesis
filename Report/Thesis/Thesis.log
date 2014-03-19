@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  19 MAR 2014 11:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  19 MAR 2014 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1023,60 +1023,50 @@ Package pdftex.def Info: ./Figures/venn.png used on input line 7.
 
 [4
 
- <./Figures/venn.png (PNG copy)>] [5] [6] [7] [8]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
- [9]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (./Chapters/Chapter3.tex [10] [11]
+ <./Figures/venn.png (PNG copy)>] [5] [6] [7] [8] [9])
+(./Chapters/Chapter3.tex [10]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Design
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter4.tex [12
+) (./Chapters/Chapter4.tex [11
 
 ]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter5.tex [13
+) (./Chapters/Chapter5.tex [12
 
 ]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Evaluation
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter6.tex [14
+) (./Chapters/Chapter6.tex [13
 
 ]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Discussion
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter7.tex [15
+) (./Chapters/Chapter7.tex [14
 
 ]
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusion
 ------------------------------------------------------------------------------
-) (./Appendices/AppendixA.tex [16
+) (./Appendices/AppendixA.tex [15
 
 ]
 Appendix A.
 ------------------------------------------------------------------------------
  A An Appendix
 ------------------------------------------------------------------------------
-[17
+[16
 
-]) [18]
+]) [17]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
@@ -1091,9 +1081,6 @@ Missing character: There is no º in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no ∏ in font cmr10!
 Missing character: There is no ‚ in font cmr10!
@@ -1102,7 +1089,10 @@ Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
- [19
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+ [18
 
 
 ]
@@ -1124,22 +1114,7 @@ Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
- [20]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
+ [19]
 Missing character: There is no ‚ in font cmti10!
 Missing character: There is no Ä in font cmti10!
 Missing character: There is no ì in font cmti10!
@@ -1155,10 +1130,6 @@ Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
- [21]
 Missing character: There is no ≈ in font cmr10!
 Missing character: There is no æ in font cmr10!
 Missing character: There is no ƒ in font cmr10!
@@ -1172,28 +1143,29 @@ Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
+ [20]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
- [22]
+ [21]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
  (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 0666E62371FA87AEA5152446DDF3BB9E;5707.
+(rerunfilecheck)             Checksum: D65DFCCF70DC05D234FECE3965832AB6;5809.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21350 strings out of 493315
- 386663 string characters out of 6137903
+ 21318 strings out of 493315
+ 385767 string characters out of 6137903
  389442 words of memory out of 5000000
- 24382 multiletter control sequences out of 15000+600000
+ 24359 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,12n,45p,1542b,963s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,1542b,955s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1202,10 +1174,10 @@ usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (30 pages, 211206 bytes).
+Output written on Thesis.pdf (29 pages, 208976 bytes).
 PDF statistics:
- 488 PDF objects out of 1000 (max. 8388607)
- 442 compressed objects within 5 object streams
- 118 named destinations out of 1000 (max. 500000)
+ 468 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
+ 109 named destinations out of 1000 (max. 500000)
  302 words of extra memory for PDF output out of 10000 (max. 10000000)
 
