@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  20 MAR 2014 19:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  21 MAR 2014 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,18 +1010,18 @@ Chapter 1.
 
 
 
-] <./Figures/triangulation.pdf, id=251, 963.6pt x 562.1pt>
+] <./Figures/triangulation.pdf, id=250, 963.6pt x 562.1pt>
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
 Package pdftex.def Info: ./Figures/triangulation.pdf used on input line 30.
 (pdftex.def)             Requested size: 417.47174pt x 243.52518pt.
- [2]) (./Chapters/Chapter2.tex [3 <./Figures/triangulation.pdf>]
+) (./Chapters/Chapter2.tex [2] [3 <./Figures/triangulation.pdf>]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Related work
 ------------------------------------------------------------------------------
-<./Figures/venn.png, id=289, 501.875pt x 501.875pt>
+<./Figures/venn.png, id=290, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
 Package pdftex.def Info: ./Figures/venn.png used on input line 7.
@@ -1165,10 +1165,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21325 strings out of 493315
- 385947 string characters out of 6137903
+ 21326 strings out of 493315
+ 385972 string characters out of 6137903
  389442 words of memory out of 5000000
- 24364 multiletter control sequences out of 15000+600000
+ 24365 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,12n,45p,1542b,955s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1180,10 +1180,10 @@ usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (29 pages, 349472 bytes).
+Output written on Thesis.pdf (29 pages, 350069 bytes).
 PDF statistics:
- 497 PDF objects out of 1000 (max. 8388607)
- 438 compressed objects within 5 object streams
+ 500 PDF objects out of 1000 (max. 8388607)
+ 440 compressed objects within 5 object streams
  110 named destinations out of 1000 (max. 500000)
  307 words of extra memory for PDF output out of 10000 (max. 10000000)
 

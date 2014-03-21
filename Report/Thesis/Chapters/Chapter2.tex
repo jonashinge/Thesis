@@ -20,6 +20,7 @@ The rise of the smartphone and the introduction of music streaming services e.g.
 Todays "typical" Music Player UI could cause interaction challenges when a user is on the move. Imagine a biking scenario where the user wants to change music track in a smartphone music application. This would require: Fetching the device e.g. from a pocket, switching the screen on, maybe unlocking the screen with a password, navigating through the music application GUI, switch the screen of, put smartphone back in pocket. Also the smartphone touch interface requires bare fingers for input recognition so removing gloves (in winter season) could also be a step in the process. A process that happens while the user is navigating through traffic. Studies show that while a user is doing an activity a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}.
 
 \subsection{Alternative Music Player UI's}
+\label{sec:alternativemusicuis}
 There exists music player interfaces that tries to avoid the before mentioned process when listening to music on the go.
 
 % headset controller
@@ -79,7 +80,11 @@ Modalities can be used in combination with each other in different ways. In the 
 \subsection{Multimodality in mobile systems}
 As mentioned in \ref{sec:interactioninmotion} interacting with a device in motion introduces different challenges like environmental and human attention factors. This could imply that for some mobile situations certain multimodal interaction types would fit better than others. Much of the interfaces work especially in wearable computing tends to focus on visual headmounted displays \cite{barfield_fundamentals_2000} e.g. Google Project Glass. But not only does visual displays occupy the users visual attention, they can also be obtrusive and hard to use in bright daylight \cite{geelhoed_safety_2000}. Visual displays power consumption is must often also high i.e. they drain a mobile device battery and they are expensive.
 
-Several work on both audio \cite{kajastila_eyes-free_2013,bonner_no-look_2010,brewster_multimodaleyes-freeinteraction_2003,zhao_earpod:_2007,vazquez-alvarez_eyes-free_2011} and haptic \cite{pasquero_haptic_2011,pielot_tactile_2011} interfaces use the term eyes-free which refers to controlling the state of a system without visual attention. This kind of interaction has shown to be desirable in some situations \cite{oakley_designing_2007,yi_exploring_2012} and even improve efficiency compaired to traditional visual displays \cite{zhao_earpod:_2007}. Eyes-free interfaces can keep the users visual attention on the road while driving \cite{sodnik_user_2008} or walking around in the city \cite{vazquez-alvarez_eyes-free_2011}. It should though be taken into account that just because information comes from a different modality that the one in use, it doesn't mean that the user is not distracted cognitively.
+% Eyes-free interfaces term
+Several work on both audio \cite{kajastila_eyes-free_2013,bonner_no-look_2010,brewster_multimodaleyes-freeinteraction_2003,zhao_earpod:_2007,vazquez-alvarez_eyes-free_2011} and haptic \cite{pasquero_haptic_2011,pielot_tactile_2011} interfaces use the term eyes-free which refers to controlling the state of a system without visual attention. This kind of interaction has shown to be desirable in some mobile situations \cite{oakley_designing_2007,yi_exploring_2012} and even improve efficiency compaired to traditional visual displays \cite{zhao_earpod:_2007}. Eyes-free interfaces can keep the users visual attention on the road while driving \cite{sodnik_user_2008} or walking around in the city \cite{vazquez-alvarez_eyes-free_2011}. It should be taken into account though that just because information comes from a different modality that the one in use, it doesn't mean that the user is not distracted cognitively as described in \ref{sec:interactioninmotion}.
+
+% Eyes-free modalities focus
+Eye-free interfaces are not limited to specific modalities. As mentioned in \ref{sec:alternativemusicuis} input modalities like speech, gesture and touch combined with audio or haptic feedback can "detach" the eyes from the interface. As this project focus is on a concrete mobile scenario i.e. biking - not only should the interface be eyes-free but also "hands-free" (as biking requires steering). To avoid the use of \textit{sight} and \textit{touch} human senses the proposed interface includes head gestures as input and audio as output.
 
 \subsection{Head gestures as input modality}
 
@@ -90,6 +95,8 @@ Several work on both audio \cite{kajastila_eyes-free_2013,bonner_no-look_2010,br
 
 % Non-speech sound
 %Work has shown that non-speech audio is effective in improving the interaction with mobile devices \cite{pirhonen_gestural_2002, sawhney_nomadic_2000}.
+
+% Maybe selective-attention and divided-attention defs.
 
 %By compairing visual and audio feedback when pushing buttons on the same GUI, Brewster showed that it was difficult for users to devote all their visual attention to an interface while walking, running og driving and that the interaction workload decreased with audio feedback \cite{brewster_overcoming_2002}.
 
@@ -110,6 +117,11 @@ Several work on both audio \cite{kajastila_eyes-free_2013,bonner_no-look_2010,br
 
 
 \section{Spatial Audio Interface}
+
+\subsection{Spatial Audio}
+
+% From Brewster article (vazquez-alvarez_eyes-free_2011)
+%Different attention demands impose different amounts of cognitive load on the user. When David is listening to the voicemail left by Stephen, he is focusing attention on the voicemail audio stream while monitoring his music (a se- lective-attention task). However, when David is talking to Stephen while interacting with his calendar using an audio menu to find a suitable time for their meeting, David is di- viding his attention between both audio streams (a divided- attention task). The first task results in less cognitive load, and the second in higher cognitive load.
 
 % Spatial Sound (HRTF)
 %HRTF: Good reference for 3d sound \cite{begault_3dd_1994}
@@ -146,8 +158,8 @@ Table compairing properties of related work (and this project) example fig. \ref
 %\centering % centering table
 
 % Properties
-% - Spatial sound interface
-% - Gesture input (Head, foot, hand)
+% - Output modality
+% - Input modality (Head, foot, hand)
 % - Menu depth (1D, 2D)
 % - Using accessible hardware
 % - Controlling music application
