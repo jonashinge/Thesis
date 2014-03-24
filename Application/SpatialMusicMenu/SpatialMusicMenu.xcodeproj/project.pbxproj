@@ -18,6 +18,21 @@
 		3F18738018CA4FF9009D81F7 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737F18CA4FF9009D81F7 /* libc++.dylib */; };
 		3F406C0F18D4EF0A003A5541 /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C0E18D4EF0A003A5541 /* MusicViewController.m */; };
 		3F406C1218D4EF3A003A5541 /* GesturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C1118D4EF3A003A5541 /* GesturesViewController.m */; };
+		3F406C1418E05E1B003A5541 /* deezer-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C1318E05E1B003A5541 /* deezer-logo.png */; };
+		3F406C1918E090EC003A5541 /* AudioListenerAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C1618E090EC003A5541 /* AudioListenerAnnotation.m */; };
+		3F406C1A18E090EC003A5541 /* AudioSoundAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C1818E090EC003A5541 /* AudioSoundAnnotation.m */; };
+		3F406C1D18E090FE003A5541 /* AudioSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C1C18E090FE003A5541 /* AudioSource.m */; };
+		3F406C2718E09339003A5541 /* test2@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C1F18E09339003A5541 /* test2@44100.wav */; };
+		3F406C2818E09339003A5541 /* test3@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2018E09339003A5541 /* test3@44100.wav */; };
+		3F406C2918E09339003A5541 /* test4@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2118E09339003A5541 /* test4@44100.wav */; };
+		3F406C2A18E09339003A5541 /* test@11025.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2218E09339003A5541 /* test@11025.wav */; };
+		3F406C2B18E09339003A5541 /* test@22050.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2318E09339003A5541 /* test@22050.wav */; };
+		3F406C2C18E09339003A5541 /* test@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2418E09339003A5541 /* test@44100.wav */; };
+		3F406C2D18E09339003A5541 /* TestConnectSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2518E09339003A5541 /* TestConnectSound.wav */; };
+		3F406C2E18E09339003A5541 /* track_converted.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2618E09339003A5541 /* track_converted.wav */; };
+		3F406C3218E0935F003A5541 /* daftpunk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2F18E0935F003A5541 /* daftpunk.jpg */; };
+		3F406C3318E0935F003A5541 /* eminem.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C3018E0935F003A5541 /* eminem.jpg */; };
+		3F406C3418E0935F003A5541 /* kingsofleon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C3118E0935F003A5541 /* kingsofleon.jpg */; };
 		3F5B8A3018CBB33B001396D4 /* Listener-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2418CBB33A001396D4 /* Listener-0.png */; };
 		3F5B8A3118CBB33B001396D4 /* Listener-0.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2518CBB33A001396D4 /* Listener-0.svg */; };
 		3F5B8A3218CBB33B001396D4 /* Listener-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2618CBB33A001396D4 /* Listener-0@2x.png */; };
@@ -41,9 +56,6 @@
 		3F5B8A6518CBB374001396D4 /* NSString+IHSDeviceConnectionState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A6018CBB374001396D4 /* NSString+IHSDeviceConnectionState.m */; };
 		3F5B8A6618CBB374001396D4 /* AudioMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A6218CBB374001396D4 /* AudioMenuView.m */; };
 		3F5B8A6718CBB374001396D4 /* AudioMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A6418CBB374001396D4 /* AudioMenuViewController.m */; };
-		3F5B8A6F18CBB388001396D4 /* AudioListenerAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A6A18CBB388001396D4 /* AudioListenerAnnotation.m */; };
-		3F5B8A7018CBB388001396D4 /* AudioSoundAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A6C18CBB388001396D4 /* AudioSoundAnnotation.m */; };
-		3F5B8A7118CBB388001396D4 /* AudioSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A6E18CBB388001396D4 /* AudioSource.m */; };
 		3F5B8A8418CBB3CB001396D4 /* GN.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A7418CBB3CB001396D4 /* GN.png */; };
 		3F5B8A8818CBB3CB001396D4 /* Signal1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A7818CBB3CB001396D4 /* Signal1.png */; };
 		3F5B8A8918CBB3CB001396D4 /* Signal1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A7918CBB3CB001396D4 /* Signal1@2x.png */; };
@@ -97,6 +109,24 @@
 		3F406C0E18D4EF0A003A5541 /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
 		3F406C1018D4EF3A003A5541 /* GesturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GesturesViewController.h; sourceTree = "<group>"; };
 		3F406C1118D4EF3A003A5541 /* GesturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GesturesViewController.m; sourceTree = "<group>"; };
+		3F406C1318E05E1B003A5541 /* deezer-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deezer-logo.png"; sourceTree = "<group>"; };
+		3F406C1518E090EC003A5541 /* AudioListenerAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioListenerAnnotation.h; sourceTree = "<group>"; };
+		3F406C1618E090EC003A5541 /* AudioListenerAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioListenerAnnotation.m; sourceTree = "<group>"; };
+		3F406C1718E090EC003A5541 /* AudioSoundAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSoundAnnotation.h; sourceTree = "<group>"; };
+		3F406C1818E090EC003A5541 /* AudioSoundAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSoundAnnotation.m; sourceTree = "<group>"; };
+		3F406C1B18E090FE003A5541 /* AudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSource.h; sourceTree = "<group>"; };
+		3F406C1C18E090FE003A5541 /* AudioSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSource.m; sourceTree = "<group>"; };
+		3F406C1F18E09339003A5541 /* test2@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test2@44100.wav"; sourceTree = "<group>"; };
+		3F406C2018E09339003A5541 /* test3@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test3@44100.wav"; sourceTree = "<group>"; };
+		3F406C2118E09339003A5541 /* test4@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test4@44100.wav"; sourceTree = "<group>"; };
+		3F406C2218E09339003A5541 /* test@11025.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@11025.wav"; sourceTree = "<group>"; };
+		3F406C2318E09339003A5541 /* test@22050.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@22050.wav"; sourceTree = "<group>"; };
+		3F406C2418E09339003A5541 /* test@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@44100.wav"; sourceTree = "<group>"; };
+		3F406C2518E09339003A5541 /* TestConnectSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TestConnectSound.wav; sourceTree = "<group>"; };
+		3F406C2618E09339003A5541 /* track_converted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = track_converted.wav; sourceTree = "<group>"; };
+		3F406C2F18E0935F003A5541 /* daftpunk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daftpunk.jpg; sourceTree = "<group>"; };
+		3F406C3018E0935F003A5541 /* eminem.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eminem.jpg; sourceTree = "<group>"; };
+		3F406C3118E0935F003A5541 /* kingsofleon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kingsofleon.jpg; sourceTree = "<group>"; };
 		3F5B8A2418CBB33A001396D4 /* Listener-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listener-0.png"; sourceTree = "<group>"; };
 		3F5B8A2518CBB33A001396D4 /* Listener-0.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Listener-0.svg"; sourceTree = "<group>"; };
 		3F5B8A2618CBB33A001396D4 /* Listener-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listener-0@2x.png"; sourceTree = "<group>"; };
@@ -131,12 +161,6 @@
 		3F5B8A6218CBB374001396D4 /* AudioMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioMenuView.m; sourceTree = "<group>"; };
 		3F5B8A6318CBB374001396D4 /* AudioMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioMenuViewController.h; sourceTree = "<group>"; };
 		3F5B8A6418CBB374001396D4 /* AudioMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioMenuViewController.m; sourceTree = "<group>"; };
-		3F5B8A6918CBB388001396D4 /* AudioListenerAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioListenerAnnotation.h; path = AudioGrid/AudioListenerAnnotation.h; sourceTree = "<group>"; };
-		3F5B8A6A18CBB388001396D4 /* AudioListenerAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioListenerAnnotation.m; path = AudioGrid/AudioListenerAnnotation.m; sourceTree = "<group>"; };
-		3F5B8A6B18CBB388001396D4 /* AudioSoundAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioSoundAnnotation.h; path = AudioGrid/AudioSoundAnnotation.h; sourceTree = "<group>"; };
-		3F5B8A6C18CBB388001396D4 /* AudioSoundAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioSoundAnnotation.m; path = AudioGrid/AudioSoundAnnotation.m; sourceTree = "<group>"; };
-		3F5B8A6D18CBB388001396D4 /* AudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioSource.h; path = AudioGrid/AudioSource.h; sourceTree = "<group>"; };
-		3F5B8A6E18CBB388001396D4 /* AudioSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioSource.m; path = AudioGrid/AudioSource.m; sourceTree = "<group>"; };
 		3F5B8A7418CBB3CB001396D4 /* GN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GN.png; sourceTree = "<group>"; };
 		3F5B8A7518CBB3CB001396D4 /* GN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GN@2x.png"; sourceTree = "<group>"; };
 		3F5B8A7618CBB3CB001396D4 /* Signal0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Signal0.png; sourceTree = "<group>"; };
@@ -216,9 +240,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F406C1E18E09339003A5541 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				3F406C1F18E09339003A5541 /* test2@44100.wav */,
+				3F406C2018E09339003A5541 /* test3@44100.wav */,
+				3F406C2118E09339003A5541 /* test4@44100.wav */,
+				3F406C2218E09339003A5541 /* test@11025.wav */,
+				3F406C2318E09339003A5541 /* test@22050.wav */,
+				3F406C2418E09339003A5541 /* test@44100.wav */,
+				3F406C2518E09339003A5541 /* TestConnectSound.wav */,
+				3F406C2618E09339003A5541 /* track_converted.wav */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		3F5B8A2118CBB33A001396D4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F406C1E18E09339003A5541 /* Audio */,
 				3F5B8A2218CBB33A001396D4 /* Images */,
 			);
 			path = Resources;
@@ -227,6 +267,10 @@
 		3F5B8A2218CBB33A001396D4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3F406C2F18E0935F003A5541 /* daftpunk.jpg */,
+				3F406C3018E0935F003A5541 /* eminem.jpg */,
+				3F406C3118E0935F003A5541 /* kingsofleon.jpg */,
+				3F406C1318E05E1B003A5541 /* deezer-logo.png */,
 				3F5B8A2318CBB33A001396D4 /* Listener */,
 			);
 			path = Images;
@@ -325,10 +369,10 @@
 		3F5B8A9418CBC086001396D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3F5B8A6918CBB388001396D4 /* AudioListenerAnnotation.h */,
-				3F5B8A6A18CBB388001396D4 /* AudioListenerAnnotation.m */,
-				3F5B8A6B18CBB388001396D4 /* AudioSoundAnnotation.h */,
-				3F5B8A6C18CBB388001396D4 /* AudioSoundAnnotation.m */,
+				3F406C1518E090EC003A5541 /* AudioListenerAnnotation.h */,
+				3F406C1618E090EC003A5541 /* AudioListenerAnnotation.m */,
+				3F406C1718E090EC003A5541 /* AudioSoundAnnotation.h */,
+				3F406C1818E090EC003A5541 /* AudioSoundAnnotation.m */,
 				3F5B8A6118CBB374001396D4 /* AudioMenuView.h */,
 				3F5B8A6218CBB374001396D4 /* AudioMenuView.m */,
 			);
@@ -360,10 +404,10 @@
 		3F5B8A9D18CDC310001396D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F406C1B18E090FE003A5541 /* AudioSource.h */,
+				3F406C1C18E090FE003A5541 /* AudioSource.m */,
 				3F5B8A9E18CDC36A001396D4 /* Track.h */,
 				3F5B8A9F18CDC36A001396D4 /* Track.m */,
-				3F5B8A6D18CBB388001396D4 /* AudioSource.h */,
-				3F5B8A6E18CBB388001396D4 /* AudioSource.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -545,22 +589,33 @@
 				3F5B8A3318CBB33B001396D4 /* Listener-1.png in Resources */,
 				3F5B8A3618CBB33B001396D4 /* Listener-2.png in Resources */,
 				3F5B8A5B18CBB34D001396D4 /* Signal5.png in Resources */,
+				3F406C2B18E09339003A5541 /* test@22050.wav in Resources */,
+				3F406C2A18E09339003A5541 /* test@11025.wav in Resources */,
 				3F5B8A3218CBB33B001396D4 /* Listener-0@2x.png in Resources */,
 				3F5B8A5218CBB34D001396D4 /* Signal0@2x.png in Resources */,
 				3F5B8A5118CBB34D001396D4 /* Signal0.png in Resources */,
 				3F5B8A5718CBB34D001396D4 /* Signal3.png in Resources */,
 				3F5B8A5918CBB34D001396D4 /* Signal4.png in Resources */,
+				3F406C3318E0935F003A5541 /* eminem.jpg in Resources */,
 				3F5B8A3818CBB33B001396D4 /* Listener-2@2x.png in Resources */,
+				3F406C2D18E09339003A5541 /* TestConnectSound.wav in Resources */,
 				3F5B8A3118CBB33B001396D4 /* Listener-0.svg in Resources */,
 				3F5B8A3018CBB33B001396D4 /* Listener-0.png in Resources */,
 				3F5B8A5518CBB34D001396D4 /* Signal2.png in Resources */,
 				3F5B8A3918CBB33B001396D4 /* Listener-3.png in Resources */,
+				3F406C2718E09339003A5541 /* test2@44100.wav in Resources */,
+				3F406C2918E09339003A5541 /* test4@44100.wav in Resources */,
+				3F406C1418E05E1B003A5541 /* deezer-logo.png in Resources */,
 				3F5B8A8D18CBB3CB001396D4 /* Signal3@2x.png in Resources */,
 				3F5B8A8F18CBB3CB001396D4 /* Signal4@2x.png in Resources */,
+				3F406C2E18E09339003A5541 /* track_converted.wav in Resources */,
 				3F5B8A3B18CBB33B001396D4 /* Listener-3@2x.png in Resources */,
 				3FAFFCE818CA4C9700B2CFDC /* InfoPlist.strings in Resources */,
+				3F406C3218E0935F003A5541 /* daftpunk.jpg in Resources */,
+				3F406C3418E0935F003A5541 /* kingsofleon.jpg in Resources */,
 				3F5B8A3418CBB33B001396D4 /* Listener-1.svg in Resources */,
 				3F5B8A9218CBB3CB001396D4 /* WMM.COF in Resources */,
+				3F406C2818E09339003A5541 /* test3@44100.wav in Resources */,
 				3F5B8A8B18CBB3CB001396D4 /* Signal2@2x.png in Resources */,
 				3F5B8A3A18CBB33B001396D4 /* Listener-3.svg in Resources */,
 				3F5B8A9118CBB3CB001396D4 /* Signal5@2x.png in Resources */,
@@ -569,6 +624,7 @@
 				3F5B8A3518CBB33B001396D4 /* Listener-1@2x.png in Resources */,
 				3F5B8A3718CBB33B001396D4 /* Listener-2.svg in Resources */,
 				3FAFFCF018CA4C9700B2CFDC /* Images.xcassets in Resources */,
+				3F406C2C18E09339003A5541 /* test@44100.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,12 +679,12 @@
 				3F5B8A6718CBB374001396D4 /* AudioMenuViewController.m in Sources */,
 				3F5B8A9818CBC513001396D4 /* DeezerClient.m in Sources */,
 				3F406C0F18D4EF0A003A5541 /* MusicViewController.m in Sources */,
+				3F406C1918E090EC003A5541 /* AudioListenerAnnotation.m in Sources */,
 				3F5B8A9C18CCAE3A001396D4 /* MusicAPI.m in Sources */,
+				3F406C1D18E090FE003A5541 /* AudioSource.m in Sources */,
 				3F5B8AA018CDC36A001396D4 /* Track.m in Sources */,
 				3F8C2E7118D3ADE7000C05F0 /* SMMDeviceManager.m in Sources */,
-				3F5B8A6F18CBB388001396D4 /* AudioListenerAnnotation.m in Sources */,
-				3F5B8A7018CBB388001396D4 /* AudioSoundAnnotation.m in Sources */,
-				3F5B8A7118CBB388001396D4 /* AudioSource.m in Sources */,
+				3F406C1A18E090EC003A5541 /* AudioSoundAnnotation.m in Sources */,
 				3F406C1218D4EF3A003A5541 /* GesturesViewController.m in Sources */,
 				3F5B8A6518CBB374001396D4 /* NSString+IHSDeviceConnectionState.m in Sources */,
 				3FAFFCEE18CA4C9700B2CFDC /* AppDelegate.m in Sources */,

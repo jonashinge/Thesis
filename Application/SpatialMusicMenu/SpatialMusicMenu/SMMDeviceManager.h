@@ -36,10 +36,15 @@
 
 @property (nonatomic, weak) id<SMMDeviceManagerConnectionDelegate> connectionDelegate;
 @property (nonatomic, weak) id<SMMDeviceManagerDelegate> delegate;
+@property (readonly) BOOL isRecordingGesture;
+@property (nonatomic) float playerHeading;
 
 - (void)showDeviceSelection:(UIViewController *)parentViewController;
 
 - (void)connectToDevice;
+- (void)playAudio;
+- (void)addSound:(IHSAudio3DSound *)sound;
+- (void)removeSound:(IHSAudio3DSound *)sound;
 - (void)startRecordingGesture;
 - (void)stopRecordingGesture;
 

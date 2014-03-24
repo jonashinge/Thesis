@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IHSDevice *ihsDevice;
 @property (strong, nonatomic) DTWRecognizer *recognizer;
 @property (strong, nonatomic) NSMutableArray *accData;
-@property BOOL recordingGesture;
 @property NSMutableArray *recording;
 
 // Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
@@ -60,14 +59,39 @@
     [_ihsDevice connect];
 }
 
+- (void)playAudio
+{
+    [_ihsDevice play];
+}
+
+- (void)addSound:(IHSAudio3DSound *)sound
+{
+    [_ihsDevice addSound:sound];
+}
+
+- (void)removeSound:(IHSAudio3DSound *)sound
+{
+    [_ihsDevice removeSound:sound];
+}
+
+- (void)setPlayerHeading:(float)playerHeading
+{
+    [_ihsDevice setPlayerHeading:playerHeading];
+}
+
+- (float)playerHeading
+{
+    return _ihsDevice.playerHeading;
+}
+
 - (void)startRecordingGesture
 {
-    _recordingGesture = YES;
+    _isRecordingGesture = YES;
 }
 
 - (void)stopRecordingGesture
 {
-    _recordingGesture = NO;
+    _isRecordingGesture = NO;
 }
 
 
@@ -132,7 +156,7 @@
         //DEBUGLog(@"Fusion data: %@",obs);
         
         // Record gesture
-        if(_recordingGesture)
+        if(_isRecordingGesture)
         {
             DEBUGLog(@"Fusion data: %@",obs);
             [_recording addObject:obs];

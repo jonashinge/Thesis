@@ -8,6 +8,8 @@
 
 #import "MusicViewController.h"
 
+#import "AppDelegate.h"
+
 @interface MusicViewController ()
 
 @end
@@ -28,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Music" image:nil tag:1];
+    [self.view setBackgroundColor:UIColorFromRGB(0x333745)];
 }
 
 - (void)didReceiveMemoryWarning

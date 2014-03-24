@@ -14,8 +14,12 @@
 #import "SMMDeviceManager.h"
 
 #import <TSMessages/TSMessage.h>
+#import <MMDrawerController/MMDrawerController.h>
+#import <MMDrawerController/MMDrawerBarButtonItem.h>
 
 @interface AppDelegate () <SMMDeviceManagerConnectionDelegate>
+
+@property (nonatomic,strong) MMDrawerController * drawerController;
 
 @end
 
@@ -34,16 +38,29 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    
     AudioMenuViewController *audioVC = [[AudioMenuViewController alloc] init];
     MusicViewController *musicVC = [[MusicViewController alloc] init];
     GesturesViewController *gesturesVC = [[GesturesViewController alloc] init];
     
-    NSArray *controllers = [NSArray arrayWithObjects:audioVC, musicVC, gesturesVC, nil];
-    tabBarController.viewControllers = controllers;
+    // nav controller
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:audioVC];
     
-    self.window.RootViewController = tabBarController;
+    // drawer setup
+    _drawerController = [[MMDrawerController alloc] initWithCenterViewController:navController leftDrawerViewController:musicVC rightDrawerViewController:gesturesVC];
+    [_drawerController setMaximumLeftDrawerWidth:500];
+    [_drawerController setMaximumRightDrawerWidth:700.0];
+    [_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [_drawerController setShowsShadow:NO];
+    
+    // tint
+    /*UIColor * tintColor = [UIColor colorWithRed:29.0/255.0
+                                          green:173.0/255.0
+                                           blue:234.0/255.0
+                                          alpha:1.0];
+    [self.window setTintColor:tintColor];*/
+    
+    [self.window setRootViewController:_drawerController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -113,7 +130,9 @@
             break;
         case IHSDeviceConnectionStateConnected:
             // Fully connected
-            [TSMessage showNotificationWithTitle:@"Intelligent Headset is connected" type:TSMessageNotificationTypeSuccess];
+            [TSMessage showNotificationWithTitle:@"Intelligent Headset is connected"
+                                            type:TSMessageNotificationTypeSuccess];
+            [_smmDeviceManager playAudio];
             break;
         case IHSDeviceConnectionStateConnectionFailed:
             [TSMessage showNotificationWithTitle:@"Intelligent Headset failed to connect" type:TSMessageNotificationTypeError];
