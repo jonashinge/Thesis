@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  26 MAR 2014 14:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  26 MAR 2014 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,7 +1010,7 @@ Chapter 1.
 
 
 
-] <./Figures/triangulation.pdf, id=257, 963.6pt x 562.1pt>
+] <./Figures/triangulation.pdf, id=292, 963.6pt x 562.1pt>
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
@@ -1021,7 +1021,7 @@ Chapter 2.
 ------------------------------------------------------------------------------
  2 Related work
 ------------------------------------------------------------------------------
-<./Figures/venn.png, id=297, 501.875pt x 501.875pt>
+<./Figures/venn.png, id=333, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
 Package pdftex.def Info: ./Figures/venn.png used on input line 7.
@@ -1030,7 +1030,7 @@ Package pdftex.def Info: ./Figures/venn.png used on input line 7.
 [4
 
  <./Figures/venn.png (PNG copy)>] [5] [6] [7] [8] [9]
-<./Figures/headset-development.jpg, id=399, 891.33pt x 226.8475pt>
+<./Figures/headset-development.jpg, id=434, 891.33pt x 226.8475pt>
 File: ./Figures/headset-development.jpg Graphic file (type jpg)
 
 <use ./Figures/headset-development.jpg>
@@ -1137,9 +1137,6 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 Missing character: There is no â in font cmr10!
@@ -1170,10 +1167,10 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [21]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
+ [21]
 Missing character: There is no Å in font cmr10!
 Missing character: There is no ¾ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -1201,14 +1198,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A1F709288B63337E9584880AD88669FA;6021.
+(rerunfilecheck)             Checksum: C95DD7E75BFA33EC95AD45E1DE1353C3;7427.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21395 strings out of 493315
- 387757 string characters out of 6137903
+ 21405 strings out of 493315
+ 387834 string characters out of 6137903
  389442 words of memory out of 5000000
- 24416 multiletter control sequences out of 15000+600000
+ 24420 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,12n,45p,1542b,963s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1221,10 +1218,10 @@ r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (30 pages, 410628 bytes).
+Output written on Thesis.pdf (30 pages, 411336 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 483 compressed objects within 5 object streams
- 123 named destinations out of 1000 (max. 500000)
- 320 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 584 PDF objects out of 1000 (max. 8388607)
+ 517 compressed objects within 6 object streams
+ 129 named destinations out of 1000 (max. 500000)
+ 376 words of extra memory for PDF output out of 10000 (max. 10000000)
 
