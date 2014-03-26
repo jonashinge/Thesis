@@ -10,4 +10,6 @@
 
 @interface MusicViewController : UIViewController
 
+@property int trackCount;
+
 @end

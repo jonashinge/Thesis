@@ -27,12 +27,13 @@
 
 @interface AudioMenuViewController () <SMMDeviceManagerDelegate, IHS3DAudioDelegate, IHSAudio3DGridModelDelegate, IHSAudio3DGridViewDelegate>
 
-@property BOOL recordingGesture;
+/*@property BOOL recordingGesture;
 @property UIButton *btnRecordGesture;
 @property NSMutableArray *recording;
-@property NSMutableArray *accData;
+@property NSMutableArray *accData;*/
 @property (strong, nonatomic) DTWRecognizer *recognizer;
 @property (strong, nonatomic) IHSAudio3DGridView *view3DAudioGrid;
+@property (strong, nonatomic) UILabel *lblGestureStatus;
 
 @end
 
@@ -60,14 +61,14 @@
 {
     [super viewDidLoad];
     
-    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Menu" image:nil tag:0];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     // Setup audio 3d grid view and model.
     // The gridBounds property is an expression for how big in a physical world
     // the gridview should be. This has nothing to do with how big the gridview is on screen.
     // In this example there are 20 meters from left to right. This has an effect on how
     // sounds are perceived over distance.
-    _view3DAudioGrid = [[IHSAudio3DGridView alloc] initWithFrame:CGRectMake(50, 50, 600, 600)];
+    _view3DAudioGrid = [[IHSAudio3DGridView alloc] initWithFrame:CGRectMake(0, 0, 800, 800)];
     [self.view addSubview:_view3DAudioGrid];
     _view3DAudioGrid.delegate = self;
     _view3DAudioGrid.gridBounds = CGRectMake(-10000, -10000, 20000, 20000); // 20x20 meters - center @ 0,0
@@ -75,22 +76,46 @@
     _view3DAudioGrid.audioModel = [[IHSAudio3DGridModel alloc] init];
     _view3DAudioGrid.audioModel.delegate = self;
     [self loadSounds];
-	
-    /*AudioMenuView *gridView = [[AudioMenuView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    [gridView setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:gridView];*/
-    
-    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     // Navigation setup
     /*[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                                      [UIFont fontWithName:@"Helvetica-Light" size:20], NSFontAttributeName, nil]];
     [self.navigationController.navigationBar.topItem setTitle:@"Spatial Music Menu"];*/
-    [self.navigationController.navigationBar setBarTintColor:UIColorFromRGB(0xdaede2)]; //0xdaede2
+    [self.navigationController.navigationBar setBarTintColor:UIColorFromRGB(0x306e73)];
+    [self.navigationController.navigationBar setTranslucent:NO];
     MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
     [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(rightDrawerButtonPress:)]];
-    [self.navigationController.navigationBar setTintColor:UIColorFromRGB(0x333745)];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    // Setup controls (bottom menu)
+    UIView *controls = [[UIView alloc] initWithFrame:CGRectMake(0, 800, 800, 400)];
+    [controls setBackgroundColor:UIColorFromRGB(0x306e73)];
+    
+    UILabel *lblMoving = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, 280, 50)];
+    [lblMoving setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
+    [lblMoving setTextColor:[UIColor whiteColor]];
+    [lblMoving setText:@"Moving head while rotating"];
+    [controls addSubview:lblMoving];
+    
+    UISwitch *switchMoving = [[UISwitch alloc] initWithFrame:CGRectMake(290, 30, 80, 30)];
+    [controls addSubview:switchMoving];
+    
+    UIButton *btnReset = [[UIButton alloc] initWithFrame:CGRectMake(30, 80, 200, 50)];
+    [btnReset setTitle:@"Reset positions" forState:UIControlStateNormal];
+    [btnReset setBackgroundColor:UIColorFromRGB(0xff5335)];
+    [btnReset.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
+    [controls addSubview:btnReset];
+    
+    _lblGestureStatus = [[UILabel alloc] initWithFrame:CGRectMake(410, 35, 325, 95)];
+    [_lblGestureStatus setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.1]];
+    [_lblGestureStatus setTextAlignment:NSTextAlignmentCenter];
+    [_lblGestureStatus setFont:[UIFont fontWithName:@"Helvetica-Light" size:30]];
+    [_lblGestureStatus setTextColor:[UIColor whiteColor]];
+    [_lblGestureStatus setText:@"__"];
+    [controls addSubview:_lblGestureStatus];
+    
+    [self.view addSubview:controls];
     
     // Device manager
     SMMDeviceManager *manager = APP_DELEGATE.smmDeviceManager;

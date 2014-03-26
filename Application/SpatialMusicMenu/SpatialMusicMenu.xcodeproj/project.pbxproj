@@ -33,6 +33,7 @@
 		3F406C3218E0935F003A5541 /* daftpunk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2F18E0935F003A5541 /* daftpunk.jpg */; };
 		3F406C3318E0935F003A5541 /* eminem.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C3018E0935F003A5541 /* eminem.jpg */; };
 		3F406C3418E0935F003A5541 /* kingsofleon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C3118E0935F003A5541 /* kingsofleon.jpg */; };
+		3F406C3A18E1B9F2003A5541 /* CheckmarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C3918E1B9F2003A5541 /* CheckmarkTableViewCell.m */; };
 		3F5B8A3018CBB33B001396D4 /* Listener-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2418CBB33A001396D4 /* Listener-0.png */; };
 		3F5B8A3118CBB33B001396D4 /* Listener-0.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2518CBB33A001396D4 /* Listener-0.svg */; };
 		3F5B8A3218CBB33B001396D4 /* Listener-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2618CBB33A001396D4 /* Listener-0@2x.png */; };
@@ -127,6 +128,8 @@
 		3F406C2F18E0935F003A5541 /* daftpunk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daftpunk.jpg; sourceTree = "<group>"; };
 		3F406C3018E0935F003A5541 /* eminem.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eminem.jpg; sourceTree = "<group>"; };
 		3F406C3118E0935F003A5541 /* kingsofleon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kingsofleon.jpg; sourceTree = "<group>"; };
+		3F406C3818E1B9F2003A5541 /* CheckmarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckmarkTableViewCell.h; sourceTree = "<group>"; };
+		3F406C3918E1B9F2003A5541 /* CheckmarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckmarkTableViewCell.m; sourceTree = "<group>"; };
 		3F5B8A2418CBB33A001396D4 /* Listener-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listener-0.png"; sourceTree = "<group>"; };
 		3F5B8A2518CBB33A001396D4 /* Listener-0.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Listener-0.svg"; sourceTree = "<group>"; };
 		3F5B8A2618CBB33A001396D4 /* Listener-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listener-0@2x.png"; sourceTree = "<group>"; };
@@ -375,6 +378,8 @@
 				3F406C1818E090EC003A5541 /* AudioSoundAnnotation.m */,
 				3F5B8A6118CBB374001396D4 /* AudioMenuView.h */,
 				3F5B8A6218CBB374001396D4 /* AudioMenuView.m */,
+				3F406C3818E1B9F2003A5541 /* CheckmarkTableViewCell.h */,
+				3F406C3918E1B9F2003A5541 /* CheckmarkTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -691,6 +696,7 @@
 				3F5B8A6618CBB374001396D4 /* AudioMenuView.m in Sources */,
 				3FAFFCEA18CA4C9700B2CFDC /* main.m in Sources */,
 				3F5B8AA818D0C012001396D4 /* DTWRecognizer.m in Sources */,
+				3F406C3A18E1B9F2003A5541 /* CheckmarkTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

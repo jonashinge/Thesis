@@ -47,18 +47,11 @@
     
     // drawer setup
     _drawerController = [[MMDrawerController alloc] initWithCenterViewController:navController leftDrawerViewController:musicVC rightDrawerViewController:gesturesVC];
-    [_drawerController setMaximumLeftDrawerWidth:500];
-    [_drawerController setMaximumRightDrawerWidth:700.0];
+    [_drawerController setMaximumLeftDrawerWidth:400];
+    [_drawerController setMaximumRightDrawerWidth:400.0];
     [_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModePanningCenterView];
     [_drawerController setShowsShadow:NO];
-    
-    // tint
-    /*UIColor * tintColor = [UIColor colorWithRed:29.0/255.0
-                                          green:173.0/255.0
-                                           blue:234.0/255.0
-                                          alpha:1.0];
-    [self.window setTintColor:tintColor];*/
     
     [self.window setRootViewController:_drawerController];
     self.window.backgroundColor = [UIColor whiteColor];
