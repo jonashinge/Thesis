@@ -1,29 +1,11 @@
+---------------------
 Thomas questions
-----------------
-My contribution:
-Evaluate interfaces against a "real world" scenario, application and with accessible hardware
-Use evaluated improved interface/interaction ideas from closely related systems
-- "real world" scenario, application evaluation
-- accessible hardware
-
-Research/related work
-- Section name: Research vs Related work?
-- Venn diagram
-- Table comparison, how many related systems
-
-Design/evaluation plan:
-Iterative design process
-- First investigate and design an early prototype containing all requirements with minimal effort. Build two/three interaction menus
-- Test this prototype on users while observing. Get feedback on menus, improvement suggestions, preferred menu interface
-- Finetune and implement suggestions
-- Final evaluation on testpersons where traditional music application is compaired
+---------------------
 
 
+---------------------
 Feedback
---------
-
-Research -> Related work
-------------------------
+---------------------
 
 Start out with my design, not research areas
 Music players, how have they looked before
@@ -46,27 +28,19 @@ Circles (also subsection):
 - Mobile HCI (interaction on the move "problem", cognitive load)
 - Multimodal interaction (what kind of modalities have people done, spatial sound)
 
-
-Method
-------
+Method:
 How do you intend to address the problem in pr.statement and arrive to the goal
 - Describe shortly each iteration
 
-
-Design
-------
+Design:
 Abstract design of the final prototype
 Shold solve some of the problems mentioned in related work (head gesture control, etc..)
 Menu description here
 
-
-Implementation
---------------
+Implementation:
 Early prototype evaluation can be discussed here
 
-
-Evaluation
-----------
+Evaluation:
 Linear format
 
 Combined evaluation:
@@ -74,33 +48,13 @@ Combined evaluation:
 - Realistic environment ()
 
 
-
-
-
-Chapter 1
----------
-
-Chapter 2
----------
-
-Chapter 3
----------
-
-Chapter 4
----------
-
-Chapter 5
----------
-
-Chapter 6
----------
-
-
-Implementation
---------------
-Interaction menus:
-- 3D grid, circular menu, 120 degrees, direction attached to head rotation
-- 3D grid, circular menu, 360 degrees, "wheel"
+---------------------
+Application
+---------------------
+- Add syncing albums
+- Gestures recording/dispatching
+- Menu hookup with playlists/albums
+- Menu gesture interaction
 
 
 
