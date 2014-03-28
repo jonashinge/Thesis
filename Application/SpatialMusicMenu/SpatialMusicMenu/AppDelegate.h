@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "SMMDeviceManager.h"
+#import "MusicManager.h"
+#import "PersistencyManager.h"
+#import "DeezerClient.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SMMDeviceManager *smmDeviceManager;
+//@property (strong, nonatomic) MusicManager *musicManager;
+@property (strong, nonatomic) PersistencyManager *persistencyManager;
+@property (strong, nonatomic) DeezerClient *deezerClient;
 
 // Convenience getter for app delegate:
 #define APP_DELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])

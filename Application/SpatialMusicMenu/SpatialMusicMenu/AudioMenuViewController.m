@@ -14,7 +14,7 @@
 #import "AudioSource.h"
 #import "AudioSoundAnnotation.h"
 #import "AudioListenerAnnotation.h"
-#import "MusicAPI.h"
+#import "MusicManager.h"
 #import "DTWRecognizer.h"
 #import "AudioListenerAnnotation.h"
 
@@ -125,8 +125,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    //MusicAPI *musicAPI = [MusicAPI sharedInstance];
 }
 
 - (void)didReceiveMemoryWarning

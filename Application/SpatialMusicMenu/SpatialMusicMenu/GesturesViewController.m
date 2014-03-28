@@ -44,7 +44,7 @@
     _btnRecordGesture.layer.cornerRadius = 100;
     [_btnRecordGesture setTitle:@"Start" forState:UIControlStateNormal];
     [_btnRecordGesture.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:30]];
-    [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xb29c85)];
+    [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff5335)];
     [_btnRecordGesture setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_btnRecordGesture addTarget:self
                           action:@selector(recordButtonPressed)
@@ -84,14 +84,14 @@
         [APP_DELEGATE.smmDeviceManager startRecordingGesture];
         
         [_btnRecordGesture setTitle:@"Stop" forState:UIControlStateNormal];
-        [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff5335)];
+        [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff3535)];
     }
     else
     {
         [APP_DELEGATE.smmDeviceManager stopRecordingGesture];
         
         [_btnRecordGesture setTitle:@"Start" forState:UIControlStateNormal];
-        [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xb29c85)];
+        [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff5335)];
     }
 }
 
@@ -126,7 +126,7 @@
         [cell.textLabel setTextColor:[UIColor whiteColor]];
         [cell setBackgroundColor:[UIColor clearColor]];
         UIView *selBg = [[UIView alloc] initWithFrame:cell.frame];
-        [selBg setBackgroundColor:UIColorFromRGB(0xb29c85)];
+        [selBg setBackgroundColor:UIColorFromRGB(0xff5335)];
         [cell setSelectedBackgroundView:selBg];
         
         if([indexPath row] == 0)

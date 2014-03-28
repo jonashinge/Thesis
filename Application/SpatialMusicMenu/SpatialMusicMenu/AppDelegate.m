@@ -89,6 +89,30 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+#pragma mark - DeezerClient instance
+
+- (DeezerClient *)deezerClient
+{
+    if(_deezerClient == nil)
+    {
+        _deezerClient = [[DeezerClient alloc] init];
+    }
+    return _deezerClient;
+}
+
+#pragma mark - PersistencyManager instance
+
+- (PersistencyManager *)persistencyManager
+{
+    if(_persistencyManager == nil)
+    {
+        _persistencyManager = [[PersistencyManager alloc] init];
+    }
+    return _persistencyManager;
+}
+
+
 #pragma mark - Custom DeviceManager methods
 
 - (SMMDeviceManager *)smmDeviceManager

@@ -15,6 +15,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
+             @"itemId": @"id",
              @"title": @"title",
              @"preview": @"preview"
              };

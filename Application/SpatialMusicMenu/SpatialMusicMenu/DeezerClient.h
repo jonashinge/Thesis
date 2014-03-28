@@ -10,4 +10,6 @@
 
 @interface DeezerClient : NSObject
 
+- (void)connectAndStartSync;
+
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12168AD74ADC45FEB13282A0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B45DC6543041BA8C959CAD /* libPods.a */; };
+		3F0A497518E5A69A0018D62C /* TrackArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A497418E5A69A0018D62C /* TrackArchiver.m */; };
 		3F18737218CA4FB0009D81F7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737118CA4FB0009D81F7 /* AudioToolbox.framework */; };
 		3F18737418CA4FBD009D81F7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737318CA4FBD009D81F7 /* CFNetwork.framework */; };
 		3F18737618CA4FC7009D81F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737518CA4FC7009D81F7 /* CoreLocation.framework */; };
@@ -34,6 +35,8 @@
 		3F406C3318E0935F003A5541 /* eminem.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C3018E0935F003A5541 /* eminem.jpg */; };
 		3F406C3418E0935F003A5541 /* kingsofleon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C3118E0935F003A5541 /* kingsofleon.jpg */; };
 		3F406C3A18E1B9F2003A5541 /* CheckmarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C3918E1B9F2003A5541 /* CheckmarkTableViewCell.m */; };
+		3F406C3D18E42BCB003A5541 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C3C18E42BCB003A5541 /* Playlist.m */; };
+		3F406C4118E4CD25003A5541 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C4018E4CD25003A5541 /* PersistencyManager.m */; };
 		3F5B8A3018CBB33B001396D4 /* Listener-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2418CBB33A001396D4 /* Listener-0.png */; };
 		3F5B8A3118CBB33B001396D4 /* Listener-0.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2518CBB33A001396D4 /* Listener-0.svg */; };
 		3F5B8A3218CBB33B001396D4 /* Listener-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A2618CBB33A001396D4 /* Listener-0@2x.png */; };
@@ -67,7 +70,6 @@
 		3F5B8A9218CBB3CB001396D4 /* WMM.COF in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B8A8218CBB3CB001396D4 /* WMM.COF */; };
 		3F5B8A9318CBB3CB001396D4 /* IHS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5B8A8318CBB3CB001396D4 /* IHS.framework */; };
 		3F5B8A9818CBC513001396D4 /* DeezerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A9718CBC513001396D4 /* DeezerClient.m */; };
-		3F5B8A9C18CCAE3A001396D4 /* MusicAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A9B18CCAE3A001396D4 /* MusicAPI.m */; };
 		3F5B8AA018CDC36A001396D4 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8A9F18CDC36A001396D4 /* Track.m */; };
 		3F5B8AA818D0C012001396D4 /* DTWRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B8AA718D0C012001396D4 /* DTWRecognizer.m */; };
 		3F8C2E7118D3ADE7000C05F0 /* SMMDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8C2E7018D3ADE7000C05F0 /* SMMDeviceManager.m */; };
@@ -98,6 +100,8 @@
 /* Begin PBXFileReference section */
 		30E9CE8588CF4677B3755F5C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		31B45DC6543041BA8C959CAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0A497318E5A69A0018D62C /* TrackArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackArchiver.h; sourceTree = "<group>"; };
+		3F0A497418E5A69A0018D62C /* TrackArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackArchiver.m; sourceTree = "<group>"; };
 		3F18737118CA4FB0009D81F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3F18737318CA4FBD009D81F7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3F18737518CA4FC7009D81F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -130,6 +134,10 @@
 		3F406C3118E0935F003A5541 /* kingsofleon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kingsofleon.jpg; sourceTree = "<group>"; };
 		3F406C3818E1B9F2003A5541 /* CheckmarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckmarkTableViewCell.h; sourceTree = "<group>"; };
 		3F406C3918E1B9F2003A5541 /* CheckmarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckmarkTableViewCell.m; sourceTree = "<group>"; };
+		3F406C3B18E42BCB003A5541 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
+		3F406C3C18E42BCB003A5541 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
+		3F406C3F18E4CD25003A5541 /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
+		3F406C4018E4CD25003A5541 /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
 		3F5B8A2418CBB33A001396D4 /* Listener-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listener-0.png"; sourceTree = "<group>"; };
 		3F5B8A2518CBB33A001396D4 /* Listener-0.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Listener-0.svg"; sourceTree = "<group>"; };
 		3F5B8A2618CBB33A001396D4 /* Listener-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listener-0@2x.png"; sourceTree = "<group>"; };
@@ -182,8 +190,6 @@
 		3F5B8A8318CBB3CB001396D4 /* IHS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IHS.framework; sourceTree = "<group>"; };
 		3F5B8A9618CBC513001396D4 /* DeezerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeezerClient.h; sourceTree = "<group>"; };
 		3F5B8A9718CBC513001396D4 /* DeezerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeezerClient.m; sourceTree = "<group>"; };
-		3F5B8A9A18CCAE3A001396D4 /* MusicAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicAPI.h; sourceTree = "<group>"; };
-		3F5B8A9B18CCAE3A001396D4 /* MusicAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicAPI.m; sourceTree = "<group>"; };
 		3F5B8A9E18CDC36A001396D4 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		3F5B8A9F18CDC36A001396D4 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		3F5B8AA618D0C012001396D4 /* DTWRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTWRecognizer.h; sourceTree = "<group>"; };
@@ -243,6 +249,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F0A497618E5C0BF0018D62C /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				3F5B8A5F18CBB374001396D4 /* NSString+IHSDeviceConnectionState.h */,
+				3F5B8A6018CBB374001396D4 /* NSString+IHSDeviceConnectionState.m */,
+				3F5B8AA618D0C012001396D4 /* DTWRecognizer.h */,
+				3F5B8AA718D0C012001396D4 /* DTWRecognizer.m */,
+				3F0A497318E5A69A0018D62C /* TrackArchiver.h */,
+				3F0A497418E5A69A0018D62C /* TrackArchiver.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		3F406C1E18E09339003A5541 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,15 +416,6 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		3F5B8A9918CCACE6001396D4 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				3F5B8A9A18CCAE3A001396D4 /* MusicAPI.h */,
-				3F5B8A9B18CCAE3A001396D4 /* MusicAPI.m */,
-			);
-			name = API;
-			sourceTree = "<group>";
-		};
 		3F5B8A9D18CDC310001396D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +423,8 @@
 				3F406C1C18E090FE003A5541 /* AudioSource.m */,
 				3F5B8A9E18CDC36A001396D4 /* Track.h */,
 				3F5B8A9F18CDC36A001396D4 /* Track.m */,
+				3F406C3B18E42BCB003A5541 /* Playlist.h */,
+				3F406C3C18E42BCB003A5541 /* Playlist.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -463,22 +475,20 @@
 		3FAFFCE318CA4C9700B2CFDC /* SpatialMusicMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3F0A497618E5C0BF0018D62C /* Misc */,
 				3F5B8A9D18CDC310001396D4 /* Model */,
-				3F5B8A9918CCACE6001396D4 /* API */,
 				3F5B8A9518CBC0BA001396D4 /* Controller */,
 				3F5B8A9418CBC086001396D4 /* View */,
-				3F5B8A5F18CBB374001396D4 /* NSString+IHSDeviceConnectionState.h */,
-				3F5B8A6018CBB374001396D4 /* NSString+IHSDeviceConnectionState.m */,
-				3FAFFCEC18CA4C9700B2CFDC /* AppDelegate.h */,
-				3FAFFCED18CA4C9700B2CFDC /* AppDelegate.m */,
 				3FAFFCEF18CA4C9700B2CFDC /* Images.xcassets */,
 				3FAFFCE418CA4C9700B2CFDC /* Supporting Files */,
+				3FAFFCEC18CA4C9700B2CFDC /* AppDelegate.h */,
+				3FAFFCED18CA4C9700B2CFDC /* AppDelegate.m */,
 				3F5B8A9618CBC513001396D4 /* DeezerClient.h */,
 				3F5B8A9718CBC513001396D4 /* DeezerClient.m */,
-				3F5B8AA618D0C012001396D4 /* DTWRecognizer.h */,
-				3F5B8AA718D0C012001396D4 /* DTWRecognizer.m */,
 				3F8C2E6F18D3ADE7000C05F0 /* SMMDeviceManager.h */,
 				3F8C2E7018D3ADE7000C05F0 /* SMMDeviceManager.m */,
+				3F406C3F18E4CD25003A5541 /* PersistencyManager.h */,
+				3F406C4018E4CD25003A5541 /* PersistencyManager.m */,
 			);
 			path = SpatialMusicMenu;
 			sourceTree = "<group>";
@@ -685,12 +695,14 @@
 				3F5B8A9818CBC513001396D4 /* DeezerClient.m in Sources */,
 				3F406C0F18D4EF0A003A5541 /* MusicViewController.m in Sources */,
 				3F406C1918E090EC003A5541 /* AudioListenerAnnotation.m in Sources */,
-				3F5B8A9C18CCAE3A001396D4 /* MusicAPI.m in Sources */,
 				3F406C1D18E090FE003A5541 /* AudioSource.m in Sources */,
+				3F406C3D18E42BCB003A5541 /* Playlist.m in Sources */,
 				3F5B8AA018CDC36A001396D4 /* Track.m in Sources */,
+				3F0A497518E5A69A0018D62C /* TrackArchiver.m in Sources */,
 				3F8C2E7118D3ADE7000C05F0 /* SMMDeviceManager.m in Sources */,
 				3F406C1A18E090EC003A5541 /* AudioSoundAnnotation.m in Sources */,
 				3F406C1218D4EF3A003A5541 /* GesturesViewController.m in Sources */,
+				3F406C4118E4CD25003A5541 /* PersistencyManager.m in Sources */,
 				3F5B8A6518CBB374001396D4 /* NSString+IHSDeviceConnectionState.m in Sources */,
 				3FAFFCEE18CA4C9700B2CFDC /* AppDelegate.m in Sources */,
 				3F5B8A6618CBB374001396D4 /* AudioMenuView.m in Sources */,
