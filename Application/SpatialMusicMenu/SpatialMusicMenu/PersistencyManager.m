@@ -27,6 +27,10 @@
 #define DEBUGLog(format, ...) NSLog(format, ## __VA_ARGS__)
 #endif
 
+
+#define TRACK_NUMBER @"TrackNumber"
+#define ACTIVE_PLAYLIST_ID @"ActivePlaylistId"
+
 @implementation PersistencyManager
 
 - (id)init
@@ -43,6 +47,30 @@
         }
     }
     return self;
+}
+
+- (void)setTrackNumber:(int)nr
+{
+    NSUserDefaults* standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    [standardUserDefaults setObject:[NSNumber numberWithInt:nr] forKey:TRACK_NUMBER];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRACK_NUMBER_UPDATED
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+- (int)trackNumber
+{
+    NSUserDefaults* standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *nr = [standardUserDefaults objectForKey:TRACK_NUMBER];
+    if(nr)
+    {
+        return [nr integerValue];
+    }
+    else
+    {
+        return 3;
+    }
 }
 
 - (void)syncExistingPlaylistsWithList:(Playlist *)list
@@ -95,6 +123,30 @@
             });
         }
     }
+}
+
+- (void)saveActivePlaylist:(Playlist *)list
+{
+    NSUserDefaults* standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    [standardUserDefaults setObject:list.itemId forKey:ACTIVE_PLAYLIST_ID];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ACTIVE_PLAYLIST_UPDATED
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+- (Playlist *)getActivePlaylist
+{
+    NSUserDefaults* standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *itemId = [standardUserDefaults objectForKey:ACTIVE_PLAYLIST_ID];
+    for(Playlist *pl in _playlists)
+    {
+        if([pl.itemId isEqualToString:itemId])
+        {
+            return pl;
+        }
+    }
+    return nil;
 }
 
 - (NSArray *)getPlaylists

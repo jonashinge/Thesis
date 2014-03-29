@@ -115,45 +115,54 @@ Audio output can in general be divided in two ways \cite{rocchesso_sounding_2003
 
 Work has shown that non-speech audio is effective in improving the interaction in mobile environments \cite{pirhonen_gestural_2002, sawhney_nomadic_2000}.
 
+When presenting the audio it's important to consider the attention which is required by the user while this can have a great impact on the cognitive load. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} presents two kinds of attention-tasks:
 
-% Maybe selective-attention and divided-attention defs.
+\begin{description}
+\item{1: \textit{Selective-attention task}}, presenting multiple audio streams the user selectively choose which one to assign the attention e.g. listening to a voicemail while listening to a music track. This results in a lower cognitive load.
 
-\section{Spatial Audio Interface}
+\item{2: \textit{Divided-attention task}}, in this case the user is forced to respond to each audio stream presented e.g. talking over the phone while interacting with a calendar using a audio menu. The attention gets divided and result in a higher cognitive load.
+\end{description}
+
+In this project multiple audio sources (music tracks) are presented for the user at the same time but none of them requires a respond i.e. the focus is on selective-attention tasks.
+
+
+\section{Spatial Audio Interaction}
+
 
 \subsection{Spatial Audio}
-
-% From Brewster article (vazquez-alvarez_eyes-free_2011)
-%Different attention demands impose different amounts of cognitive load on the user. When David is listening to the voicemail left by Stephen, he is focusing attention on the voicemail audio stream while monitoring his music (a se- lective-attention task). However, when David is talking to Stephen while interacting with his calendar using an audio menu to find a suitable time for their meeting, David is di- viding his attention between both audio streams (a divided- attention task). The first task results in less cognitive load, and the second in higher cognitive load.
 
 % Spatial Sound (HRTF)
 %HRTF: Good reference for 3d sound \cite{begault_3dd_1994}
 
-% Audio menus
+% From Brewster article (vazquez-alvarez_eyes-free_2011)
+% less cognitive load for selective-attention tasks
 
-% Intelligent Headset
-
-
-
-% OLD STUFF
-% ---------
 % motivation for audio and spatial sound feedback
 %William W. Gaver, a pioneer in audio interfaces, has explored several aspects of using sound in interfaces including the intuitiveness of presenting complex information to users in the form of audio \cite{gaver_sonicfinder:_1989}. Similarly Graham explores the advantages in reaction time when using ”auditory icons” \cite{graham_use_1999}. In \cite{gaver_auditory_1986} Gaver presents the use of spatial sound icons. In doing so, he draws forward the unutilized potential of creating natural interaction through spatial audio.
 
+\subsection{Audio menus}
+
+% Maybe Intelligent Headset (Headset Interface)
+
 
 \section{Related systems}
-[TODO: intro]
+This section describes the systems that are most related to this project. First each system is presented - then selected properties related to this projects goal of each system are compaired and summarized in a table.
 
+% 1
 % closely related to my project
 Brewster et al. showed that novel interaction techniques based on sound and gesture can significantly improve the usability of a wearable device in particular under "eyes-free" mobile conditions and that head gestures was a successful interaction technique with egocentric sounds the most effective \cite{brewster_multimodaleyes-freeinteraction_2003}.
 
+% 2
 Park et al. also experimented, using head gesture input and aural output, with 1D and 2D menu interfaces \cite{park_gaze-directed_2011}.
 
+% 3
 Kajastila and Lokki has done a user study comparing auditory and visual menus controlled by the same free-hand gestures where the majority of the participants felt that an auditory circular menu was faster than a visual based menu \cite{kajastila_interaction_2013}.
 
-\subsection{Systems properties overview}
-[TODO]
+% 4
+Touch gesture and non-speech audio as ways to improve the user interface of a mobile music player \cite{pirhonen_gestural_2002}.
 
-Table compairing properties of related work (and this project) example fig. \ref{tab:related} (NOTE: temp, i need some input for this...).
+\subsection{Systems properties overview}
+For this project specific properties of the system are required. Related systems that contains these properties can be valuable input for this project. To give an overview - these properties are presented in table \ref{tab:related}.
 
 \begin{table}[h] 
 \caption{Related works properties comparison} % title name of the table 
@@ -169,9 +178,20 @@ Table compairing properties of related work (and this project) example fig. \ref
 % - 1-1 evaluation against real world application
 
 \begin{tabular}{L{4cm}C{2cm}C{2cm}C{2cm}C{2cm}} \toprule
-    Related work & Head gesture interaction & Spatial sound feedback & Music application & Accessible hardware \\ \midrule
-    Multimodal eyes-free interaction techniques for wearable devices \cite{brewster_multimodaleyes-freeinteraction_2003}  & + & + & - & - \\ \midrule
-    This project  & + & + & + & + \\ \bottomrule
+    Properties & System 1 & System 2 & System 3 & System 4 \\ \midrule
+    In-motion interaction   & + & + & - & - \\
+    \\
+	Output modality \\ %\midrule
+	\\
+	Input modality (Head, foot, hand) \\
+	\\
+	Menu depth (1D, 2D) \\
+	\\
+	Using accessible hardware \\
+	\\
+	Controlling music application \\
+	\\
+	1-1 evaluation against real world application \\ \bottomrule
 \end{tabular}
 
 \label{tab:related} 

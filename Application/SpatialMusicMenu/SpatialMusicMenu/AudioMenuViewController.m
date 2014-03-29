@@ -14,9 +14,9 @@
 #import "AudioSource.h"
 #import "AudioSoundAnnotation.h"
 #import "AudioListenerAnnotation.h"
-#import "MusicManager.h"
 #import "DTWRecognizer.h"
 #import "AudioListenerAnnotation.h"
+#import "PersistencyManager.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <IHS/IHS.H>
@@ -60,6 +60,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAudioGrid) name:TRACK_NUMBER_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAudioGrid) name:ACTIVE_PLAYLIST_UPDATED object:nil];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -131,6 +134,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refreshAudioGrid
+{
+    DEBUGLog(@"REFRESH AUDIO GRID");
 }
 
 - (void)loadSounds

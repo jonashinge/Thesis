@@ -64,6 +64,11 @@
     [_ihsDevice play];
 }
 
+- (void)stopAudio
+{
+    [_ihsDevice stop];
+}
+
 - (void)addSound:(IHSAudio3DSound *)sound
 {
     [_ihsDevice addSound:sound];

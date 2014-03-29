@@ -43,6 +43,7 @@
 
 - (void)connectToDevice;
 - (void)playAudio;
+- (void)stopAudio;
 - (void)addSound:(IHSAudio3DSound *)sound;
 - (void)removeSound:(IHSAudio3DSound *)sound;
 - (void)startRecordingGesture;

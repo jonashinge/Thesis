@@ -1,10 +1,25 @@
 ---------------------
+TODO today
+---------------------
+Chapter 2:
+- Rest of audio section
+- Spatial Audio Interface
+- Related systems
+
+Chapter 3
+- Design process
+
+
+---------------------
 Thomas questions
 ---------------------
+Chapter 2 (Related systems)
+- Research systems vs "finished" systems, should i include both?
+- Headings for each system?
 
 
 ---------------------
-Feedback
+Thomas Feedback
 ---------------------
 
 Start out with my design, not research areas
@@ -46,6 +61,12 @@ Linear format
 Combined evaluation:
 - Controlled environment (ecological factor low)
 - Realistic environment ()
+
+
+---------------------
+Report
+---------------------
+
 
 
 ---------------------

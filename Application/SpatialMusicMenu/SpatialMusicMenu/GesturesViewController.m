@@ -84,7 +84,7 @@
         [APP_DELEGATE.smmDeviceManager startRecordingGesture];
         
         [_btnRecordGesture setTitle:@"Stop" forState:UIControlStateNormal];
-        [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff3535)];
+        [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff0000)];
     }
     else
     {
@@ -93,6 +93,20 @@
         [_btnRecordGesture setTitle:@"Start" forState:UIControlStateNormal];
         [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff5335)];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [APP_DELEGATE.smmDeviceManager stopAudio];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [APP_DELEGATE.smmDeviceManager playAudio];
 }
 
 

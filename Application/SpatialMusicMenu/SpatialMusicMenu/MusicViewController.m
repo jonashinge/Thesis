@@ -18,7 +18,7 @@
 
 
 // Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
-#define DEBUG_PRINTOUT      1
+#define DEBUG_PRINTOUT      0
 
 #if !DEBUG_PRINTOUT
 #define DEBUGLog(format, ...)
@@ -62,7 +62,7 @@
     _lblTrackCounter = [[UILabel alloc] initWithFrame:CGRectMake(150, 140, 100, 80)];
     [_lblTrackCounter setFont:[UIFont fontWithName:@"Helvetica" size:48]];
     [_lblTrackCounter setTextColor:[UIColor whiteColor]];
-    [_lblTrackCounter setText:@"3"];
+    [_lblTrackCounter setText:[NSString stringWithFormat:@"%d",APP_DELEGATE.persistencyManager.trackNumber]];
     [_lblTrackCounter setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:_lblTrackCounter];
     
@@ -94,6 +94,8 @@
 {
     UIStepper *step = stepper;
     _trackCount = [step value];
+    
+    [APP_DELEGATE.persistencyManager setTrackNumber:_trackCount];
     
     // Update label
     [_lblTrackCounter setText:[NSString stringWithFormat:@"%d",_trackCount]];
@@ -134,16 +136,34 @@
     Playlist *pl = (Playlist *)[[APP_DELEGATE.persistencyManager getPlaylists] objectAtIndex:indexPath.row];
     [cell.textLabel setText:pl.title];
     
+    // Sync status
     if(pl.isReadyForSpatialAudioUse)
     {
         [cell.detailTextLabel setText:@"Ready"];
     }
     else
     {
-        [cell.detailTextLabel setText:@"Not synced yet..."];
+        [cell.detailTextLabel setText:@"Not synced"];
+    }
+    
+    // Active status
+    if(pl == [APP_DELEGATE.persistencyManager getActivePlaylist])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [APP_DELEGATE.persistencyManager saveActivePlaylist:[[APP_DELEGATE.persistencyManager getPlaylists] objectAtIndex:indexPath.row]];
+    
+    [self refreshTable];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
