@@ -104,6 +104,7 @@ Instead sensor based detection of head movements could be used e.g. acceleromete
 With this interface it is possible to detect not only the head rotation (gyroscope) but also the acceleration (accelerometer) when the head is moving. There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010} but this project will use a simple Dynamic Time Warping algorithm \cite{meinard_muller_information_2007} as the gestures used are short and simple e.g. nodding or shaking the head and the focus is not on optimizing and precisioning the gestures.
 
 \subsection{Audio as output modality}
+\label{sec:audiomodality}
 Replacing visual with audio output has shown to have a positive effect when interacting in motion. Brewster showed, by compairing visual and audio feedback when pushing buttons on the same GUI, that it was difficult for users to devote all their visual attention to an interface while walking, running og driving and that the interaction workload decreased with audio feedback \cite{brewster_overcoming_2002}.
 
 % Speech vs Non-speech audio
@@ -127,20 +128,21 @@ In this project multiple audio sources (music tracks) are presented for the user
 
 
 \section{Spatial Audio Interaction}
-
+This section describes how the before mentioned modalities - head gestures input and audio output can be used for interaction with the enforcement of spatial audio.
 
 \subsection{Spatial Audio}
+% intro - what is spatial audio, HRTF
+Spatial audio or 3D audio allows a sound source to appear as if it is coming from anywhere in space around a listener \cite{begault_3dd_1994}. This can be achieved by using HRTF (Head Related Transfer Function). HRTF attempts to model the frequency modulations of a sound entering the human ear from a given direction and is implemented in many soundcards today.
 
-% Spatial Sound (HRTF)
-%HRTF: Good reference for 3d sound \cite{begault_3dd_1994}
+% Advantages refs
+Spatial audio has shown to be effective in several aspects. William W. Gaver, a pioneer in audio interfaces, has explored the intuitiveness of presenting complex information to users in the form of audio \cite{gaver_sonicfinder:_1989}. Similarly Graham explores the advantages in reaction time when using "auditory icons" \cite{graham_use_1999}. Gaver presents the use of spatial sound icons \cite{gaver_auditory_1986}. In doing so, he draws forward the unutilized potential of creating natural interaction through spatial audio.
 
-% From Brewster article (vazquez-alvarez_eyes-free_2011)
-% less cognitive load for selective-attention tasks
-
-% motivation for audio and spatial sound feedback
-%William W. Gaver, a pioneer in audio interfaces, has explored several aspects of using sound in interfaces including the intuitiveness of presenting complex information to users in the form of audio \cite{gaver_sonicfinder:_1989}. Similarly Graham explores the advantages in reaction time when using ”auditory icons” \cite{graham_use_1999}. In \cite{gaver_auditory_1986} Gaver presents the use of spatial sound icons. In doing so, he draws forward the unutilized potential of creating natural interaction through spatial audio.
+% Multiple sound sources, cognitive load effect
+Previous research has also shown that spatial audio is a successful technique for segregating multiple audio streams \cite{schmandt_audiostreamer:_1995, walker_spatial_2000}. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} shows in a study that when users must be able to direct their attention selectively to each individual audio stream representing a task (selective-attention task) - spatial audio had a great effect. In this case the cognitive load was kept low as described in \ref{sec:audiomodality}.
 
 \subsection{Audio menus}
+
+% 1D/2D - my defintion
 
 % Maybe Intelligent Headset (Headset Interface)
 
