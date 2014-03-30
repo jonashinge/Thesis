@@ -17,6 +17,8 @@
 #import "DTWRecognizer.h"
 #import "AudioListenerAnnotation.h"
 #import "PersistencyManager.h"
+#import "Playlist.h"
+#import "Track.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <IHS/IHS.H>
@@ -34,6 +36,8 @@
 @property (strong, nonatomic) DTWRecognizer *recognizer;
 @property (strong, nonatomic) IHSAudio3DGridView *view3DAudioGrid;
 @property (strong, nonatomic) UILabel *lblGestureStatus;
+
+enum{ MENU_HOME=0, MENU_ALBUM, PLAYING_TRACK };
 
 @end
 
@@ -61,8 +65,8 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAudioGrid) name:TRACK_NUMBER_UPDATED object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAudioGrid) name:ACTIVE_PLAYLIST_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAudioMenu) name:TRACK_NUMBER_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAudioMenu) name:ACTIVE_PLAYLIST_UPDATED object:nil];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -123,6 +127,9 @@
     // Device manager
     SMMDeviceManager *manager = APP_DELEGATE.smmDeviceManager;
     manager.delegate = self;
+    
+    // Init audio menu
+    [self changeAudioMenuState:MENU_HOME];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -136,11 +143,42 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)refreshAudioGrid
+- (void)resetAudioMenu
 {
-    DEBUGLog(@"REFRESH AUDIO GRID");
-    
-    
+    [self changeAudioMenuState:MENU_HOME];
+}
+
+- (void)initMenuWithTracks:(NSArray *)tracks AndLimit:(int)limit
+{
+    for (int i=0; i<[tracks count]; i++) {
+        if(i < limit)
+        {
+            Track *track = [tracks objectAtIndex:i];
+            DEBUGLog(@"Place audio source %@",track.title);
+        }
+    }
+}
+
+- (void)changeAudioMenuState:(int)state
+{
+    switch (state) {
+        case MENU_HOME:
+        {
+            Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
+            [self initMenuWithTracks:pl.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+            break;
+        }
+        case MENU_ALBUM:
+        {
+            break;
+        }
+        case PLAYING_TRACK:
+        {
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)loadSounds

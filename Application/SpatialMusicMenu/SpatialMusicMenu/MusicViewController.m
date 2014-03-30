@@ -69,6 +69,7 @@
     UIStepper *stepperTracks = [[UIStepper alloc] initWithFrame:CGRectMake(150, 230, 160, 60)];
     [stepperTracks setMaximumValue:10];
     [stepperTracks setMinimumValue:3];
+    [stepperTracks setValue:APP_DELEGATE.persistencyManager.trackNumber];
     [stepperTracks setTintColor:[UIColor whiteColor]];
     [stepperTracks addTarget:self action:@selector(stepperTracksChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:stepperTracks];
