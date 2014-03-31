@@ -1,30 +1,31 @@
 //
-//  Track.m
+//  Album.m
 //  SpatialMusicMenu
 //
-//  Created by Jonas Hinge on 10/03/2014.
+//  Created by Jonas Hinge on 31/03/2014.
 //  Copyright (c) 2014 Jonas Hinge. All rights reserved.
 //
+
+#import "Album.h"
 
 #import "Track.h"
 
 #import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
 
-@implementation Track
+@implementation Album
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
              @"itemId": @"id",
              @"title": @"title",
-             @"preview": @"preview",
-             @"albumId": @"album.id"
+             @"tracks": @"tracks.data"
              };
 }
 
-+ (NSValueTransformer *)previewJSONTransformer
++ (NSValueTransformer *)tracksJSONTransformer
 {
-    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Track class]];
 }
 
 @end

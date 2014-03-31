@@ -18,6 +18,9 @@
 @property (strong, nonatomic) PersistencyManager *persistencyManager;
 @property (strong, nonatomic) DeezerClient *deezerClient;
 
+// Constants
+#define kTrackLimit 10
+
 // Convenience getter for app delegate:
 #define APP_DELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 

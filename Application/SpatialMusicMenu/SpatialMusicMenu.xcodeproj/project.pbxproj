@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12168AD74ADC45FEB13282A0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B45DC6543041BA8C959CAD /* libPods.a */; };
 		3F0A497518E5A69A0018D62C /* TrackArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A497418E5A69A0018D62C /* TrackArchiver.m */; };
+		3F0A497918E956ED0018D62C /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A497818E956ED0018D62C /* Album.m */; };
 		3F18737218CA4FB0009D81F7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737118CA4FB0009D81F7 /* AudioToolbox.framework */; };
 		3F18737418CA4FBD009D81F7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737318CA4FBD009D81F7 /* CFNetwork.framework */; };
 		3F18737618CA4FC7009D81F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737518CA4FC7009D81F7 /* CoreLocation.framework */; };
@@ -102,6 +103,8 @@
 		31B45DC6543041BA8C959CAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0A497318E5A69A0018D62C /* TrackArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackArchiver.h; sourceTree = "<group>"; };
 		3F0A497418E5A69A0018D62C /* TrackArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackArchiver.m; sourceTree = "<group>"; };
+		3F0A497718E956ED0018D62C /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		3F0A497818E956ED0018D62C /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		3F18737118CA4FB0009D81F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3F18737318CA4FBD009D81F7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3F18737518CA4FC7009D81F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -425,6 +428,8 @@
 				3F5B8A9F18CDC36A001396D4 /* Track.m */,
 				3F406C3B18E42BCB003A5541 /* Playlist.h */,
 				3F406C3C18E42BCB003A5541 /* Playlist.m */,
+				3F0A497718E956ED0018D62C /* Album.h */,
+				3F0A497818E956ED0018D62C /* Album.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -698,6 +703,7 @@
 				3F406C1D18E090FE003A5541 /* AudioSource.m in Sources */,
 				3F406C3D18E42BCB003A5541 /* Playlist.m in Sources */,
 				3F5B8AA018CDC36A001396D4 /* Track.m in Sources */,
+				3F0A497918E956ED0018D62C /* Album.m in Sources */,
 				3F0A497518E5A69A0018D62C /* TrackArchiver.m in Sources */,
 				3F8C2E7118D3ADE7000C05F0 /* SMMDeviceManager.m in Sources */,
 				3F406C1A18E090EC003A5541 /* AudioSoundAnnotation.m in Sources */,

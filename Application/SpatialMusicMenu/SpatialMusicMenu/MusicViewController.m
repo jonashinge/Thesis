@@ -47,6 +47,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:DEEZER_PLAYLIST_INFO_UPDATED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:DEEZER_PLAYLIST_DATA_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:DEEZER_ALBUM_INFO_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:DEEZER_ALBUM_DATA_UPDATED object:nil];
     
     [self.view setBackgroundColor:UIColorFromRGB(0x3a424c)];
     
@@ -138,7 +140,7 @@
     [cell.textLabel setText:pl.title];
     
     // Sync status
-    if(pl.isReadyForSpatialAudioUse)
+    if([APP_DELEGATE.persistencyManager playlistIsReady:pl])
     {
         [cell.detailTextLabel setText:@"Ready"];
     }

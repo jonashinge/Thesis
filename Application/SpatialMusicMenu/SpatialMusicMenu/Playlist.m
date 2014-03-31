@@ -9,6 +9,7 @@
 #import "Playlist.h"
 
 #import "Track.h"
+#import "Album.h"
 
 #import "NSValueTransformer+MTLPredefinedTransformerAdditions.h"
 

@@ -8,18 +8,21 @@
 
 #import "PersistencyManager.h"
 
+#import "AppDelegate.h"
 #import "Playlist.h"
 #import "Track.h"
+#import "Album.h"
 #import "TrackArchiver.h"
 
 @interface PersistencyManager ()
 
 @property (strong, nonatomic) NSMutableArray *playlists;
+@property (strong, nonatomic) NSMutableArray *albums;
 
 @end
 
 // Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
-#define DEBUG_PRINTOUT      0
+#define DEBUG_PRINTOUT      1
 
 #if !DEBUG_PRINTOUT
 #define DEBUGLog(format, ...)
@@ -40,10 +43,16 @@
     {
         NSData *data = [NSData dataWithContentsOfFile:[NSHomeDirectory() stringByAppendingString:@"/Documents/playlists.bin"]];
         _playlists = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        
         if(_playlists == nil)
         {
             _playlists = [[NSMutableArray alloc] init];
+        }
+        
+        data = [NSData dataWithContentsOfFile:[NSHomeDirectory() stringByAppendingString:@"/Documents/albums.bin"]];
+        _albums = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if(_albums == nil)
+        {
+            _albums = [[NSMutableArray alloc] init];
         }
     }
     return self;
@@ -100,29 +109,99 @@
 
 - (void)syncTrackDataForPlaylistWithId:(NSString *)itemId
 {
-    Playlist *pl;
-    for (int i=0; i<[_playlists count]; i++) {
-        pl = [_playlists objectAtIndex:i];
-        if([pl.itemId isEqualToString:itemId])
-        // Tracks
-        for (int j=0; j<[pl.tracks count]; j++)
+    dispatch_queue_t myQueue = dispatch_queue_create("Playlist Queue",NULL);
+    dispatch_async(myQueue, ^{
+        
+        // Perform long running process
+        Playlist *pl;
+        for (int i=0; i<[_playlists count]; i++) {
+            pl = [_playlists objectAtIndex:i];
+            if([pl.itemId isEqualToString:itemId])
+            {
+                // Tracks
+                for (int j=0; j<[pl.tracks count]; j++)
+                {
+                    if(j < kTrackLimit)
+                    {
+                        Track *track = [pl.tracks objectAtIndex:j];
+                        TrackArchiver *archiver = [[TrackArchiver alloc] init];
+                        [archiver archiveTrack:track];
+                        
+                        archiver = nil;
+                    }
+                }
+            }
+        }
+        // finished
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // E.g. update the UI
+            [[NSNotificationCenter defaultCenter] postNotificationName:DEEZER_PLAYLIST_DATA_UPDATED
+                                                                object:self
+                                                              userInfo:nil];
+        });
+    });
+}
+
+
+
+- (void)syncExistingAlbumsWithAlbum:(Album *)album
+{
+    BOOL albumAdded = NO;
+    for (int i=0; i<[_albums count]; i++) {
+        Album *alb = [_albums objectAtIndex:i];
+        if([alb.itemId isEqualToString:album.itemId])
         {
-            dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-            dispatch_async(myQueue, ^{
-                // Perform long running process
-                Track *track = [pl.tracks objectAtIndex:j];
-                TrackArchiver *archiver = [[TrackArchiver alloc] init];
-                [archiver archiveTrack:track];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    // Update the UI
-                    [[NSNotificationCenter defaultCenter] postNotificationName:DEEZER_PLAYLIST_DATA_UPDATED
-                                                                        object:self
-                                                                      userInfo:nil];
-                });
-            });
+            [_albums replaceObjectAtIndex:i withObject:album];
+            albumAdded = YES;
         }
     }
+    if(albumAdded == NO)
+    {
+        [_albums addObject:album];
+    }
+    
+    NSString *filename = [NSHomeDirectory() stringByAppendingString:@"/Documents/albums.bin"];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_albums];
+    [data writeToFile:filename atomically:YES];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DEEZER_ALBUM_INFO_UPDATED
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+- (void)syncTrackDataForAlbumWithId:(NSString *)itemId
+{
+    dispatch_queue_t myQueue = dispatch_queue_create("Album Queue",NULL);
+    dispatch_async(myQueue, ^{
+        
+        // Perform long running process
+        Album *album;
+        for (int i=0; i<[_albums count]; i++) {
+            album = [_albums objectAtIndex:i];
+            if([album.itemId isEqualToString:itemId])
+            {
+                // Tracks
+                for (int j=0; j<[album.tracks count]; j++)
+                {
+                    if(j < kTrackLimit)
+                    {
+                        Track *track = [album.tracks objectAtIndex:j];
+                        TrackArchiver *archiver = [[TrackArchiver alloc] init];
+                        [archiver archiveTrack:track];
+                        
+                        archiver = nil;
+                    }
+                }
+            }
+        }
+        // finished
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // E.g. update the UI
+            [[NSNotificationCenter defaultCenter] postNotificationName:DEEZER_ALBUM_DATA_UPDATED
+                                                                object:self
+                                                              userInfo:nil];
+        });
+    });
 }
 
 - (void)saveActivePlaylist:(Playlist *)list
@@ -152,6 +231,63 @@
 - (NSArray *)getPlaylists
 {
     return _playlists;
+}
+
+- (Album *)getAlbumForTrack:(Track *)track
+{
+    for(int i=0; i<[_albums count]; i++)
+    {
+        Album *alb = [_albums objectAtIndex:i];
+        if([alb.itemId isEqualToString:track.albumId])
+        {
+            return alb;
+        }
+    }
+    return nil;
+}
+
+- (BOOL)playlistIsReady:(Playlist *)list
+{
+    if([list.tracks count] < 2)
+    {
+        return NO;
+    }
+    for (int i=0; i<[list.tracks count]; i++) {
+        Track *track = [list.tracks objectAtIndex:i];
+        NSArray *dirs = NSSearchPathForDirectoriesInDomains
+        (NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
+        NSString *exportPath = [documentsDirectoryPath
+                                stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",track.itemId]];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:exportPath])
+        {
+            for(int j=0; j<[_albums count]; j++)
+            {
+                Album *alb = [_albums objectAtIndex:j];
+                if([alb.itemId isEqualToString:track.albumId])
+                {
+                    for(int k=0; k<[alb.tracks count]; k++)
+                    {
+                        if(k < kTrackLimit)
+                        {
+                            Track *albTrack = [alb.tracks objectAtIndex:k];
+                            NSString *exportPath = [documentsDirectoryPath
+                                                    stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",albTrack.itemId]];
+                            if (![[NSFileManager defaultManager] fileExistsAtPath:exportPath])
+                            {
+                                return NO;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 @end

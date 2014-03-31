@@ -1,13 +1,7 @@
 ---------------------
 TODO today
 ---------------------
-Chapter 2:
-- Rest of audio section
-- Spatial Audio Interface
-- Related systems
 
-Chapter 3
-- Design process
 
 
 ---------------------

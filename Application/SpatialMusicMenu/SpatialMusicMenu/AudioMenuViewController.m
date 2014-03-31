@@ -37,7 +37,9 @@
 @property (strong, nonatomic) IHSAudio3DGridView *view3DAudioGrid;
 @property (strong, nonatomic) UILabel *lblGestureStatus;
 
-enum{ MENU_HOME=0, MENU_ALBUM, PLAYING_TRACK };
+@property (readonly) int audioMenuState;
+
+enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 
 @end
 
@@ -129,7 +131,7 @@ enum{ MENU_HOME=0, MENU_ALBUM, PLAYING_TRACK };
     manager.delegate = self;
     
     // Init audio menu
-    [self changeAudioMenuState:MENU_HOME];
+    [self resetAudioMenu];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -161,7 +163,14 @@ enum{ MENU_HOME=0, MENU_ALBUM, PLAYING_TRACK };
 
 - (void)changeAudioMenuState:(int)state
 {
+    _audioMenuState = state;
+    
     switch (state) {
+        case MENU_ACTIVATED:
+        {
+            // 3 sec limbo
+            break;
+        }
         case MENU_HOME:
         {
             Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];

@@ -131,6 +131,7 @@
                 [self performSelectorOnMainThread:@selector(updateSizeLabel:)
                                        withObject:convertedByteCountNumber
                                     waitUntilDone:NO];
+                convertedByteCountNumber = nil;
             }
             else {
                 // done!
@@ -148,8 +149,18 @@
                                     waitUntilDone:NO];
                 break;
             }
+            CFRelease(nextBuffer);
+            nextBuffer = nil;
         }
     }];
+}
+
+- (void)dealloc
+{
+    _assetReader = nil;
+    _assetWriter = nil;
+    _assetWriterInput = nil;
+    _exportPath = nil;
 }
 
 - (void)updateSizeLabel:(id)sender

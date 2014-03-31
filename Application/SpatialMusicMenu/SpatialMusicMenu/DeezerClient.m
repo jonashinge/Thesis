@@ -11,6 +11,8 @@
 #import "DeezerConnect.h"
 #import "Playlist.h"
 #import "AppDelegate.h"
+#import "Track.h"
+#import "Album.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -118,12 +120,43 @@
     // Playlist (including tracks)
     else
     {
-        Playlist *playlist = [MTLJSONAdapter modelOfClass:[Playlist class] fromJSONDictionary:json error:&error];
-        
-        DEBUGLog(@"Playlist mantle object: %@",playlist);
-        
-        [APP_DELEGATE.persistencyManager syncExistingPlaylistsWithList:playlist];
-        [APP_DELEGATE.persistencyManager syncTrackDataForPlaylistWithId:playlist.itemId];
+        if([json objectForKey:@"type"] != nil)
+        {
+            NSString *type = [json objectForKey:@"type"];
+            
+            if([type isEqualToString:@"playlist"])
+            {
+                Playlist *playlist = [MTLJSONAdapter modelOfClass:[Playlist class] fromJSONDictionary:json error:&error];
+                
+                [APP_DELEGATE.persistencyManager syncExistingPlaylistsWithList:playlist];
+                [APP_DELEGATE.persistencyManager syncTrackDataForPlaylistWithId:playlist.itemId];
+                
+                DEBUGLog(@"Playlist mantle object: %@",playlist);
+                
+                for (int i=0; i<[playlist.tracks count]; i++)
+                {
+                    if(i < kTrackLimit)
+                    {
+                        Track *track = [playlist.tracks objectAtIndex:i];
+                        NSString *servicePath = [NSString stringWithFormat:@"album/%@",track.albumId];
+                        DeezerRequest *req = [self.deezerConnect createRequestWithServicePath:servicePath
+                                                                                       params:nil
+                                                                                     delegate:self];
+                        
+                        [self.deezerConnect launchAsyncRequest:req];
+                    }
+                }
+            }
+            else if([type isEqualToString:@"album"])
+            {
+                Album *album = [MTLJSONAdapter modelOfClass:[Album class] fromJSONDictionary:json error:&error];
+                
+                [APP_DELEGATE.persistencyManager syncExistingAlbumsWithAlbum:album];
+                [APP_DELEGATE.persistencyManager syncTrackDataForAlbumWithId:album.itemId];
+                
+                DEBUGLog(@"Album mantle object: %@",album);
+            }
+        }
     }
 }
 
