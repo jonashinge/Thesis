@@ -47,6 +47,7 @@
 - (void)addSound:(IHSAudio3DSound *)sound;
 - (void)removeSound:(IHSAudio3DSound *)sound;
 - (void)startRecordingGesture;
-- (void)stopRecordingGesture;
+- (NSArray *)stopRecordingGesture;
+- (void)updateGestures:(NSArray *)gestures;
 
 @end

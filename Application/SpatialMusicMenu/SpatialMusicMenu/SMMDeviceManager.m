@@ -10,6 +10,7 @@
 
 #import "NSString+IHSDeviceConnectionState.h"
 #import "DTWRecognizer.h"
+#import "Gesture.h"
 
 @interface SMMDeviceManager () <IHSDeviceDelegate, IHSSensorsDelegate>
 
@@ -43,6 +44,11 @@
         [_ihsDevice provideAPIKey:@"3tXvpy2WbqLIkaxaiEtYt2DF8sjf8rt0lOGqjDNesGG+/gFDZ6Rpjs19KFRZALrvzMWJQuJfdjtNI//k0Gl2cA=="];
         _ihsDevice.deviceDelegate = self;
         _ihsDevice.sensorsDelegate = self;
+        
+        // Setup recognizer and recording array
+        _recognizer = [[DTWRecognizer alloc] initWithDimension:6 GlobalThreshold:0.1 FirstThreshold:0.05 AndMaxSlope:2];
+        _accData = [[NSMutableArray alloc] init];
+        _recording = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -91,12 +97,25 @@
 
 - (void)startRecordingGesture
 {
+    _recording = [[NSMutableArray alloc] init];
+    
     _isRecordingGesture = YES;
 }
 
-- (void)stopRecordingGesture
+- (NSArray *)stopRecordingGesture
 {
     _isRecordingGesture = NO;
+    
+    return _recording;
+}
+
+- (void)updateGestures:(NSArray *)gestures
+{
+    [_recognizer clearAllKnownSequences];
+    
+    for (Gesture *gest in gestures) {
+        [_recognizer addKnownSequence:gest.data WithLabel:gest.label];
+    }
 }
 
 
@@ -119,10 +138,6 @@
             // Save the preferred device, so we can connect to the same headset next time.
             [[NSUserDefaults standardUserDefaults] setObject:_ihsDevice.preferredDevice forKey:@"preferredDevice"];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            // Setup recognizer and recording array
-            _recognizer = [[DTWRecognizer alloc] initWithDimension:6 GlobalThreshold:0.1 FirstThreshold:0.05 AndMaxSlope:2];
-            _accData = [[NSMutableArray alloc] init];
             break;
         default:
             break;
@@ -180,7 +195,10 @@
             {
                 DEBUGLog(@"Recognized gesture: %@",result);
                 
-                [_delegate smmDeviceManager:self gestureRecognized:result];
+                if([_delegate respondsToSelector:@selector(smmDeviceManager:gestureRecognized:)])
+                {
+                    [_delegate smmDeviceManager:self gestureRecognized:result];
+                }
                 
                 [_accData removeAllObjects];
             }

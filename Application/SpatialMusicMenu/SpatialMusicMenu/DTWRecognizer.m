@@ -42,7 +42,13 @@
     return self;
 }
 
-- (void)addKnownSequence:(NSMutableArray *)seq WithLabel:(NSString *)label
+- (void)clearAllKnownSequences
+{
+    [self.sequences removeAllObjects];
+    [self.labels removeAllObjects];
+}
+
+- (void)addKnownSequence:(NSArray *)seq WithLabel:(NSString *)label
 {
     [self.sequences addObject:seq];
     [self.labels addObject:label];

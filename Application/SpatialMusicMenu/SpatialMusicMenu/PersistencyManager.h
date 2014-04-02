@@ -10,6 +10,7 @@
 
 @class Playlist;
 @class Album;
+@class Gesture;
 
 @interface PersistencyManager : NSObject
 
@@ -25,6 +26,10 @@
 - (Playlist *)getActivePlaylist;
 - (NSArray *)getPlaylists;
 - (BOOL)playlistIsReady:(Playlist *)list;
+
+- (void)addGesture:(Gesture *)gesture;
+- (void)removeGesture:(Gesture *)gesture;
+- (NSArray *)getGestures;
 
 @end
 

@@ -17,12 +17,22 @@
 {
     if (self = [super init]) {
         _imageName = imageName;
-
-        NSURL* urlSound = [[NSBundle mainBundle] URLForResource:soundName withExtension:@"wav"];
+        
+        NSArray *dirs = NSSearchPathForDirectoriesInDomains
+        (NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
+        NSString *exportPath = [documentsDirectoryPath
+                                stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",soundName]];
+        NSURL *urlSound = [NSURL fileURLWithPath:exportPath isDirectory:NO];
         _sound = [[IHSAudio3DSound alloc] initWithURL:urlSound];
     }
 
     return self;
+}
+
+- (void)dealloc
+{
+    _sound = nil;
 }
 
 

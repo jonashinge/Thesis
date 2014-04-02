@@ -34,4 +34,9 @@
     return self;
 }
 
+- (void)dealloc
+{
+    _imageView = nil;
+}
+
 @end

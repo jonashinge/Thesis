@@ -11,50 +11,53 @@ Chapter 2 (Related systems)
 - Research systems vs "finished" systems, should i include both?
 - Headings for each system?
 
+Chapter 3 (design process)
+- Prototype 1 and 2 (in-situ observation, semi-structured interview)
+	test gestures, record gestures
+	test menu, 2 kinds of localization, distance
+- Lab evalution
+	Outdoor track with -kegler-
+	Tasks, i shout when and what track should be changed
+- Ecological evaluation
+	1 week with the system using it while biking
+
 
 ---------------------
 Thomas Feedback
 ---------------------
+Intro:
+Distraction -> find another word and explain, e.g. parallel tasks
+Already mention "interaction in motion" here
+Method ->
+	Abstract, what kind of methods, how many iterations
 
-Start out with my design, not research areas
-Music players, how have they looked before
-Mention the problems
-Then talk about improvements, look into other modalities, what has been done before
-Mobile HCI (good heading)
-Shahram term: "Interaction on the move", short paper from 2013
-Interaction on the move subsection to the mobile hci
-Drop HCI, just mobile HCI
+Cognitive load -> needs to be more precise
 
-Mobile HCI
+Mobile Music Player UI + related systems -> maybe another title
+- related systems -> be general
 
-Multimodal interaction (wider)
-Talk about it in general
-Then go into details about head gestures, audio feedback
-
-Venn diagram
-Circles (also subsection):
-- Mobile music player UI (start with this) (music players right now)
-- Mobile HCI (interaction on the move "problem", cognitive load)
-- Multimodal interaction (what kind of modalities have people done, spatial sound)
-
-Method:
-How do you intend to address the problem in pr.statement and arrive to the goal
-- Describe shortly each iteration
+System use description should be in design section
+In design section:
+Look back on related work and reason choosed design
+At the end of design section i will have an abstract "solution"
 
 Design:
-Abstract design of the final prototype
-Shold solve some of the problems mentioned in related work (head gesture control, etc..)
-Menu description here
+Present the alternatives
 
-Implementation:
-Early prototype evaluation can be discussed here
+Implementation
+Present the alternatives
 
 Evaluation:
-Linear format
+Quantitative: Time, Errors
+Qualitative: Comfort
 
-Combined evaluation:
-- Controlled environment (ecological factor low)
-- Realistic environment ()
+Semi-structured interview
+Interview, forms
+5 people might be a good number
+Avoid noise as much as possible
+
+Overall: To ambigous right now - be more precise
+
 
 
 ---------------------

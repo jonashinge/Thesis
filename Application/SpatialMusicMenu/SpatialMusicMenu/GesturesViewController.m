@@ -9,6 +9,7 @@
 #import "GesturesViewController.h"
 
 #import "AppDelegate.h"
+#import "Gesture.h"
 
 @interface GesturesViewController () <SMMDeviceManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -69,6 +70,10 @@
     _tableRecordedGestures.backgroundView = nil;
     [_tableRecordedGestures setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];
     [self.view addSubview:_tableRecordedGestures];
+    
+    // Add persisted gestures
+    NSArray *gestures = [APP_DELEGATE.persistencyManager getGestures];
+    [APP_DELEGATE.smmDeviceManager updateGestures:gestures];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,10 +93,17 @@
     }
     else
     {
-        [APP_DELEGATE.smmDeviceManager stopRecordingGesture];
+        NSArray *gestureData = [APP_DELEGATE.smmDeviceManager stopRecordingGesture];
         
         [_btnRecordGesture setTitle:@"Start" forState:UIControlStateNormal];
         [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff5335)];
+        
+        Gesture *gesture = [[Gesture alloc] init];
+        [gesture setLabel:[self gestureLabel:_gestureSelected]];
+        [gesture setData:gestureData];
+        [APP_DELEGATE.persistencyManager addGesture:gesture];
+        [APP_DELEGATE.smmDeviceManager updateGestures:[APP_DELEGATE.persistencyManager getGestures]];
+        [_tableRecordedGestures reloadData];
     }
 }
 
@@ -120,7 +132,7 @@
     }
     else
     {
-        return 10;
+        return [[APP_DELEGATE.persistencyManager getGestures] count];
     }
 }
 
@@ -169,10 +181,19 @@
         [cell setBackgroundColor:[UIColor clearColor]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        [cell.textLabel setText:@"Item"];
+        Gesture *gest = [[APP_DELEGATE.persistencyManager getGestures] objectAtIndex:indexPath.row];
+        [cell.textLabel setText:gest.label];
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0)
+    {
+        _gestureSelected = indexPath.row;
+    }
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -189,7 +210,30 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Gesture *gest = [[APP_DELEGATE.persistencyManager getGestures] objectAtIndex:indexPath.row];
+        [APP_DELEGATE.persistencyManager removeGesture:gest];
+    }
+}
+
+- (NSString *)gestureLabel:(int)gestureNr
+{
+    switch (gestureNr) {
+        case 0:
+            return @"ACTIVATE";
+            break;
+        case 1:
+            return @"NOD";
+            break;
+        case 2:
+            return @"SHAKE";
+            break;
+            
+        default:
+            return @"__UNKNOWN";
+            break;
+    }
 }
 
 

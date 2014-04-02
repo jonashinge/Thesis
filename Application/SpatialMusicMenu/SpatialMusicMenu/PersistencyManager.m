@@ -12,12 +12,15 @@
 #import "Playlist.h"
 #import "Track.h"
 #import "Album.h"
+#import "Gesture.h"
 #import "TrackArchiver.h"
 
 @interface PersistencyManager ()
 
 @property (strong, nonatomic) NSMutableArray *playlists;
 @property (strong, nonatomic) NSMutableArray *albums;
+
+@property (strong, nonatomic) NSMutableArray *gestures;
 
 @end
 
@@ -54,9 +57,18 @@
         {
             _albums = [[NSMutableArray alloc] init];
         }
+        
+        data = [NSData dataWithContentsOfFile:[NSHomeDirectory() stringByAppendingString:@"/Documents/gestures.bin"]];
+        _gestures = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if(_gestures == nil)
+        {
+            _gestures = [[NSMutableArray alloc] init];
+        }
     }
     return self;
 }
+
+#pragma mark - tracks
 
 - (void)setTrackNumber:(int)nr
 {
@@ -289,5 +301,32 @@
     }
     return YES;
 }
+
+
+#pragma mark - gestures
+
+- (void)addGesture:(Gesture *)gesture
+{
+    [_gestures addObject:gesture];
+    
+    NSString *filename = [NSHomeDirectory() stringByAppendingString:@"/Documents/gestures.bin"];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_gestures];
+    [data writeToFile:filename atomically:YES];
+}
+
+- (void)removeGesture:(Gesture *)gesture
+{
+    [_gestures removeObject:gesture];
+    
+    NSString *filename = [NSHomeDirectory() stringByAppendingString:@"/Documents/gestures.bin"];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_gestures];
+    [data writeToFile:filename atomically:YES];
+}
+
+- (NSArray *)getGestures
+{
+    return _gestures;
+}
+
 
 @end

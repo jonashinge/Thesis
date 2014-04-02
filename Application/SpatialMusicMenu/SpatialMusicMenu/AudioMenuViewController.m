@@ -38,6 +38,8 @@
 @property (strong, nonatomic) UILabel *lblGestureStatus;
 
 @property (readonly) int audioMenuState;
+@property (nonatomic) int centerDirection;
+@property (strong, nonatomic) NSMutableArray *soundAnnotations;
 
 enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 
@@ -51,6 +53,12 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 #else
 #define DEBUGLog(format, ...) NSLog(format, ## __VA_ARGS__)
 #endif
+
+// Constants
+const float DEGREE_SPAN = 120;
+const float AREA = 30000; // e.g. 20000 = 20x20m
+const float DISTANCE = 12000; // e.g. 8000 = 8m
+const float FRONT = 1000; // e.g. 1000 = 1m in front of user
 
 @implementation AudioMenuViewController
 
@@ -72,6 +80,8 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
+    _soundAnnotations = [[NSMutableArray alloc] init];
+    
     // Setup audio 3d grid view and model.
     // The gridBounds property is an expression for how big in a physical world
     // the gridview should be. This has nothing to do with how big the gridview is on screen.
@@ -80,11 +90,11 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     _view3DAudioGrid = [[IHSAudio3DGridView alloc] initWithFrame:CGRectMake(0, 0, 800, 800)];
     [self.view addSubview:_view3DAudioGrid];
     _view3DAudioGrid.delegate = self;
-    _view3DAudioGrid.gridBounds = CGRectMake(-10000, -10000, 20000, 20000); // 20x20 meters - center @ 0,0
+    _view3DAudioGrid.gridBounds = CGRectMake(-AREA/2, -AREA/2, AREA, AREA); // 20x20 meters - center @ 0,0
     _view3DAudioGrid.listenerAnnotation = [[AudioListenerAnnotation alloc] init];
     _view3DAudioGrid.audioModel = [[IHSAudio3DGridModel alloc] init];
     _view3DAudioGrid.audioModel.delegate = self;
-    [self loadSounds];
+    //[self loadSounds];
     
     // Navigation setup
     /*[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -150,15 +160,41 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     [self changeAudioMenuState:MENU_HOME];
 }
 
-- (void)initMenuWithTracks:(NSArray *)tracks AndLimit:(int)limit
+- (void)initMenuWithTracks:(NSArray *)tracks AndLimit:(float)limit
 {
-    for (int i=0; i<[tracks count]; i++) {
+    for (AudioSoundAnnotation *anno in _view3DAudioGrid.soundAnnotations) {
+        [_view3DAudioGrid removeAnnotation:anno];
+    }
+    /*for(int i=0; i<[_view3DAudioGrid.audioModel.sources count]; i++)
+    {
+        AudioSource *as = [_view3DAudioGrid.audioModel.sources objectAtIndex:i];
+        //[_view3DAudioGrid removeObserver:as forKeyPath:@"position"];
+        as = nil;
+    }*/
+    [_view3DAudioGrid.audioModel removeAllSources];
+
+    AudioSource* audioSource;
+    for (int i=0; i<[tracks count]; i++)
+    {
         if(i < limit)
         {
+            //float extra = DEGREE_SPAN/(limit*limit);
+            float deg_pos = (270-DEGREE_SPAN/2) + (DEGREE_SPAN/limit)*i + DEGREE_SPAN/limit/2;
+            float x = 0 + (DISTANCE*cos((deg_pos*M_PI)/180));
+            float y = 0 - (DISTANCE*sin((deg_pos*M_PI)/180));
+            
             Track *track = [tracks objectAtIndex:i];
+            
+            audioSource = [[AudioSource alloc] initWithSound:track.itemId andImage:@"daftpunk.jpg"];
+            audioSource.position = CGPointMake(x, y);
+            audioSource.sound.repeats = YES;
+            [_view3DAudioGrid.audioModel addSource:audioSource];
+            
             DEBUGLog(@"Place audio source %@",track.title);
         }
     }
+    
+    [APP_DELEGATE.smmDeviceManager playAudio];
 }
 
 - (void)changeAudioMenuState:(int)state
@@ -168,7 +204,8 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     switch (state) {
         case MENU_ACTIVATED:
         {
-            // 3 sec limbo
+            // 3 sec limbo getting the center direction
+            _centerDirection = 150; // e.g.
             break;
         }
         case MENU_HOME:
@@ -190,7 +227,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     }
 }
 
-- (void)loadSounds
+/*- (void)loadSounds
 {
     AudioSource* audioSource;
     
@@ -213,7 +250,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     audioSource.position = CGPointMake(-3500, 0);
     audioSource.sound.repeats = YES;
     [_view3DAudioGrid.audioModel addSource:audioSource];
-}
+}*/
 
 /*- (void)btnRecordDown
 {
@@ -259,9 +296,17 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     _view3DAudioGrid.audioModel.listenerHeading = heading + 90;
     
     // setting position
-    float x = 0 + (3000*cos((heading*M_PI)/180));
-    float y = 0 - (3000*sin((heading*M_PI)/180));
+    float front = DISTANCE-FRONT;
+    float x = 0 + (front*cos((heading*M_PI)/180));
+    float y = 0 - (front*sin((heading*M_PI)/180));
     _view3DAudioGrid.audioModel.listenerPosition = CGPointMake(x, y);
+}
+
+- (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSString *)label
+{
+    DEBUGLog(@"Gesture recognized : %@",label);
+    
+    [_lblGestureStatus setText:label];
 }
 
 

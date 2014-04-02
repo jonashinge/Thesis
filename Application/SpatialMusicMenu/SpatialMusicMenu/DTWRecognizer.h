@@ -11,7 +11,8 @@
 @interface DTWRecognizer : NSObject
 
 - (id)initWithDimension:(NSInteger)dimension GlobalThreshold:(CGFloat)threshold FirstThreshold:(CGFloat)firstThreshold AndMaxSlope:(NSInteger)maxSlope;
-- (void)addSequence:(NSMutableArray *)seq WithLabel:(NSString *)label;
+- (void)addKnownSequence:(NSArray *)seq WithLabel:(NSString *)label;
 - (NSString *)recognizeSequence:(NSArray *)seq;
+- (void)clearAllKnownSequences;
 
 @end
