@@ -98,12 +98,15 @@
         [_btnRecordGesture setTitle:@"Start" forState:UIControlStateNormal];
         [_btnRecordGesture setBackgroundColor:UIColorFromRGB(0xff5335)];
         
-        Gesture *gesture = [[Gesture alloc] init];
-        [gesture setLabel:[self gestureLabel:_gestureSelected]];
-        [gesture setData:gestureData];
-        [APP_DELEGATE.persistencyManager addGesture:gesture];
-        [APP_DELEGATE.smmDeviceManager updateGestures:[APP_DELEGATE.persistencyManager getGestures]];
-        [_tableRecordedGestures reloadData];
+        if([gestureData count] > 5)
+        {
+            Gesture *gesture = [[Gesture alloc] init];
+            [gesture setLabel:[self gestureLabel:_gestureSelected]];
+            [gesture setData:gestureData];
+            [APP_DELEGATE.persistencyManager addGesture:gesture];
+            [APP_DELEGATE.smmDeviceManager updateGestures:[APP_DELEGATE.persistencyManager getGestures]];
+            [_tableRecordedGestures reloadData];
+        }
     }
 }
 
@@ -214,6 +217,8 @@
     {
         Gesture *gest = [[APP_DELEGATE.persistencyManager getGestures] objectAtIndex:indexPath.row];
         [APP_DELEGATE.persistencyManager removeGesture:gest];
+        [APP_DELEGATE.smmDeviceManager updateGestures:[APP_DELEGATE.persistencyManager getGestures]];
+        [_tableRecordedGestures reloadData];
     }
 }
 

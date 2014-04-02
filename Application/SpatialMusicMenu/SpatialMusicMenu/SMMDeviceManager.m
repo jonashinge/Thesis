@@ -18,6 +18,7 @@
 @property (strong, nonatomic) DTWRecognizer *recognizer;
 @property (strong, nonatomic) NSMutableArray *accData;
 @property NSMutableArray *recording;
+@property int accDataCounter;
 
 // Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
 #define DEBUG_PRINTOUT      1
@@ -29,6 +30,8 @@
 #endif
 
 @end
+
+const int WINDOW_SIZE = 50;
 
 @implementation SMMDeviceManager
 
@@ -46,7 +49,7 @@
         _ihsDevice.sensorsDelegate = self;
         
         // Setup recognizer and recording array
-        _recognizer = [[DTWRecognizer alloc] initWithDimension:6 GlobalThreshold:0.1 FirstThreshold:0.05 AndMaxSlope:2];
+        _recognizer = [[DTWRecognizer alloc] initWithDimension:5 GlobalThreshold:0.08 FirstThreshold:0.05 AndMaxSlope:2];
         _accData = [[NSMutableArray alloc] init];
         _recording = [[NSMutableArray alloc] init];
     }
@@ -170,10 +173,10 @@
                         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.y],
                         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.z],
                         [NSNumber numberWithFloat:_ihsDevice.pitch/90], // values from -1 to 1
-                        [NSNumber numberWithFloat:_ihsDevice.yaw/360], // values from -1 to 1
                         [NSNumber numberWithFloat:_ihsDevice.roll/90], nil]; // values from -1 to 1
         
         //DEBUGLog(@"Fusion data: %@",obs);
+        _accDataCounter += 1;
         
         // Record gesture
         if(_isRecordingGesture)
@@ -190,18 +193,23 @@
             {
                 [_accData removeObjectAtIndex:0];
             }
-            NSString *result = [_recognizer recognizeSequence:_accData];
-            if(![result isEqual: @"__UNKNOWN"])
+            if(_accDataCounter == WINDOW_SIZE)
             {
-                DEBUGLog(@"Recognized gesture: %@",result);
-                
-                if([_delegate respondsToSelector:@selector(smmDeviceManager:gestureRecognized:)])
+                NSString *result = [_recognizer recognizeSequence:_accData];
+                if(![result isEqual: @"__UNKNOWN"])
                 {
-                    [_delegate smmDeviceManager:self gestureRecognized:result];
+                    DEBUGLog(@"Recognized gesture: %@",result);
+                    
+                    if([_delegate respondsToSelector:@selector(smmDeviceManager:gestureRecognized:)])
+                    {
+                        [_delegate smmDeviceManager:self gestureRecognized:result];
+                    }
+                    
+                    [_accData removeAllObjects];
                 }
-                
-                [_accData removeAllObjects];
+                _accDataCounter = 0;
             }
+            
         }
     }
 }

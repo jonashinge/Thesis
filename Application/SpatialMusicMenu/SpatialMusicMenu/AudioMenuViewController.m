@@ -35,6 +35,7 @@
 @property NSMutableArray *accData;*/
 @property (strong, nonatomic) DTWRecognizer *recognizer;
 @property (strong, nonatomic) IHSAudio3DGridView *view3DAudioGrid;
+@property (strong, nonatomic) UIView *viewLblGestureBackground;
 @property (strong, nonatomic) UILabel *lblGestureStatus;
 
 @property (readonly) int audioMenuState;
@@ -126,12 +127,16 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
     [btnReset.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
     [controls addSubview:btnReset];
     
+    _viewLblGestureBackground = [[UIView alloc] initWithFrame:CGRectMake(410, 35, 325, 95)];
+    [_viewLblGestureBackground setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.1]];
     _lblGestureStatus = [[UILabel alloc] initWithFrame:CGRectMake(410, 35, 325, 95)];
-    [_lblGestureStatus setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.1]];
+    [_lblGestureStatus setBackgroundColor:[UIColor clearColor]];
     [_lblGestureStatus setTextAlignment:NSTextAlignmentCenter];
     [_lblGestureStatus setFont:[UIFont fontWithName:@"Helvetica-Light" size:30]];
     [_lblGestureStatus setTextColor:[UIColor whiteColor]];
     [_lblGestureStatus setText:@"__"];
+    [_lblGestureStatus setAlpha:0];
+    [controls addSubview:_viewLblGestureBackground];
     [controls addSubview:_lblGestureStatus];
     
     [self.view addSubview:controls];
@@ -304,9 +309,15 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
 
 - (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSString *)label
 {
-    DEBUGLog(@"Gesture recognized : %@",label);
-    
     [_lblGestureStatus setText:label];
+    
+    [UIView animateWithDuration:0.7 animations:^{
+        _lblGestureStatus.alpha = 1;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.7 animations:^{
+            _lblGestureStatus.alpha = 0;
+        }];
+    }];
 }
 
 
