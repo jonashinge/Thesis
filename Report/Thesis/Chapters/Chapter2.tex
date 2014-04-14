@@ -1,6 +1,12 @@
 \lhead{\emph{Related work}}
 \chapter{Related work}
-In this chapter specific research areas and systems related to this thesis are presented. First the current situation on mobile music player user interfaces is described. Then a wider description of two research areas; mobile HCI and multimodal interaction are presented before going into details about how previous developed interaction techniques within these two areas can be combined with a mobile music player UI. A graphical overview is shown in fig. \ref{fig:venn}.
+% intro, current state on mobile music players
+The rise of the smartphone and the introduction of music streaming services e.g. Spotify, Deezer, Pandora, WIMP and more have resulted in an increase in mobile music listening - in fact the number of mobile music listeners has more than doubled from 2011 to 2013 according to a study in America \cite{emarketer_music_2014}. Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, there is still a factor that remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in todays "typical" smartphone music application.
+
+% typical interfaces, challenges
+Todays "typical" music player user interface could cause interaction challenges when a user is on the move. Imagine a biking scenario where the user wants to change music track in a smartphone music application. This would require: Fetching the device e.g. from a pocket, switching the screen on, maybe unlocking the screen with a password, navigating through the music application GUI, switch the screen of, put smartphone back in pocket. Also the smartphone touch interface requires bare fingers for input recognition so removing gloves (in winter season) could also be a step in the process. A process that happens while the user is navigating through traffic. Studies show that while a user is doing an activity a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}.
+
+Related to this mobile user navigation challenge two research areas are presented in this chapter; Mobile HCI and Multimodal Interaction. Finally specific mobile systems using an alternative interaction form including mobile music players are presented in the last section. A graphical overview is shown in fig. \ref{fig:venn}.
 
 \begin{figure}[htbp]
 	\centering
@@ -9,30 +15,6 @@ In this chapter specific research areas and systems related to this thesis are p
 	\caption[Venn diagram]{Thesis topic position}
 	\label{fig:venn}
 \end{figure}
-
-
-\section{Mobile Music Player UI}
-
-% intro
-The rise of the smartphone and the introduction of music streaming services e.g. Spotify, Deezer, Pandora, WIMP and more have resulted in an increase in mobile music listening - in fact the number of mobile music listeners has more than doubled from 2011 to 2013 according to a study in America \cite{emarketer_music_2014}. Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, there is still a factor that remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in todays "typical" smartphone music application.
-
-% typical interfaces, challenges
-Todays "typical" Music Player UI could cause interaction challenges when a user is on the move. Imagine a biking scenario where the user wants to change music track in a smartphone music application. This would require: Fetching the device e.g. from a pocket, switching the screen on, maybe unlocking the screen with a password, navigating through the music application GUI, switch the screen of, put smartphone back in pocket. Also the smartphone touch interface requires bare fingers for input recognition so removing gloves (in winter season) could also be a step in the process. A process that happens while the user is navigating through traffic. Studies show that while a user is doing an activity a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}.
-
-\subsection{Alternative Music Player UI's}
-\label{sec:alternativemusicuis}
-There exists music player interfaces that tries to avoid the before mentioned process when listening to music on the go.
-
-% headset controller
-Headset music controllers are physical buttons attached to the wire between headset and device. This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of interaction menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
-
-% voice recognition
-Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could request simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
-
-% other alternatives
-Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. 
-
-All these systems have in common that they avoid the users visual attention but they are all limited to basic controls such as play, stop, next/previous track, volume up/down.
 
 
 \section{Mobile Human Computer Interaction}
@@ -127,10 +109,9 @@ When presenting the audio it's important to consider the attention which is requ
 In this project multiple audio sources (music tracks) are presented for the user at the same time but none of them requires a respond i.e. the focus is on selective-attention tasks.
 
 
-\section{Spatial Audio Interaction}
+\subsection{Spatial audio interaction}
 This section describes how the before mentioned modalities - head gestures input and audio output can be used for interaction with the enforcement of spatial audio.
 
-\subsection{Spatial Audio}
 % intro - what is spatial audio, HRTF
 Spatial audio or 3D audio allows a sound source to appear as if it is coming from anywhere in space around a listener \cite{begault_3dd_1994}. This can be achieved by using HRTF (Head Related Transfer Function). HRTF attempts to model the frequency modulations of a sound entering the human ear from a given direction and is implemented in many soundcards today.
 
@@ -140,15 +121,32 @@ Spatial audio has shown to be effective in several aspects. William W. Gaver, a 
 % Multiple sound sources, cognitive load effect
 Previous research has also shown that spatial audio is a successful technique for segregating multiple audio streams \cite{schmandt_audiostreamer:_1995, walker_spatial_2000}. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} shows in a study that when users must be able to direct their attention selectively to each individual audio stream representing a task (selective-attention task) - spatial audio had a great effect. In this case the cognitive load was kept low as described in \ref{sec:audiomodality}.
 
-\subsection{Audio menus}
+% Audio menus
 
 % 1D/2D - my defintion
 
 % Maybe Intelligent Headset (Headset Interface)
 
 
-\section{Related systems}
-This section describes the systems that are most related to this project. First each system is presented - then selected properties related to this projects goal of each system are compaired and summarized in a table.
+\section{Mobile Audio User Interfaces}
+This section describes the systems that are most related to this project. Alternative mobile music player user interfaces are presented first - alternative in the sense that the interaction form is different from the traditional way (touch input and visual output). Also other systems - not music related - are presented. These systems are related in the sense that the interaction form is close to the desired one in this project. Finally all systems properties are compaired and visualised in a table.
+
+\subsection{Alternative music player UI's}
+\label{sec:alternativemusicuis}
+There exists music player interfaces that tries to avoid the before mentioned process when listening to music on the go.
+
+% headset controller
+Headset music controllers are physical buttons attached to the wire between headset and device. This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of interaction menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
+
+% voice recognition
+Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could request simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
+
+% other alternatives
+Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. 
+
+All these systems have in common that they avoid the users visual attention but they are all limited to basic controls such as play, stop, next/previous track, volume up/down.
+
+\subsection{Spatial audio interaction systems}
 
 % 1
 % closely related to my project

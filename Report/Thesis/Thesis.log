@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  13 APR 2014 14:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  14 APR 2014 18:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,7 +1010,7 @@ Chapter 1.
 
 
 
-] <./Figures/triangulation.pdf, id=304, 963.6pt x 562.1pt>
+] <./Figures/triangulation.pdf, id=294, 963.6pt x 562.1pt>
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
@@ -1021,32 +1021,29 @@ Chapter 2.
 ------------------------------------------------------------------------------
  2 Related work
 ------------------------------------------------------------------------------
-<./Figures/venn.png, id=345, 501.875pt x 501.875pt>
+<./Figures/venn.png, id=337, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
-Package pdftex.def Info: ./Figures/venn.png used on input line 7.
+Package pdftex.def Info: ./Figures/venn.png used on input line 13.
 (pdftex.def)             Requested size: 208.74138pt x 208.74138pt.
 
 [4
 
- <./Figures/venn.png (PNG copy)>] [5] [6] [7] [8] [9]
-<./Figures/headset-development.jpg, id=446, 891.33pt x 226.8475pt>
+] [5 <./Figures/venn.png (PNG copy)>] [6] [7] [8]
+<./Figures/headset-development.jpg, id=426, 891.33pt x 226.8475pt>
 File: ./Figures/headset-development.jpg Graphic file (type jpg)
 
 <use ./Figures/headset-development.jpg>
-Package pdftex.def Info: ./Figures/headset-development.jpg used on input line 9
-8.
+Package pdftex.def Info: ./Figures/headset-development.jpg used on input line 8
+0.
 (pdftex.def)             Requested size: 417.4699pt x 106.24796pt.
- [10 <./Figures/headset-development.jpg>] [11]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (./Chapters/Chapter3.tex [12] [13]
+ [9 <./Figures/headset-development.jpg>] [10] [11]) (./Chapters/Chapter3.tex [1
+2] [13]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Design
 ------------------------------------------------------------------------------
-<./Figures/iterative.png, id=509, 518.93875pt x 328.22626pt>
+<./Figures/iterative.png, id=499, 518.93875pt x 328.22626pt>
 File: ./Figures/iterative.png Graphic file (type png)
 
 <use ./Figures/iterative.png>
@@ -1218,17 +1215,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D0A82794781BB2B60E16CD6A9498DA53;7798.
+(rerunfilecheck)             Checksum: D2E46C5CB8E173A69F7A39289901E9E0;7642.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21449 strings out of 493315
- 388860 string characters out of 6137903
- 390442 words of memory out of 5000000
- 24449 multiletter control sequences out of 15000+600000
+ 21445 strings out of 493315
+ 388816 string characters out of 6137903
+ 389442 words of memory out of 5000000
+ 24447 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,12n,45p,1542b,1017s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,11n,45p,1542b,1017s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1238,10 +1235,10 @@ r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (34 pages, 436016 bytes).
+Output written on Thesis.pdf (34 pages, 435873 bytes).
 PDF statistics:
- 634 PDF objects out of 1000 (max. 8388607)
- 562 compressed objects within 6 object streams
- 143 named destinations out of 1000 (max. 500000)
- 397 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 624 PDF objects out of 1000 (max. 8388607)
+ 552 compressed objects within 6 object streams
+ 141 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 
