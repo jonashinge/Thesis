@@ -36,6 +36,9 @@
 @property (strong, nonatomic) UILabel *lblGestureStatus;
 @property (strong, nonatomic) UILabel *lblState;
 @property (strong, nonatomic) UILabel *lblArea;
+@property (strong, nonatomic) UILabel *lblDegreeSpan;
+@property (strong, nonatomic) UILabel *lblFront;
+@property (strong, nonatomic) UISwitch *switchMoving;
 
 @property (nonatomic) float area;
 @property (nonatomic) float degreeSpan;
@@ -61,9 +64,6 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 #define DEBUGLog(format, ...) NSLog(format, ## __VA_ARGS__)
 #endif
 
-// Constants
-const float DEGREE_SPAN = 140;
-const float FRONT = 2500; // e.g. 1000 = 1m in front of user
 
 @implementation AudioMenuViewController
 
@@ -88,8 +88,8 @@ const float FRONT = 2500; // e.g. 1000 = 1m in front of user
     _soundAnnotations = [[NSMutableArray alloc] init];
     
     _area = 100000; // e.g. 20000 = 20x20m
-    _degreeSpan = DEGREE_SPAN;
-    _front = FRONT;
+    _degreeSpan = 140;
+    _front = 2500; // e.g. 1000 = 1m in front of user
     
     // Setup audio 3d grid view and model.
     // The gridBounds property is an expression for how big in a physical world
@@ -132,8 +132,8 @@ const float FRONT = 2500; // e.g. 1000 = 1m in front of user
     [lblMoving setText:@"Moving head while rotating"];
     [controls addSubview:lblMoving];
     
-    UISwitch *switchMoving = [[UISwitch alloc] initWithFrame:CGRectMake(290, 30, 80, 30)];
-    [controls addSubview:switchMoving];
+    _switchMoving = [[UISwitch alloc] initWithFrame:CGRectMake(290, 30, 80, 30)];
+    [controls addSubview:_switchMoving];
     
     UIButton *btnReset = [[UIButton alloc] initWithFrame:CGRectMake(30, 80, 200, 50)];
     [btnReset setTitle:@"Reset positions" forState:UIControlStateNormal];
@@ -156,7 +156,7 @@ const float FRONT = 2500; // e.g. 1000 = 1m in front of user
     [self.view addSubview:controls];
     
     // Steppers
-    UIStepper *stepperArea = [[UIStepper alloc] initWithFrame:CGRectMake(20, 720, 100, 60)];
+    UIStepper *stepperArea = [[UIStepper alloc] initWithFrame:CGRectMake(20, 630, 100, 60)];
     [stepperArea setMaximumValue:1000000];
     [stepperArea setMinimumValue:10000];
     [stepperArea setStepValue:10000];
@@ -165,12 +165,43 @@ const float FRONT = 2500; // e.g. 1000 = 1m in front of user
     [stepperArea addTarget:self action:@selector(stepperAreaChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:stepperArea];
     
-    _lblArea = [[UILabel alloc] initWithFrame:CGRectMake(125, 710, 280, 50)];
+    _lblArea = [[UILabel alloc] initWithFrame:CGRectMake(125, 620, 280, 50)];
     [_lblArea setFont:[UIFont fontWithName:@"Helvetica-Light" size:18]];
     [_lblArea setTextColor:[UIColor darkTextColor]];
     int val = [self convertToMeters:_area];
     [_lblArea setText:[NSString stringWithFormat:@"Area: %dm",val]];
     [self.view addSubview:_lblArea];
+    
+    UIStepper *stepperDegreeSpan = [[UIStepper alloc] initWithFrame:CGRectMake(20, 690, 100, 60)];
+    [stepperDegreeSpan setMaximumValue:180];
+    [stepperDegreeSpan setMinimumValue:40];
+    [stepperDegreeSpan setStepValue:10];
+    [stepperDegreeSpan setValue:_degreeSpan];
+    [stepperDegreeSpan setTintColor:[UIColor darkGrayColor]];
+    [stepperDegreeSpan addTarget:self action:@selector(stepperDegreeSpanChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:stepperDegreeSpan];
+    
+    _lblDegreeSpan = [[UILabel alloc] initWithFrame:CGRectMake(125, 680, 280, 50)];
+    [_lblDegreeSpan setFont:[UIFont fontWithName:@"Helvetica-Light" size:18]];
+    [_lblDegreeSpan setTextColor:[UIColor darkTextColor]];
+    [_lblDegreeSpan setText:[NSString stringWithFormat:@"Degree span: %f",_degreeSpan]];
+    [self.view addSubview:_lblDegreeSpan];
+    
+    UIStepper *stepperFront = [[UIStepper alloc] initWithFrame:CGRectMake(20, 750, 100, 60)];
+    [stepperFront setMaximumValue:100000];
+    [stepperFront setMinimumValue:1000];
+    [stepperFront setStepValue:1000];
+    [stepperFront setValue:_front];
+    [stepperFront setTintColor:[UIColor darkGrayColor]];
+    [stepperFront addTarget:self action:@selector(stepperFrontChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:stepperFront];
+    
+    _lblFront = [[UILabel alloc] initWithFrame:CGRectMake(125, 740, 280, 50)];
+    [_lblFront setFont:[UIFont fontWithName:@"Helvetica-Light" size:18]];
+    [_lblFront setTextColor:[UIColor darkTextColor]];
+    int valFront = [self convertToMeters:_front];
+    [_lblFront setText:[NSString stringWithFormat:@"User distance: %dm",valFront]];
+    [self.view addSubview:_lblFront];
     
     // Device manager
     SMMDeviceManager *manager = APP_DELEGATE.smmDeviceManager;
@@ -228,7 +259,7 @@ const float FRONT = 2500; // e.g. 1000 = 1m in front of user
         {
             float distance = [self correctedDistance];
             //float extra = DEGREE_SPAN/(limit*limit);
-            float deg_pos = (270-DEGREE_SPAN/2) + (DEGREE_SPAN/limit)*i + DEGREE_SPAN/limit/2;
+            float deg_pos = (270-_degreeSpan/2) + (_degreeSpan/limit)*i + _degreeSpan/limit/2;
             float x = 0 + (distance*cos((deg_pos*M_PI)/180));
             float y = 0 - (distance*sin((deg_pos*M_PI)/180));
             
@@ -329,6 +360,29 @@ const float FRONT = 2500; // e.g. 1000 = 1m in front of user
     [APP_DELEGATE.smmDeviceManager playAudio];
 }
 
+- (void)stepperDegreeSpanChanged:(id)stepper
+{
+    UIStepper *step = stepper;
+    _degreeSpan = [step value];
+    
+    // Update label
+    [_lblDegreeSpan setText:[NSString stringWithFormat:@"Degree span: %f",_degreeSpan]];
+    
+    Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
+    [self initMenuWithTracks:pl.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+    [APP_DELEGATE.smmDeviceManager playAudio];
+}
+
+- (void)stepperFrontChanged:(id)stepper
+{
+    UIStepper *step = stepper;
+    _front = [step value];
+    int areaInMeters = [self convertToMeters:_front];
+    
+    // Update label
+    [_lblFront setText:[NSString stringWithFormat:@"User distance: %dm",areaInMeters]];
+}
+
 
 #pragma mark - Button Handlers
 -(void)leftDrawerButtonPress:(id)sender{
@@ -355,14 +409,21 @@ const float FRONT = 2500; // e.g. 1000 = 1m in front of user
     //DEBUGLog(@"Heading: %f, Corrected heading: %f", heading, correctedHeading);
     
     // setting position
-    float front = [self correctedDistance]-FRONT;
-    float x = 0 + (front*cos((correctedHeading*M_PI)/180));
-    float y = 0 - (front*sin((correctedHeading*M_PI)/180));
-    _view3DAudioGrid.audioModel.listenerPosition = CGPointMake(x, y);
+    if([_switchMoving isOn])
+    {
+        float front = [self correctedDistance]-_front;
+        float x = 0 + (front*cos((correctedHeading*M_PI)/180));
+        float y = 0 - (front*sin((correctedHeading*M_PI)/180));
+        _view3DAudioGrid.audioModel.listenerPosition = CGPointMake(x, y);
+    }
+    else
+    {
+        _view3DAudioGrid.audioModel.listenerPosition = CGPointMake(0, 0);
+    }
     
     // Updating current track "in focus" or selected
-    float trackSpan = DEGREE_SPAN / APP_DELEGATE.persistencyManager.trackNumber;
-    float leftRange = 0 - DEGREE_SPAN/2;
+    float trackSpan = _degreeSpan / APP_DELEGATE.persistencyManager.trackNumber;
+    float leftRange = 0 - _degreeSpan/2;
     if(_audioMenuState == MENU_HOME || _audioMenuState == MENU_ALBUM)
     {
         for (int i=0; i<APP_DELEGATE.persistencyManager.trackNumber; i++) {
@@ -455,7 +516,7 @@ const float FRONT = 2500; // e.g. 1000 = 1m in front of user
 
 - (float)correctedDistance
 {
-    return 0.8* (_area/2);
+    return 0.8 * (_area/2);
 }
 
 

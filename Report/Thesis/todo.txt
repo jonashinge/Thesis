@@ -84,8 +84,11 @@ Evaluation (in-situ):
 ---------------------
 Application
 ---------------------
+- On init set correct direction
 - Add name + date to saved gestures
-- Steppers to adjust distance, degrees and area
+- Continue playing audio when headset disconnects and connects
+- After recording gesture - it should detect it
+- Resume playback when cancelling activate
 
 
 
