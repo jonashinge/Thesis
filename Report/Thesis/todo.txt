@@ -16,7 +16,7 @@ Chapter 3 (design process)
 	test gestures, record gestures
 	test menu, 2 kinds of localization, distance
 - Lab evalution
-	Outdoor track with -kegler-
+	Outdoor track with cones
 	Tasks, i shout when and what track should be changed
 - Ecological evaluation
 	1 week with the system using it while biking
@@ -63,16 +63,29 @@ Overall: To ambigous right now - be more precise
 ---------------------
 Report
 ---------------------
+Design process:
+- Rotation positioning mode (fixed vs moving position)
+- Gestures recognizing/recording
+- Max number of tracks present (3-10)
+- Max degree span (max 180, ref claims 120 for shaking head)
+- Distance between tracks and user (maybe try out 3 different distances)
 
+Evaluation (closed lab test):
+- Track with cones
+- Whistle when user should change track
+- Result: Measure distance in which user has moved while interacting (Also measure time for 1 round without navigating)
+- Result: Form/questionaire (semi-structured interview)
+
+Evaluation (in-situ):
+- 3-5 days
+- Result: Form/questionaire (Comfort)
 
 
 ---------------------
 Application
 ---------------------
-- Add syncing albums
-- Gestures recording/dispatching
-- Menu hookup with playlists/albums
-- Menu gesture interaction
+- Add name + date to saved gestures
+- Steppers to adjust distance, degrees and area
 
 
 

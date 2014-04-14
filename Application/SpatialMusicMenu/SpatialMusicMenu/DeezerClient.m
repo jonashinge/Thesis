@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "Track.h"
 #import "Album.h"
+#import <Deezer/PlayerFactory.h>
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -23,12 +24,14 @@
 
 #define kDeezerAppId @"133691"
 
-@interface DeezerClient () <DeezerSessionDelegate, DeezerRequestDelegate>
+@interface DeezerClient () <DeezerSessionDelegate, DeezerRequestDelegate, PlayerDelegate, BufferDelegate>
 
 @property (strong, nonatomic) DeezerConnect *deezerConnect;
 
 @property (strong, nonatomic) DeezerRequest *requestAllPlaylists;
 @property (strong, nonatomic) DeezerRequest *requestPlaylist;
+
+@property (strong, nonatomic) PlayerFactory *deezerPlayer;
 
 @property (strong) AVAssetReader *assetReader;
 @property (strong) AVAssetWriter *assetWriter;
@@ -38,7 +41,7 @@
 @end
 
 // Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
-#define DEBUG_PRINTOUT      0
+#define DEBUG_PRINTOUT      1
 
 #if !DEBUG_PRINTOUT
 #define DEBUGLog(format, ...)
@@ -48,15 +51,27 @@
 
 @implementation DeezerClient
 
+- (id)init
+{
+    self = [super init];
+    if(self)
+    {
+        _deezerPlayer = [PlayerFactory createPlayer];
+        [_deezerPlayer setPlayerDelegate:self];
+        [_deezerPlayer setBufferDelegate:self];
+    }
+    return self;
+}
+
 #pragma mark - Misc
 
-- (void)connectAndStartSync
+- (void)connect
 {
     _deezerConnect = [[DeezerConnect alloc] initWithAppId:kDeezerAppId andDelegate:self];
     [self retrieveTokenAndExpirationDate];
     if(_deezerConnect.isSessionValid)
     {
-        [self fetchAllPlaylists];
+        return;
     }
     else
     {
@@ -64,6 +79,18 @@
         NSMutableArray* permissionsArray = [NSMutableArray arrayWithObjects:@"basic_access", @"email", @"offline_access", @"manage_library", @"delete_library", nil];
         
         [_deezerConnect authorize:permissionsArray];
+    }
+}
+
+- (void)sync
+{
+    if(_deezerConnect.isSessionValid)
+    {
+        [self fetchAllPlaylists];
+    }
+    else
+    {
+        NSLog(@"Connect before syncing!");
     }
 }
 
@@ -77,6 +104,27 @@
     [self.deezerConnect launchAsyncRequest:_requestAllPlaylists];
 }
 
+- (void)playTrackWithId:(NSString* )trackId andStream:(NSString*)stream
+{
+    DEBUGLog(@"Playing track with deezer api - id: %@ and stream: %@", trackId, stream);
+    [_deezerPlayer preparePlayerForTrackWithDeezerId:trackId stream:stream andDeezerConnect:_deezerConnect];
+}
+
+- (void)pausePlayback
+{
+    [_deezerPlayer pause];
+}
+
+- (void)continuePlayback
+{
+    [_deezerPlayer play];
+}
+
+- (void)stopPlayback
+{
+    [_deezerPlayer stop];
+}
+
 
 #pragma mark - DeezerSessionDelegate implementation
 
@@ -86,7 +134,16 @@
     
     [self saveToken:[_deezerConnect accessToken] andExpirationDate:[_deezerConnect expirationDate] forUserId:[_deezerConnect userId]];
     
-    [self fetchAllPlaylists];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DEEZER_CONNECTION_STATUS_CHANGED
+                                                        object:self
+                                                      userInfo:@{@"status":@"Connected"}];
+}
+
+- (void)deezerDidLogout
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:DEEZER_CONNECTION_STATUS_CHANGED
+                                                        object:self
+                                                      userInfo:@{@"status":@"Disconnected"}];
 }
 
 - (void)deezerDidNotLogin:(BOOL)cancelled {
@@ -149,6 +206,8 @@
             }
             else if([type isEqualToString:@"album"])
             {
+                //DEBUGLog(@"Album JSON: %@",json);
+                
                 Album *album = [MTLJSONAdapter modelOfClass:[Album class] fromJSONDictionary:json error:&error];
                 
                 [APP_DELEGATE.persistencyManager syncExistingAlbumsWithAlbum:album];
@@ -167,6 +226,36 @@
 
 - (BOOL)isSessionValid {
     return [_deezerConnect isSessionValid];
+}
+
+
+#pragma mark - Deezer PlayerDelegate
+- (void)player:(PlayerFactory *)player stateChanged:(DeezerPlayerState)playerState
+{
+    DEBUGLog(@"Deezer player state changed: %u", playerState);
+}
+
+/* Progress of the buffering */
+- (void)bufferProgressChanged:(float)bufferProgress {
+}
+
+/* An error occurred while buffering */
+- (void)bufferDidFailWithError:(NSError*)error {
+}
+
+
+#pragma mark - BufferDelegate
+/*  The buffer has a new state */
+- (void)bufferStateChanged:(BufferState)bufferState {
+    if (bufferState == BufferState_Started) {
+        [_deezerPlayer play]; /* We try to play the track */
+    }
+    else if (bufferState == BufferState_Paused) {
+    }
+    else if (bufferState == BufferState_Ended) {
+    }
+    else if (bufferState == BufferState_Stopped) {
+    }
 }
 
 

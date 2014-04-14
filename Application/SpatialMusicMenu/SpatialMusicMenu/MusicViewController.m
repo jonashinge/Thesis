@@ -15,6 +15,7 @@
 
 @property UITableView *tablePlaylists;
 @property UILabel *lblTrackCounter;
+@property UILabel *lblDeezerConnStatus;
 
 
 // Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
@@ -49,11 +50,26 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:DEEZER_PLAYLIST_DATA_UPDATED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:DEEZER_ALBUM_INFO_UPDATED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:DEEZER_ALBUM_DATA_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deezerConnectionStatusChanged:) name:DEEZER_CONNECTION_STATUS_CHANGED object:nil];
     
     [self.view setBackgroundColor:UIColorFromRGB(0x3a424c)];
     
+    _lblDeezerConnStatus = [[UILabel alloc] initWithFrame:CGRectMake(22, 130, 200, 30)];
+    [_lblDeezerConnStatus setFont:[UIFont fontWithName:@"Helvetica" size:14]];
+    [_lblDeezerConnStatus setTextColor:[UIColor whiteColor]];
+    [_lblDeezerConnStatus setText:@"Disconnected"];
+    [self.view addSubview:_lblDeezerConnStatus];
+    
+    // Setup connect button
+    UIButton *btnConnect = [[UIButton alloc] initWithFrame:CGRectMake(20, 65, 100, 50)];
+    [btnConnect setTitle:@"Connect" forState:UIControlStateNormal];
+    [btnConnect setBackgroundColor:UIColorFromRGB(0xff5335)];
+    [btnConnect.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
+    [btnConnect addTarget:self action:@selector(btnConnectPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnConnect];
+    
     // Setup sync button
-    UIButton *btnSync = [[UIButton alloc] initWithFrame:CGRectMake(20, 65, 100, 50)];
+    UIButton *btnSync = [[UIButton alloc] initWithFrame:CGRectMake(160, 65, 100, 50)];
     [btnSync setTitle:@"Sync" forState:UIControlStateNormal];
     [btnSync setBackgroundColor:UIColorFromRGB(0xff5335)];
     [btnSync.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
@@ -61,14 +77,14 @@
     [self.view addSubview:btnSync];
     
     // Setup track counter
-    _lblTrackCounter = [[UILabel alloc] initWithFrame:CGRectMake(150, 140, 100, 80)];
+    _lblTrackCounter = [[UILabel alloc] initWithFrame:CGRectMake(150, 150, 100, 80)];
     [_lblTrackCounter setFont:[UIFont fontWithName:@"Helvetica" size:48]];
     [_lblTrackCounter setTextColor:[UIColor whiteColor]];
     [_lblTrackCounter setText:[NSString stringWithFormat:@"%d",APP_DELEGATE.persistencyManager.trackNumber]];
     [_lblTrackCounter setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:_lblTrackCounter];
     
-    UIStepper *stepperTracks = [[UIStepper alloc] initWithFrame:CGRectMake(150, 230, 160, 60)];
+    UIStepper *stepperTracks = [[UIStepper alloc] initWithFrame:CGRectMake(150, 240, 160, 60)];
     [stepperTracks setMaximumValue:10];
     [stepperTracks setMinimumValue:3];
     [stepperTracks setValue:APP_DELEGATE.persistencyManager.trackNumber];
@@ -93,6 +109,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)deezerConnectionStatusChanged:(NSNotification*)notification
+{
+    [_lblDeezerConnStatus setText:[notification.userInfo objectForKey:@"status"]];
+}
+
 - (void)stepperTracksChanged:(id)stepper
 {
     UIStepper *step = stepper;
@@ -104,9 +125,14 @@
     [_lblTrackCounter setText:[NSString stringWithFormat:@"%d",_trackCount]];
 }
 
+- (void)btnConnectPressed:(id)btn
+{
+    [APP_DELEGATE.deezerClient connect];
+}
+
 - (void)btnSyncPressed:(id)btn
 {
-    [APP_DELEGATE.deezerClient connectAndStartSync];
+    [APP_DELEGATE.deezerClient sync];
 }
 
 - (void)refreshTable

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  30 MAR 2014 14:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  13 APR 2014 14:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,7 +1010,7 @@ Chapter 1.
 
 
 
-] <./Figures/triangulation.pdf, id=297, 963.6pt x 562.1pt>
+] <./Figures/triangulation.pdf, id=304, 963.6pt x 562.1pt>
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
@@ -1021,7 +1021,7 @@ Chapter 2.
 ------------------------------------------------------------------------------
  2 Related work
 ------------------------------------------------------------------------------
-<./Figures/venn.png, id=338, 501.875pt x 501.875pt>
+<./Figures/venn.png, id=345, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
 Package pdftex.def Info: ./Figures/venn.png used on input line 7.
@@ -1030,7 +1030,7 @@ Package pdftex.def Info: ./Figures/venn.png used on input line 7.
 [4
 
  <./Figures/venn.png (PNG copy)>] [5] [6] [7] [8] [9]
-<./Figures/headset-development.jpg, id=439, 891.33pt x 226.8475pt>
+<./Figures/headset-development.jpg, id=446, 891.33pt x 226.8475pt>
 File: ./Figures/headset-development.jpg Graphic file (type jpg)
 
 <use ./Figures/headset-development.jpg>
@@ -1046,44 +1046,51 @@ Chapter 3.
 ------------------------------------------------------------------------------
  3 Design
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter4.tex [14
+<./Figures/iterative.png, id=509, 518.93875pt x 328.22626pt>
+File: ./Figures/iterative.png Graphic file (type png)
 
-]
+<use ./Figures/iterative.png>
+Package pdftex.def Info: ./Figures/iterative.png used on input line 12.
+(pdftex.def)             Requested size: 250.48932pt x 158.43327pt.
+ [14
+
+ <./Figures/iterative.png (PNG copy)>])
+(./Chapters/Chapter4.tex [15]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter5.tex [15
+) (./Chapters/Chapter5.tex [16
 
 ]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Evaluation
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter6.tex [16
+) (./Chapters/Chapter6.tex [17
 
 ]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Discussion
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter7.tex [17
+) (./Chapters/Chapter7.tex [18
 
 ]
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusion
 ------------------------------------------------------------------------------
-) (./Appendices/AppendixA.tex [18
+) (./Appendices/AppendixA.tex [19
 
 ]
 Appendix A.
 ------------------------------------------------------------------------------
  A An Appendix
 ------------------------------------------------------------------------------
-[19
+[20
 
-]) [20]
+]) [21]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
@@ -1106,10 +1113,7 @@ Missing character: There is no ¸ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
- [21
+ [22
 
 
 ]
@@ -1117,14 +1121,17 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
 Missing character: There is no „ in font cmr10!
 Missing character: There is no ¢ in font cmr10!
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 77.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
  (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
 Missing character: There is no â in font cmr10!
 Missing character: There is no „ in font cmr10!
 Missing character: There is no ¢ in font cmr10!
@@ -1146,9 +1153,9 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
+ [23]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
- [22]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
@@ -1167,10 +1174,10 @@ Missing character: There is no “ in font cmti10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
+ [24]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [23]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
@@ -1196,29 +1203,29 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
+ [25]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [24]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
- [25]
+ [26]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
  (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 589382247688C95B69AC4D1F86F7000A;7586.
+(rerunfilecheck)             Checksum: D0A82794781BB2B60E16CD6A9498DA53;7798.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21435 strings out of 493315
- 388556 string characters out of 6137903
+ 21449 strings out of 493315
+ 388860 string characters out of 6137903
  390442 words of memory out of 5000000
- 24440 multiletter control sequences out of 15000+600000
+ 24449 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,12n,45p,1542b,1017s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1231,10 +1238,10 @@ r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (33 pages, 416586 bytes).
+Output written on Thesis.pdf (34 pages, 436016 bytes).
 PDF statistics:
- 619 PDF objects out of 1000 (max. 8388607)
- 549 compressed objects within 6 object streams
- 139 named destinations out of 1000 (max. 500000)
- 384 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 634 PDF objects out of 1000 (max. 8388607)
+ 562 compressed objects within 6 object streams
+ 143 named destinations out of 1000 (max. 500000)
+ 397 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -18,6 +18,7 @@
              @"itemId": @"id",
              @"title": @"title",
              @"preview": @"preview",
+             @"stream": @"stream",
              @"albumId": @"album.id"
              };
 }

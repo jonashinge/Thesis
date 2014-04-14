@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *accData;
 @property NSMutableArray *recording;
 @property int accDataCounter;
+@property float recentHeading;
 
 // Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
 #define DEBUG_PRINTOUT      1
@@ -49,9 +50,11 @@ const int WINDOW_SIZE = 50;
         _ihsDevice.sensorsDelegate = self;
         
         // Setup recognizer and recording array
-        _recognizer = [[DTWRecognizer alloc] initWithDimension:5 GlobalThreshold:0.08 FirstThreshold:0.05 AndMaxSlope:2];
+        _recognizer = [[DTWRecognizer alloc] initWithDimension:6 GlobalThreshold:0.1 FirstThreshold:0.2 AndMaxSlope:2];
         _accData = [[NSMutableArray alloc] init];
         _recording = [[NSMutableArray alloc] init];
+        
+        _recentHeading = _ihsDevice.fusedHeading;
     }
     return self;
 }
@@ -167,13 +170,20 @@ const int WINDOW_SIZE = 50;
 {
     if(_ihsDevice.connectionState == IHSDeviceConnectionStateConnected)
     {
+        // Need rotation parameter
+        // Idea: Take the difference between new and last input
+        // E.g. (using fused heading) 100-99=1, 99-98=1, 99-100=-1 -> time interval 1, 1, -1
+        float diffHeading = _recentHeading - ihs.fusedHeading;
+        _recentHeading = ihs.fusedHeading;
+        
         // Pseudo sensor fusion
         NSArray *obs = [NSArray arrayWithObjects:
                         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.x],
                         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.y],
                         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.z],
                         [NSNumber numberWithFloat:_ihsDevice.pitch/90], // values from -1 to 1
-                        [NSNumber numberWithFloat:_ihsDevice.roll/90], nil]; // values from -1 to 1
+                        [NSNumber numberWithFloat:_ihsDevice.roll/90], // values from -1 to 1
+                        [NSNumber numberWithFloat:diffHeading/360], nil]; // values from 0 to 1
         
         //DEBUGLog(@"Fusion data: %@",obs);
         _accDataCounter += 1;
@@ -206,6 +216,9 @@ const int WINDOW_SIZE = 50;
                     }
                     
                     [_accData removeAllObjects];
+                    
+                    // Longer interval before trying to recognize again
+                    _accDataCounter = -1000;
                 }
                 _accDataCounter = 0;
             }

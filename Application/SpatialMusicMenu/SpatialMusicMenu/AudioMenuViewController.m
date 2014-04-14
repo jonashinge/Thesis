@@ -19,6 +19,7 @@
 #import "PersistencyManager.h"
 #import "Playlist.h"
 #import "Track.h"
+#import "Album.h"
 
 #import <AVFoundation/AVFoundation.h>
 #import <IHS/IHS.H>
@@ -29,18 +30,23 @@
 
 @interface AudioMenuViewController () <SMMDeviceManagerDelegate, IHS3DAudioDelegate, IHSAudio3DGridModelDelegate, IHSAudio3DGridViewDelegate>
 
-/*@property BOOL recordingGesture;
-@property UIButton *btnRecordGesture;
-@property NSMutableArray *recording;
-@property NSMutableArray *accData;*/
 @property (strong, nonatomic) DTWRecognizer *recognizer;
 @property (strong, nonatomic) IHSAudio3DGridView *view3DAudioGrid;
 @property (strong, nonatomic) UIView *viewLblGestureBackground;
 @property (strong, nonatomic) UILabel *lblGestureStatus;
+@property (strong, nonatomic) UILabel *lblState;
+@property (strong, nonatomic) UILabel *lblArea;
+
+@property (nonatomic) float area;
+@property (nonatomic) float degreeSpan;
+@property (nonatomic) float front;
 
 @property (readonly) int audioMenuState;
-@property (nonatomic) int centerDirection;
+@property (nonatomic) int headingCorrection;
 @property (strong, nonatomic) NSMutableArray *soundAnnotations;
+@property (nonatomic) int selectedTrackIndex;
+@property (strong, nonatomic) Album *selectedAlbum;
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
 enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 
@@ -56,10 +62,8 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 #endif
 
 // Constants
-const float DEGREE_SPAN = 120;
-const float AREA = 30000; // e.g. 20000 = 20x20m
-const float DISTANCE = 12000; // e.g. 8000 = 8m
-const float FRONT = 1000; // e.g. 1000 = 1m in front of user
+const float DEGREE_SPAN = 140;
+const float FRONT = 2500; // e.g. 1000 = 1m in front of user
 
 @implementation AudioMenuViewController
 
@@ -83,6 +87,10 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
     
     _soundAnnotations = [[NSMutableArray alloc] init];
     
+    _area = 100000; // e.g. 20000 = 20x20m
+    _degreeSpan = DEGREE_SPAN;
+    _front = FRONT;
+    
     // Setup audio 3d grid view and model.
     // The gridBounds property is an expression for how big in a physical world
     // the gridview should be. This has nothing to do with how big the gridview is on screen.
@@ -91,11 +99,17 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
     _view3DAudioGrid = [[IHSAudio3DGridView alloc] initWithFrame:CGRectMake(0, 0, 800, 800)];
     [self.view addSubview:_view3DAudioGrid];
     _view3DAudioGrid.delegate = self;
-    _view3DAudioGrid.gridBounds = CGRectMake(-AREA/2, -AREA/2, AREA, AREA); // 20x20 meters - center @ 0,0
     _view3DAudioGrid.listenerAnnotation = [[AudioListenerAnnotation alloc] init];
     _view3DAudioGrid.audioModel = [[IHSAudio3DGridModel alloc] init];
     _view3DAudioGrid.audioModel.delegate = self;
     //[self loadSounds];
+    
+    _lblState = [[UILabel alloc] initWithFrame:CGRectMake(530, 730, 200, 50)];
+    [_lblState setFont:[UIFont fontWithName:@"Helvetica-Light" size:26]];
+    [_lblState setTextAlignment:NSTextAlignmentRight];
+    [_lblState setTextColor:[UIColor darkTextColor]];
+    [_lblState setText:@"__"];
+    [self.view addSubview:_lblState];
     
     // Navigation setup
     /*[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -141,12 +155,34 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
     
     [self.view addSubview:controls];
     
+    // Steppers
+    UIStepper *stepperArea = [[UIStepper alloc] initWithFrame:CGRectMake(20, 720, 100, 60)];
+    [stepperArea setMaximumValue:1000000];
+    [stepperArea setMinimumValue:10000];
+    [stepperArea setStepValue:10000];
+    [stepperArea setValue:_area];
+    [stepperArea setTintColor:[UIColor darkGrayColor]];
+    [stepperArea addTarget:self action:@selector(stepperAreaChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:stepperArea];
+    
+    _lblArea = [[UILabel alloc] initWithFrame:CGRectMake(125, 710, 280, 50)];
+    [_lblArea setFont:[UIFont fontWithName:@"Helvetica-Light" size:18]];
+    [_lblArea setTextColor:[UIColor darkTextColor]];
+    int val = [self convertToMeters:_area];
+    [_lblArea setText:[NSString stringWithFormat:@"Area: %dm",val]];
+    [self.view addSubview:_lblArea];
+    
     // Device manager
     SMMDeviceManager *manager = APP_DELEGATE.smmDeviceManager;
     manager.delegate = self;
     
     // Init audio menu
     [self resetAudioMenu];
+    
+    // Set init values
+    _headingCorrection = 0;
+    _selectedTrackIndex = 0;
+    [self changeAudioMenuState:MENU_HOME];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -167,30 +203,38 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
 
 - (void)initMenuWithTracks:(NSArray *)tracks AndLimit:(float)limit
 {
+    [APP_DELEGATE.smmDeviceManager stopAudio];
+    
     for (AudioSoundAnnotation *anno in _view3DAudioGrid.soundAnnotations) {
         [_view3DAudioGrid removeAnnotation:anno];
+        [anno.audioSource removeObserver:anno forKeyPath:@"position"];
     }
     /*for(int i=0; i<[_view3DAudioGrid.audioModel.sources count]; i++)
     {
         AudioSource *as = [_view3DAudioGrid.audioModel.sources objectAtIndex:i];
+        DEBUGLog(@"%@",[as observationInfo]);
+        //[as removeObserver:_view3DAudioGrid.audioModel forKeyPath:@"position"];
         //[_view3DAudioGrid removeObserver:as forKeyPath:@"position"];
         as = nil;
     }*/
     [_view3DAudioGrid.audioModel removeAllSources];
 
+    _view3DAudioGrid.gridBounds = CGRectMake(-_area/2, -_area/2, _area, _area); // 20x20 meters - center @ 0,0
+    
     AudioSource* audioSource;
     for (int i=0; i<[tracks count]; i++)
     {
         if(i < limit)
         {
+            float distance = [self correctedDistance];
             //float extra = DEGREE_SPAN/(limit*limit);
             float deg_pos = (270-DEGREE_SPAN/2) + (DEGREE_SPAN/limit)*i + DEGREE_SPAN/limit/2;
-            float x = 0 + (DISTANCE*cos((deg_pos*M_PI)/180));
-            float y = 0 - (DISTANCE*sin((deg_pos*M_PI)/180));
+            float x = 0 + (distance*cos((deg_pos*M_PI)/180));
+            float y = 0 - (distance*sin((deg_pos*M_PI)/180));
             
             Track *track = [tracks objectAtIndex:i];
             
-            audioSource = [[AudioSource alloc] initWithSound:track.itemId andImage:@"daftpunk.jpg"];
+            audioSource = [[AudioSource alloc] initWithSound:track.itemId andImage:@"icon-music.png"];
             audioSource.position = CGPointMake(x, y);
             audioSource.sound.repeats = YES;
             [_view3DAudioGrid.audioModel addSource:audioSource];
@@ -198,33 +242,53 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
             DEBUGLog(@"Place audio source %@",track.title);
         }
     }
-    
-    [APP_DELEGATE.smmDeviceManager playAudio];
 }
 
 - (void)changeAudioMenuState:(int)state
 {
     _audioMenuState = state;
     
+    DEBUGLog(@"Changing state to: %d", _audioMenuState);
+    
     switch (state) {
         case MENU_ACTIVATED:
         {
-            // 3 sec limbo getting the center direction
-            _centerDirection = 150; // e.g.
+            // 3 sec limbo getting the center direction, TODO
+            _headingCorrection = APP_DELEGATE.smmDeviceManager.playerHeading;
+            [APP_DELEGATE.deezerClient pausePlayback];
+            [_lblState setText:@"Activated"];
+            [self playSystemSoundWithName:@"activate"];
             break;
         }
         case MENU_HOME:
         {
             Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
             [self initMenuWithTracks:pl.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+            [_lblState setText:@"Home"];
+            [self playSystemSoundWithName:@"home"];
+            [APP_DELEGATE.smmDeviceManager playAudio];
             break;
         }
         case MENU_ALBUM:
         {
+            Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
+            Track *track = [pl.tracks objectAtIndex:_selectedTrackIndex];
+            Album *alb = [APP_DELEGATE.persistencyManager getAlbumForTrack:track];
+            DEBUGLog(@"Album selected: %@", alb.title);
+            _selectedAlbum = alb;
+            [self initMenuWithTracks:alb.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+            [_lblState setText:@"Album"];
+            [self playSystemSoundWithName:@"album"];
+            [APP_DELEGATE.smmDeviceManager playAudio];
             break;
         }
         case PLAYING_TRACK:
         {
+            Track *track = [_selectedAlbum.tracks objectAtIndex:_selectedTrackIndex];
+            [APP_DELEGATE.deezerClient playTrackWithId:track.itemId andStream:track.stream];
+            [_lblState setText:@"Playing track"];
+            [self playSystemSoundWithName:@"playing"];
+            [APP_DELEGATE.smmDeviceManager stopAudio];
             break;
         }
         default:
@@ -232,54 +296,38 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
     }
 }
 
-/*- (void)loadSounds
-{
-    AudioSource* audioSource;
+- (void)playSystemSoundWithName:(NSString*)name {
+    NSError *error;
+    NSURL *url = [[NSBundle mainBundle] URLForResource:name withExtension:@"mp3"];
     
-    audioSource = [[AudioSource alloc] initWithSound:@"track_converted" andImage:@"daftpunk.jpg"];
-    audioSource.position = CGPointMake(0, 3500);
-    audioSource.sound.repeats = YES;
-    [_view3DAudioGrid.audioModel addSource:audioSource];
+    [_audioPlayer stop];
     
-    audioSource = [[AudioSource alloc] initWithSound:@"test2@44100" andImage:@"daftpunk.jpg"];
-    audioSource.position = CGPointMake(0, -3500);
-    audioSource.sound.repeats = YES;
-    [_view3DAudioGrid.audioModel addSource:audioSource];
-    
-    audioSource = [[AudioSource alloc] initWithSound:@"test3@44100" andImage:@"eminem.jpg"];
-    audioSource.position = CGPointMake(3500, 0);
-    audioSource.sound.repeats = YES;
-    [_view3DAudioGrid.audioModel addSource:audioSource];
-    
-    audioSource = [[AudioSource alloc] initWithSound:@"test4@44100" andImage:@"kingsofleon.jpg"];
-    audioSource.position = CGPointMake(-3500, 0);
-    audioSource.sound.repeats = YES;
-    [_view3DAudioGrid.audioModel addSource:audioSource];
-}*/
+    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    if (error) {
+        NSLog(@"Error playing sound '%@': %@", name, error);
+        _audioPlayer = nil;
+    }
+    else {
+        _audioPlayer.volume = 1.0;
+        
+        [_audioPlayer prepareToPlay];
+        [_audioPlayer play];
+    }
+}
 
-/*- (void)btnRecordDown
+- (void)stepperAreaChanged:(id)stepper
 {
-    // Stop recording
-    if(_recordingGesture)
-    {
-        [_btnRecordGesture setTitle:@"Start Recording Gesture" forState:UIControlStateNormal];
-        [_btnRecordGesture setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:1 alpha:0.8]];
-        _recordingGesture = NO;
-        
-        [_recognizer addSequence:_recording WithLabel:@"NOD_TEST"];
-        
-        DEBUGLog(@"Adding a sequence with size: %d", [_recording count]);
-    }
-    // Start recording
-    else
-    {
-        [_btnRecordGesture setTitle:@"Stop Recording Gesture" forState:UIControlStateNormal];
-        [_btnRecordGesture setBackgroundColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:0.8]];
-        _recordingGesture = YES;
-        
-        _recording = [[NSMutableArray alloc] init];
-    }
-}*/
+    UIStepper *step = stepper;
+    _area = [step value];
+    int areaInMeters = [self convertToMeters:_area];
+    
+    // Update label
+    [_lblArea setText:[NSString stringWithFormat:@"Area: %dm",areaInMeters]];
+    
+    Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
+    [self initMenuWithTracks:pl.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+    [APP_DELEGATE.smmDeviceManager playAudio];
+}
 
 
 #pragma mark - Button Handlers
@@ -296,15 +344,36 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
 
 - (void)smmDeviceManager:(SMMDeviceManager *)manager fusedHeadingChanged:(float)heading
 {
+    float correctedHeading = heading - _headingCorrection;
+    
     // Apply the heading to our audio grid model.
     // See IHSDevice.fusedHeading for more info.
-    _view3DAudioGrid.audioModel.listenerHeading = heading + 90;
+    _view3DAudioGrid.audioModel.listenerHeading = correctedHeading + 90;
+    float listHeading = _view3DAudioGrid.audioModel.listenerHeading;
+    listHeading = [self normalizedDegrees:listHeading];
+    
+    //DEBUGLog(@"Heading: %f, Corrected heading: %f", heading, correctedHeading);
     
     // setting position
-    float front = DISTANCE-FRONT;
-    float x = 0 + (front*cos((heading*M_PI)/180));
-    float y = 0 - (front*sin((heading*M_PI)/180));
+    float front = [self correctedDistance]-FRONT;
+    float x = 0 + (front*cos((correctedHeading*M_PI)/180));
+    float y = 0 - (front*sin((correctedHeading*M_PI)/180));
     _view3DAudioGrid.audioModel.listenerPosition = CGPointMake(x, y);
+    
+    // Updating current track "in focus" or selected
+    float trackSpan = DEGREE_SPAN / APP_DELEGATE.persistencyManager.trackNumber;
+    float leftRange = 0 - DEGREE_SPAN/2;
+    if(_audioMenuState == MENU_HOME || _audioMenuState == MENU_ALBUM)
+    {
+        for (int i=0; i<APP_DELEGATE.persistencyManager.trackNumber; i++) {
+            if(listHeading >= leftRange+(i*trackSpan) && listHeading < leftRange+((i+1)*trackSpan) &&
+               i != _selectedTrackIndex)
+            {
+                _selectedTrackIndex = i;
+                DEBUGLog(@"Playlist track index selected: %d", _selectedTrackIndex);
+            }
+        }
+    }
 }
 
 - (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSString *)label
@@ -318,6 +387,75 @@ const float FRONT = 1000; // e.g. 1000 = 1m in front of user
             _lblGestureStatus.alpha = 0;
         }];
     }];
+    
+    // In limbo mode - go to home menu
+    if(_audioMenuState == MENU_ACTIVATED)
+    {
+        if([label isEqualToString:@"NOD"])
+        {
+            [self changeAudioMenuState:MENU_HOME];
+        }
+        else if([label isEqualToString:@"SHAKE"])
+        {
+            [self changeAudioMenuState:PLAYING_TRACK];
+        }
+        
+    }
+    // Home - go to album
+    else if(_audioMenuState == MENU_HOME)
+    {
+        if([label isEqualToString:@"NOD"])
+        {
+            [self changeAudioMenuState:MENU_ALBUM];
+        }
+        else if([label isEqualToString:@"SHAKE"])
+        {
+            [self changeAudioMenuState:PLAYING_TRACK];
+        }
+    }
+    // Album - go play that song
+    else if(_audioMenuState == MENU_ALBUM)
+    {
+        if([label isEqualToString:@"NOD"])
+        {
+            [self changeAudioMenuState:PLAYING_TRACK];
+        }
+        else if([label isEqualToString:@"SHAKE"])
+        {
+            [self changeAudioMenuState:MENU_HOME];
+        }
+    }
+    else if(_audioMenuState == PLAYING_TRACK)
+    {
+        if([label isEqualToString:@"ACTIVATE"])
+        {
+            [self changeAudioMenuState:MENU_ACTIVATED];
+        }
+    }
+}
+
+- (float)normalizedDegrees:(float)deg
+{
+    if(deg < -360)
+    {
+        return deg + 360;
+    }
+    if(deg > 360)
+    {
+        return deg - 360;
+    }
+    return deg;
+}
+
+- (int)convertToMeters:(float)val
+{
+    int returnVal = val/1000;
+    return returnVal;
+}
+
+- (float)correctedDistance
+{
+    return 0.8* (_area/2);
 }
 
 

@@ -11,6 +11,11 @@
 		3F0A497518E5A69A0018D62C /* TrackArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A497418E5A69A0018D62C /* TrackArchiver.m */; };
 		3F0A497918E956ED0018D62C /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A497818E956ED0018D62C /* Album.m */; };
 		3F0A497C18EC19F20018D62C /* Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A497B18EC19F20018D62C /* Gesture.m */; };
+		3F0A497E18FAB7F20018D62C /* icon-music.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F0A497D18FAB7F10018D62C /* icon-music.png */; };
+		3F0A498318FAE4250018D62C /* album.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F0A497F18FAE4250018D62C /* album.mp3 */; };
+		3F0A498418FAE4250018D62C /* activate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F0A498018FAE4250018D62C /* activate.mp3 */; };
+		3F0A498518FAE4250018D62C /* playing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F0A498118FAE4250018D62C /* playing.mp3 */; };
+		3F0A498618FAE4250018D62C /* home.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F0A498218FAE4250018D62C /* home.mp3 */; };
 		3F18737218CA4FB0009D81F7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737118CA4FB0009D81F7 /* AudioToolbox.framework */; };
 		3F18737418CA4FBD009D81F7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737318CA4FBD009D81F7 /* CFNetwork.framework */; };
 		3F18737618CA4FC7009D81F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737518CA4FC7009D81F7 /* CoreLocation.framework */; };
@@ -25,14 +30,7 @@
 		3F406C1918E090EC003A5541 /* AudioListenerAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C1618E090EC003A5541 /* AudioListenerAnnotation.m */; };
 		3F406C1A18E090EC003A5541 /* AudioSoundAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C1818E090EC003A5541 /* AudioSoundAnnotation.m */; };
 		3F406C1D18E090FE003A5541 /* AudioSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C1C18E090FE003A5541 /* AudioSource.m */; };
-		3F406C2718E09339003A5541 /* test2@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C1F18E09339003A5541 /* test2@44100.wav */; };
-		3F406C2818E09339003A5541 /* test3@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2018E09339003A5541 /* test3@44100.wav */; };
-		3F406C2918E09339003A5541 /* test4@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2118E09339003A5541 /* test4@44100.wav */; };
-		3F406C2A18E09339003A5541 /* test@11025.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2218E09339003A5541 /* test@11025.wav */; };
-		3F406C2B18E09339003A5541 /* test@22050.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2318E09339003A5541 /* test@22050.wav */; };
-		3F406C2C18E09339003A5541 /* test@44100.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2418E09339003A5541 /* test@44100.wav */; };
 		3F406C2D18E09339003A5541 /* TestConnectSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2518E09339003A5541 /* TestConnectSound.wav */; };
-		3F406C2E18E09339003A5541 /* track_converted.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2618E09339003A5541 /* track_converted.wav */; };
 		3F406C3218E0935F003A5541 /* daftpunk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C2F18E0935F003A5541 /* daftpunk.jpg */; };
 		3F406C3318E0935F003A5541 /* eminem.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C3018E0935F003A5541 /* eminem.jpg */; };
 		3F406C3418E0935F003A5541 /* kingsofleon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C3118E0935F003A5541 /* kingsofleon.jpg */; };
@@ -108,6 +106,11 @@
 		3F0A497818E956ED0018D62C /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		3F0A497A18EC19F20018D62C /* Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gesture.h; sourceTree = "<group>"; };
 		3F0A497B18EC19F20018D62C /* Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gesture.m; sourceTree = "<group>"; };
+		3F0A497D18FAB7F10018D62C /* icon-music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-music.png"; sourceTree = "<group>"; };
+		3F0A497F18FAE4250018D62C /* album.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = album.mp3; sourceTree = "<group>"; };
+		3F0A498018FAE4250018D62C /* activate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = activate.mp3; sourceTree = "<group>"; };
+		3F0A498118FAE4250018D62C /* playing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = playing.mp3; sourceTree = "<group>"; };
+		3F0A498218FAE4250018D62C /* home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = home.mp3; sourceTree = "<group>"; };
 		3F18737118CA4FB0009D81F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3F18737318CA4FBD009D81F7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3F18737518CA4FC7009D81F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -127,14 +130,7 @@
 		3F406C1818E090EC003A5541 /* AudioSoundAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSoundAnnotation.m; sourceTree = "<group>"; };
 		3F406C1B18E090FE003A5541 /* AudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSource.h; sourceTree = "<group>"; };
 		3F406C1C18E090FE003A5541 /* AudioSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSource.m; sourceTree = "<group>"; };
-		3F406C1F18E09339003A5541 /* test2@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test2@44100.wav"; sourceTree = "<group>"; };
-		3F406C2018E09339003A5541 /* test3@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test3@44100.wav"; sourceTree = "<group>"; };
-		3F406C2118E09339003A5541 /* test4@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test4@44100.wav"; sourceTree = "<group>"; };
-		3F406C2218E09339003A5541 /* test@11025.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@11025.wav"; sourceTree = "<group>"; };
-		3F406C2318E09339003A5541 /* test@22050.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@22050.wav"; sourceTree = "<group>"; };
-		3F406C2418E09339003A5541 /* test@44100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "test@44100.wav"; sourceTree = "<group>"; };
 		3F406C2518E09339003A5541 /* TestConnectSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TestConnectSound.wav; sourceTree = "<group>"; };
-		3F406C2618E09339003A5541 /* track_converted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = track_converted.wav; sourceTree = "<group>"; };
 		3F406C2F18E0935F003A5541 /* daftpunk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daftpunk.jpg; sourceTree = "<group>"; };
 		3F406C3018E0935F003A5541 /* eminem.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eminem.jpg; sourceTree = "<group>"; };
 		3F406C3118E0935F003A5541 /* kingsofleon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kingsofleon.jpg; sourceTree = "<group>"; };
@@ -271,14 +267,11 @@
 		3F406C1E18E09339003A5541 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				3F406C1F18E09339003A5541 /* test2@44100.wav */,
-				3F406C2018E09339003A5541 /* test3@44100.wav */,
-				3F406C2118E09339003A5541 /* test4@44100.wav */,
-				3F406C2218E09339003A5541 /* test@11025.wav */,
-				3F406C2318E09339003A5541 /* test@22050.wav */,
-				3F406C2418E09339003A5541 /* test@44100.wav */,
+				3F0A497F18FAE4250018D62C /* album.mp3 */,
+				3F0A498018FAE4250018D62C /* activate.mp3 */,
+				3F0A498118FAE4250018D62C /* playing.mp3 */,
+				3F0A498218FAE4250018D62C /* home.mp3 */,
 				3F406C2518E09339003A5541 /* TestConnectSound.wav */,
-				3F406C2618E09339003A5541 /* track_converted.wav */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -295,6 +288,7 @@
 		3F5B8A2218CBB33A001396D4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3F0A497D18FAB7F10018D62C /* icon-music.png */,
 				3F406C2F18E0935F003A5541 /* daftpunk.jpg */,
 				3F406C3018E0935F003A5541 /* eminem.jpg */,
 				3F406C3118E0935F003A5541 /* kingsofleon.jpg */,
@@ -614,8 +608,7 @@
 				3F5B8A3318CBB33B001396D4 /* Listener-1.png in Resources */,
 				3F5B8A3618CBB33B001396D4 /* Listener-2.png in Resources */,
 				3F5B8A5B18CBB34D001396D4 /* Signal5.png in Resources */,
-				3F406C2B18E09339003A5541 /* test@22050.wav in Resources */,
-				3F406C2A18E09339003A5541 /* test@11025.wav in Resources */,
+				3F0A498618FAE4250018D62C /* home.mp3 in Resources */,
 				3F5B8A3218CBB33B001396D4 /* Listener-0@2x.png in Resources */,
 				3F5B8A5218CBB34D001396D4 /* Signal0@2x.png in Resources */,
 				3F5B8A5118CBB34D001396D4 /* Signal0.png in Resources */,
@@ -628,19 +621,18 @@
 				3F5B8A3018CBB33B001396D4 /* Listener-0.png in Resources */,
 				3F5B8A5518CBB34D001396D4 /* Signal2.png in Resources */,
 				3F5B8A3918CBB33B001396D4 /* Listener-3.png in Resources */,
-				3F406C2718E09339003A5541 /* test2@44100.wav in Resources */,
-				3F406C2918E09339003A5541 /* test4@44100.wav in Resources */,
+				3F0A498518FAE4250018D62C /* playing.mp3 in Resources */,
 				3F406C1418E05E1B003A5541 /* deezer-logo.png in Resources */,
 				3F5B8A8D18CBB3CB001396D4 /* Signal3@2x.png in Resources */,
 				3F5B8A8F18CBB3CB001396D4 /* Signal4@2x.png in Resources */,
-				3F406C2E18E09339003A5541 /* track_converted.wav in Resources */,
+				3F0A498318FAE4250018D62C /* album.mp3 in Resources */,
 				3F5B8A3B18CBB33B001396D4 /* Listener-3@2x.png in Resources */,
 				3FAFFCE818CA4C9700B2CFDC /* InfoPlist.strings in Resources */,
+				3F0A498418FAE4250018D62C /* activate.mp3 in Resources */,
 				3F406C3218E0935F003A5541 /* daftpunk.jpg in Resources */,
 				3F406C3418E0935F003A5541 /* kingsofleon.jpg in Resources */,
 				3F5B8A3418CBB33B001396D4 /* Listener-1.svg in Resources */,
 				3F5B8A9218CBB3CB001396D4 /* WMM.COF in Resources */,
-				3F406C2818E09339003A5541 /* test3@44100.wav in Resources */,
 				3F5B8A8B18CBB3CB001396D4 /* Signal2@2x.png in Resources */,
 				3F5B8A3A18CBB33B001396D4 /* Listener-3.svg in Resources */,
 				3F5B8A9118CBB3CB001396D4 /* Signal5@2x.png in Resources */,
@@ -649,7 +641,7 @@
 				3F5B8A3518CBB33B001396D4 /* Listener-1@2x.png in Resources */,
 				3F5B8A3718CBB33B001396D4 /* Listener-2.svg in Resources */,
 				3FAFFCF018CA4C9700B2CFDC /* Images.xcassets in Resources */,
-				3F406C2C18E09339003A5541 /* test@44100.wav in Resources */,
+				3F0A497E18FAB7F20018D62C /* icon-music.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

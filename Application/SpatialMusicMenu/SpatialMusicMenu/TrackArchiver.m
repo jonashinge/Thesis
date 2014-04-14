@@ -37,7 +37,7 @@
     // save mp3 locally
     NSData *data = [NSData dataWithContentsOfURL:track.preview];
     NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filePath = [documents stringByAppendingPathComponent:@"track.mp3"];
+    NSString *filePath = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3",track.itemId]];
     [data writeToFile:filePath atomically:YES];
     DEBUGLog(@"MP3 saved locally");
     
