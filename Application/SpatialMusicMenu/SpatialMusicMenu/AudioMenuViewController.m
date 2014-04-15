@@ -169,7 +169,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     [_lblArea setFont:[UIFont fontWithName:@"Helvetica-Light" size:18]];
     [_lblArea setTextColor:[UIColor darkTextColor]];
     int val = [self convertToMeters:_area];
-    [_lblArea setText:[NSString stringWithFormat:@"Area: %dm",val]];
+    [_lblArea setText:[NSString stringWithFormat:@"Area: %dx%dm",val, val]];
     [self.view addSubview:_lblArea];
     
     UIStepper *stepperDegreeSpan = [[UIStepper alloc] initWithFrame:CGRectMake(20, 690, 100, 60)];
@@ -353,7 +353,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     int areaInMeters = [self convertToMeters:_area];
     
     // Update label
-    [_lblArea setText:[NSString stringWithFormat:@"Area: %dm",areaInMeters]];
+    [_lblArea setText:[NSString stringWithFormat:@"Area: %dx%dm",areaInMeters, areaInMeters]];
     
     Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
     [self initMenuWithTracks:pl.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];

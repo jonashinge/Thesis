@@ -7,19 +7,7 @@ TODO today
 ---------------------
 Thomas questions
 ---------------------
-Chapter 2 (Related systems)
-- Research systems vs "finished" systems, should i include both?
-- Headings for each system?
-
-Chapter 3 (design process)
-- Prototype 1 and 2 (in-situ observation, semi-structured interview)
-	test gestures, record gestures
-	test menu, 2 kinds of localization, distance
-- Lab evalution
-	Outdoor track with cones
-	Tasks, i shout when and what track should be changed
-- Ecological evaluation
-	1 week with the system using it while biking
+- Summary in chapters?
 
 
 ---------------------
