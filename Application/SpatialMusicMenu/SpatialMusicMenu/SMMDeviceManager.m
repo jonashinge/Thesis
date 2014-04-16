@@ -50,7 +50,7 @@ const int WINDOW_SIZE = 50;
         _ihsDevice.sensorsDelegate = self;
         
         // Setup recognizer and recording array
-        _recognizer = [[DTWRecognizer alloc] initWithDimension:6 GlobalThreshold:0.1 FirstThreshold:0.2 AndMaxSlope:2];
+        _recognizer = [[DTWRecognizer alloc] initWithDimension:6 GlobalThreshold:0.2 FirstThreshold:0.3 AndMaxSlope:2];
         _accData = [[NSMutableArray alloc] init];
         _recording = [[NSMutableArray alloc] init];
         

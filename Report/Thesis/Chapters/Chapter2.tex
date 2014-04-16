@@ -73,17 +73,7 @@ Eye-free interfaces are not limited to specific modalities. As mentioned in \ref
 % intro - alternative head tracking methods
 There exists different kinds of approaches when it comes to controlling a system with head gestures. Using cameras it is possible to effectively track head movements via facial recognition \cite{morimoto_recognition_1996} and gaze tracking makes it possible to control an object by fixating the eyes on that object while moving the head \cite{vspakov_enhanced_2012}. Thus these techniques do not require any hardware sensors e.g. accelerometer and gyroscope but in return a camera placed in front of the user. Although this method has been conducted for mobile devices \cite{mardanbegi_eye-based_2012} the setup will still require the eyes in a combination with head gestures as an input modality.
 
-Instead sensor based detection of head movements could be used e.g. accelerometer and gyroscope. Both Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} and Park et. al \cite{park_gaze-directed_2011} have evaluated systems using this kind of sensor based head gesture input. In these systems custom wearable hardware was built to physically place sensors on the users head but today this kind of hardware is actually accessible \cite{gn_store_nord_intelligent_2013}. Headsets are shown in fig. \ref{fig:headsets}.
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/headset-development.jpg}
-		\rule{35em}{0.5pt}
-	\caption[Headset Development]{Wearable interfaces used before (left \cite{brewster_multimodaleyes-freeinteraction_2003} and middle \cite{park_gaze-directed_2011}) compaired with todays accessible interface (right \cite{gn_store_nord_intelligent_2013}).}
-	\label{fig:headsets}
-\end{figure}
-
-With this interface it is possible to detect not only the head rotation (gyroscope) but also the acceleration (accelerometer) when the head is moving. There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010} but this project will use a simple Dynamic Time Warping algorithm \cite{meinard_muller_information_2007} as the gestures used are short and simple e.g. nodding or shaking the head and the focus is not on optimizing and precisioning the gestures.
+Instead sensor based detection of head movements could be used e.g. accelerometer and gyroscope. Both Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} and Park et. al \cite{park_gaze-directed_2011} have evaluated systems using this kind of sensor based head gesture input. With these interfaces it is possible to detect not only the head rotation (gyroscope) but also the acceleration (accelerometer) when the head is moving. There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010}.
 
 \subsection{Audio as output modality}
 \label{sec:audiomodality}
@@ -97,6 +87,8 @@ Audio output can in general be divided in two ways \cite{rocchesso_sounding_2003
 \end{description}
 
 Work has shown that non-speech audio is effective in improving the interaction in mobile environments \cite{pirhonen_gestural_2002, sawhney_nomadic_2000}.
+
+[TODO: egocentric vs exocentric audio output]
 
 When presenting the audio it's important to consider the attention which is required by the user while this can have a great impact on the cognitive load. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} presents two kinds of attention-tasks:
 
@@ -131,7 +123,7 @@ Previous research has also shown that spatial audio is a successful technique fo
 \section{Mobile Audio User Interfaces}
 This section describes the systems that are most related to this project. Alternative mobile music player user interfaces are presented first - alternative in the sense that the interaction form is different from the traditional way (touch input and visual output). Also other systems - not music related - are presented. These systems uses an interaction form that is close to the desired one in this project. Finally all systems properties are compaired and visualised in a table.
 
-\subsection{Alternative music player UI's}
+\subsection{Alternative music player interfaces}
 \label{sec:alternativemusicuis}
 There exists music player interfaces that attempts to use eyes-free interaction when listening to music on the go and they are presented in this section.
 
@@ -154,15 +146,28 @@ All these systems have in common that they avoid the users visual attention but 
 Other systems - though not all mobile music players - uses a spatial audio interaction form and they can contribute to this projects final system in form of e.g. menu and audio design, navigation, etc.
 
 % 1, Multimodal'eyes-free'interaction techniques for wearable devices
-Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} evaluated to kinds of eyes-free wearable systems. The first system includes a 3D audio radial pie menu 
+Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} developed and evaluated an eyes-free wearable system that uses head gestures as input modality and 3D audio as output modality. The systems hardware setup consists of headphones delivering 3D audio and a sensor attached for detecting the head orientation. These two hardware parts are connected via cables to a belt-mounted PDA running software that processes 3D audio and recognizes head gestures. The physical system is shown in figure \ref{fig:brewster}.
 
-Brewster et al. showed that novel interaction techniques based on sound and gesture can significantly improve the usability of a wearable device in particular under "eyes-free" mobile conditions and that head gestures was a successful interaction technique with egocentric sounds the most effective \cite{brewster_multimodaleyes-freeinteraction_2003}.
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{./Figures/brewster-system.png}
+		\rule{35em}{0.5pt}
+	\caption[Brewster system]{Figures from Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} showing hardware setup (to the left) and interaction illustration (to the right)}
+	\label{fig:brewster}
+\end{figure}
+
+The system design consists of a 3D audio radial pie that uses head gestures for selecting items. More specifically audio sources are placed at positions in space around the user. The audio sources represents e.g. a phone-call, a news feed or stock market news and the user can then nod at a specific task to select it and drag it to the front of the audio space. Audio sources that the user finds less important can then be dragged to the rear of the audio space.
+
+Evaluation of the system showed that sound and gesture can significantly improve the usability of a wearable device in particular under eyes-free mobile conditions and that head gestures was a successful interaction technique with egocentric sounds the most effective.
+
 
 % 2, Gaze-Directed Hands-Free Interface for Mobile Interaction
 Park et al. also experimented, using head gesture input and aural output, with 1D and 2D menu interfaces \cite{park_gaze-directed_2011}.
 
+
 % 3, Interaction with eyes-free and gestural interfaces
 Kajastila and Lokki has done a user study comparing auditory and visual menus controlled by the same free-hand gestures where the majority of the participants felt that an auditory circular menu was faster than a visual based menu \cite{kajastila_interaction_2013}.
+
 
 % 4, Gestural and Audio Metaphors As a Means of Control for Mobile Devices
 Touch gesture and non-speech audio as ways to improve the user interface of a mobile music player \cite{pirhonen_gestural_2002}.

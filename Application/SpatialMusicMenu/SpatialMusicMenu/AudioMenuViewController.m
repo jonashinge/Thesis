@@ -471,7 +471,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         }
         else if([label isEqualToString:@"SHAKE"])
         {
-            [self changeAudioMenuState:PLAYING_TRACK];
+            //[self changeAudioMenuState:PLAYING_TRACK];
         }
     }
     // Album - go play that song

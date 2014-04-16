@@ -80,3 +80,46 @@ Application
 
 
 
+Design process (Iterative evaluation)
+-------------------------------------
+Martin
+Generelt:
+- Forskel på tracks - nogle er højere
+- ide til test: Placer tal lyde, få person til at kigge i en retning imens personen nævner hvilke tal (i hvilken rækkefølge ved siden af)
+
+Mode 1
+- Lille area er bedst
+- Degree span, tætheden er ikke distraherende, tætheden giver et bedre overblik man skal ikke dreje hovedet lige så meget
+- Overblik har en stor værdi, man har en fornemmelse af hvilke tracks der er tilgængelige
+- Attention, forskel på stimuli og mental fokus
+- Number of tracks, 5 max
+- Godt mentalt overblik
+- Forskel på lydbilleder, nogle beats bliver opslugt andre træder frem
+- Fysisk rotation okay op til 180
+
+Mode 2
+- Ikke helt så naturligt (med zoom på 1m)
+- User distance, bedre længere væk (10m bedre end 1m)
+- Modsat overblik bedre fokus på det enkelte nummer
+- Area, mindre formindsker zoom
+- Godt setup: user dist 10m, area 50x50, degree span 80
+- number of tracks, jo flere numre jo mere zoom
+- Zoom fungerer godt
+- Bedre til flere tracks 7 fungerede fint
+
+Navigation/gestures
+- 3 recordings for hver gesture
+- Setup: initWithDimension:6 GlobalThreshold:0.2 FirstThreshold:0.3 AndMaxSlope:2];
+- Man skal lære systemet at kende, headsettet
+- efter et kvarter forstod personen hvad der skulle gøre og hvordan systemet fungerede
+
+Usikkerheder/bugs:
+- Headset disconnecter til tider
+
+
+
+
+
+
+
+
