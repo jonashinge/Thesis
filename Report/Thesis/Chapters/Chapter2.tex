@@ -128,17 +128,29 @@ This section describes the systems that are most related to this project. Altern
 There exists music player interfaces that attempts to use eyes-free interaction when listening to music on the go and they are presented in this section.
 
 % headset controller
-Headset music controllers are physical buttons attached to the wire between headset and device. This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of interaction menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
+Headset music controllers are physical buttons attached to the wire between headset and device (see figure \ref{fig:nokia}). This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of interaction menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
 
-[IMAGE (headset music controller)]
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/nokia-headset.png}
+		\rule{35em}{0.5pt}
+	\caption[Nokia music headset]{A head music controller from Nokia \cite{nokia_launch:_2011}}
+	\label{fig:nokia}
+\end{figure}
 
 % voice recognition
 Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could request simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
 
 % other alternatives
-Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}.
+Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. The systems are shown in figure \ref{fig:bodyandleg}.
 
-[IMAGES (leg shifting track + body parts interaction)]
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{./Figures/bodyposeandleg.png}
+		\rule{35em}{0.5pt}
+	\caption[Alternative music players]{Figures from alternative music interfaces; Body Pose system \cite{strachan_bodyspace_2007} to the left and leg gesture system \cite{smus_running_2010} to the right}
+	\label{fig:bodyandleg}
+\end{figure}
 
 All these systems have in common that they avoid the users visual attention but they are all limited to basic controls such as play, stop, next/previous track, volume up/down.
 
