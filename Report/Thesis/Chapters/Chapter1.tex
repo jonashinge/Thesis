@@ -1,16 +1,16 @@
 \lhead{\emph{Introduction}}
 \chapter{Introduction}
 \section{HCI in mobile environments}
-Mobile and wearable devices has been a growing area in computing in recent years. Compaired to desktop computers these devices have introduced new standards for when and how people interact with especially mobile applications. Suddenly people are able to check the news, navigate via interactive maps, post social messages, listen to music, etc., while they are on the move. At the same time emerging hardware in mobile devices and wearable computing expands application complexity and interaction possibilities.
+Mobile and wearable devices has been a growing area in computing in recent years. Compaired to desktop computers these devices have introduced new standards for when and how people interact with especially mobile applications. Suddenly people are able to check the news, navigate via interactive maps, post social messages, listen to music, etc., while they are on the move. At the same time emerging hardware e.g. sensor technology in mobile devices and wearable computing expands the user interaction possibilities.
 
-This mobility factor introduces challenges when interacting with these devices. Although screen resolutions and physical sizes of mobile devices are increasing, the visual work space is limited i.e. screens easily becomes cluttered with information and the input keyboard can be an interaction challenge when moving. More importantly, when moving around e.g. in the traffic, interacting with a mobile device at the same time can create challenges in form of distractions e.g. "eyes off the road" or "hands occupied" and in the worst case cause accidents. Motivated by this problem fines are introduced (in Denmark) for people interacting with their mobile device while biking \cite{cyklistforbundet_bodetakster_2014}.
+Challenges arise when interacting with mobile devices. Although screen resolutions and physical sizes of mobile devices are increasing, the visual work space is limited i.e. screens easily becomes cluttered with information and the input keyboard can be challenging when moving e.g. small buttons or non-responding touch interfaces. More importantly, when moving around e.g. in the traffic, interacting with a mobile device at the same time can create challenges in form of distractions e.g. "eyes off the road" or "hands occupied" and in the worst case cause accidents. Motivated by this problem fines are introduced (in Denmark) for people interacting with their mobile device while biking \cite{cyklistforbundet_bodetakster_2014}. Fines are also being introduced in the U.S. for texting while biking e.g. in California \cite{_there_2011} and Charleston \cite{beahm/staff_charleston_2013}. As Charleston law suggests there are exceptions: \textit{"The exception would be for a device that can be worked hands-free."}.
 
-Solutions for these distraction challenges could lie in the interaction between users and mobile devices. The emerging hardware (e.g. sensor technology) and software opens up for alternative input modalities e.g. head gestures, gaze tracking, speech recognition making hands-free interaction possible. At the same time output modalities such as audio and haptic feedback could liberate the eyes from the screen.
+So it seems that solutions to this problem could be found in the area of "interacting while in motion". The emerging hardware (e.g. sensor technology) and software opens up for alternative input modalities e.g. head gestures, gaze tracking, speech recognition making hands-free interaction possible. At the same time output modalities such as audio and haptic feedback could liberate the eyes from the screen.
 
 \section{Problem statement}
-Considering distraction challenges in mobile interaction, this project will be based on the concrete scenario where people are biking while listening to and controlling their music libray. As biking requires eyes on the road and hands for steering the input/output modalities should preferrably not include eyes and hands. Instead head gestures for input and 3d audio for output will be evaluated.
+Considering interacting with a mobile device while in motion, this project will be based on the concrete scenario where people are biking while listening to and controlling their music libray. As biking requires eyes on the road and hands for steering the input/output modalities should preferrably not include eyes and hands. Instead head gestures for input and 3D audio for output will be evaluated.
 
-More specifically the following questions should be answered. Can a user interface based on head gestures and 3d audio compete with existing user interfaces for music players (e.g. touch and vision-based) with respect to for instance:
+More specifically the following questions should be answered. Can a user interface based on head gestures and 3D audio compete with existing user interfaces for music players (e.g. touch and vision-based) with respect to for instance:
 \begin{description}
 \item[1] Navigation and control efficiency
 \item[2] Learnability
@@ -20,10 +20,16 @@ More specifically the following questions should be answered. Can a user interfa
 With the chosen combination of input and output modalities, there is a high risk for the system to misinterpret normal everyday actions performed by the user as commands for controlling the system ("behavioural cluttering" (Janlert et al., in press)). How can features in the user interface prevent unwanted manipulation of the system?
 
 \section{Goal}
-The goal of this project is to examine if head gesture based input and audio output modalities in combination can compete with a traditional touch and vision based input/output interface and show which advantages, disadvantages and challenges that arise when using and designing such interaction techniques. More precisely a mobile system that recognises these alternative interaction methods should be designed and implemented in a music application. [TODO: Make goals quantifiable if possible]
+The goal of this project is to examine if head gesture based input and audio output modalities in combination can compete with a traditional touch and vision based input/output interface and show which advantages, disadvantages and challenges that arise when using and designing such interaction techniques. More precisely a mobile system that recognises these alternative interaction methods should be designed and implemented in a music application. More specifically, to measure properties from the problem statement, the final system should contain:
+\begin{description}
+\item[1] Music menu navigation
+\item[2] Head gestures recognition
+\item[3] Placing menu items in a 3D audio space
+\end{description}
+
 
 \section{Method}
-
+In short the method is to design, implement and evaluate a system that achieves the goals of this project. The first system prototype is build from chosen specific related system designs. This prototype will then go into an iterative process where test users evaluate the system and based on their feedback new modifications to the design will be implemented and evaluated again etc. This will result in a final prototype that will be the model for a bigger evaluation. The activities during this thesis are shown in figure \ref{fig:triangulation}.
 
 \begin{figure}[htbp]
 	\centering
@@ -33,9 +39,7 @@ The goal of this project is to examine if head gesture based input and audio out
 	\label{fig:triangulation}
 \end{figure}
 
-Test users will compaire this new way of controlling a music application with a traditional music application in form of comfort, efficiency and learnability in a closed lab test and a "real world" scenario.
-
-Project structure description (short)...
+In the final evaluation users will compaire this new way of controlling a music application with a traditional music application in form of usbility, efficiency, learnability and suitability. This will happen in a closed lab test where users should bike while navigating the system.
 
 
 

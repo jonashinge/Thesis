@@ -37,6 +37,8 @@ Depending on the mobile interactive system this cognitive load can change over t
 % environment
 The cognitive load can also depend on environmental factors e.g. the movement activity in which the user is performing. Physical challenges e.g. walking a plane ground vs. climbing stairs can effect the mental demand of the user i.e. increase the cognitive load.
 
+[TODO: the description of cognitive load needs to be improved because it is a much more complex concept than what is described here]
+
 \item[Physical Constraints]
 Mobile systems and user movement activities can both add constraints on the body position which could lead to a conflict making it hard or even impossible to interact. E.g. as mentioned earlier biking physically needs the hands for steering and eyes on the road while both of these body parts are used in the traditional smartphone interaction form (eyes on the screen, hands for touch gestures). This has been identified to be a major barrier to the use of mobile system whilst moving \cite{pielot_pocketmenu:_2012}.
 
@@ -66,14 +68,14 @@ As mentioned in \ref{sec:interactioninmotion} interacting with a device in motio
 Several work on both audio \cite{kajastila_eyes-free_2013,bonner_no-look_2010,brewster_multimodaleyes-freeinteraction_2003,zhao_earpod:_2007,vazquez-alvarez_eyes-free_2011} and haptic \cite{pasquero_haptic_2011,pielot_tactile_2011} interfaces use the term eyes-free which refers to controlling the state of a system without visual attention. This kind of interaction has shown to be desirable in some mobile situations \cite{oakley_designing_2007,yi_exploring_2012} and even improve efficiency compaired to traditional visual displays \cite{zhao_earpod:_2007}. Eyes-free interfaces can keep the users visual attention on the road while driving \cite{sodnik_user_2008} or walking around in the city \cite{vazquez-alvarez_eyes-free_2011}. It should be taken into account though that just because information comes from a different modality that the one in use, it doesn't mean that the user is not distracted cognitively as described in \ref{sec:interactioninmotion}.
 
 % Eyes-free modalities focus
-Eye-free interfaces are not limited to specific modalities. As mentioned in \ref{sec:alternativemusicuis} input modalities like speech, gesture and touch combined with audio or haptic feedback can "detach" the eyes from the interface. As this project focus is on a concrete mobile scenario i.e. biking - not only should the interface be eyes-free but also "hands-free" (as biking requires steering). To avoid the use of \textit{sight} and \textit{touch} human senses the proposed interface includes head gestures as input and audio as output.
+Eyes-free interfaces are not limited to specific modalities. As mentioned in \ref{sec:alternativemusicuis} input modalities like speech, gesture and touch combined with audio or haptic feedback can "detach" the eyes from the interface. As this project focus is on a concrete mobile scenario i.e. biking - not only should the interface be eyes-free but also "hands-free" (as biking requires steering). To avoid the use of \textit{sight} and \textit{touch} human senses the proposed interface includes head gestures as input and audio as output.
 
 \subsection{Head gestures as input modality}
 
 % intro - alternative head tracking methods
 There exists different kinds of approaches when it comes to controlling a system with head gestures. Using cameras it is possible to effectively track head movements via facial recognition \cite{morimoto_recognition_1996} and gaze tracking makes it possible to control an object by fixating the eyes on that object while moving the head \cite{vspakov_enhanced_2012}. Thus these techniques do not require any hardware sensors e.g. accelerometer and gyroscope but in return a camera placed in front of the user. Although this method has been conducted for mobile devices \cite{mardanbegi_eye-based_2012} the setup will still require the eyes in a combination with head gestures as an input modality.
 
-Instead sensor based detection of head movements could be used e.g. accelerometer and gyroscope. Both Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} and Park et. al \cite{park_gaze-directed_2011} have evaluated systems using this kind of sensor based head gesture input. With these interfaces it is possible to detect not only the head rotation (gyroscope) but also the acceleration (accelerometer) when the head is moving. There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010}.
+Instead sensor based detection of head movements could be used e.g. accelerometer and gyroscope. Both Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} and Park et. al \cite{park_gaze-directed_2011} have evaluated systems using this kind of sensor based head gesture input. With these interfaces it is possible to detect not only the head rotation (gyroscope) [TODO: with respect to what?] but also the acceleration (accelerometer) when the head is moving. There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010}.
 
 \subsection{Audio as output modality}
 \label{sec:audiomodality}
@@ -86,7 +88,7 @@ Audio output can in general be divided in two ways \cite{rocchesso_sounding_2003
 \item{2: \textit{Non-speech audio}}, can be used for presenting more complex information e.g. music or other sounds.
 \end{description}
 
-Work has shown that non-speech audio is effective in improving the interaction in mobile environments \cite{pirhonen_gestural_2002, sawhney_nomadic_2000}.
+Work has shown that non-speech audio is effective in improving the interaction in mobile environments \cite{pirhonen_gestural_2002, sawhney_nomadic_2000}. [TODO: needs a more detailed discussion]
 
 [TODO: egocentric vs exocentric audio output]
 
@@ -98,7 +100,7 @@ When presenting the audio it's important to consider the attention which is requ
 \item{2: \textit{Divided-attention task}}, in this case the user is forced to respond to each audio stream presented e.g. talking over the phone while interacting with a calendar using a audio menu. The attention gets divided and result in a higher cognitive load.
 \end{description}
 
-In this project multiple audio sources (music tracks) are presented for the user at the same time but none of them requires a respond i.e. the focus is on selective-attention tasks.
+[TODO: needs to be explained in more detail. the need from the digital service probably sometimes constrain the choice of audio presentation. also the multimodal and task context of the user probably matters a lot]
 
 
 \subsection{Spatial audio interaction}
@@ -139,7 +141,7 @@ Headset music controllers are physical buttons attached to the wire between head
 \end{figure}
 
 % voice recognition
-Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could request simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
+Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could express simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
 
 % other alternatives
 Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. The systems are shown in figure \ref{fig:bodyandleg}.
@@ -164,7 +166,7 @@ Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile m
 	\centering
 		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/pirhonen-system.png}
 		\rule{35em}{0.5pt}
-	\caption[Pirhonen system]{Figures from Pirhonen et. al \cite{brewster_multimodaleyes-freeinteraction_2003} system showing the touch device (to the left) and touch menu (to the right)}
+	\caption[Pirhonen system]{Figures from Pirhonen et. al \cite{pirhonen_gestural_2002} system showing the touch device (to the left) and touch menu (to the right)}
 	\label{fig:pirhonen}
 \end{figure}
 
@@ -228,37 +230,31 @@ The system was tested with up to 12 number items and results showed that 2D grid
 
 
 \subsection{Systems properties overview}
-For this project specific properties of the system are required. Related systems that contains these properties can be valuable input for this project. To give an overview - these properties are presented in table \ref{tab:related}.
+For this project specific properties of the system are required. Related systems that contains these properties can contain valuable input for this project. To give an overview and a better comparison - these properties are presented in table \ref{tab:related}.
 
 \begin{table}[h] 
-\caption{Related works properties comparison} % title name of the table 
+\caption{Related systems properties comparison} % title name of the table 
 %\centering % centering table
 
-% Properties
-% - In-motion interaction
-% - Output modality
-% - Input modality (Head, foot, hand)
-% - Menu depth (1D, 2D)
-% - Using accessible hardware
-% - Controlling music application
-% - 1-1 evaluation against real world application
-% - Non-speech audio
 
-\begin{tabular}{L{4cm}C{2cm}C{2cm}C{2cm}C{2cm}} \toprule
-    Properties & System 1 & System 2 & System 3 & System 4 \\ \midrule
-    In-motion interaction   & + & + & - & - \\
+\begin{tabular}{L{3cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}} \toprule
+	Systems & In-motion interaction focus & Input modality & Output modality & Menu type and depth & Music application \\ \midrule
+    %Properties & System 1 & System 2 & System 3 & System 4 \\ \midrule
+    Voice recognition system \cite{stewart_boling_voice_2013}   & Yes & Speech input & Non-speech audio & 1D, simple commands & Yes \\
     \\
-	Output modality \\ %\midrule
+	Leg gesture system \cite{smus_running_2010}   & Yes & Leg gestures & Non-speech audio & 1D, simple commands & Yes \\ %\midrule
 	\\
-	Input modality (Head, foot, hand) \\
+	Body pose system \cite{strachan_bodyspace_2007}   & No & Hand and head gestures in combination with device & Non-speech audio & 1D, simple commands & Yes \\
 	\\
-	Menu depth (1D, 2D) \\
+	Touch gesture system \cite{pirhonen_gestural_2002}   & Yes & Touch gestures & Non-speech audio, Spatial audio & 1D swipe direction based & Yes \\
 	\\
-	Using accessible hardware \\
+	Free-hand gesture system \cite{kajastila_interaction_2013}   & No & Free-hand gestures & Speech audio, Spatial audio & Circular menu, 1D & No \\
 	\\
-	Controlling music application \\
+	Head gesture system, Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003}   & Yes & Head gestures & Non-speech and speech audio, Spatial audio & Circular menu, 1D & No  \\
 	\\
-	1-1 evaluation against real world application \\ \bottomrule
+	Head gesture system, Park et. al \cite{park_gaze-directed_2011}   & Yes & Head gestures & Speech audio, Spatial audio & Horizontal, vertical and grid menu, 2D & No \\
+	\\
+	This thesis system   & Yes & Head gestures & Non-speech (and simple speech) audio, Spatial audio & Circular menu, 2D & Yes, synced and evaluated against real world music application \\ \bottomrule
 \end{tabular}
 
 \label{tab:related} 
