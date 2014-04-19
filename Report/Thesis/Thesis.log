@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  18 APR 2014 11:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  19 APR 2014 18:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,7 +1014,7 @@ Chapter 1.
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
-Package pdftex.def Info: ./Figures/triangulation.pdf used on input line 36.
+Package pdftex.def Info: ./Figures/triangulation.pdf used on input line 37.
 (pdftex.def)             Requested size: 417.47174pt x 243.52518pt.
 ) (./Chapters/Chapter2.tex [3 <./Figures/triangulation.pdf>]
 Chapter 2.
@@ -1030,57 +1030,57 @@ Package pdftex.def Info: ./Figures/venn.png used on input line 13.
 [4
 
 ] [5 <./Figures/venn.png (PNG copy)>] [6] [7] [8] [9] [10]
-<./Figures/nokia-headset.png, id=474, 586.19pt x 268.00125pt>
+<./Figures/nokia-headset.png, id=478, 586.19pt x 268.00125pt>
 File: ./Figures/nokia-headset.png Graphic file (type png)
 
 <use ./Figures/nokia-headset.png>
 Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 137.
 (pdftex.def)             Requested size: 250.48254pt x 114.51855pt.
-
-<./Figures/bodyposeandleg.png, id=481, 792.9625pt x 461.725pt>
+ [11]
+<./Figures/bodyposeandleg.png, id=491, 792.9625pt x 461.725pt>
 File: ./Figures/bodyposeandleg.png Graphic file (type png)
 
 <use ./Figures/bodyposeandleg.png>
 Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 151.
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
- [11 <./Figures/nokia-headset.png>]
-<./Figures/pirhonen-system.png, id=496, 418.56375pt x 231.86626pt>
+ [12 <./Figures/nokia-headset.png> <./Figures/bodyposeandleg.png (PNG copy)>]
+<./Figures/pirhonen-system.png, id=505, 418.56375pt x 231.86626pt>
 File: ./Figures/pirhonen-system.png Graphic file (type png)
 
 <use ./Figures/pirhonen-system.png>
 Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 167.
 (pdftex.def)             Requested size: 250.48235pt x 138.7564pt.
- [12 <./Figures/bodyposeandleg.png (PNG copy)>] <./Figures/kajastila-system.png
-, id=507, 792.9625pt x 461.725pt>
+
+<./Figures/kajastila-system.png, id=511, 792.9625pt x 461.725pt>
 File: ./Figures/kajastila-system.png Graphic file (type png)
 
 <use ./Figures/kajastila-system.png>
 Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 183.
 
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
- [13 <./Figures/pirhonen-system.png (PNG copy)> <./Figures/kajastila-system.png
- (PNG copy)>]
-<./Figures/brewster-system.png, id=517, 690.58pt x 219.82124pt>
+
+<./Figures/brewster-system.png, id=516, 690.58pt x 219.82124pt>
 File: ./Figures/brewster-system.png Graphic file (type png)
 
 <use ./Figures/brewster-system.png>
 Package pdftex.def Info: ./Figures/brewster-system.png used on input line 197.
 (pdftex.def)             Requested size: 375.73166pt x 119.60062pt.
-
-<./Figures/park-system.png, id=523, 666.49pt x 292.09125pt>
+ [13 <./Figures/pirhonen-system.png (PNG copy)>] [14 <./Figures/kajastila-syste
+m.png (PNG copy)> <./Figures/brewster-system.png (PNG copy)>] <./Figures/park-s
+ystem.png, id=531, 666.49pt x 292.09125pt>
 File: ./Figures/park-system.png Graphic file (type png)
 
 <use ./Figures/park-system.png>
 Package pdftex.def Info: ./Figures/park-system.png used on input line 213.
 (pdftex.def)             Requested size: 375.73363pt x 164.66638pt.
 
-<./Figures/park-menus.png, id=527, 745.78625pt x 297.11pt>
+<./Figures/park-menus.png, id=535, 745.78625pt x 297.11pt>
 File: ./Figures/park-menus.png Graphic file (type png)
 
 <use ./Figures/park-menus.png>
 Package pdftex.def Info: ./Figures/park-menus.png used on input line 223.
 (pdftex.def)             Requested size: 375.7144pt x 149.67894pt.
- [14 <./Figures/brewster-system.png (PNG copy)>]
+ [15 <./Figures/park-system.png (PNG copy)> <./Figures/park-menus.png>]
 Overfull \hbox (24.4127pt too wide) in paragraph at lines 240--259
 [][] 
  []
@@ -1088,57 +1088,56 @@ Overfull \hbox (24.4127pt too wide) in paragraph at lines 240--259
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./Chapters/Chapter3.tex [15 <./Figures/park-system.png (PNG copy)> <./Figure
-s/park-menus.png>] [16]
+) (./Chapters/Chapter3.tex [16] [17]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Design
 ------------------------------------------------------------------------------
-<./Figures/iterative.png, id=551, 518.93875pt x 328.22626pt>
+<./Figures/iterative.png, id=560, 518.93875pt x 328.22626pt>
 File: ./Figures/iterative.png Graphic file (type png)
 
 <use ./Figures/iterative.png>
 Package pdftex.def Info: ./Figures/iterative.png used on input line 12.
 (pdftex.def)             Requested size: 250.48932pt x 158.43327pt.
- [17
+ [18
 
  <./Figures/iterative.png (PNG copy)>])
-(./Chapters/Chapter4.tex [18]
+(./Chapters/Chapter4.tex [19]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter5.tex [19
+) (./Chapters/Chapter5.tex [20
 
 ]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Evaluation
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter6.tex [20
+) (./Chapters/Chapter6.tex [21
 
 ]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Discussion
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter7.tex [21
+) (./Chapters/Chapter7.tex [22
 
 ]
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusion
 ------------------------------------------------------------------------------
-) (./Appendices/AppendixA.tex [22
+) (./Appendices/AppendixA.tex [23
 
 ]
 Appendix A.
 ------------------------------------------------------------------------------
  A An Appendix
 ------------------------------------------------------------------------------
-[23
+[24
 
-]) [24]
+]) [25]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
@@ -1158,7 +1157,7 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¸ in font cmr10!
- [25
+ [26
 
 
 ]
@@ -1189,7 +1188,7 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [26]
+ [27]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 Missing character: There is no â in font cmr10!
@@ -1210,10 +1209,10 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no “ in font cmti10!
+ [28]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [27]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
@@ -1239,18 +1238,18 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 287.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 293.
 
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 287.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 293.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [28]
+ [29]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
@@ -1259,24 +1258,24 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
- [29]
+ [30]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
 
 (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: CB11B95F171FB05851ADDE60118E292A;7673.
+(rerunfilecheck)             Checksum: 397CE7247E23EA309A65A710F194CB62;7468.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21494 strings out of 493315
- 389995 string characters out of 6137903
- 395442 words of memory out of 5000000
- 24481 multiletter control sequences out of 15000+600000
+ 21499 strings out of 493315
+ 390107 string characters out of 6137903
+ 394442 words of memory out of 5000000
+ 24484 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,12n,45p,1542b,1023s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,1497b,1025s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1286,10 +1285,10 @@ r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (37 pages, 1932147 bytes).
+Output written on Thesis.pdf (38 pages, 1934167 bytes).
 PDF statistics:
- 684 PDF objects out of 1000 (max. 8388607)
- 598 compressed objects within 6 object streams
- 151 named destinations out of 1000 (max. 500000)
+ 693 PDF objects out of 1000 (max. 8388607)
+ 605 compressed objects within 7 object streams
+ 153 named destinations out of 1000 (max. 500000)
  403 words of extra memory for PDF output out of 10000 (max. 10000000)
 

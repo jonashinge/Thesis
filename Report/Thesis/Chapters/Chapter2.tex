@@ -1,12 +1,12 @@
 \lhead{\emph{Related work}}
 \chapter{Related work}
 % intro, current state on mobile music players
-The rise of the smartphone and the introduction of music streaming services e.g. Spotify, Deezer, Pandora, WIMP and more have resulted in an increase in mobile music listening - in fact the number of mobile music listeners has more than doubled from 2011 to 2013 according to a study in America \cite{emarketer_music_2014}. Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, there is still a factor that remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in todays "typical" smartphone music application.
+The rise of the smartphone and the introduction of music streaming services e.g. Spotify, Deezer, Pandora, WIMP and more have resulted in an increase in mobile music listening - in fact the number of mobile music listeners has more than doubled from 30 million active users in 2011 to over 70 million in 2013 according to a study in U.S. \cite{emarketer_music_2014}. Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, a similarity still remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in todays "typical" smartphone music application.
 
 % typical interfaces, challenges
 Todays "typical" music player user interface could cause interaction challenges when a user is on the move. Imagine a biking scenario where the user wants to change music track in a smartphone music application. This would require: Fetching the device e.g. from a pocket, switching the screen on, maybe unlocking the screen with a password, navigating through the music application GUI, switch the screen of, put smartphone back in pocket. Also the smartphone touch interface requires bare fingers for input recognition so removing gloves (in winter season) could also be a step in the process. A process that happens while the user is navigating through traffic. Studies show that while a user is doing an activity a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}.
 
-Related to this mobile user navigation challenge two research areas are presented in this chapter; Mobile HCI and Multimodal Interaction. Finally specific mobile systems using an alternative interaction form including mobile music players are presented in the last section. A graphical overview is shown in fig. \ref{fig:venn}.
+Two research areas covers a great part of this kind of mobile interaction and they are presented in this chapter; Mobile HCI and Multimodal Interaction. Finally specific mobile systems that uses an alternative interaction form including mobile music players are presented in the last section. A graphical overview is shown in fig. \ref{fig:venn}.
 
 \begin{figure}[htbp]
 	\centering
@@ -29,15 +29,20 @@ According to Marshall and Tennent \cite{marshall_mobile_2013} mobile interaction
 
 \begin{description}
 \item[Cognitive Load]
-Essentially this concept is decribed as a person only being able to pay attention to a certain amount of things at once. When this limit is reached the person stops paying attention to other things. This means that even though a person is able physically to sense, hear or feel multiple interaction tasks, it may not be possible to attend to all these tasks at the same time.
+Cognitive Load Theory (CLT) has to do with managing a humans working memory (or short-term memory). It is also concerned with learning complex cognitive tasks. A learner can quickly become overwhelmed (the working memory is limited in capacity) by the number of information elements and their interactions that needs to be processed simultaneously. This can cause loss of information i.e. learning is not meaningful. On a higher level this could mean that a person is only able to pay attention to a certain amount of things at once. When the working memory limit is reached the person stops paying attention to other things. So even though a person is able physically to sense, hear or feel multiple interaction tasks, it may not be possible to attend to all these tasks at the same time. Controlling this cognitive high load has become the main focus of CLT \cite{paas_cognitive_2004}.
+
+% Types of cognitive load
+Paas et. al \cite{paas_cognitive_2004} distinguishes between three types of cognitive load; \textit{intrinsic}, \textit{extraneous} and \textit{germane}. The load is called intrinsic if it is imposed of the number of information elements and their interactivity. E.g. making a phone call while solving a puzzle contains two interactivities. If it is imposed by the manner in which the information is presented to the user or by the learning activities required of the user it is called extranous or germane. E.g. when making phone calls a discussion with an interviewer is less distracting than performing a simple memory test \cite{nunes_cognitive_2002}. The difference between extranous and germane load is expressed in their effectiveness meaning how the load is helpful in building schemas and automation so that the next time the user is presented with the same task, it becomes easier to implement i.e. the cognitive load is lower. Here the extranous load is in-effective while the germane load is effective.
 
 % from the systems point of view
-Depending on the mobile interactive system this cognitive load can change over time. If a person is forced to actively attend or respond to the system the cognitive load is increased while a passive output from the system can decrease the cogntitive load. Also the content of information being addressed to the person can affect the cognitive load e.g. when making phone calls a discussion with an interviewer is less distracting than performing a simple memory test \cite{nunes_cognitive_2002}.
+From a mobile interactive systems point of view the cognitive load could depend on environmental factors or the movement activity in which the user is performing e.g. walking a plane ground vs. climbing stairs (extranous/germane load). And if the person at the same time is forced to actively attend or respond to the system e.g. answering an important phone call, this would add another activity/interaction to the users working memory and possibly increase cognitive load (intrinsic load).
+
+%can change over time. If a person is forced to actively attend or respond to the system the cognitive load is increased while a passive output from the system can decrease the cogntitive load.
 
 % environment
-The cognitive load can also depend on environmental factors e.g. the movement activity in which the user is performing. Physical challenges e.g. walking a plane ground vs. climbing stairs can effect the mental demand of the user i.e. increase the cognitive load.
+%The cognitive load can also depend on environmental factors e.g. the movement activity in which the user is performing. Physical challenges e.g. walking a plane ground vs. climbing stairs can effect the mental demand of the user i.e. increase the cognitive load.
 
-[TODO: the description of cognitive load needs to be improved because it is a much more complex concept than what is described here]
+%It should be noted that the cognitive load research area is extensive. The theory described here is brief but sufficient for the focus of this thesis.
 
 \item[Physical Constraints]
 Mobile systems and user movement activities can both add constraints on the body position which could lead to a conflict making it hard or even impossible to interact. E.g. as mentioned earlier biking physically needs the hands for steering and eyes on the road while both of these body parts are used in the traditional smartphone interaction form (eyes on the screen, hands for touch gestures). This has been identified to be a major barrier to the use of mobile system whilst moving \cite{pielot_pocketmenu:_2012}.
@@ -48,7 +53,7 @@ The terrain is described by the enviroment around a person while moving and inte
 Physical terrain can be dynamic i.e. it can change over time while moving around different environments e.g. road obsticles, traffic, light level, rain, sound, etc. This could not only affect the user interaction experience but also the electronic device e.g. water or extreme cold/heat.
 
 \item[Other people]
-This class relates to other people during a interaction. For example in a crowded place the user needs to take care of people passing by while interacting with the mobile device. Or When biking the user needs to take care of people making an overhaul, communicating or waving back to a friend on the sidewalk. The social aspect of the environment a person is in can also have an impact on the device interaction e.g. in a quiet place a person would probably not use speech commands to interact with a device as this would be socially impolite.
+This class relates to other people during an interaction. For example in a crowded place the user needs to take care of people passing by while interacting with the mobile device. Or When biking the user needs to take care of people making an overhaul, communicating or waving back to a friend on the sidewalk. The social aspect of the environment a person is in can also have an impact on the device interaction e.g. in a quiet place a person would probably not use speech commands to interact with a device as this would be socially impolite.
 \end{description}
 
 
@@ -56,7 +61,7 @@ This class relates to other people during a interaction. For example in a crowde
 While the previous section was about planning and designing the interaction between humans and computers, this section describes how the actual information between a human and computer could be exchanged. 
 
 \subsection{Modality definition and use}
-Bolt was one of the first to define the term modality in a study where speech and gesture in combination was used as input to a system \cite{bolt_put-that-there:_1980}. Modalities has something to do with the mode of communication according to the human senses and input devices activated by humans \cite{jaimes_multimodal_2007,tzovaras_dimitrios_multimodal_2008}. The human senses are \textit{sight}, \textit{touch}, \textit{hearing}, \textit{smell} and \textit{taste}. Input modalities of many computer input devices can then be considered to correspond to these senses e.g. cameras (\textit{sight}), haptic sensors (\textit{touch}), microphones (\textit{hearing}). While the term multimodal has been used in many different contexts and disciplines this thesis will focus on Tzovaras definition: \textit{"During interaction, the user produces input modalities to the system and the system produces output modalities to the user. A multimodal interactive system is a system that uses at least two different modalities for input and/or output. And a unimodal system is a system which uses the same single modality for input and output"} \cite{tzovaras_dimitrios_multimodal_2008}. The word input is defined by \cite{jaimes_multimodal_2007} to be of great importance as in practice most interactions take place using multiple modalities e.g. typing a keyboard (\textit{touch}) while looking at the keys or screen (\textit{sight}) to see whats being typed.
+Bolt was one of the first to define the term modality in a study where speech and gesture in combination was used as input to a system \cite{bolt_put-that-there:_1980}. Modalities has something to do with the mode of communication according to the human senses and input devices activated by humans \cite{jaimes_multimodal_2007,tzovaras_dimitrios_multimodal_2008}. The human senses are \textit{sight}, \textit{touch}, \textit{hearing}, \textit{smell} and \textit{taste}. Input modalities of many computer input devices can then be considered to correspond to these senses e.g. cameras (sight), haptic sensors (touch), microphones (hearing). While the term multimodal has been used in many different contexts and disciplines this thesis will focus on Tzovaras definition: \textit{"During interaction, the user produces input modalities to the system and the system produces output modalities to the user. A multimodal interactive system is a system that uses at least two different modalities for input and/or output. And a unimodal system is a system which uses the same single modality for input and output"} \cite{tzovaras_dimitrios_multimodal_2008}. The word input is defined by \cite{jaimes_multimodal_2007} to be of great importance as in practice most interactions take place using multiple modalities e.g. typing a keyboard (touch) while looking at the keys or screen (sight) to see whats being typed.
 
 % modality combinations
 Modalities can be used in combination with each other in different ways. In the "Put that there" system \cite{bolt_put-that-there:_1980} modalities are used in a complementary combination as the user can point the items on a large display and select or move them by vocal commands. In this case gestures and speech modalities are strengthening each other. In other cases modalities can act simultaneously giving different kind of information about the same feature e.g. visual and acoustic alarms in a building. Both these modality combinations have no unexpected implications in terms of the information that needs to be delivered. Either the information can only be gained in one way (complimentary approach) or the user can choose which way to gain the information (simultaneous approach). A case where modality combinations can have unexpected behaviour is when a modality is replaced with another to deliver the exact same information e.g. gaining an overview of a music collection would seem unnatural with voice commands compaired to a visual overview. This causes a non-linear effect and introduce more complexity to the interaction system.
@@ -82,7 +87,7 @@ Instead sensor based detection of head movements could be used e.g. acceleromete
 Replacing visual with audio output has shown to have a positive effect when interacting in motion. Brewster showed, by compairing visual and audio feedback when pushing buttons on the same GUI, that it was difficult for users to devote all their visual attention to an interface while walking, running og driving and that the interaction workload decreased with audio feedback \cite{brewster_overcoming_2002}.
 
 % Speech vs Non-speech audio
-Audio output can in general be divided in two ways \cite{rocchesso_sounding_2003}:
+Audio output can in general be divided into two categories \cite{rocchesso_sounding_2003}:
 \begin{description}
 \item{1: \textit{Speech audio}}, can use a computer recorded human voice like in a guided audio tour for tourists.
 \item{2: \textit{Non-speech audio}}, can be used for presenting more complex information e.g. music or other sounds.
@@ -103,23 +108,18 @@ When presenting the audio it's important to consider the attention which is requ
 [TODO: needs to be explained in more detail. the need from the digital service probably sometimes constrain the choice of audio presentation. also the multimodal and task context of the user probably matters a lot]
 
 
-\subsection{Spatial audio interaction}
-This section describes how the before mentioned modalities - head gestures input and audio output can be used for interaction with the enforcement of spatial audio.
-
+\subsection{Spatial audio}
 % intro - what is spatial audio, HRTF
-Spatial audio or 3D audio allows a sound source to appear as if it is coming from anywhere in space around a listener \cite{begault_3dd_1994}. This can be achieved by using HRTF (Head Related Transfer Function). HRTF attempts to model the frequency modulations of a sound entering the human ear from a given direction and is implemented in many soundcards today.
+Spatial audio or 3D audio allows a sound source to appear as if it is coming from anywhere in space around a listener \cite{begault_3dd_1994}. This can be achieved by using HRTF (Head Related Transfer Function). HRTF attempts to model the frequency modulations of a sound entering the human ear from a given direction and is implemented in many soundcards today. This is an attempt to present sound as we normally hear it in the real world.
 
 % Advantages refs
-Spatial audio has shown to be effective in several aspects. William W. Gaver, a pioneer in audio interfaces, has explored the intuitiveness of presenting complex information to users in the form of audio \cite{gaver_sonicfinder:_1989}. Similarly Graham explores the advantages in reaction time when using "auditory icons" \cite{graham_use_1999}. Gaver presents the use of spatial sound icons \cite{gaver_auditory_1986}. In doing so, he draws forward the unutilized potential of creating natural interaction through spatial audio.
+Spatial audio has shown to be effective in several aspects. William W. Gaver, a pioneer in audio interfaces, has explored the intuitiveness of presenting complex information to users in the form of audio \cite{gaver_sonicfinder:_1989}. Similarly Graham explores the advantages in reaction time when using "auditory icons" \cite{graham_use_1999}. Gaver presents the use of spatial sound icons \cite{gaver_auditory_1986}. In doing so, he draws forward the unutilized potential of creating natural interaction (hearing sounds and navigating through them as we would normally do in the real world) through spatial audio.
 
 % Multiple sound sources, cognitive load effect
 Previous research has also shown that spatial audio is a successful technique for segregating multiple audio streams \cite{schmandt_audiostreamer:_1995, walker_spatial_2000}. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} shows in a study that when users must be able to direct their attention selectively to each individual audio stream representing a task (selective-attention task) - spatial audio had a great effect. In this case the cognitive load was kept low as described in \ref{sec:audiomodality}.
 
-% Audio menus
-
-% 1D/2D - my defintion
-
-% Maybe Intelligent Headset (Headset Interface)
+[TODO]
+with multiple audio streams, spatial sound can increase cognitive load if used improperly \cite{vazquez-alvarez_eyes-free_2011}
 
 
 \section{Mobile Audio User Interfaces}
@@ -130,7 +130,7 @@ This section describes the systems that are most related to this project. Altern
 There exists music player interfaces that attempts to use eyes-free interaction when listening to music on the go and they are presented in this section.
 
 % headset controller
-Headset music controllers are physical buttons attached to the wire between headset and device (see figure \ref{fig:nokia}). This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of interaction menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
+Headset music controllers are physical buttons attached to the wire between headset and device (see figure \ref{fig:nokia}). This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
 
 \begin{figure}[htbp]
 	\centering
@@ -156,7 +156,7 @@ Other more alternative music player interaction modes also exists using motion s
 
 All these systems have in common that they avoid the users visual attention but they are all limited to basic controls such as play, stop, next/previous track, volume up/down.
 
-\subsection{Eyes-free gesture- and audio based interaction systems}
+\subsection{Auditory gesture-based menus}
 Other systems - though not all mobile music players - uses gesture based input modalities and audio as output modality and they can contribute to this projects final system in form of e.g. menu and audio design, navigation, etc.
 
 % 1, Gestural and Audio Metaphors As a Means of Control for Mobile Devices
