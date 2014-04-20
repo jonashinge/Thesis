@@ -1,30 +1,21 @@
 ---------------------
 TODO today
 ---------------------
-
+- Cognitive load
+- 
 
 
 ---------------------
 Thomas questions
 ---------------------
 - Summary in chapters?
+- Images courtesy description?
+- Test users description in design process/evaluation?
 
 
 ---------------------
 Thomas Feedback
 ---------------------
-Intro:
-Distraction -> find another word and explain, e.g. parallel tasks
-Already mention "interaction in motion" here
-Method ->
-	Abstract, what kind of methods, how many iterations
-
-Cognitive load -> needs to be more precise
-
-Mobile Music Player UI + related systems -> maybe another title
-- related systems -> be general
-
-System use description should be in design section
 In design section:
 Look back on related work and reason choosed design
 At the end of design section i will have an abstract "solution"
