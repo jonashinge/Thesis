@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  20 APR 2014 18:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  20 APR 2014 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1024,7 +1024,7 @@ Chapter 2.
 <./Figures/venn.png, id=349, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
-Package pdftex.def Info: ./Figures/venn.png used on input line 13.
+Package pdftex.def Info: ./Figures/venn.png used on input line 14.
 (pdftex.def)             Requested size: 208.74138pt x 208.74138pt.
 
 [4
@@ -1034,28 +1034,28 @@ Package pdftex.def Info: ./Figures/venn.png used on input line 13.
 File: ./Figures/nokia-headset.png Graphic file (type png)
 
 <use ./Figures/nokia-headset.png>
-Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 138.
+Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 139.
 (pdftex.def)             Requested size: 250.48254pt x 114.51855pt.
  [11]
 <./Figures/bodyposeandleg.png, id=494, 792.9625pt x 461.725pt>
 File: ./Figures/bodyposeandleg.png Graphic file (type png)
 
 <use ./Figures/bodyposeandleg.png>
-Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 154.
+Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 155.
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [12 <./Figures/nokia-headset.png> <./Figures/bodyposeandleg.png (PNG copy)>]
 <./Figures/pirhonen-system.png, id=508, 418.56375pt x 231.86626pt>
 File: ./Figures/pirhonen-system.png Graphic file (type png)
 
 <use ./Figures/pirhonen-system.png>
-Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 170.
+Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 171.
 (pdftex.def)             Requested size: 250.48235pt x 138.7564pt.
 
 <./Figures/kajastila-system.png, id=514, 792.9625pt x 461.725pt>
 File: ./Figures/kajastila-system.png Graphic file (type png)
 
 <use ./Figures/kajastila-system.png>
-Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 186.
+Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 187.
 
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [13 <./Figures/pirhonen-system.png (PNG copy)>] <./Figures/brewster-system.png
@@ -1063,7 +1063,7 @@ Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 186.
 File: ./Figures/brewster-system.png Graphic file (type png)
 
 <use ./Figures/brewster-system.png>
-Package pdftex.def Info: ./Figures/brewster-system.png used on input line 200.
+Package pdftex.def Info: ./Figures/brewster-system.png used on input line 201.
 (pdftex.def)             Requested size: 375.73166pt x 119.60062pt.
  [14 <./Figures/kajastila-system.png (PNG copy)> <./Figures/brewster-system.png
  (PNG copy)>]
@@ -1071,17 +1071,17 @@ Package pdftex.def Info: ./Figures/brewster-system.png used on input line 200.
 File: ./Figures/park-system.png Graphic file (type png)
 
 <use ./Figures/park-system.png>
-Package pdftex.def Info: ./Figures/park-system.png used on input line 216.
+Package pdftex.def Info: ./Figures/park-system.png used on input line 217.
 (pdftex.def)             Requested size: 375.73363pt x 164.66638pt.
 
 <./Figures/park-menus.png, id=538, 745.78625pt x 297.11pt>
 File: ./Figures/park-menus.png Graphic file (type png)
 
 <use ./Figures/park-menus.png>
-Package pdftex.def Info: ./Figures/park-menus.png used on input line 226.
+Package pdftex.def Info: ./Figures/park-menus.png used on input line 227.
 (pdftex.def)             Requested size: 375.7144pt x 149.67894pt.
  [15 <./Figures/park-system.png (PNG copy)> <./Figures/park-menus.png>]
-Overfull \hbox (24.4127pt too wide) in paragraph at lines 243--262
+Overfull \hbox (24.4127pt too wide) in paragraph at lines 244--263
 [][] 
  []
 
@@ -1101,8 +1101,8 @@ Package pdftex.def Info: ./Figures/iterative.png used on input line 12.
 (pdftex.def)             Requested size: 250.48932pt x 158.43327pt.
  [18
 
- <./Figures/iterative.png (PNG copy)>])
-(./Chapters/Chapter4.tex [19] [20]
+ <./Figures/iterative.png (PNG copy)>]
+[19]) (./Chapters/Chapter4.tex [20]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
@@ -1271,10 +1271,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21504 strings out of 493315
- 390251 string characters out of 6137903
+ 21505 strings out of 493315
+ 390268 string characters out of 6137903
  394442 words of memory out of 5000000
- 24487 multiletter control sequences out of 15000+600000
+ 24488 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,12n,45p,1497b,1019s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1287,10 +1287,10 @@ r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (39 pages, 1935410 bytes).
+Output written on Thesis.pdf (39 pages, 1936398 bytes).
 PDF statistics:
- 701 PDF objects out of 1000 (max. 8388607)
- 612 compressed objects within 7 object streams
+ 703 PDF objects out of 1000 (max. 8388607)
+ 614 compressed objects within 7 object streams
  155 named destinations out of 1000 (max. 500000)
  403 words of extra memory for PDF output out of 10000 (max. 10000000)
 
