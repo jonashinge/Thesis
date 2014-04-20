@@ -93,19 +93,17 @@ Audio output can in general be divided into two categories \cite{rocchesso_sound
 \item{2: \textit{Non-speech audio}}, can be used for presenting more complex information e.g. music or other sounds.
 \end{description}
 
-Work has shown that non-speech audio is effective in improving the interaction in mobile environments \cite{pirhonen_gestural_2002, sawhney_nomadic_2000}. [TODO: needs a more detailed discussion]
+The chosen audio output depends on the kind of information that is required by the system e.g. presenting a news feed would be clumsy with non-speech sound. However non-speech audio have advantages over speech audio in that they are faster and language independent. Several studies have shown non-speech audio to be effective when used for interaction in mobile environments although some of the systems uses a combination of both non-speech and speech audio \cite{pirhonen_gestural_2002, sawhney_nomadic_2000, brewster_using_2000}.
 
-[TODO: egocentric vs exocentric audio output]
-
-When presenting the audio it's important to consider the attention which is required by the user while this can have a great impact on the cognitive load. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} presents two kinds of attention-tasks:
+When presenting the audio it's important to consider the attention which is required by the user while this can have a great impact on the cognitive load. Studies \cite{vazquez-alvarez_eyes-free_2011, shinn-cunningham_selective_2004} discusses to kinds of attention-tasks:
 
 \begin{description}
 \item{1: \textit{Selective-attention task}}, presenting multiple audio streams the user selectively choose which one to assign the attention e.g. listening to a voicemail while listening to a music track. This results in a lower cognitive load.
 
-\item{2: \textit{Divided-attention task}}, in this case the user is forced to respond to each audio stream presented e.g. talking over the phone while interacting with a calendar using a audio menu. The attention gets divided and result in a higher cognitive load.
+\item{2: \textit{Divided-attention task}}, in this case the user is forced to respond to each audio stream presented e.g. talking over the phone while interacting with a calendar using a audio menu. The attention gets divided and results in a higher cognitive load.
 \end{description}
 
-[TODO: needs to be explained in more detail. the need from the digital service probably sometimes constrain the choice of audio presentation. also the multimodal and task context of the user probably matters a lot]
+The user required attention can be difficult to control. Specific user needs and context can constrain the choice of audio representation e.g. a phone call entering needs to stop all other audio output to prevent a possible divided attention. Other non-audio modalities could possibly also affect the users audio attention.
 
 
 \subsection{Spatial audio}
@@ -116,7 +114,13 @@ Spatial audio or 3D audio allows a sound source to appear as if it is coming fro
 Spatial audio has shown to be effective in several aspects. William W. Gaver, a pioneer in audio interfaces, has explored the intuitiveness of presenting complex information to users in the form of audio \cite{gaver_sonicfinder:_1989}. Similarly Graham explores the advantages in reaction time when using "auditory icons" \cite{graham_use_1999}. Gaver presents the use of spatial sound icons \cite{gaver_auditory_1986}. In doing so, he draws forward the unutilized potential of creating natural interaction (hearing sounds and navigating through them as we would normally do in the real world) through spatial audio.
 
 % Multiple sound sources, cognitive load effect
+[TODO: cocktail party effect \cite{bronkhorst_cocktail_2000}]
+%Simultaneous Listening. It is possible for listeners to attend to multiple background processes via the auditory channel as long as the sounds representing each process are distinguishable. This well known cognitive phenomenon, called the "Cocktail Party Effect" [Arons 1992], provides the justification that humans can in fact monitor several audio streams simultaneously, selectively focusing on any one and placing the rest in the background. A good model of the head-related transfer functions (HRTF) permits effective localization and externalization of sound sources [Wenzel 1992]. However experiments show that increasing the number of channels beyond three causes an increase in cognitive overload and hence a degradation in comprehension. Arons [1992] suggests that the effect of spatialization can be improved by allowing listeners to easily switch between channels and pull an audio stream into focus, as well as by allowing sufficient time to fully fuse the audio streams. We will demonstrate how such techniques can be used for browsing and rapidly scanning audio messages.
+
 Previous research has also shown that spatial audio is a successful technique for segregating multiple audio streams \cite{schmandt_audiostreamer:_1995, walker_spatial_2000}. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} shows in a study that when users must be able to direct their attention selectively to each individual audio stream representing a task (selective-attention task) - spatial audio had a great effect. In this case the cognitive load was kept low as described in \ref{sec:audiomodality}.
+
+
+[TODO: egocentric vs exocentric audio output, Brewster system good ref \cite{vazquez-alvarez_eyes-free_2011}]
 
 [TODO]
 with multiple audio streams, spatial sound can increase cognitive load if used improperly \cite{vazquez-alvarez_eyes-free_2011}
@@ -142,6 +146,8 @@ Headset music controllers are physical buttons attached to the wire between head
 
 % voice recognition
 Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could express simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
+
+[TODO: good ref about speech recognition challenges \cite{sawhney_nomadic_2000}]
 
 % other alternatives
 Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. The systems are shown in figure \ref{fig:bodyandleg}.
