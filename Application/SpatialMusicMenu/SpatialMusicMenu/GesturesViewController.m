@@ -158,7 +158,7 @@
         [selBg setBackgroundColor:UIColorFromRGB(0xff5335)];
         [cell setSelectedBackgroundView:selBg];
         
-        [cell.textLabel setText:[self translatedLabel:[self gestureLabel:[indexPath row]]]];
+        [cell.textLabel setText:[APP_DELEGATE translatedLabel:[self gestureLabel:[indexPath row]]]];
         
         /*if([indexPath row] == 0)
         {
@@ -187,7 +187,7 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         Gesture *gest = [[APP_DELEGATE.persistencyManager getGestures] objectAtIndex:indexPath.row];
-        [cell.textLabel setText:[self translatedLabel:gest.label]];
+        [cell.textLabel setText:[APP_DELEGATE translatedLabel:gest.label]];
     }
     
     return cell;
@@ -241,24 +241,6 @@
             return @"__UNKNOWN";
             break;
     }
-}
-
-- (NSString *)translatedLabel:(NSString *)gestureLabel
-{
-    if([gestureLabel isEqualToString:@"ACTIVATE"])
-    {
-        return @"Activate";
-    }
-    else if([gestureLabel isEqualToString:@"NOD"])
-    {
-        return @"Forward";
-    }
-    else if([gestureLabel isEqualToString:@"SHAKE"])
-    {
-        return @"Back";
-    }
-    
-    return @"__UNKNOWN";
 }
 
 

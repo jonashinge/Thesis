@@ -16,6 +16,7 @@
 {
     return @{
              @"itemId": @"id",
+             @"artist": @"artist.name",
              @"title": @"title",
              @"preview": @"preview",
              @"stream": @"stream",

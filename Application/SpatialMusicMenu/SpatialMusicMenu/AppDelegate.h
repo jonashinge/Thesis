@@ -18,6 +18,8 @@
 @property (strong, nonatomic) PersistencyManager *persistencyManager;
 @property (strong, nonatomic) DeezerClient *deezerClient;
 
+- (NSString *)translatedLabel:(NSString *)gestureLabel;
+
 // Constants
 #define kTrackLimit 10
 #define HEADSET_CONNECTED @"HeadsetConnected"

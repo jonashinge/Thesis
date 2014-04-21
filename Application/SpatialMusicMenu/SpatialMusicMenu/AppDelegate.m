@@ -89,6 +89,24 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (NSString *)translatedLabel:(NSString *)gestureLabel
+{
+    if([gestureLabel isEqualToString:@"ACTIVATE"])
+    {
+        return @"Activate";
+    }
+    else if([gestureLabel isEqualToString:@"NOD"])
+    {
+        return @"Forward";
+    }
+    else if([gestureLabel isEqualToString:@"SHAKE"])
+    {
+        return @"Back";
+    }
+    
+    return @"__UNKNOWN";
+}
+
 
 #pragma mark - DeezerClient instance
 
@@ -136,6 +154,10 @@
 - (void)smmDeviceManager:(SMMDeviceManager *)manager connectedStateChanged:(IHSDeviceConnectionState)connectionState
 {
     NSString* connectionString = [NSString stringFromIHSDeviceConnectionState:connectionState];
+    
+    // Log
+    [self.persistencyManager writeToLog:[NSString stringWithFormat:@"Device connection state change: %@", connectionString]];
+    
     DEBUGLog(@"%@", connectionString);
     
     // Here we will get information about the connection state.

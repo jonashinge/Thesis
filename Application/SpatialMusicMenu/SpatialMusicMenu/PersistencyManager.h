@@ -33,6 +33,8 @@
 - (void)removeGesture:(Gesture *)gesture;
 - (NSArray *)getGestures;
 
+- (void)writeToLog:(NSString *)content;
+
 @end
 
 // Notifications constants

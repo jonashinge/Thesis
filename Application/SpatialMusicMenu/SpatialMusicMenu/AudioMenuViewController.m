@@ -277,6 +277,11 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
             DEBUGLog(@"Place audio source %@",track.title);
         }
     }
+    
+    if(_audioMenuState == MENU_HOME || _audioMenuState == MENU_ALBUM)
+    {
+        [APP_DELEGATE.smmDeviceManager playAudio];
+    }
 }
 
 - (void)changeAudioMenuState:(int)state
@@ -284,6 +289,9 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     _audioMenuState = state;
     
     DEBUGLog(@"Changing state to: %d", _audioMenuState);
+    
+    // Log
+    NSString *logString = [NSString stringWithFormat:@"Change menu state: %@", [self translatedMenuState:state]];
     
     switch (state) {
         case MENU_ACTIVATED:
@@ -310,6 +318,8 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
             Track *track = [pl.tracks objectAtIndex:_selectedTrackIndex];
             Album *alb = [APP_DELEGATE.persistencyManager getAlbumForTrack:track];
             DEBUGLog(@"Album selected: %@", alb.title);
+            // Log
+            logString = [NSString stringWithFormat:@"Change menu state: %@ (%@: %@)", [self translatedMenuState:state], track.artist, alb.title];
             _selectedAlbum = alb;
             [self initMenuWithTracks:alb.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
             [_lblState setText:@"Album"];
@@ -320,6 +330,8 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         case PLAYING_TRACK:
         {
             Track *track = [_selectedAlbum.tracks objectAtIndex:_selectedTrackIndex];
+            // Log
+            logString = [NSString stringWithFormat:@"Change menu state: %@ (%@: %@)", [self translatedMenuState:state], track.artist, track.title];
             [APP_DELEGATE.deezerClient playTrackWithId:track.itemId andStream:track.stream];
             [_lblState setText:@"Playing track"];
             [self playSystemSoundWithName:@"playing"];
@@ -329,6 +341,8 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         default:
             break;
     }
+    
+    [APP_DELEGATE.persistencyManager writeToLog:logString];
 }
 
 - (void)playSystemSoundWithName:(NSString*)name {
@@ -361,7 +375,6 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     
     Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
     [self initMenuWithTracks:pl.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
-    [APP_DELEGATE.smmDeviceManager playAudio];
 }
 
 - (void)stepperDegreeSpanChanged:(id)stepper
@@ -374,7 +387,6 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     
     Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
     [self initMenuWithTracks:pl.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
-    [APP_DELEGATE.smmDeviceManager playAudio];
 }
 
 - (void)stepperFrontChanged:(id)stepper
@@ -461,7 +473,10 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 
 - (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSString *)label
 {
-    [_lblGestureStatus setText:label];
+    // Log
+    [APP_DELEGATE.persistencyManager writeToLog:[NSString stringWithFormat:@"Gesture recognized: %@", [APP_DELEGATE translatedLabel:label]]];
+    
+    [_lblGestureStatus setText:[APP_DELEGATE translatedLabel:label]];
     
     [UIView animateWithDuration:0.7 animations:^{
         _lblGestureStatus.alpha = 1;
@@ -513,6 +528,11 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         {
             [self changeAudioMenuState:MENU_HOME];
         }
+        else if([label isEqualToString:@"ACTIVATE"])
+        {
+            // calibrate direction
+            _headingCorrection = APP_DELEGATE.smmDeviceManager.playerHeading;
+        }
     }
     else if(_audioMenuState == PLAYING_TRACK)
     {
@@ -521,6 +541,38 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
             [self changeAudioMenuState:MENU_ACTIVATED];
         }
     }
+}
+
+- (NSString *)translatedMenuState:(int)state
+{
+    NSString *returnVal = @"";
+    
+    switch (state) {
+        case MENU_ACTIVATED:
+        {
+            returnVal = @"ACTIVATE";
+            break;
+        }
+        case MENU_HOME:
+        {
+            returnVal = @"HOME";
+            break;
+        }
+        case MENU_ALBUM:
+        {
+            returnVal = @"ALBUM";
+            break;
+        }
+        case PLAYING_TRACK:
+        {
+            returnVal = @"PLAYING";
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return returnVal;
 }
 
 - (float)normalizedDegrees:(float)deg

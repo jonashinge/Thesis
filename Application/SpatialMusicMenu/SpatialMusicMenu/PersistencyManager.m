@@ -39,6 +39,8 @@
 
 @implementation PersistencyManager
 
+dispatch_queue_t logQueue;
+
 - (id)init
 {
     self = [super init];
@@ -64,6 +66,8 @@
         {
             _gestures = [[NSMutableArray alloc] init];
         }
+        
+        logQueue = dispatch_queue_create("Log Queue",NULL);
     }
     return self;
 }
@@ -326,6 +330,39 @@
 - (NSArray *)getGestures
 {
     return _gestures;
+}
+
+- (void)writeToLog:(NSString *)content
+{
+    //dispatch_queue_t myQueue = dispatch_queue_create("Log Queue",NULL);
+    dispatch_async(logQueue, ^{
+        
+        // Perform long running process
+        NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
+                                                              dateStyle:NSDateFormatterShortStyle
+                                                              timeStyle:NSDateFormatterMediumStyle];
+        NSString *line = [NSString stringWithFormat:@"%@, Timestamp: %@\n",content, dateString];
+        
+        //Get the file path
+        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *fileName = [documentsDirectory stringByAppendingPathComponent:@"activities.log"];
+        
+        //create file if it doesn't exist
+        if(![[NSFileManager defaultManager] fileExistsAtPath:fileName])
+            [[NSFileManager defaultManager] createFileAtPath:fileName contents:nil attributes:nil];
+        
+        //append text to file (you'll probably want to add a newline every write)
+        NSFileHandle *file = [NSFileHandle fileHandleForUpdatingAtPath:fileName];
+        [file seekToEndOfFile];
+        [file writeData:[line dataUsingEncoding:NSUTF8StringEncoding]];
+        [file closeFile];
+        
+        // finished
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // E.g. update the UI
+            DEBUGLog(@"Write to log finished");
+        });
+    });
 }
 
 
