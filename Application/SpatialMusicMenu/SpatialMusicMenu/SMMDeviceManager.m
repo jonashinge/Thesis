@@ -98,7 +98,8 @@ const int WINDOW_SIZE = 50;
 
 - (float)playerHeading
 {
-    return _ihsDevice.playerHeading;
+    DEBUGLog(@"Fused heading: %f", _ihsDevice.fusedHeading);
+    return _ihsDevice.fusedHeading;
 }
 
 - (void)startRecordingGesture
@@ -217,8 +218,9 @@ const int WINDOW_SIZE = 50;
                     
                     [_accData removeAllObjects];
                     
-                    // Longer interval before trying to recognize again
-                    _accDataCounter = -1000;
+                    // Longer interval before trying to recognize again, e.g. avoiding a "double nod"
+                    _accDataCounter = -80;
+                    return;
                 }
                 _accDataCounter = 0;
             }

@@ -63,14 +63,9 @@ Evaluation (in-situ):
 ---------------------
 Application
 ---------------------
-- Set correct direction
-- Add name + date to saved gestures
-- Continue playing audio when headset disconnects and connects
 - After recording gesture - it should detect it
 - Resume playback when cancelling activate
-- Rename gestures (forward and back)
-- Activate on home or album -> reset direction
-- Longer "pause" detecting new gestures when one is recognized
+- Test with smartphone tethering
 - Idea: Log object (nr of disconnects, every navigation step with timestamp)
 
 

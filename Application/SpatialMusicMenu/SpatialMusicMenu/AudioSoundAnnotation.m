@@ -34,6 +34,24 @@
     return self;
 }
 
+- (void)setSelected:(BOOL)selected
+{
+    if(selected == YES)
+    {
+        self.frame = CGRectMake(0, 0, 85, 85);
+        _imageView.frame = CGRectMake(0, 0, 85, 85);
+        [self setNeedsDisplay];
+        _selected = YES;
+    }
+    else
+    {
+        self.frame = CGRectMake(0, 0, 60, 60);
+        _imageView.frame = CGRectMake(0, 0, 60, 60);
+        [self setNeedsDisplay];
+        _selected = NO;
+    }
+}
+
 - (void)dealloc
 {
     _imageView = nil;

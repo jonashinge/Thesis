@@ -45,7 +45,7 @@
 @property (nonatomic) float front;
 
 @property (readonly) int audioMenuState;
-@property (nonatomic) int headingCorrection;
+@property (nonatomic) float headingCorrection;
 @property (strong, nonatomic) NSMutableArray *soundAnnotations;
 @property (nonatomic) int selectedTrackIndex;
 @property (strong, nonatomic) Album *selectedAlbum;
@@ -82,6 +82,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAudioMenu) name:TRACK_NUMBER_UPDATED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAudioMenu) name:ACTIVE_PLAYLIST_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headsetConnected) name:HEADSET_CONNECTED object:nil];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -227,9 +228,20 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     // Dispose of any resources that can be recreated.
 }
 
+- (void)headsetConnected
+{
+    if(_audioMenuState == MENU_HOME || _audioMenuState == MENU_ALBUM)
+    {
+        [APP_DELEGATE.smmDeviceManager playAudio];
+    }
+}
+
 - (void)resetAudioMenu
 {
-    [self changeAudioMenuState:MENU_HOME];
+    if(_audioMenuState != PLAYING_TRACK)
+    {
+        [self changeAudioMenuState:MENU_HOME];
+    }
 }
 
 - (void)initMenuWithTracks:(NSArray *)tracks AndLimit:(float)limit
@@ -240,14 +252,6 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         [_view3DAudioGrid removeAnnotation:anno];
         [anno.audioSource removeObserver:anno forKeyPath:@"position"];
     }
-    /*for(int i=0; i<[_view3DAudioGrid.audioModel.sources count]; i++)
-    {
-        AudioSource *as = [_view3DAudioGrid.audioModel.sources objectAtIndex:i];
-        DEBUGLog(@"%@",[as observationInfo]);
-        //[as removeObserver:_view3DAudioGrid.audioModel forKeyPath:@"position"];
-        //[_view3DAudioGrid removeObserver:as forKeyPath:@"position"];
-        as = nil;
-    }*/
     [_view3DAudioGrid.audioModel removeAllSources];
 
     _view3DAudioGrid.gridBounds = CGRectMake(-_area/2, -_area/2, _area, _area); // 20x20 meters - center @ 0,0
@@ -400,20 +404,25 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 {
     float correctedHeading = heading - _headingCorrection;
     
+    //DEBUGLog(@"Heading: %f",heading);
+    //DEBUGLog(@"Heading correction: %f",_headingCorrection);
+    
     // Apply the heading to our audio grid model.
     // See IHSDevice.fusedHeading for more info.
-    _view3DAudioGrid.audioModel.listenerHeading = correctedHeading + 90;
-    float listHeading = _view3DAudioGrid.audioModel.listenerHeading;
-    listHeading = [self normalizedDegrees:listHeading];
+    correctedHeading = [self normalizedDegrees:correctedHeading];
+    _view3DAudioGrid.audioModel.listenerHeading = correctedHeading;
     
-    //DEBUGLog(@"Heading: %f, Corrected heading: %f", heading, correctedHeading);
+    //float listHeading = _view3DAudioGrid.audioModel.listenerHeading;
+    //listHeading = [self normalizedDegrees:listHeading];
+    
+    //DEBUGLog(@"Corrected heading: %f",correctedHeading);
     
     // setting position
     if([_switchMoving isOn])
     {
         float front = [self correctedDistance]-_front;
-        float x = 0 + (front*cos((correctedHeading*M_PI)/180));
-        float y = 0 - (front*sin((correctedHeading*M_PI)/180));
+        float x = 0 + (front*cos(((correctedHeading-90)*M_PI)/180));
+        float y = 0 - (front*sin(((correctedHeading-90)*M_PI)/180));
         _view3DAudioGrid.audioModel.listenerPosition = CGPointMake(x, y);
     }
     else
@@ -424,14 +433,27 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     // Updating current track "in focus" or selected
     float trackSpan = _degreeSpan / APP_DELEGATE.persistencyManager.trackNumber;
     float leftRange = 0 - _degreeSpan/2;
+    leftRange = [self normalizedDegrees:leftRange];
     if(_audioMenuState == MENU_HOME || _audioMenuState == MENU_ALBUM)
     {
         for (int i=0; i<APP_DELEGATE.persistencyManager.trackNumber; i++) {
-            if(listHeading >= leftRange+(i*trackSpan) && listHeading < leftRange+((i+1)*trackSpan) &&
+            if(correctedHeading >= [self normalizedDegrees:leftRange+(i*trackSpan)] && correctedHeading < [self normalizedDegrees:leftRange+((i+1)*trackSpan)-1] &&
                i != _selectedTrackIndex)
             {
                 _selectedTrackIndex = i;
+                DEBUGLog(@"bigger than: %f, less than: %f", [self normalizedDegrees:leftRange+(i*trackSpan)], [self normalizedDegrees:leftRange+((i+1)*trackSpan)]);
                 DEBUGLog(@"Playlist track index selected: %d", _selectedTrackIndex);
+                for (int j=0; j<[_view3DAudioGrid.soundAnnotations count]; j++) {
+                    AudioSoundAnnotation *anno = [_view3DAudioGrid.soundAnnotations objectAtIndex:j];
+                    if(i == j)
+                    {
+                        [anno setSelected:YES];
+                    }
+                    else
+                    {
+                        [anno setSelected:NO];
+                    }
+                }
             }
         }
     }
@@ -460,6 +482,11 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         {
             [self changeAudioMenuState:PLAYING_TRACK];
         }
+        else if([label isEqualToString:@"ACTIVATE"])
+        {
+            // calibrate direction
+            _headingCorrection = APP_DELEGATE.smmDeviceManager.playerHeading;
+        }
         
     }
     // Home - go to album
@@ -469,9 +496,10 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         {
             [self changeAudioMenuState:MENU_ALBUM];
         }
-        else if([label isEqualToString:@"SHAKE"])
+        else if([label isEqualToString:@"ACTIVATE"])
         {
-            //[self changeAudioMenuState:PLAYING_TRACK];
+            // calibrate direction
+            _headingCorrection = APP_DELEGATE.smmDeviceManager.playerHeading;
         }
     }
     // Album - go play that song
@@ -497,13 +525,13 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 
 - (float)normalizedDegrees:(float)deg
 {
-    if(deg < -360)
+    if(deg < 0)
     {
-        return deg + 360;
+        return [self normalizedDegrees:(deg + 360)];
     }
-    if(deg > 360)
+    if(deg >= 360)
     {
-        return deg - 360;
+        return [self normalizedDegrees:(deg - 360)];
     }
     return deg;
 }

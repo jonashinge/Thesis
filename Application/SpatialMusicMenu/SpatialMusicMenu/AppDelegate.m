@@ -149,7 +149,9 @@
             // Fully connected
             [TSMessage showNotificationWithTitle:@"Intelligent Headset is connected"
                                             type:TSMessageNotificationTypeSuccess];
-            //[_smmDeviceManager playAudio];
+            [[NSNotificationCenter defaultCenter] postNotificationName:HEADSET_CONNECTED
+                                                                object:self
+                                                              userInfo:nil];
             break;
         case IHSDeviceConnectionStateConnectionFailed:
             [TSMessage showNotificationWithTitle:@"Intelligent Headset failed to connect" type:TSMessageNotificationTypeError];

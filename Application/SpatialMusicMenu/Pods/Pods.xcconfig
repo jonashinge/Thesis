@@ -3,6 +3,6 @@ GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Deezer" "${PODS_ROOT}/Headers/HexColors" "${PODS_ROOT}/Headers/MMDrawerController" "${PODS_ROOT}/Headers/Mantle" "${PODS_ROOT}/Headers/TSMessages"
 LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/Deezer" "$(PODS_ROOT)/Deezer/deezer-ios-sdk-0.8.2"
 ONLY_ACTIVE_ARCH = NO
-OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/Deezer" "-isystem${PODS_ROOT}/Headers/HexColors" "-isystem${PODS_ROOT}/Headers/MMDrawerController" "-isystem${PODS_ROOT}/Headers/Mantle" "-isystem${PODS_ROOT}/Headers/TSMessages"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/Deezer" -isystem "${PODS_ROOT}/Headers/HexColors" -isystem "${PODS_ROOT}/Headers/MMDrawerController" -isystem "${PODS_ROOT}/Headers/Mantle" -isystem "${PODS_ROOT}/Headers/TSMessages"
 OTHER_LDFLAGS = -ObjC -lDeezer -framework AudioToolBox -framework CoreAudio -framework Foundation -framework QuartzCore -framework SystemConfiguration
 PODS_ROOT = ${SRCROOT}/Pods

@@ -14,6 +14,7 @@
 @interface AudioSoundAnnotation : IHSAudio3DGridSoundAnnotation
 
 @property (nonatomic, strong) AudioSource* audioSource;
+@property (nonatomic) BOOL selected;
 
 - (instancetype)initWithAudioSource:(AudioSource*)audioSource;
 

@@ -111,6 +111,7 @@
 		3F0A498018FAE4250018D62C /* activate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = activate.mp3; sourceTree = "<group>"; };
 		3F0A498118FAE4250018D62C /* playing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = playing.mp3; sourceTree = "<group>"; };
 		3F0A498218FAE4250018D62C /* home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = home.mp3; sourceTree = "<group>"; };
+		3F121C4A190572ED006AC6B0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3F18737118CA4FB0009D81F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3F18737318CA4FBD009D81F7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3F18737518CA4FC7009D81F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -140,6 +141,7 @@
 		3F406C3C18E42BCB003A5541 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 		3F406C3F18E4CD25003A5541 /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
 		3F406C4018E4CD25003A5541 /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
+		3F4EFB4E19050F3C009CBD5A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3F5B8A2418CBB33A001396D4 /* Listener-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listener-0.png"; sourceTree = "<group>"; };
 		3F5B8A2518CBB33A001396D4 /* Listener-0.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Listener-0.svg"; sourceTree = "<group>"; };
 		3F5B8A2618CBB33A001396D4 /* Listener-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listener-0@2x.png"; sourceTree = "<group>"; };
@@ -458,6 +460,8 @@
 		3FAFFCDC18CA4C9700B2CFDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F121C4A190572ED006AC6B0 /* MediaPlayer.framework */,
+				3F4EFB4E19050F3C009CBD5A /* Security.framework */,
 				3F5B8A7218CBB3CB001396D4 /* IHS */,
 				3F18737F18CA4FF9009D81F7 /* libc++.dylib */,
 				3F18737D18CA4FEE009D81F7 /* SystemConfiguration.framework */,
@@ -791,6 +795,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -825,6 +830,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

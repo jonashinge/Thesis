@@ -20,6 +20,7 @@
 
 // Constants
 #define kTrackLimit 10
+#define HEADSET_CONNECTED @"HeadsetConnected"
 
 // Convenience getter for app delegate:
 #define APP_DELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])

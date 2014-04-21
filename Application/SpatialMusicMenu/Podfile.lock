@@ -1,9 +1,9 @@
 PODS:
   - Deezer (0.8.2)
   - HexColors (2.2.1)
-  - Mantle (1.4):
+  - Mantle (1.4.1):
     - Mantle/extobjc
-  - Mantle/extobjc (1.4)
+  - Mantle/extobjc (1.4.1)
   - MMDrawerController (0.5.3):
     - MMDrawerController/Core
     - MMDrawerController/MMDrawerBarButtonItem
@@ -26,10 +26,10 @@ DEPENDENCIES:
   - TSMessages (~> 0.9)
 
 SPEC CHECKSUMS:
-  Deezer: 6eeb19197c0dacd8905c93b2bec242272431292c
-  HexColors: 3a68db077cd6572a8f7d4aa1add284dd2436a934
-  Mantle: de026e86c183c5adfd453c1d8419babb787fea97
+  Deezer: 293714050414e8e1d56d461e35f8934ebc31bc9a
+  HexColors: 99211502e17904af7891fc8f687d0e4958a6d66e
+  Mantle: 0714cdb2b8559d9e6c2410d6a8529e3307bff189
   MMDrawerController: 4445e1927e8947b7e2382136c9b7109840efbfb9
   TSMessages: 839edc3164b99ced48c30af9dde9710cd67bea4d
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1

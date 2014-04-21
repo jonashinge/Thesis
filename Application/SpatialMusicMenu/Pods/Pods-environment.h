@@ -52,13 +52,13 @@
 #define COCOAPODS_POD_AVAILABLE_Mantle
 #define COCOAPODS_VERSION_MAJOR_Mantle 1
 #define COCOAPODS_VERSION_MINOR_Mantle 4
-#define COCOAPODS_VERSION_PATCH_Mantle 0
+#define COCOAPODS_VERSION_PATCH_Mantle 1
 
 // Mantle/extobjc
 #define COCOAPODS_POD_AVAILABLE_Mantle_extobjc
 #define COCOAPODS_VERSION_MAJOR_Mantle_extobjc 1
 #define COCOAPODS_VERSION_MINOR_Mantle_extobjc 4
-#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 0
+#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 1
 
 // TSMessages
 #define COCOAPODS_POD_AVAILABLE_TSMessages
