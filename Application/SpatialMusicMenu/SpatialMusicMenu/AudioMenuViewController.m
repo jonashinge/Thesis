@@ -421,13 +421,15 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     
     // Apply the heading to our audio grid model.
     // See IHSDevice.fusedHeading for more info.
-    correctedHeading = [self normalizedDegrees:correctedHeading];
+    correctedHeading = [self normalized360Degrees:correctedHeading];
     _view3DAudioGrid.audioModel.listenerHeading = correctedHeading;
+    
+    float listHeading = [self normalize180Degrees:correctedHeading];
     
     //float listHeading = _view3DAudioGrid.audioModel.listenerHeading;
     //listHeading = [self normalizedDegrees:listHeading];
     
-    //DEBUGLog(@"Corrected heading: %f",correctedHeading);
+    //DEBUGLog(@"List heading: %f",listHeading);
     
     // setting position
     if([_switchMoving isOn])
@@ -445,15 +447,14 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     // Updating current track "in focus" or selected
     float trackSpan = _degreeSpan / APP_DELEGATE.persistencyManager.trackNumber;
     float leftRange = 0 - _degreeSpan/2;
-    leftRange = [self normalizedDegrees:leftRange];
     if(_audioMenuState == MENU_HOME || _audioMenuState == MENU_ALBUM)
     {
         for (int i=0; i<APP_DELEGATE.persistencyManager.trackNumber; i++) {
-            if(correctedHeading >= [self normalizedDegrees:leftRange+(i*trackSpan)] && correctedHeading < [self normalizedDegrees:leftRange+((i+1)*trackSpan)-1] &&
+            if(listHeading >= leftRange+(i*trackSpan) && listHeading < leftRange+((i+1)*trackSpan) &&
                i != _selectedTrackIndex)
             {
                 _selectedTrackIndex = i;
-                DEBUGLog(@"bigger than: %f, less than: %f", [self normalizedDegrees:leftRange+(i*trackSpan)], [self normalizedDegrees:leftRange+((i+1)*trackSpan)]);
+                DEBUGLog(@"bigger than: %f, less than: %f", [self normalized360Degrees:leftRange+(i*trackSpan)], [self normalized360Degrees:leftRange+((i+1)*trackSpan)]);
                 DEBUGLog(@"Playlist track index selected: %d", _selectedTrackIndex);
                 for (int j=0; j<[_view3DAudioGrid.soundAnnotations count]; j++) {
                     AudioSoundAnnotation *anno = [_view3DAudioGrid.soundAnnotations objectAtIndex:j];
@@ -575,15 +576,28 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     return returnVal;
 }
 
-- (float)normalizedDegrees:(float)deg
+- (float)normalized360Degrees:(float)deg
 {
     if(deg < 0)
     {
-        return [self normalizedDegrees:(deg + 360)];
+        return [self normalized360Degrees:(deg + 360)];
     }
     if(deg >= 360)
     {
-        return [self normalizedDegrees:(deg - 360)];
+        return [self normalized360Degrees:(deg - 360)];
+    }
+    return deg;
+}
+
+- (float)normalize180Degrees:(float)deg
+{
+    if(deg > 180)
+    {
+        return [self normalize180Degrees:deg - 360];
+    }
+    else if(deg <= -180)
+    {
+        return [self normalize180Degrees:deg + 360];
     }
     return deg;
 }

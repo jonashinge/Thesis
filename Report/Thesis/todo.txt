@@ -9,8 +9,10 @@ TODO today
 Thomas questions
 ---------------------
 - Summary in chapters?
-- Images courtesy description?
 - Test users description in design process/evaluation?
+- In which chapter should I describe the IHS? (maybe before design process)
+- Design section clarification
+- Evaluation, efficiency parameter clarification
 
 
 ---------------------
@@ -66,6 +68,7 @@ Application
 - After recording gesture - it should detect it
 - Resume playback when cancelling activate
 - Test with smartphone tethering
+- Deezer play track bug
 
 
 
@@ -104,6 +107,35 @@ Navigation/gestures
 
 Usikkerheder/bugs:
 - Headset disconnecter til tider
+
+
+
+
+Thomas
+Generelt:
+- Forskel på tracks, det gør det sværere at adskille numre
+- Indstillinger afhænger lidt type af tracks, høje overdøvende numre -> mere afstand
+
+Mode 1
+- God fornemmelse af hvornår hvornår track er i fokus men man skal koncentrere sig
+- Nemmere med større afstand (100x100m bedre end 50x50m)
+- Antal af tracks, 4 er ok, 6 er for meget
+- Lavere degree er mere behageligt, man bevæger hovedet mindre
+
+Mode 2
+- Bedre fornemmelse end mode 1
+- Bedre længere væk (8m bedre end 1m)
+- Pref setup 70x70m area, 3m distance, 100 degree
+- 6 tracks er bedre end mode 1
+- Zoom fungerer godt
+- 8 tracks, man mister fornemmelse af lydene i siderne
+
+Navigation/gestures
+- godt setup: initWithDimension:6 GlobalThreshold:0.1 FirstThreshold:0.2 AndMaxSlope:2];
+- Fungerede godt, hurtigt at lære menu (under et kvarter)
+- Fysisk, god fornemmelse
+- 2 gange den ikke reagerede på nik
+- Speech bekræftelse er god - den forstyrrer ikke tracks
 
 
 
