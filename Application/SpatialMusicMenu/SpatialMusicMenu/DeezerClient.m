@@ -32,6 +32,7 @@
 @property (strong, nonatomic) DeezerRequest *requestPlaylist;
 
 @property (strong, nonatomic) PlayerFactory *deezerPlayer;
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
 @property (strong) AVAssetReader *assetReader;
 @property (strong) AVAssetWriter *assetWriter;
@@ -110,9 +111,37 @@
     [_deezerPlayer preparePlayerForTrackWithDeezerId:trackId stream:stream andDeezerConnect:_deezerConnect];
 }
 
+- (void)playPreviewTrackWithId:(NSString* )trackId
+{
+    DEBUGLog(@"Playing preview with - id: %@", trackId);
+    
+    NSError *error;
+    
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
+    NSString *exportPath = [documentsDirectoryPath
+                            stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3",trackId]];
+    NSURL *url = [NSURL fileURLWithPath:exportPath isDirectory:NO];
+    
+    [_audioPlayer stop];
+    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    if (error) {
+        NSLog(@"Error playing sound '%@': %@", trackId, error);
+        _audioPlayer = nil;
+    }
+    else {
+        _audioPlayer.volume = 0.1;
+        
+        [_audioPlayer prepareToPlay];
+        [_audioPlayer play];
+    }
+}
+
 - (void)pausePlayback
 {
     [_deezerPlayer pause];
+    [_audioPlayer pause];
 }
 
 - (void)continuePlayback

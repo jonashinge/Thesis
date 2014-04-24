@@ -333,7 +333,8 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
             Track *track = [_selectedAlbum.tracks objectAtIndex:_selectedTrackIndex];
             // Log
             logString = [NSString stringWithFormat:@"Change menu state: %@ (%@: %@)", [self translatedMenuState:state], track.artist, track.title];
-            [APP_DELEGATE.deezerClient playTrackWithId:track.itemId andStream:track.stream];
+            //[APP_DELEGATE.deezerClient playTrackWithId:track.itemId andStream:track.stream];
+            [APP_DELEGATE.deezerClient playPreviewTrackWithId:track.itemId];
             [_lblState setText:@"Playing track"];
             [self playSystemSoundWithName:@"playing"];
             [APP_DELEGATE.smmDeviceManager stopAudio];

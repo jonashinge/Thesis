@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  24 APR 2014 17:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  24 APR 2014 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1107,11 +1107,11 @@ Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-<./Figures/app-architecture.pdf, id=594, 711.65875pt x 558.085pt>
+<./Figures/app-architecture.pdf, id=596, 711.65875pt x 558.085pt>
 File: ./Figures/app-architecture.pdf Graphic file (type pdf)
 
 <use ./Figures/app-architecture.pdf>
-Package pdftex.def Info: ./Figures/app-architecture.pdf used on input line 14.
+Package pdftex.def Info: ./Figures/app-architecture.pdf used on input line 21.
 (pdftex.def)             Requested size: 417.46432pt x 327.37682pt.
 ) (./Chapters/Chapter5.tex [21
 
@@ -1271,13 +1271,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 5A7960D244C0EBBBE08EC8C69CA86197;7615.
+(rerunfilecheck)             Checksum: 4567F0DC08FF2786F9119B6B4942F488;7532.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
  21512 strings out of 493315
- 390354 string characters out of 6137903
- 394472 words of memory out of 5000000
+ 390360 string characters out of 6137903
+ 394475 words of memory out of 5000000
  24491 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1291,7 +1291,7 @@ r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (41 pages, 1966619 bytes).
+Output written on Thesis.pdf (41 pages, 1966562 bytes).
 PDF statistics:
  747 PDF objects out of 1000 (max. 8388607)
  650 compressed objects within 7 object streams

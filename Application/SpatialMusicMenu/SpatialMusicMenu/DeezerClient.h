@@ -13,6 +13,7 @@
 - (void)connect;
 - (void)sync;
 - (void)playTrackWithId:(NSString* )trackId andStream:(NSString*)stream;
+- (void)playPreviewTrackWithId:(NSString* )trackId;
 - (void)pausePlayback;
 - (void)continuePlayback;
 - (void)stopPlayback;
