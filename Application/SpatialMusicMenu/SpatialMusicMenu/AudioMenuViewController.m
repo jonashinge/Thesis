@@ -88,9 +88,9 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     
     _soundAnnotations = [[NSMutableArray alloc] init];
     
-    _area = 100000; // e.g. 20000 = 20x20m
-    _degreeSpan = 140;
-    _front = 2500; // e.g. 1000 = 1m in front of user
+    _area = 60000; // e.g. 20000 = 20x20m
+    _degreeSpan = 100;
+    _front = 8000; // e.g. 1000 = 1m in front of user
     
     // Setup audio 3d grid view and model.
     // The gridBounds property is an expression for how big in a physical world
@@ -135,6 +135,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     
     _switchMoving = [[UISwitch alloc] initWithFrame:CGRectMake(290, 30, 80, 30)];
     [controls addSubview:_switchMoving];
+    [_switchMoving setOn:YES];
     
     UIButton *btnReset = [[UIButton alloc] initWithFrame:CGRectMake(30, 80, 200, 50)];
     [btnReset setTitle:@"Reset positions" forState:UIControlStateNormal];

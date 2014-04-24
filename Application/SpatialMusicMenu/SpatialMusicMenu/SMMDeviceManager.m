@@ -50,7 +50,7 @@ const int WINDOW_SIZE = 50;
         _ihsDevice.sensorsDelegate = self;
         
         // Setup recognizer and recording array
-        _recognizer = [[DTWRecognizer alloc] initWithDimension:6 GlobalThreshold:0.1 FirstThreshold:0.2 AndMaxSlope:2];
+        _recognizer = [[DTWRecognizer alloc] initWithDimension:2 GlobalThreshold:0.02 FirstThreshold:0.01 AndMaxSlope:2];
         _accData = [[NSMutableArray alloc] init];
         _recording = [[NSMutableArray alloc] init];
         
@@ -178,13 +178,24 @@ const int WINDOW_SIZE = 50;
         _recentHeading = ihs.fusedHeading;
         
         // Pseudo sensor fusion
-        NSArray *obs = [NSArray arrayWithObjects:
+        /*NSArray *obs = [NSArray arrayWithObjects:
                         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.x],
                         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.y],
                         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.z],
                         [NSNumber numberWithFloat:_ihsDevice.pitch/90], // values from -1 to 1
                         [NSNumber numberWithFloat:_ihsDevice.roll/90], // values from -1 to 1
-                        [NSNumber numberWithFloat:diffHeading/360], nil]; // values from 0 to 1
+                        [NSNumber numberWithFloat:diffHeading/360], nil]; // values from 0 to 1*/
+        
+        // Only gyro
+        /*NSArray *obs = [NSArray arrayWithObjects:
+                        [NSNumber numberWithFloat:_ihsDevice.pitch/90], // values from -1 to 1
+                        [NSNumber numberWithFloat:_ihsDevice.roll/90], // values from -1 to 1
+                        [NSNumber numberWithFloat:diffHeading/360], nil]; // values from 0 to 1*/
+        
+        // Only pitch,roll
+        NSArray *obs = [NSArray arrayWithObjects:
+                        [NSNumber numberWithFloat:_ihsDevice.pitch/90], // values from -1 to 1
+                        [NSNumber numberWithFloat:_ihsDevice.roll/90], nil]; // values from 0 to 1
         
         //DEBUGLog(@"Fusion data: %@",obs);
         _accDataCounter += 1;

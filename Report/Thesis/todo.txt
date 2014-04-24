@@ -69,11 +69,16 @@ Application
 - Resume playback when cancelling activate
 - Test with smartphone tethering
 - Deezer play track bug
+- Change recognizer to only use gestures (Acceleration gets caught when biking/moving)
+
+
+
 
 
 
 Design process (Iterative evaluation)
 -------------------------------------
+
 Martin
 Generelt:
 - Forskel på tracks - nogle er højere
@@ -110,7 +115,6 @@ Usikkerheder/bugs:
 
 
 
-
 Thomas
 Generelt:
 - Forskel på tracks, det gør det sværere at adskille numre
@@ -136,6 +140,29 @@ Navigation/gestures
 - Fysisk, god fornemmelse
 - 2 gange den ikke reagerede på nik
 - Speech bekræftelse er god - den forstyrrer ikke tracks
+
+
+
+P
+Generelt:
+- Forskel på tracks, samme problem som de forrige test personer
+
+Mode 1
+- En fejl på track gæt
+- Større degree span foretrukket
+- Stadig klart hvlket track der er i centrum med 5 numre, ikke ubehageligt
+- 100m area bedre end 50m
+- Hvis man sætter sig for et nummer kan man godt finde det, dog et nummer fejlede (6 tracks)
+- Det tager tid at genkalde ved 6 numre, nemmere ved < 5
+
+Mode 2
+- Zoom bedre til at skelne, tydeligt hvad der var i fokus
+- Kan nemt nævne rækkefølge
+- Nemmere at selektere
+- 8 numre svært men stadig nemmere end mode 1
+- 8 numre dog nemmere ved tæt zoom (4m, 100x100m area)
+- Karusel-agtig effekt
+
 
 
 
