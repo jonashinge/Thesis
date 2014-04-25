@@ -113,7 +113,59 @@ const int WINDOW_SIZE = 50;
 {
     _isRecordingGesture = NO;
     
-    return _recording;
+    NSArray *cleanedData = [self cleanRecordingGesture:_recording];
+    
+    DEBUGLog(@"Not cleaned data (count %d): %@", [_recording count], _recording);
+    DEBUGLog(@"Cleaned data (count %d): %@", [cleanedData count], cleanedData);
+    
+    return cleanedData;
+}
+
+- (NSArray *)cleanRecordingGesture:(NSMutableArray *)data
+{
+    NSMutableArray *cleanedData = [NSMutableArray arrayWithArray:data];
+    
+    float diff = 0.01;
+    
+    // Removing start noise
+    NSArray *startObs = [data objectAtIndex:0];
+    for (int i=1; i<[data count]; i++) {
+        NSArray *obs = [data objectAtIndex:i];
+        int equalItems = 0;
+        for (int j=0; j<[obs count]; j++) {
+            if( fabsf(([[startObs objectAtIndex:j] floatValue] - [[obs objectAtIndex:j] floatValue])) < diff)
+            {
+                equalItems += 1;
+            }
+        }
+        if(equalItems == [obs count])
+        {
+            DEBUGLog(@"Removing object from start: %@ compaired to: %@", obs, startObs);
+            [cleanedData removeObjectAtIndex:0];
+        }
+        else break;
+    }
+    
+    // Removing end noise
+    NSArray *endObs = [data objectAtIndex:[data count]-1];
+    for (int i=[data count]-2; i>0; i--) {
+        NSArray *obs = [data objectAtIndex:i];
+        int equalItems = 0;
+        for (int j=0; j<[obs count]; j++) {
+            if( fabsf(([[endObs objectAtIndex:j] floatValue] - [[obs objectAtIndex:j] floatValue])) < diff)
+            {
+                equalItems += 1;
+            }
+        }
+        if(equalItems == [obs count])
+        {
+            DEBUGLog(@"Removing object from end: %@ compaired to: %@", obs, endObs);
+            [cleanedData removeObjectAtIndex:[cleanedData count]-1];
+        }
+        else break;
+    }
+    
+    return cleanedData;
 }
 
 - (void)updateGestures:(NSArray *)gestures

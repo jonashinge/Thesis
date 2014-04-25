@@ -5,13 +5,24 @@
 
 \section{Head Gestures Recognition}
 
+\subsection{Dynamic Time Warping}
+
 DTW - Dynamic Time Warping 
 
 Dynamic Time Warping \cite{salvador_toward_2007}
 
 Accelerometer-based DTW \cite{akl_accelerometer-based_2010}
 
-\section{Application}
+\subsection{Sensor data}
+Gyroscope data, 1 observation, 1 sequence
+
+\subsection{Removing noise}
+Start and end noise removal
+
+\section{iOS Application}
+The platform used in this project is Apples iOS. The main reason for using this platform is that when the project started the Intelligent Headset only provided an SDK compatible with iOS. The iOS is a mature OS currently at version 7.1. The Spatial Music Menu are running version 6+ and optimized for the iPad.
+
+As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal \cite{apple_apple_2014} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most important functionality of the Spatial Music Menu.
 
 \subsection{Overview}
 An overview of the application architecture is shown in figure \ref{fig:apparchitecture}.
