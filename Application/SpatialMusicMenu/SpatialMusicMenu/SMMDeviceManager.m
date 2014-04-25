@@ -255,6 +255,7 @@ const int WINDOW_SIZE = 50;
         // Record gesture
         if(_isRecordingGesture)
         {
+            _accDataCounter = 0;
             DEBUGLog(@"Fusion data: %@",obs);
             [_recording addObject:obs];
         }
