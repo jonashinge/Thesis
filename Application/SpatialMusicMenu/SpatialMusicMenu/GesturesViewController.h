@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GesturesViewController : UIViewController
+#import "SMMDeviceManager.h"
+
+@interface GesturesViewController : UIViewController <SMMDeviceManagerDelegate>
 
 @end

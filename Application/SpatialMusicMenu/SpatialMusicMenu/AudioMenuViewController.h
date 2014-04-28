@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AudioMenuViewController : UIViewController
+#import "SMMDeviceManager.h"
+
+@interface AudioMenuViewController : UIViewController <SMMDeviceManagerDelegate>
 
 @end

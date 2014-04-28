@@ -28,7 +28,7 @@
 #import <MMDrawerController/MMDrawerBarButtonItem.h>
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 
-@interface AudioMenuViewController () <SMMDeviceManagerDelegate, IHS3DAudioDelegate, IHSAudio3DGridModelDelegate, IHSAudio3DGridViewDelegate>
+@interface AudioMenuViewController () <IHS3DAudioDelegate, IHSAudio3DGridModelDelegate, IHSAudio3DGridViewDelegate>
 
 @property (strong, nonatomic) DTWRecognizer *recognizer;
 @property (strong, nonatomic) IHSAudio3DGridView *view3DAudioGrid;
@@ -205,12 +205,10 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     [_lblFront setText:[NSString stringWithFormat:@"User distance: %dm",valFront]];
     [self.view addSubview:_lblFront];
     
-    // Device manager
-    SMMDeviceManager *manager = APP_DELEGATE.smmDeviceManager;
-    manager.delegate = self;
-    
     // Init audio menu
     [self resetAudioMenu];
+    
+    APP_DELEGATE.smmDeviceManager.delegate = self;
     
     // Set init values
     _headingCorrection = 0;
@@ -474,8 +472,10 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     }
 }
 
-- (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSString *)label
+- (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSDictionary *)result
 {
+    NSString *label = [result objectForKey:@"class"];
+    
     // Log
     [APP_DELEGATE.persistencyManager writeToLog:[NSString stringWithFormat:@"Gesture recognized: %@", [APP_DELEGATE translatedLabel:label]]];
     

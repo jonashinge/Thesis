@@ -12,7 +12,7 @@
 
 - (id)initWithDimension:(NSInteger)dimension GlobalThreshold:(CGFloat)threshold FirstThreshold:(CGFloat)firstThreshold AndMaxSlope:(NSInteger)maxSlope;
 - (void)addKnownSequence:(NSArray *)seq WithLabel:(NSString *)label;
-- (NSString *)recognizeSequence:(NSArray *)seq;
+- (NSDictionary *)recognizeSequence:(NSArray *)seq;
 - (void)clearAllKnownSequences;
 
 @end

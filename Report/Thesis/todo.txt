@@ -1,16 +1,15 @@
 ---------------------
-TODO today
+TODO
 ---------------------
-- Cognitive load
-- 
+- Improve gesture recognition
 
 
 ---------------------
 Thomas questions
 ---------------------
 - Summary in chapters?
-- Test users description in design process/evaluation?
-- In which chapter should I describe the IHS? (maybe before design process)
+- Test users description in design process/evaluation? (info that can affect the system/project, read ubicomp papers for inspiration)
+- In which chapter should I describe the IHS? (Implementation)
 - Design section clarification
 - Evaluation, efficiency parameter clarification
 
@@ -18,26 +17,24 @@ Thomas questions
 ---------------------
 Thomas Feedback
 ---------------------
-In design section:
-Look back on related work and reason choosed design
-At the end of design section i will have an abstract "solution"
+Design section
+- introduction method - describe in a high level prototypes, iterations
 
-Design:
-Present the alternatives
+design, high level design decisions not in details, e.g. head gesture
+system architecture, hardware, software
+Narrow down the choices
 
-Implementation
-Present the alternatives
+Evaluation should include design process results
+Evaluation type: In-between (not all tries everything)
+Perceptive load
+Motoric load
+- Reaction time, not missing circles, speed (look at logged events)
+- Filming the evaluation
+- Evaluating the head gestures, accuracy
 
-Evaluation:
-Quantitative: Time, Errors
-Qualitative: Comfort
 
-Semi-structured interview
-Interview, forms
-5 people might be a good number
-Avoid noise as much as possible
 
-Overall: To ambigous right now - be more precise
+Research methods (in human computer interaction)
 
 
 

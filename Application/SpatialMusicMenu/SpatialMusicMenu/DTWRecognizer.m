@@ -54,10 +54,11 @@
     [self.labels addObject:label];
 }
 
-- (NSString *)recognizeSequence:(NSArray *)seq
+- (NSDictionary *)recognizeSequence:(NSArray *)seq
 {
     CGFloat minDist = INFINITY;
     //double minDist = double.INFINITY;
+    int idx = -1;
     NSString *class = @"__UNKNOWN";
     for(int i=0; i<[self.sequences count]; i++)
     {
@@ -68,11 +69,23 @@
             if(d < minDist)
             {
                 minDist = d;
+                idx = i;
                 class = [self.labels objectAtIndex:i];
             }
         }
     }
-    return (minDist < self.globalThreshold ? class : @"__UNKNOWN");
+    if(minDist < self.globalThreshold)
+    {
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithInt:idx], @"id", class, @"class", nil];
+        return dict;
+    }
+    else
+    {
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithInt:-1], @"id", @"__UNKNOWN", @"class", nil];
+        return dict;
+    }
 }
 
 // Squared euclidian distance

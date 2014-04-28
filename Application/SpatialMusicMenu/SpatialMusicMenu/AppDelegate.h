@@ -18,6 +18,7 @@
 @property (strong, nonatomic) PersistencyManager *persistencyManager;
 @property (strong, nonatomic) DeezerClient *deezerClient;
 
+- (void)makeAudioMenuViewControllerDeviceDelegate:(BOOL)active;
 - (NSString *)translatedLabel:(NSString *)gestureLabel;
 
 // Constants

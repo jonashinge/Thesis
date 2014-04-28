@@ -11,7 +11,9 @@
 #import "AppDelegate.h"
 #import "Gesture.h"
 
-@interface GesturesViewController () <SMMDeviceManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+#import <MMDrawerController/UIViewController+MMDrawerController.h>
+
+@interface GesturesViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property UIButton *btnRecordGesture;
 
@@ -64,7 +66,7 @@
     [_tableChooseGesture setBounces:NO];
     [self.view addSubview:_tableChooseGesture];
     
-    _tableRecordedGestures = [[UITableView alloc] initWithFrame:CGRectMake(0, 600, 400, 600) style:UITableViewStylePlain];
+    _tableRecordedGestures = [[UITableView alloc] initWithFrame:CGRectMake(0, 600, 400, 424) style:UITableViewStylePlain];
     _tableRecordedGestures.delegate = self;
     _tableRecordedGestures.dataSource = self;
     _tableRecordedGestures.backgroundView = nil;
@@ -103,6 +105,7 @@
             Gesture *gesture = [[Gesture alloc] init];
             [gesture setLabel:[self gestureLabel:_gestureSelected]];
             [gesture setData:gestureData];
+            [gesture setTimestamp:[NSDate date]];
             [APP_DELEGATE.persistencyManager addGesture:gesture];
             [APP_DELEGATE.smmDeviceManager updateGestures:[APP_DELEGATE.persistencyManager getGestures]];
             [_tableRecordedGestures reloadData];
@@ -114,12 +117,16 @@
 {
     [super viewDidAppear:animated];
     
+    [APP_DELEGATE makeAudioMenuViewControllerDeviceDelegate:NO];
+    
     [APP_DELEGATE.smmDeviceManager stopAudio];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    
+    [APP_DELEGATE makeAudioMenuViewControllerDeviceDelegate:YES];
     
     [APP_DELEGATE.smmDeviceManager playAudio];
 }
@@ -183,11 +190,15 @@
         
         [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:20]];
         [cell.textLabel setTextColor:[UIColor whiteColor]];
-        [cell setBackgroundColor:[UIColor clearColor]];
+        [cell setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         Gesture *gest = [[APP_DELEGATE.persistencyManager getGestures] objectAtIndex:indexPath.row];
         [cell.textLabel setText:[APP_DELEGATE translatedLabel:gest.label]];
+        NSString *dateString = [NSDateFormatter localizedStringFromDate:gest.timestamp
+                                                              dateStyle:NSDateFormatterShortStyle
+                                                              timeStyle:NSDateFormatterMediumStyle];
+        [cell.detailTextLabel setText:dateString];
     }
     
     return cell;
@@ -222,6 +233,24 @@
         [APP_DELEGATE.smmDeviceManager updateGestures:[APP_DELEGATE.persistencyManager getGestures]];
         [_tableRecordedGestures reloadData];
     }
+}
+
+
+- (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSDictionary *)result
+{
+    // select new
+    NSIndexPath *idxPath = [NSIndexPath indexPathForRow:[[result objectForKey:@"id"] intValue] inSection:0];
+    UITableViewCell *cell = [_tableRecordedGestures cellForRowAtIndexPath:idxPath];
+    
+    [_tableRecordedGestures scrollToRowAtIndexPath:idxPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [cell setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0.8]];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            [cell setBackgroundColor:[UIColor colorWithWhite:0.5 alpha:0]];
+        }];
+    }];
 }
 
 - (NSString *)gestureLabel:(int)gestureNr

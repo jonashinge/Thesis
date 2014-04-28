@@ -32,7 +32,7 @@
 
 @end
 
-const int WINDOW_SIZE = 50;
+const int WINDOW_SIZE = 30;
 
 @implementation SMMDeviceManager
 
@@ -50,7 +50,7 @@ const int WINDOW_SIZE = 50;
         _ihsDevice.sensorsDelegate = self;
         
         // Setup recognizer and recording array
-        _recognizer = [[DTWRecognizer alloc] initWithDimension:2 GlobalThreshold:0.02 FirstThreshold:0.01 AndMaxSlope:2];
+        _recognizer = [[DTWRecognizer alloc] initWithDimension:2 GlobalThreshold:0.005 FirstThreshold:0.005 AndMaxSlope:1];
         _accData = [[NSMutableArray alloc] init];
         _recording = [[NSMutableArray alloc] init];
         
@@ -260,7 +260,7 @@ const int WINDOW_SIZE = 50;
             [_recording addObject:obs];
         }
         // Recognize gesture
-        else
+        else if(_accDataCounter > 0)
         {
             [_accData addObject:obs];
             // Remove the oldest observation
@@ -270,10 +270,13 @@ const int WINDOW_SIZE = 50;
             }
             if(_accDataCounter == WINDOW_SIZE)
             {
-                NSString *result = [_recognizer recognizeSequence:_accData];
-                if(![result isEqual: @"__UNKNOWN"])
+                DEBUGLog(@"WINDOW_SIZE reached and acc data count:%d - now recognizing...",[_accData count]);
+                NSDictionary *result = [_recognizer recognizeSequence:_accData];
+                NSString *classResult = [result objectForKey:@"class"];
+                if(![classResult isEqual: @"__UNKNOWN"])
                 {
-                    DEBUGLog(@"Recognized gesture: %@",result);
+                    int idx = [[[_recognizer recognizeSequence:_accData] objectForKey:@"id"] intValue];
+                    DEBUGLog(@"Recognized gesture: %@ with id:%d",result, idx);
                     
                     if([_delegate respondsToSelector:@selector(smmDeviceManager:gestureRecognized:)])
                     {
@@ -283,7 +286,7 @@ const int WINDOW_SIZE = 50;
                     [_accData removeAllObjects];
                     
                     // Longer interval before trying to recognize again, e.g. avoiding a "double nod"
-                    _accDataCounter = -80;
+                    _accDataCounter = -50;
                     return;
                 }
                 _accDataCounter = 0;

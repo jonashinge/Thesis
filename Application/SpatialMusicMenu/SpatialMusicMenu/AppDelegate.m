@@ -19,6 +19,9 @@
 
 @interface AppDelegate () <SMMDeviceManagerConnectionDelegate>
 
+@property (nonatomic, strong) AudioMenuViewController *audioVC;
+@property (nonatomic, strong) GesturesViewController *gesturesVC;
+
 @property (nonatomic,strong) MMDrawerController * drawerController;
 
 @end
@@ -38,15 +41,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    AudioMenuViewController *audioVC = [[AudioMenuViewController alloc] init];
+    _audioVC = [[AudioMenuViewController alloc] init];
     MusicViewController *musicVC = [[MusicViewController alloc] init];
-    GesturesViewController *gesturesVC = [[GesturesViewController alloc] init];
+    _gesturesVC = [[GesturesViewController alloc] init];
     
     // nav controller
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:audioVC];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:_audioVC];
     
     // drawer setup
-    _drawerController = [[MMDrawerController alloc] initWithCenterViewController:navController leftDrawerViewController:musicVC rightDrawerViewController:gesturesVC];
+    _drawerController = [[MMDrawerController alloc] initWithCenterViewController:navController leftDrawerViewController:musicVC rightDrawerViewController:_gesturesVC];
     [_drawerController setMaximumLeftDrawerWidth:400];
     [_drawerController setMaximumRightDrawerWidth:400.0];
     [_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
@@ -60,6 +63,18 @@
     [TSMessage setDefaultViewController:self.window.rootViewController];
     
     return YES;
+}
+
+- (void)makeAudioMenuViewControllerDeviceDelegate:(BOOL)active
+{
+    if(active)
+    {
+        _smmDeviceManager.delegate = _audioVC;
+    }
+    else
+    {
+        _smmDeviceManager.delegate = _gesturesVC;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

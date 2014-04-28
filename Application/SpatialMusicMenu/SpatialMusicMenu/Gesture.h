@@ -10,6 +10,7 @@
 
 @interface Gesture : MTLModel
 
+@property (strong, nonatomic) NSDate *timestamp;
 @property (strong, nonatomic) NSString *label;
 @property (strong, nonatomic) NSArray *data;
 

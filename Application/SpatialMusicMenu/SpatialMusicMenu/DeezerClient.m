@@ -24,7 +24,7 @@
 
 #define kDeezerAppId @"133691"
 
-@interface DeezerClient () <DeezerSessionDelegate, DeezerRequestDelegate, PlayerDelegate, BufferDelegate>
+@interface DeezerClient () <DeezerSessionDelegate, DeezerRequestDelegate, PlayerDelegate, BufferDelegate, AVAudioPlayerDelegate>
 
 @property (strong, nonatomic) DeezerConnect *deezerConnect;
 
@@ -126,6 +126,7 @@
     
     [_audioPlayer stop];
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    _audioPlayer.delegate = self;
     if (error) {
         NSLog(@"Error playing sound '%@': %@", trackId, error);
         _audioPlayer = nil;
@@ -136,6 +137,12 @@
         [_audioPlayer prepareToPlay];
         [_audioPlayer play];
     }
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [_audioPlayer prepareToPlay];
+    [_audioPlayer play];
 }
 
 - (void)pausePlayback
