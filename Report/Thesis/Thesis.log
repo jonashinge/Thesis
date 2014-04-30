@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  24 APR 2014 21:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  30 APR 2014 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,7 +1010,7 @@ Chapter 1.
 
 
 
-] [2] <./Figures/triangulation.pdf, id=317, 963.6pt x 562.1pt>
+] [2] <./Figures/triangulation.pdf, id=358, 963.6pt x 562.1pt>
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
@@ -1021,7 +1021,7 @@ Chapter 2.
 ------------------------------------------------------------------------------
  2 Related work
 ------------------------------------------------------------------------------
-<./Figures/venn.png, id=356, 501.875pt x 501.875pt>
+<./Figures/venn.png, id=396, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
 Package pdftex.def Info: ./Figures/venn.png used on input line 14.
@@ -1030,28 +1030,28 @@ Package pdftex.def Info: ./Figures/venn.png used on input line 14.
 [4
 
 ] [5 <./Figures/venn.png (PNG copy)>] [6] [7] [8] [9] [10]
-<./Figures/nokia-headset.png, id=485, 586.19pt x 268.00125pt>
+<./Figures/nokia-headset.png, id=525, 586.19pt x 268.00125pt>
 File: ./Figures/nokia-headset.png Graphic file (type png)
 
 <use ./Figures/nokia-headset.png>
 Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 139.
 (pdftex.def)             Requested size: 250.48254pt x 114.51855pt.
  [11]
-<./Figures/bodyposeandleg.png, id=501, 792.9625pt x 461.725pt>
+<./Figures/bodyposeandleg.png, id=541, 792.9625pt x 461.725pt>
 File: ./Figures/bodyposeandleg.png Graphic file (type png)
 
 <use ./Figures/bodyposeandleg.png>
 Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 155.
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [12 <./Figures/nokia-headset.png> <./Figures/bodyposeandleg.png (PNG copy)>]
-<./Figures/pirhonen-system.png, id=515, 418.56375pt x 231.86626pt>
+<./Figures/pirhonen-system.png, id=555, 418.56375pt x 231.86626pt>
 File: ./Figures/pirhonen-system.png Graphic file (type png)
 
 <use ./Figures/pirhonen-system.png>
 Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 171.
 (pdftex.def)             Requested size: 250.48235pt x 138.7564pt.
 
-<./Figures/kajastila-system.png, id=521, 792.9625pt x 461.725pt>
+<./Figures/kajastila-system.png, id=561, 792.9625pt x 461.725pt>
 File: ./Figures/kajastila-system.png Graphic file (type png)
 
 <use ./Figures/kajastila-system.png>
@@ -1059,7 +1059,7 @@ Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 187.
 
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [13 <./Figures/pirhonen-system.png (PNG copy)>] <./Figures/brewster-system.png
-, id=531, 690.58pt x 219.82124pt>
+, id=571, 690.58pt x 219.82124pt>
 File: ./Figures/brewster-system.png Graphic file (type png)
 
 <use ./Figures/brewster-system.png>
@@ -1067,14 +1067,14 @@ Package pdftex.def Info: ./Figures/brewster-system.png used on input line 201.
 (pdftex.def)             Requested size: 375.73166pt x 119.60062pt.
  [14 <./Figures/kajastila-system.png (PNG copy)> <./Figures/brewster-system.png
  (PNG copy)>]
-<./Figures/park-system.png, id=541, 666.49pt x 292.09125pt>
+<./Figures/park-system.png, id=581, 666.49pt x 292.09125pt>
 File: ./Figures/park-system.png Graphic file (type png)
 
 <use ./Figures/park-system.png>
 Package pdftex.def Info: ./Figures/park-system.png used on input line 217.
 (pdftex.def)             Requested size: 375.73363pt x 164.66638pt.
 
-<./Figures/park-menus.png, id=545, 745.78625pt x 297.11pt>
+<./Figures/park-menus.png, id=585, 745.78625pt x 297.11pt>
 File: ./Figures/park-menus.png Graphic file (type png)
 
 <use ./Figures/park-menus.png>
@@ -1093,7 +1093,7 @@ Chapter 3.
 ------------------------------------------------------------------------------
  3 Design
 ------------------------------------------------------------------------------
-<./Figures/iterative.png, id=570, 518.93875pt x 328.22626pt>
+<./Figures/iterative.png, id=610, 518.93875pt x 328.22626pt>
 File: ./Figures/iterative.png Graphic file (type png)
 
 <use ./Figures/iterative.png>
@@ -1107,15 +1107,15 @@ Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-<./Figures/app-architecture.pdf, id=597, 711.65875pt x 558.085pt>
+[21
+
+] <./Figures/app-architecture.pdf, id=642, 711.65875pt x 558.085pt>
 File: ./Figures/app-architecture.pdf Graphic file (type pdf)
 
 <use ./Figures/app-architecture.pdf>
-Package pdftex.def Info: ./Figures/app-architecture.pdf used on input line 24.
+Package pdftex.def Info: ./Figures/app-architecture.pdf used on input line 32.
 (pdftex.def)             Requested size: 417.46432pt x 327.37682pt.
-) (./Chapters/Chapter5.tex [21
-
-] [22 <./Figures/app-architecture.pdf>]
+) (./Chapters/Chapter5.tex [22 <./Figures/app-architecture.pdf>]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Evaluation
@@ -1271,14 +1271,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 719B3185BA04800DA6561B42D92EAC8F;7555.
+(rerunfilecheck)             Checksum: CC63BBD74D18504E6E9F20FDE857B555;8800.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21516 strings out of 493315
- 390453 string characters out of 6137903
- 394491 words of memory out of 5000000
- 24494 multiletter control sequences out of 15000+600000
+ 21532 strings out of 493315
+ 390671 string characters out of 6137903
+ 394497 words of memory out of 5000000
+ 24502 multiletter control sequences out of 15000+600000
  13720 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,12n,45p,1497b,1019s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1291,10 +1291,10 @@ r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
 cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (41 pages, 1967434 bytes).
+Output written on Thesis.pdf (41 pages, 1969248 bytes).
 PDF statistics:
- 749 PDF objects out of 1000 (max. 8388607)
- 652 compressed objects within 7 object streams
- 159 named destinations out of 1000 (max. 500000)
- 416 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 790 PDF objects out of 1000 (max. 8388607)
+ 693 compressed objects within 7 object streams
+ 167 named destinations out of 1000 (max. 500000)
+ 480 words of extra memory for PDF output out of 10000 (max. 10000000)
 
