@@ -1,49 +1,49 @@
-import pygame, sys, random
-
-'''pygame.init()
-screen=pygame.display.set_mode([640,480])
-screen.fill([100,10,255])
-for i in range (255):
-    r = random.randint(0,255)
-    g = random.randint(0,255)
-    b = random.randint(0,255)
-    x = random.randint(0,640)
-    y = random.randint(0,480)
-    ballsize = random.randint(15,35)
-    border = random.randint(10,50)
-    pygame.draw.circle(screen,[r,g,b],[x,y],ballsize,border)
-    pygame.display.flip()
-while True:
-    for event in pygame.event.get():
-        if event.type==pygame.QUIT:
-            sys.exit()
-
-'''
-
 import pygame
 import random
 from pygame.locals import *
+import time
+import datetime
  
 size = [640,480]
 bg_color = [0, 0, 0]  # [230,230,230] light gray
+
 last_timespan = pygame.time.get_ticks()
 last_pause = pygame.time.get_ticks()
-pause = 2000
+pause = 2000 # will be generated randomly in loop
 timespan = 1500
+
 circles_shown = 0
 circles_detected = 0
 detections_outside = 0
 register_circle_active = False
 
+text_showing = False
+texts = [
+        "Arcade Fire - Empty Room",
+        "test",
+        "test 2",
+        "test 3"]
+text_counter = 0
+task_reg = 1
+
 
 if __name__ == '__main__':
+
+    pygame.init()
+    # font
+    myfont = pygame.font.SysFont("Helvetica", 24)
+    # Initialize the joysticks
+    pygame.joystick.init()
+
     SW,SH = 640,480
-    screen = pygame.display.set_mode((SW,SH))
+    screen = pygame.display.set_mode((SW,SH), pygame.RESIZABLE)
     pygame.display.set_caption('Circle detection')
 
     # clear screen
     screen.fill(bg_color)
     pygame.display.flip()
+
+    print("")
     
     _quit = False
     while not _quit:
@@ -52,12 +52,44 @@ if __name__ == '__main__':
                 pygame.display.set_mode(size)
             if e.type is KEYDOWN and e.key == K_f:
                 pygame.display.set_mode(size, FULLSCREEN)
-            if e.type is MOUSEBUTTONDOWN:
-                if register_circle_active:
-                    circles_detected += 1
-                    register_circle_active = False
+            if e.type is KEYDOWN and e.key == K_t:
+                if text_counter < len(texts):
+                    # remove circle, clear screen
+                    screen.fill(bg_color)
+                    pygame.display.flip()
+                    # render text
+                    label = myfont.render(texts[text_counter], 1, (255,255,255))
+                    screen.blit(label, (50, 50))
+                    pygame.display.flip()
+                    text_showing = True
+            if e.type is KEYDOWN and e.key == K_r:
+                if text_counter == task_reg and text_showing is False:
+                    # register track found
+                    print(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
+                    print("Registering task " + str(task_reg))
+                    print("")
+                    task_reg += 1
+            if e.type is pygame.JOYBUTTONDOWN:
+                if text_showing is True:
+                    # beginning task
+                    print(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
+                    print("Starting task " + str(text_counter+1))
+                    print("")
+                    # remove circle, clear screen
+                    screen.fill(bg_color)
+                    pygame.display.flip()
+                    text_counter += 1
+                    text_showing = False
+                    now = pygame.time.get_ticks()
                 else:
-                    detections_outside += 1
+                    if register_circle_active:
+                        circles_detected += 1
+                        register_circle_active = False
+                        # remove circle, clear screen
+                        screen.fill(bg_color)
+                        pygame.display.flip()
+                    else:
+                        detections_outside += 1
 
             if e.type==pygame.QUIT:
                 _quit = True
@@ -66,40 +98,50 @@ if __name__ == '__main__':
 
         now = pygame.time.get_ticks()
 
-        if now - last_timespan >= timespan and circles_shown > 0:
-            last_timespan = float("inf")
-            # clear screen
-            print("Clearing screen...")
-            print("Circles shown: " + str(circles_shown) + ", circles detected: " + str(circles_detected))
-            print("Success detection rate: ", str((circles_detected/circles_shown)*100) + "%")
-            print("(Detections outside: " + str(detections_outside) + ")")
-            screen.fill(bg_color)
-            pygame.display.flip()
+        if text_showing is False:
+            if now - last_timespan >= timespan and circles_shown > 0:
+                last_timespan = float("inf")
+                # clear screen
+                print(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
+                print("Clearing screen...")
+                print("Circles shown: " + str(circles_shown) + ", circles detected: " + str(circles_detected))
+                print("Success detection rate: ", str((circles_detected/circles_shown)*100) + "%")
+                print("(Detections outside: " + str(detections_outside) + ")")
+                print("")
+                screen.fill(bg_color)
+                pygame.display.flip()
 
-            register_circle_active = False
+                register_circle_active = False
 
-        if now - last_pause >= pause:
-            last_pause = now
-            last_timespan = now
+            if now - last_pause >= pause:
+                last_pause = now
+                last_timespan = now
 
-            # new circle
-            r = random.randint(0,255)
-            g = random.randint(0,255)
-            b = random.randint(0,255)
-            x = random.randint(0,640-35)
-            y = random.randint(0,480-35)
-            ballsize = random.randint(15,35)
-            border = random.randint(10,15)
-            pygame.draw.circle(screen,[r,g,b],[x,y],ballsize,border)
-            pygame.display.flip()
+                # new circle
+                r = random.randint(0,255)
+                g = random.randint(0,255)
+                b = random.randint(0,255)
+                x = random.randint(0,640-35)
+                y = random.randint(0,480-35)
+                ballsize = random.randint(15,35)
+                border = random.randint(10,15)
+                pygame.draw.circle(screen,[r,g,b],[x,y],ballsize,border)
+                pygame.display.flip()
 
-            pause = random.randint(2000,15000)
+                pause = random.randint(2000,10000)
 
-            circles_shown += 1
+                circles_shown += 1
 
-            register_circle_active = True
+                register_circle_active = True
 
+
+        # Get count of joysticks
+        joystick_count = pygame.joystick.get_count()
         
+        # For each joystick:
+        for i in range(joystick_count):
+            joystick = pygame.joystick.Joystick(i)
+            joystick.init()
 
         
 
