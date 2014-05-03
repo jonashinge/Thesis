@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *accData;
 @property NSMutableArray *recording;
 @property int accDataCounter;
-@property float recentHeading;
+//@property float recentHeading;
 
 // Set the DEBUG_PRINTOUT define to '1' to enable printouts of the received values
 #define DEBUG_PRINTOUT      1
@@ -50,11 +50,11 @@ const int WINDOW_SIZE = 30;
         _ihsDevice.sensorsDelegate = self;
         
         // Setup recognizer and recording array
-        _recognizer = [[DTWRecognizer alloc] initWithDimension:2 GlobalThreshold:0.005 FirstThreshold:0.005 AndMaxSlope:1];
+        _recognizer = [[DTWRecognizer alloc] initWithDimension:3 GlobalThreshold:0.05 FirstThreshold:0.05 AndMaxSlope:2];
         _accData = [[NSMutableArray alloc] init];
         _recording = [[NSMutableArray alloc] init];
         
-        _recentHeading = _ihsDevice.fusedHeading;
+        //_recentHeading = _ihsDevice.fusedHeading;
     }
     return self;
 }
@@ -98,8 +98,9 @@ const int WINDOW_SIZE = 30;
 
 - (float)playerHeading
 {
-    DEBUGLog(@"Fused heading: %f", _ihsDevice.fusedHeading);
-    return _ihsDevice.fusedHeading;
+    //DEBUGLog(@"Fused heading: %f", _ihsDevice.fusedHeading);
+    //return _ihsDevice.fusedHeading;
+    return _ihsDevice.yaw;
 }
 
 - (void)startRecordingGesture
@@ -219,6 +220,15 @@ const int WINDOW_SIZE = 30;
     }
 }
 
+- (void)ihsDevice:(IHSDevice *)ihs yawChanged:(float)yaw
+{
+    //DEBUGLog(@"GYRO: Rotation value: %f",yaw);
+    if([_delegate respondsToSelector:@selector(smmDeviceManager:gyroHeadingChanged:)])
+    {
+        [_delegate smmDeviceManager:self gyroHeadingChanged:yaw];
+    }
+}
+
 - (void)ihsDevice:(IHSDevice *)ihs accelerometer3AxisDataChanged:(IHSAHRS3AxisStruct)data
 {
     if(_ihsDevice.connectionState == IHSDeviceConnectionStateConnected)
@@ -226,8 +236,8 @@ const int WINDOW_SIZE = 30;
         // Need rotation parameter
         // Idea: Take the difference between new and last input
         // E.g. (using fused heading) 100-99=1, 99-98=1, 99-100=-1 -> time interval 1, 1, -1
-        float diffHeading = _recentHeading - ihs.fusedHeading;
-        _recentHeading = ihs.fusedHeading;
+        //float diffHeading = _recentHeading - ihs.fusedHeading;
+        //_recentHeading = ihs.fusedHeading;
         
         // Pseudo sensor fusion
         /*NSArray *obs = [NSArray arrayWithObjects:
@@ -245,9 +255,15 @@ const int WINDOW_SIZE = 30;
                         [NSNumber numberWithFloat:diffHeading/360], nil]; // values from 0 to 1*/
         
         // Only pitch,roll
-        NSArray *obs = [NSArray arrayWithObjects:
+        /*NSArray *obs = [NSArray arrayWithObjects:
                         [NSNumber numberWithFloat:_ihsDevice.pitch/90], // values from -1 to 1
-                        [NSNumber numberWithFloat:_ihsDevice.roll/90], nil]; // values from 0 to 1
+                        [NSNumber numberWithFloat:_ihsDevice.roll/90], nil]; // values from 0 to 1*/
+        
+        // Only acc. data
+        NSArray *obs = [NSArray arrayWithObjects:
+         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.x],
+         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.y],
+         [NSNumber numberWithFloat:_ihsDevice.accelerometerData.z], nil];
         
         //DEBUGLog(@"Fusion data: %@",obs);
         _accDataCounter += 1;

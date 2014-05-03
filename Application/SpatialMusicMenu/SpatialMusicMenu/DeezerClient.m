@@ -226,7 +226,7 @@
                 
                 DEBUGLog(@"Playlist mantle object: %@",playlist);
                 
-                for (int i=0; i<[playlist.tracks count]; i++)
+                /*for (int i=0; i<[playlist.tracks count]; i++)
                 {
                     if(i < kTrackLimit)
                     {
@@ -238,9 +238,9 @@
                         
                         [self.deezerConnect launchAsyncRequest:req];
                     }
-                }
+                }*/
             }
-            else if([type isEqualToString:@"album"])
+            /*else if([type isEqualToString:@"album"])
             {
                 //DEBUGLog(@"Album JSON: %@",json);
                 
@@ -250,7 +250,7 @@
                 [APP_DELEGATE.persistencyManager syncTrackDataForAlbumWithId:album.itemId];
                 
                 DEBUGLog(@"Album mantle object: %@",album);
-            }
+            }*/
         }
     }
 }

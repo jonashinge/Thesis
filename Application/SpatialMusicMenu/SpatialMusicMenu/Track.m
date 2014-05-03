@@ -20,7 +20,8 @@
              @"title": @"title",
              @"preview": @"preview",
              @"stream": @"stream",
-             @"albumId": @"album.id"
+             @"albumId": @"album.id",
+             @"albumName": @"album.title"
              };
 }
 

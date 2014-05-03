@@ -1,12 +1,28 @@
 ---------------------
 TODO
 ---------------------
+Python:
+- Display track in 5 secs
+- Display also squares and triangles
+- Show image of road in bg
 
+Instructions:
+- Pick 3 albums including 3 favourite songs from each album
+- Practice - with and without iPad screen
+- Sound design
+- Menu structure - nod gesture - menu level feedback (woman voice)
+- Circle detection
+- Task start when track is showing
+- Raise a hand when track found or fail
 
 
 ---------------------
 Thomas questions
 ---------------------
+- Change problem statement to reflect new "focus" (safety in traffic)?, Also I want to describe that exploring the content/music is important (spatial audio)...
+- Menu design, evaluation with 3 tracks, could I also describe evaluation with multiple tracks (not part of the final evaluation, maybe more design process or?)
+
+OLD
 - Summary in chapters?
 - Test users description in design process/evaluation? (info that can affect the system/project, read ubicomp papers for inspiration)
 - In which chapter should I describe the IHS? (Implementation)

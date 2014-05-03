@@ -17,5 +17,6 @@
 @property (nonatomic, copy, readonly) NSURL *preview;
 @property (nonatomic, copy, readonly) NSString *stream;
 @property (nonatomic, copy, readonly) NSString *albumId;
+@property (nonatomic, copy, readonly) NSString *albumName;
 
 @end

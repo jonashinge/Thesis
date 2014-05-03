@@ -27,6 +27,8 @@
 @optional
 - (void)smmDeviceManager:(SMMDeviceManager *)manager fusedHeadingChanged:(float)heading;
 @optional
+- (void)smmDeviceManager:(SMMDeviceManager *)manager gyroHeadingChanged:(float)heading;
+@optional
 - (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSDictionary *)result;
 
 @end

@@ -4,13 +4,12 @@ from pygame.locals import *
 import time
 import datetime
  
-size = [640,480]
 bg_color = [0, 0, 0]  # [230,230,230] light gray
 
 last_timespan = pygame.time.get_ticks()
 last_pause = pygame.time.get_ticks()
 pause = 2000 # will be generated randomly in loop
-timespan = 1500
+timespan = 1000
 
 circles_shown = 0
 circles_detected = 0
@@ -19,10 +18,9 @@ register_circle_active = False
 
 text_showing = False
 texts = [
-        "Arcade Fire - Empty Room",
-        "test",
-        "test 2",
-        "test 3"]
+        "Bodebrixen - I Don't Care",
+        "Kanye West, Jay Z, Beyoncé - Lift Off (Album Version Explicit)",
+        "Twin Sister - Daniel"]
 text_counter = 0
 task_reg = 1
 
@@ -35,7 +33,7 @@ if __name__ == '__main__':
     # Initialize the joysticks
     pygame.joystick.init()
 
-    SW,SH = 640,480
+    SW,SH = 1200,800
     screen = pygame.display.set_mode((SW,SH), pygame.RESIZABLE)
     pygame.display.set_caption('Circle detection')
 
@@ -49,9 +47,9 @@ if __name__ == '__main__':
     while not _quit:
         for e in pygame.event.get():
             if e.type is KEYDOWN and e.key == K_w:
-                pygame.display.set_mode(size)
+                pygame.display.set_mode((SW,SH))
             if e.type is KEYDOWN and e.key == K_f:
-                pygame.display.set_mode(size, FULLSCREEN)
+                pygame.display.set_mode((SW,SH), FULLSCREEN)
             if e.type is KEYDOWN and e.key == K_t:
                 if text_counter < len(texts):
                     # remove circle, clear screen
@@ -121,8 +119,8 @@ if __name__ == '__main__':
                 r = random.randint(0,255)
                 g = random.randint(0,255)
                 b = random.randint(0,255)
-                x = random.randint(0,640-35)
-                y = random.randint(0,480-35)
+                x = random.randint(0,SW-35)
+                y = random.randint(0,SH-35)
                 ballsize = random.randint(15,35)
                 border = random.randint(10,15)
                 pygame.draw.circle(screen,[r,g,b],[x,y],ballsize,border)

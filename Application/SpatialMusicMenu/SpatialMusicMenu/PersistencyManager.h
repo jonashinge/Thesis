@@ -28,6 +28,8 @@
 - (NSArray *)getPlaylists;
 - (BOOL)playlistIsReady:(Playlist *)list;
 - (Album *)getAlbumForTrack:(Track *)track;
+- (NSArray *)getAlbumdistinctRandomTracksFromPlaylist:(Playlist *)playlist;
+- (NSArray *)getRandomAlbumTracksForTrack:(Track *)track;
 
 - (void)addGesture:(Gesture *)gesture;
 - (void)removeGesture:(Gesture *)gesture;

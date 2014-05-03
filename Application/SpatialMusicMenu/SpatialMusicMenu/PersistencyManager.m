@@ -14,6 +14,7 @@
 #import "Album.h"
 #import "Gesture.h"
 #import "TrackArchiver.h"
+#import "NSArray+Helpers.h"
 
 @interface PersistencyManager ()
 
@@ -242,6 +243,44 @@ dispatch_queue_t logQueue;
         }
     }
     return nil;
+}
+
+- (NSArray *)getAlbumdistinctRandomTracksFromPlaylist:(Playlist *)playlist
+{
+    NSMutableArray *tracks = [[NSMutableArray alloc] init];
+    NSArray *randomizedTracks = [playlist.tracks shuffled];
+    for (Track *track in randomizedTracks)
+    {
+        BOOL alreadyThere = NO;
+        for(Track *tr in tracks)
+        {
+            if([track.albumId isEqualToString:tr.albumId])
+            {
+                alreadyThere = YES;
+            }
+        }
+        
+        if(!alreadyThere)
+        {
+            [tracks addObject:track];
+        }
+    }
+    return tracks;
+}
+
+- (NSArray *)getRandomAlbumTracksForTrack:(Track *)track
+{
+    NSMutableArray *tracks = [[NSMutableArray alloc] init];
+    Playlist *pl = [self getActivePlaylist];
+    NSArray *randomizedTracks = [pl.tracks shuffled];
+    for (Track *tr in randomizedTracks)
+    {
+        if([tr.albumId isEqualToString:track.albumId])
+        {
+            [tracks addObject:tr];
+        }
+    }
+    return tracks;
 }
 
 - (NSArray *)getPlaylists

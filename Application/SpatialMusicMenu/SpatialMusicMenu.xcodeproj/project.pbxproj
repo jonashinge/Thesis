@@ -24,6 +24,7 @@
 		3F18737C18CA4FE5009D81F7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737B18CA4FE5009D81F7 /* MobileCoreServices.framework */; };
 		3F18737E18CA4FEE009D81F7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737D18CA4FEE009D81F7 /* SystemConfiguration.framework */; };
 		3F18738018CA4FF9009D81F7 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F18737F18CA4FF9009D81F7 /* libc++.dylib */; };
+		3F1E30FE191528D300500605 /* NSArray+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E30FD191528D200500605 /* NSArray+Helpers.m */; };
 		3F406C0F18D4EF0A003A5541 /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C0E18D4EF0A003A5541 /* MusicViewController.m */; };
 		3F406C1218D4EF3A003A5541 /* GesturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F406C1118D4EF3A003A5541 /* GesturesViewController.m */; };
 		3F406C1418E05E1B003A5541 /* deezer-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F406C1318E05E1B003A5541 /* deezer-logo.png */; };
@@ -120,6 +121,8 @@
 		3F18737B18CA4FE5009D81F7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3F18737D18CA4FEE009D81F7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3F18737F18CA4FF9009D81F7 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		3F1E30FC191528D200500605 /* NSArray+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Helpers.h"; sourceTree = "<group>"; };
+		3F1E30FD191528D200500605 /* NSArray+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Helpers.m"; sourceTree = "<group>"; };
 		3F406C0D18D4EF0A003A5541 /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicViewController.h; sourceTree = "<group>"; };
 		3F406C0E18D4EF0A003A5541 /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
 		3F406C1018D4EF3A003A5541 /* GesturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GesturesViewController.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				3F5B8AA718D0C012001396D4 /* DTWRecognizer.m */,
 				3F0A497318E5A69A0018D62C /* TrackArchiver.h */,
 				3F0A497418E5A69A0018D62C /* TrackArchiver.m */,
+				3F1E30FC191528D200500605 /* NSArray+Helpers.h */,
+				3F1E30FD191528D200500605 /* NSArray+Helpers.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -697,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1E30FE191528D300500605 /* NSArray+Helpers.m in Sources */,
 				3F5B8A6718CBB374001396D4 /* AudioMenuViewController.m in Sources */,
 				3F5B8A9818CBC513001396D4 /* DeezerClient.m in Sources */,
 				3F406C0F18D4EF0A003A5541 /* MusicViewController.m in Sources */,

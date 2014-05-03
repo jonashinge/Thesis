@@ -48,7 +48,8 @@
 @property (nonatomic) float headingCorrection;
 @property (strong, nonatomic) NSMutableArray *soundAnnotations;
 @property (nonatomic) int selectedTrackIndex;
-@property (strong, nonatomic) Album *selectedAlbum;
+@property (strong, nonatomic) NSArray *selectedPlaylistTracks;
+@property (strong, nonatomic) NSArray *selectedAlbumTracks;
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
 enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
@@ -88,9 +89,9 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     
     _soundAnnotations = [[NSMutableArray alloc] init];
     
-    _area = 60000; // e.g. 20000 = 20x20m
-    _degreeSpan = 100;
-    _front = 8000; // e.g. 1000 = 1m in front of user
+    _area = 100000; // e.g. 20000 = 20x20m
+    _degreeSpan = 80;
+    _front = 7000; // e.g. 1000 = 1m in front of user
     
     // Setup audio 3d grid view and model.
     // The gridBounds property is an expression for how big in a physical world
@@ -142,6 +143,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     [btnReset setBackgroundColor:UIColorFromRGB(0xff5335)];
     [btnReset.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
     [controls addSubview:btnReset];
+    [btnReset addTarget:self action:@selector(btnResetPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     _viewLblGestureBackground = [[UIView alloc] initWithFrame:CGRectMake(410, 35, 325, 95)];
     [_viewLblGestureBackground setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.1]];
@@ -211,8 +213,14 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     APP_DELEGATE.smmDeviceManager.delegate = self;
     
     // Set init values
-    _headingCorrection = 0;
+    _headingCorrection = 114;
     _selectedTrackIndex = 0;
+    [self changeAudioMenuState:MENU_HOME];
+}
+
+- (void)btnResetPressed:(id)btn
+{
+    _headingCorrection = APP_DELEGATE.smmDeviceManager.playerHeading;
     [self changeAudioMenuState:MENU_HOME];
 }
 
@@ -305,7 +313,9 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         case MENU_HOME:
         {
             Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
-            [self initMenuWithTracks:pl.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+            _selectedPlaylistTracks = [APP_DELEGATE.persistencyManager getAlbumdistinctRandomTracksFromPlaylist:pl];
+            [self initMenuWithTracks:_selectedPlaylistTracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+            [APP_DELEGATE.deezerClient pausePlayback];
             [_lblState setText:@"Home"];
             [self playSystemSoundWithName:@"home"];
             [APP_DELEGATE.smmDeviceManager playAudio];
@@ -313,14 +323,13 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         }
         case MENU_ALBUM:
         {
-            Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
-            Track *track = [pl.tracks objectAtIndex:_selectedTrackIndex];
-            Album *alb = [APP_DELEGATE.persistencyManager getAlbumForTrack:track];
-            DEBUGLog(@"Album selected: %@", alb.title);
+            Track *track = [_selectedPlaylistTracks objectAtIndex:_selectedTrackIndex];
+            NSArray *tracks = [APP_DELEGATE.persistencyManager getRandomAlbumTracksForTrack:track];
+            DEBUGLog(@"Album selected: %@", track.albumName);
             // Log
-            logString = [NSString stringWithFormat:@"Change menu state: %@ (%@: %@)", [self translatedMenuState:state], track.artist, alb.title];
-            _selectedAlbum = alb;
-            [self initMenuWithTracks:alb.tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+            logString = [NSString stringWithFormat:@"Change menu state: %@ (%@: %@)", [self translatedMenuState:state], track.artist, track.albumName];
+            _selectedAlbumTracks = tracks;
+            [self initMenuWithTracks:tracks AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
             [_lblState setText:@"Album"];
             [self playSystemSoundWithName:@"album"];
             [APP_DELEGATE.smmDeviceManager playAudio];
@@ -328,7 +337,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
         }
         case PLAYING_TRACK:
         {
-            Track *track = [_selectedAlbum.tracks objectAtIndex:_selectedTrackIndex];
+            Track *track = [_selectedAlbumTracks objectAtIndex:_selectedTrackIndex];
             // Log
             logString = [NSString stringWithFormat:@"Change menu state: %@ (%@: %@)", [self translatedMenuState:state], track.artist, track.title];
             //[APP_DELEGATE.deezerClient playTrackWithId:track.itemId andStream:track.stream];
@@ -412,7 +421,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 
 #pragma mark - SMMDeviceManagerDelegate
 
-- (void)smmDeviceManager:(SMMDeviceManager *)manager fusedHeadingChanged:(float)heading
+- (void)smmDeviceManager:(SMMDeviceManager *)manager gyroHeadingChanged:(float)heading
 {
     float correctedHeading = heading - _headingCorrection;
     
