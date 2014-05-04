@@ -2,8 +2,6 @@
 TODO
 ---------------------
 Python:
-- Display track in 5 secs
-- Display also squares and triangles
 - Show image of road in bg
 
 Instructions:
