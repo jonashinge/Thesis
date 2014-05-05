@@ -138,12 +138,19 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     [controls addSubview:_switchMoving];
     [_switchMoving setOn:YES];
     
-    UIButton *btnReset = [[UIButton alloc] initWithFrame:CGRectMake(30, 80, 200, 50)];
-    [btnReset setTitle:@"Reset positions" forState:UIControlStateNormal];
-    [btnReset setBackgroundColor:UIColorFromRGB(0xff5335)];
-    [btnReset.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
-    [controls addSubview:btnReset];
-    [btnReset addTarget:self action:@selector(btnResetPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *btnCalibrate = [[UIButton alloc] initWithFrame:CGRectMake(30, 80, 120, 50)];
+    [btnCalibrate setTitle:@"Calibrate" forState:UIControlStateNormal];
+    [btnCalibrate setBackgroundColor:UIColorFromRGB(0xff5335)];
+    [btnCalibrate.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
+    [controls addSubview:btnCalibrate];
+    [btnCalibrate addTarget:self action:@selector(btnCalibratePressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *btnHome = [[UIButton alloc] initWithFrame:CGRectMake(200, 80, 120, 50)];
+    [btnHome setTitle:@"Home" forState:UIControlStateNormal];
+    [btnHome setBackgroundColor:UIColorFromRGB(0xff5335)];
+    [btnHome.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Light" size:20]];
+    [controls addSubview:btnHome];
+    [btnHome addTarget:self action:@selector(btnHomePressed:) forControlEvents:UIControlEventTouchUpInside];
     
     _viewLblGestureBackground = [[UIView alloc] initWithFrame:CGRectMake(410, 35, 325, 95)];
     [_viewLblGestureBackground setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.1]];
@@ -218,9 +225,13 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     [self changeAudioMenuState:MENU_HOME];
 }
 
-- (void)btnResetPressed:(id)btn
+- (void)btnCalibratePressed:(id)btn
 {
     _headingCorrection = APP_DELEGATE.smmDeviceManager.playerHeading;
+}
+
+- (void)btnHomePressed:(id)btn
+{
     [self changeAudioMenuState:MENU_HOME];
 }
 
