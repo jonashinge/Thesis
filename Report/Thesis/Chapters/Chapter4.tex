@@ -1,11 +1,22 @@
 \lhead{\emph{Implementation}}
 \chapter{Implementation}
+This chapter describes the different components of the Spatial Music Menu system. The main components includes a headset interface, an iOS application controlling the headset and finally a virtual biking application build for testing mobile music players.
 
 \section{Headset}
+The headset interface used in this project is the Intelligent Headset (IHS) \cite{gn_store_nord_intelligent_2013}. The headset is a stereo headset but can also deliver 3D audio. 4 sensors are built into the headset; GPS, compass, gyroscope and accelerometer - making it possible to track head rotation and location of the user wearing it. Connection to the headset is accessible via Bluetooth or wire. The headset is shown in figure?
+
+The headset features can be exploited through mobile applications using an included SDK targeting the iOS and Android platform (iOS SDK currently at version 1.82 and an Android SDK running verson 1.21 \footnote{Version information from 05-05-2014. Developer site: https://developer.intelligentheadset.com/our-sdk/}). The platform used in this project is Apples iOS. The main reason for using this platform is that when this project started the Intelligent Headset only provided an SDK compatible with iOS and still - though accessible for the Android platform today - the iOS SDK is running a higher version number making it more mature i.e. stable.
+
+\subsection{API}
+The SDK includes an Application Programming Interface (API) providing interfaces and methods for accessing and setting information e.g. sensor data output or 3D audio sources.
+
+TODO: Image showing input-output "circle"
+
+TODO: Show code examples e.g. sensor output
+
+Sensor data
 
 \section{Head Gestures Recognition}
-
-\subsection{Dynamic Time Warping}
 
 DTW - Dynamic Time Warping 
 
@@ -13,14 +24,14 @@ Dynamic Time Warping \cite{salvador_toward_2007}
 
 Accelerometer-based DTW \cite{akl_accelerometer-based_2010}
 
-\subsection{Sensor data}
-Gyroscope data, 1 observation, 1 sequence
-
-\subsection{Removing noise}
 Start and end noise removal
 
+Gyroscope + accelerometer data, 1 observation, 1 sequence
+
+
 \section{iOS Application}
-The platform used in this project is Apples iOS. The main reason for using this platform is that when the project started the Intelligent Headset only provided an SDK compatible with iOS. The iOS is a mature OS currently at version 7.1. The Spatial Music Menu are running version 6+ and optimized for the iPad.
+...
+The iOS is a mature OS currently at version 7.1. The Spatial Music Menu are running version 6+ and optimized for the iPad.
 
 As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal \cite{apple_apple_2014} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most important functionality of the Spatial Music Menu.
 
@@ -36,19 +47,6 @@ An overview of the application architecture is shown in figure \ref{fig:apparchi
 \end{figure}
 
 
+\section{Virtual Biking Application}
 
-% Milestones - POC
-% - Create and setup xcode project including lib references for Intelligent Headset and Spotify
-% - Play a users Spotify songs and be able to use panning and volume
-% - Place multiple songs in the horizontal range 0-180 degrees of the user using IHS rotation
-% - Implement nodding and shaking feedback
-
-% Further improvement
-% - Exploring the Spotify lib/playlists
-% - Activation of head gestures
-% - Fine tuning
-
-% Learnings
-% Streaming from Spotify to OpenAL could be difficult. It requires decompressing of the stream; 1) maybe not possible with libspotify, 2) If so very heavy - could affect user experience, 3) OpenAL restrictions
-% Idea (avoiding OpenAL's limited audio input properties):
-% As we only need horizontal 180 degrees we could use panning. Place x songs from 0-180 degrees. As the user rotates head a song pans in from the direction with increasing volume.
+Python app

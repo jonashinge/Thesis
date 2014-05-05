@@ -432,6 +432,11 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
 
 #pragma mark - SMMDeviceManagerDelegate
 
+- (void)smmDeviceManager:(SMMDeviceManager *)manager rightButtonPressed:(IHSButtonEvent)event
+{
+    [self changeAudioMenuState:MENU_HOME];
+}
+
 - (void)smmDeviceManager:(SMMDeviceManager *)manager gyroHeadingChanged:(float)heading
 {
     float correctedHeading = heading - _headingCorrection;

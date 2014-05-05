@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  4 MAY 2014 23:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  5 MAY 2014 21:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1010,7 +1010,7 @@ Chapter 1.
 
 
 
-] [2] <./Figures/triangulation.pdf, id=358, 963.6pt x 562.1pt>
+] [2] <./Figures/triangulation.pdf, id=355, 963.6pt x 562.1pt>
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
@@ -1021,7 +1021,7 @@ Chapter 2.
 ------------------------------------------------------------------------------
  2 Related work
 ------------------------------------------------------------------------------
-<./Figures/venn.png, id=396, 501.875pt x 501.875pt>
+<./Figures/venn.png, id=393, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
 Package pdftex.def Info: ./Figures/venn.png used on input line 14.
@@ -1030,28 +1030,28 @@ Package pdftex.def Info: ./Figures/venn.png used on input line 14.
 [4
 
 ] [5 <./Figures/venn.png (PNG copy)>] [6] [7] [8] [9] [10]
-<./Figures/nokia-headset.png, id=525, 586.19pt x 268.00125pt>
+<./Figures/nokia-headset.png, id=522, 586.19pt x 268.00125pt>
 File: ./Figures/nokia-headset.png Graphic file (type png)
 
 <use ./Figures/nokia-headset.png>
 Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 139.
 (pdftex.def)             Requested size: 250.48254pt x 114.51855pt.
  [11]
-<./Figures/bodyposeandleg.png, id=541, 792.9625pt x 461.725pt>
+<./Figures/bodyposeandleg.png, id=538, 792.9625pt x 461.725pt>
 File: ./Figures/bodyposeandleg.png Graphic file (type png)
 
 <use ./Figures/bodyposeandleg.png>
 Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 155.
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [12 <./Figures/nokia-headset.png> <./Figures/bodyposeandleg.png (PNG copy)>]
-<./Figures/pirhonen-system.png, id=555, 418.56375pt x 231.86626pt>
+<./Figures/pirhonen-system.png, id=552, 418.56375pt x 231.86626pt>
 File: ./Figures/pirhonen-system.png Graphic file (type png)
 
 <use ./Figures/pirhonen-system.png>
 Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 171.
 (pdftex.def)             Requested size: 250.48235pt x 138.7564pt.
 
-<./Figures/kajastila-system.png, id=561, 792.9625pt x 461.725pt>
+<./Figures/kajastila-system.png, id=558, 792.9625pt x 461.725pt>
 File: ./Figures/kajastila-system.png Graphic file (type png)
 
 <use ./Figures/kajastila-system.png>
@@ -1059,7 +1059,7 @@ Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 187.
 
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [13 <./Figures/pirhonen-system.png (PNG copy)>] <./Figures/brewster-system.png
-, id=571, 690.58pt x 219.82124pt>
+, id=568, 690.58pt x 219.82124pt>
 File: ./Figures/brewster-system.png Graphic file (type png)
 
 <use ./Figures/brewster-system.png>
@@ -1067,14 +1067,14 @@ Package pdftex.def Info: ./Figures/brewster-system.png used on input line 201.
 (pdftex.def)             Requested size: 375.73166pt x 119.60062pt.
  [14 <./Figures/kajastila-system.png (PNG copy)> <./Figures/brewster-system.png
  (PNG copy)>]
-<./Figures/park-system.png, id=581, 666.49pt x 292.09125pt>
+<./Figures/park-system.png, id=578, 666.49pt x 292.09125pt>
 File: ./Figures/park-system.png Graphic file (type png)
 
 <use ./Figures/park-system.png>
 Package pdftex.def Info: ./Figures/park-system.png used on input line 217.
 (pdftex.def)             Requested size: 375.73363pt x 164.66638pt.
 
-<./Figures/park-menus.png, id=585, 745.78625pt x 297.11pt>
+<./Figures/park-menus.png, id=582, 745.78625pt x 297.11pt>
 File: ./Figures/park-menus.png Graphic file (type png)
 
 <use ./Figures/park-menus.png>
@@ -1093,7 +1093,7 @@ Chapter 3.
 ------------------------------------------------------------------------------
  3 Design
 ------------------------------------------------------------------------------
-<./Figures/iterative.png, id=610, 518.93875pt x 328.22626pt>
+<./Figures/iterative.png, id=607, 518.93875pt x 328.22626pt>
 File: ./Figures/iterative.png Graphic file (type png)
 
 <use ./Figures/iterative.png>
@@ -1102,48 +1102,55 @@ Package pdftex.def Info: ./Figures/iterative.png used on input line 12.
  [18
 
  <./Figures/iterative.png (PNG copy)>]
-[19]) (./Chapters/Chapter4.tex [20]
+[19] <./Figures/sounddesign.png, id=624, 803.0pt x 453.695pt>
+File: ./Figures/sounddesign.png Graphic file (type png)
+
+<use ./Figures/sounddesign.png>
+Package pdftex.def Info: ./Figures/sounddesign.png used on input line 39.
+(pdftex.def)             Requested size: 250.48354pt x 141.5232pt.
+ [20 <./Figures/sounddesign.png (PNG copy)>])
+(./Chapters/Chapter4.tex [21]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-[21
+[22
 
-] <./Figures/app-architecture.pdf, id=642, 711.65875pt x 558.085pt>
+] <./Figures/app-architecture.pdf, id=650, 711.65875pt x 558.085pt>
 File: ./Figures/app-architecture.pdf Graphic file (type pdf)
 
 <use ./Figures/app-architecture.pdf>
-Package pdftex.def Info: ./Figures/app-architecture.pdf used on input line 32.
+Package pdftex.def Info: ./Figures/app-architecture.pdf used on input line 43.
 (pdftex.def)             Requested size: 417.46432pt x 327.37682pt.
-) (./Chapters/Chapter5.tex [22 <./Figures/app-architecture.pdf>]
+) (./Chapters/Chapter5.tex [23] [24 <./Figures/app-architecture.pdf>]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Evaluation
 ------------------------------------------------------------------------------
-[23
+[25
 
-]) (./Chapters/Chapter6.tex [24]
+]) (./Chapters/Chapter6.tex [26]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Discussion
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter7.tex [25
+) (./Chapters/Chapter7.tex [27
 
 ]
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusion
 ------------------------------------------------------------------------------
-) (./Appendices/AppendixA.tex [26
+) (./Appendices/AppendixA.tex [28
 
 ]
 Appendix A.
 ------------------------------------------------------------------------------
  A An Appendix
 ------------------------------------------------------------------------------
-[27
+[29
 
-]) [28]
+]) [30]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
@@ -1163,7 +1170,7 @@ Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no ¢ in font cmr10!
- [29
+ [31
 
 
 ]
@@ -1179,27 +1186,18 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
+Missing character: There is no Ñ in font cmr10!
+Missing character: There is no ¢ in font cmr10!
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 107.
+
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 107.
 Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
- [30]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
+Missing character: There is no Ñ in font cmr10!
+Missing character: There is no ¢ in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
@@ -1209,7 +1207,29 @@ Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
- [31]
+ [32]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+ [33]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
@@ -1238,21 +1258,13 @@ Missing character: There is no ≈ in font cmr10!
 Missing character: There is no æ in font cmr10!
 Missing character: There is no ƒ in font cmr10!
 Missing character: There is no ç in font cmr10!
- [32]
+ [34]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 306.
-
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 306.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
@@ -1264,37 +1276,39 @@ Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
- [33]
+ [35]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
-
-(./Thesis.aux)
+ (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: CC63BBD74D18504E6E9F20FDE857B555;8800.
+(rerunfilecheck)             Checksum: 3B2A2A85250B6A43EA484D27E57F900B;8610.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 21532 strings out of 493315
- 390671 string characters out of 6137903
- 394497 words of memory out of 5000000
- 24502 multiletter control sequences out of 15000+600000
- 13720 words of font info for 51 fonts, out of 8000000 for 9000
+ 21566 strings out of 493315
+ 391199 string characters out of 6137903
+ 394564 words of memory out of 5000000
+ 24523 multiletter control sequences out of 15000+600000
+ 16851 words of font info for 64 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,12n,45p,1497b,1019s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,1497b,1023s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
 usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
-ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
-cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (41 pages, 1969108 bytes).
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
+al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
+ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Thesis.pdf (43 pages, 2017259 bytes).
 PDF statistics:
- 790 PDF objects out of 1000 (max. 8388607)
- 693 compressed objects within 7 object streams
- 167 named destinations out of 1000 (max. 500000)
- 480 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 815 PDF objects out of 1000 (max. 8388607)
+ 711 compressed objects within 8 object streams
+ 171 named destinations out of 1000 (max. 500000)
+ 477 words of extra memory for PDF output out of 10000 (max. 10000000)
 

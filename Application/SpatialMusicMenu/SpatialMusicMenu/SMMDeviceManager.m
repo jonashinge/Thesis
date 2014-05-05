@@ -12,7 +12,7 @@
 #import "DTWRecognizer.h"
 #import "Gesture.h"
 
-@interface SMMDeviceManager () <IHSDeviceDelegate, IHSSensorsDelegate>
+@interface SMMDeviceManager () <IHSDeviceDelegate, IHSSensorsDelegate, IHSButtonDelegate>
 
 @property (strong, nonatomic) IHSDevice *ihsDevice;
 @property (strong, nonatomic) DTWRecognizer *recognizer;
@@ -48,6 +48,7 @@ const int WINDOW_SIZE = 30;
         [_ihsDevice provideAPIKey:@"3tXvpy2WbqLIkaxaiEtYt2DF8sjf8rt0lOGqjDNesGG+/gFDZ6Rpjs19KFRZALrvzMWJQuJfdjtNI//k0Gl2cA=="];
         _ihsDevice.deviceDelegate = self;
         _ihsDevice.sensorsDelegate = self;
+        _ihsDevice.buttonDelegate = self;
         
         // Setup recognizer and recording array
         _recognizer = [[DTWRecognizer alloc] initWithDimension:3 GlobalThreshold:0.05 FirstThreshold:0.05 AndMaxSlope:2];
@@ -175,6 +176,20 @@ const int WINDOW_SIZE = 30;
     
     for (Gesture *gest in gestures) {
         [_recognizer addKnownSequence:gest.data WithLabel:gest.label];
+    }
+}
+
+
+#pragma mark - IHSButtonDelegate
+
+- (void)ihsDevice:(IHSDevice *)ihs didPressIHSButton:(IHSButton)button withEvent:(IHSButtonEvent)event fromSource:(IHSButtonSource)source
+{
+    if(button == IHSButtonRight)
+    {
+        if([_delegate respondsToSelector:@selector(smmDeviceManager:rightButtonPressed:)])
+        {
+            [_delegate smmDeviceManager:self rightButtonPressed:event];
+        }
     }
 }
 

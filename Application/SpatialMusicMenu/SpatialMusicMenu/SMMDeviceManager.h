@@ -30,6 +30,8 @@
 - (void)smmDeviceManager:(SMMDeviceManager *)manager gyroHeadingChanged:(float)heading;
 @optional
 - (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSDictionary *)result;
+@optional
+- (void)smmDeviceManager:(SMMDeviceManager *)manager rightButtonPressed:(IHSButtonEvent)event;
 
 @end
 

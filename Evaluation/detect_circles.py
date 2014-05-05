@@ -23,9 +23,15 @@ register_circle_active = False
 
 #text_showing = False
 texts = [
-        "Bodebrixen - I Don't Care",
-        "Kanye West, Jay Z, Beyoncé - Lift Off (Album Version Explicit)",
-        "Twin Sister - Daniel"]
+        "Lorde - Royals",
+        "Django Django - Default",
+        "alt-J - Breezeblocks",
+        "alt-J - Fitzpleasure",
+        "alt-J - Tessellate",
+        "Django Django - Zumm Zumm",
+        "Django Django - Hail Bop",
+        "Lorde - Tennis Court",
+        "Lorde - Million Dollar Bills"]
 text_counter = 0
 task_reg = 1
 text_y = 50
