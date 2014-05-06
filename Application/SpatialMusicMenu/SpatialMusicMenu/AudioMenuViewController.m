@@ -90,7 +90,7 @@ enum{ MENU_ACTIVATED, MENU_HOME, MENU_ALBUM, PLAYING_TRACK };
     _soundAnnotations = [[NSMutableArray alloc] init];
     
     _area = 100000; // e.g. 20000 = 20x20m
-    _degreeSpan = 80;
+    _degreeSpan = 100;
     _front = 7000; // e.g. 1000 = 1m in front of user
     
     // Setup audio 3d grid view and model.

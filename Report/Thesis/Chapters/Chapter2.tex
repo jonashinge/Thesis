@@ -174,7 +174,7 @@ Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile m
 	\label{fig:pirhonen}
 \end{figure}
 
-The menu is designed so that swiping a finger in different directions on the touch screen results in an action e.g. changing track by swiping to the right. Spatial audio was used to play previous and next tracks respectively in the left (previous) and right (next) side in the users horizontal audio space while the current chosen track is playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design.
+The menu is designed so that swiping a finger in different directions on the touch screen results in an action e.g. changing to next track by swiping to the right. Non-speech audio was used to give feedback on swipe gestures - a sound increased in pitch when swiping to the right (next track) and a decreased sound when swiping left (previous track). The sounds used a simulated (no HRTF used) spatial effect - panning the next track sound to the right and the previous track sound to the left of the users audio space. While these sounds popup the current chosen track is playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design.
 
 An evaluation of the system showed significant usability improvements using gestures- and audio based interaction compaired to a visual pen-based interaction approach.
 
@@ -237,28 +237,29 @@ The system was tested with up to 12 number items and results showed that 2D grid
 For this project specific properties of the system are required. Related systems that contains these properties can contain valuable input for this project. To give an overview and a better comparison - these properties are presented in table \ref{tab:related}.
 
 \begin{table}[h] 
+\scriptsize
 \caption{Related systems properties comparison} % title name of the table 
 %\centering % centering table
 
 
-\begin{tabular}{L{3cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}} \toprule
-	Systems & In-motion interaction focus & Input modality & Output modality & Menu type and depth & Music application \\ \midrule
+\begin{tabular}{L{2.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.8cm}C{1.5cm}} \toprule
+	Systems & In-motion interaction focus & Head gestures as input modality & Spatial audio as output modality & Dynamic auditory menu content & Simultanous audio (exploiting "Cocktail party effect") & Music application \\ \midrule
     %Properties & System 1 & System 2 & System 3 & System 4 \\ \midrule
-    Voice recognition system \cite{stewart_boling_voice_2013}   & Yes & Speech input & Non-speech audio & 1D, simple commands & Yes \\
+    Voice recognition system \cite{stewart_boling_voice_2013}   & yes & no & no & no & no & yes \\
     \\
-	Leg gesture system \cite{smus_running_2010}   & Yes & Leg gestures & Non-speech audio & 1D, simple commands & Yes \\ %\midrule
+	Leg gesture system \cite{smus_running_2010}   & yes & no & no & no & no & yes \\ %\midrule
 	\\
-	Body pose system \cite{strachan_bodyspace_2007}   & No & Hand and head gestures in combination with device & Non-speech audio & 1D, simple commands & Yes \\
+	Body pose system \cite{strachan_bodyspace_2007}   & no & (yes) & no & no & no & yes \\
 	\\
-	Touch gesture system \cite{pirhonen_gestural_2002}   & Yes & Touch gestures & Non-speech audio, Spatial audio & 1D swipe direction based & Yes \\
+	Touch gesture system \cite{pirhonen_gestural_2002}   & yes & no & (yes, simulated) & no & no & yes \\
 	\\
-	Free-hand gesture system \cite{kajastila_interaction_2013}   & No & Free-hand gestures & Speech audio, Spatial audio & Circular menu, 1D & No \\
+	Free-hand gesture system \cite{kajastila_interaction_2013}   & no & no & yes & no & no & no \\
 	\\
-	Head gesture system, Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003}   & Yes & Head gestures & Non-speech and speech audio, Spatial audio & Circular menu, 1D & No  \\
+	Head gesture system, Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003}   & yes & yes & yes & yes & (yes) & no  \\
 	\\
-	Head gesture system, Park et. al \cite{park_gaze-directed_2011}   & Yes & Head gestures & Speech audio, Spatial audio & Horizontal, vertical and grid menu, 2D & No \\
+	Head gesture system, Park et. al \cite{park_gaze-directed_2011}   & yes & yes & yes & no & no & no \\
 	\\
-	This thesis system   & Yes & Head gestures & Non-speech (and simple speech) audio, Spatial audio & Circular menu, 2D & Yes, synced and evaluated against real world music application \\ \bottomrule
+	This thesis system   & yes & yes & yes & yes & yes & yes \\ \bottomrule
 \end{tabular}
 
 \label{tab:related} 

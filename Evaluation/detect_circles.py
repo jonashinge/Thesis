@@ -21,17 +21,17 @@ circles_detected = 0
 detections_outside = 0
 register_circle_active = False
 
-#text_showing = False
-texts = [
-        "Lorde - Royals",
-        "Django Django - Default",
-        "alt-J - Breezeblocks",
-        "alt-J - Fitzpleasure",
-        "alt-J - Tessellate",
-        "Django Django - Zumm Zumm",
-        "Django Django - Hail Bop",
-        "Lorde - Tennis Court",
-        "Lorde - Million Dollar Bills"]
+text_showing = False
+
+texts = ["Kanye West, Jay Z - Ni**as In Paris (Album Version Explicit)",
+        "Bodebrixen - Just Forget It",
+        "Twin Sister - Stop",
+        "Kanye West, Jay Z - No Church In The Wild (Album Version Explicit)",
+        "Kanye West, Jay Z, Beyoncé - Lift Off (Album Version Explicit)",
+        "Bodebrixen - Flying Eagle",    
+        "Bodebrixen - I Was Sad and You Were Lonely",
+        "Twin Sister - Daniel",
+        "Twin Sister - Bad Street"]
 text_counter = 0
 task_reg = 1
 text_y = 50
@@ -58,6 +58,8 @@ if __name__ == '__main__':
     # clear screen
     #screen.fill(bg_color)
     #pygame.display.flip()
+    screen.fill(bg_color, (0, 0, SW, text_y))
+    pygame.display.flip()
 
     # shuffle texts
     random.shuffle(texts)
@@ -77,7 +79,7 @@ if __name__ == '__main__':
                     label = myfont.render(texts[text_counter], 1, (255,255,255))
                     screen.blit(label, (30, text_y-35))
                     pygame.display.flip()
-                    #text_showing = True
+                    text_showing = True
                     #last_text = pygame.time.get_ticks()
                     text_counter += 1
                     print(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
@@ -90,10 +92,14 @@ if __name__ == '__main__':
                     print("Registering task " + str(task_reg))
                     print("")
                     task_reg += 1
-                    #text_showing = False
+                    text_showing = False
                     # remove text
                     screen.fill(bg_color, (0, 0, SW, text_y))
                     pygame.display.flip()
+                if task_reg == 1 and text_showing == False:
+                    screen.fill(bg_color, (0, 0, SW, text_y))
+                    pygame.display.flip()
+
             if e.type is pygame.JOYBUTTONDOWN:
                 if register_circle_active:
                     circles_detected += 1
@@ -151,7 +157,7 @@ if __name__ == '__main__':
             
             pygame.display.flip()
 
-            timespan = random.randint(1000,3000)
+            timespan = random.randint(1000,2500)
 
             #if text_showing is True:
                 #show_text()
