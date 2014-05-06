@@ -1,7 +1,12 @@
 ---------------------
 TODO
 ---------------------
-...
+Intro
+- Problem statement: Change to describe the safety focus, no main focus on stability and efficiency of system
+- Goal: Improve, too system specific now?
+- Method: Add from design process (design chapter) the methods used, overview, abstract
+
+
 
 Instructions:
 - Pick 3 albums including 3 favourite songs from each album
@@ -19,6 +24,7 @@ Thomas questions
 - Change problem statement to reflect new "focus" (safety in traffic)?, Also I want to describe that exploring the content/music is important (spatial audio)...
 - Menu design, evaluation with 3 tracks, could I also describe evaluation with multiple tracks (not part of the final evaluation, maybe more design process or?)
 - Footnote vs cite
+- Design space intro - a good model to introduce the chapter with? (that fits in my case)
 
 
 OLD
@@ -51,37 +57,6 @@ Motoric load
 
 Research methods (in human computer interaction)
 
-
-
----------------------
-Report
----------------------
-Design process:
-- Rotation positioning mode (fixed vs moving position)
-- Gestures recognizing/recording
-- Max number of tracks present (3-10)
-- Max degree span (max 180, ref claims 120 for shaking head)
-- Distance between tracks and user (maybe try out 3 different distances)
-
-Evaluation (closed lab test):
-- Track with cones
-- Whistle when user should change track
-- Result: Measure distance in which user has moved while interacting (Also measure time for 1 round without navigating)
-- Result: Form/questionaire (semi-structured interview)
-
-Evaluation (in-situ):
-- 3-5 days
-- Result: Form/questionaire (Comfort)
-
-
----------------------
-Application
----------------------
-- After recording gesture - it should detect it
-- Resume playback when cancelling activate
-- Test with smartphone tethering
-- Deezer play track bug
-- Change recognizer to only use gestures (Acceleration gets caught when biking/moving)
 
 
 
