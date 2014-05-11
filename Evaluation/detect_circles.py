@@ -10,10 +10,10 @@ fig_min = 20
 fig_max = 40
 
 last_timespan = pygame.time.get_ticks()
-#last_pause = pygame.time.get_ticks()
+last_pause = pygame.time.get_ticks()
 #last_text = pygame.time.get_ticks()
-#pause = 2000 # will be generated randomly in loop
-timespan = 1000
+pause = 1000 # will be generated randomly in loop
+timespan = 800
 #textspan = 5000
 
 circles_shown = 0
@@ -120,6 +120,18 @@ if __name__ == '__main__':
 
         if now - last_timespan >= timespan:
             last_timespan = float("inf")
+            screen.blit(picture, (0,text_y))
+            #screen.fill(bg_color, (0, text_y, SW, SH))
+            pygame.display.flip()
+
+            last_pause = pygame.time.get_ticks()
+            
+            
+
+
+        if now - last_pause >= pause:
+            last_pause = float("inf")
+
             # clear screen
             print(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
             print("Clearing screen...")
@@ -131,7 +143,7 @@ if __name__ == '__main__':
             #screen.fill(bg_color, (0, text_y, SW, SH))
             pygame.display.flip()
 
-            last_timespan = now
+            #last_timespan = now
 
             fig_type = random.randint(0,2)
 
@@ -157,7 +169,9 @@ if __name__ == '__main__':
             
             pygame.display.flip()
 
-            timespan = random.randint(1000,2500)
+            pause = random.randint(300,1000)
+
+            last_timespan = now
 
             #if text_showing is True:
                 #show_text()

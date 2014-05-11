@@ -24,7 +24,8 @@ Thomas questions
 - Change problem statement to reflect new "focus" (safety in traffic)?, Also I want to describe that exploring the content/music is important (spatial audio)...
 - Menu design, evaluation with 3 tracks, could I also describe evaluation with multiple tracks (not part of the final evaluation, maybe more design process or?)
 - Footnote vs cite
-- Design space intro - a good model to introduce the chapter with? (that fits in my case)
+- Design chapter intro - a good model to introduce the chapter with? (that fits in my case)
+- Evaluation intro
 
 
 OLD

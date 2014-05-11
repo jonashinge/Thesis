@@ -2,8 +2,17 @@
 \chapter{Evaluation}
 TODO: introduction, hypothesis/questions?
 
-Limitations and scope\\
-Biased participants (friends) want to perform good
+% Limitations and scope
+- Only 5 participants, no statistical arguments but just hints
+
+- Possibly biased participants (friends) wants to perform good
+
+- Limited measurement parameters e.g. not biking speed
+
+
+\section{Experiment Setup}
+- stationary bike, big screen, detection button, python script
+
 
 \section{Method}
 % Intro, overall
@@ -16,17 +25,17 @@ Task traditional: Pick phone from pocket, activate, navigate, deactivate, back i
 % Prerequisites
 Before starting the experiment the user were instructed in how the Spatial Music Menu works i.e. which head gestures to use for navigating and how the menu structure looks. They then got a chance to try out the system both standing still and while riding the stationary bike. In the standing still scenario the user was allowed to look at the menu envisioned on the iPad screen to get a sense of the menu structure and interaction feedback. Besides trying out the Spatial Music Menu the user also got to try out a traditional music player (Deezer, TODO: ref)
 
-\subsection{Logging}
+\subsection{User performance}
+- Circles detected, Execution time for a task
 
-\subsection{Observing}
-Video recording to count gesture mismatches
+\subsection{Measuring workload}
+Subjective workload was measured using the NASA Task Load Index (TLX) scales \cite{hart_workload_1990}. The scales includes mental demand, physical demand, temporal demand, performance, effort and frustration in which each participant should rate after testing (for both the Spatial Music Menu and the touch and vision-based music player). 
 
-\subsection{Questionaire}
-NASA [TLX]
+The perceived workload is linked with the general usability of the system. It can give an indication of the users physical and mental resources required by the system during interaction and thereby an indication of the resources left for monitoring and navigating the surroundings when biking i.e. a safety parameter.
 
 
 \section{Participants}
-...
+5 persons (all male) were chosen for the evaluation. They all have in common that they listens to music while biking regurarly. The participants had an average age of 30 years.
 
 
 \section{Results}
@@ -35,7 +44,42 @@ NASA [TLX]
 \subsection{User performance}
 ...
 
-\subsection{Questionaire results}
+Circles detected, figure \ref{fig:resultscircles}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/results_circles.png}
+		\rule{35em}{1pt}
+	\caption[Results circle detections]{Percentage of circles detected for the participants}
+	\label{fig:resultscircles}
+\end{figure}
+
+
+Task time execution, figure \ref{fig:resultstasktime}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/results_task_time.png}
+		\rule{35em}{1pt}
+	\caption[Results task time]{Time taken (in seconds) in average to execute a task for the participants}
+	\label{fig:resultstasktime}
+\end{figure}
+
+\subsection{Workload}
+...
+
+Nasa TLX scores, figure \ref{fig:resultsnasatlx}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/results_nasatlx.png}
+		\rule{35em}{1pt}
+	\caption[Results NASA TLX Score]{NASA TLX overall workload score for the participants (less is better)}
+	\label{fig:resultsnasatlx}
+\end{figure}
+
+\subsection{Discussion}
+...
 
 
 %Track:\\

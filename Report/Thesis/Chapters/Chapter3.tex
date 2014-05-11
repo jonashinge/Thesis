@@ -1,5 +1,106 @@
 \lhead{\emph{Design}}
 \chapter{Design}
+In this chapter the design of the system is described. This is done by first describing a design rationale based on the concepts and related work from chapter \ref{sec:relatedwork} and next how the actual system was designed.
+
+\section{Design Rationale}
+
+% From wiki:
+% - the reasons behind a design decision,
+% - the justification for it,
+% - the other alternatives considered,
+% - the trade offs evaluated, and
+% - the argumentation that led to the decision.
+
+% Intro
+Before choosing a design for a system different factors needs to be considered e.g. the reasons behind design decisions and the justification for it; other design alternatives considerations and the tradeoffs when choosing a design over another; the argumentation that lead to the design.
+
+% Ubicomp challenges
+When designing for ubicomp new aspects needs to be taken into consideration which increase the complexity of the system e.g. different devices, mobile users and changing environment and context \cite{barfield_fundamentals_2000}. Also we note that we are not only designing user interfaces but also the interactions between a user and the system through artifacts embedded in the environment \cite{beaudouin-lafon_designing_2004}. Furthermore it should be taken into account whether the interaction happens whilst the user is in motion as this introduces even more complexity as decribed earlier in section \ref{sec:interactioninmotion}.
+
+In this project we have defined the following requirements of the system: A user should navigate a music player using head gestures and audio feedback while biking. In other words we have a user interacting with artifacts, consisting of a headmounted interface and a mobile device, while biking in a traffic environment implying user awareness of road conditions, cars, other bikers, etc.
+
+\subsection{Devices}
+- Head gestures, sensors on head, headset for audio, mention gaze tracking solution
+
+\subsection{User}
+- Physical constrains: Head rotation, Human head normally can be rotated about 140 degrees for shaking and 100 degrees for nodding \cite{lopresti_neck_2000}
+- Workload
+- Perceptive load
+- Mental model
+
+\subsection{Environment}
+- Unintentional behaviour e.g. activating menu biking over a bump or a sudden need for rotating head because of obstacles
+- Weather conditions, too much wind disrupting the audio, rain on headset
+- Noise can disrupt audio
+
+
+\section{Spatial Music Menu}
+
+\subsection{Soundscape}
+- Music, strength of recognizing artist/track through listening vs seeing the text on a screen
+- Horizontal argument
+- Simultanous sounds, exploring, cocktail party effect argument
+- Experimental design, sounds perceived, zoom effect, user should detect sound direction (which track)
+
+Metaphor: Carousel
+
+Soundscape design illustration, figure \ref{fig:sounddesign}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/sounddesign.png}
+		\rule{35em}{0.5pt}
+	\caption[Soundscape Design]{Soundscape Design - Visualising how the circular auditory menu surrounds a person (viewed from the persons back)}
+	\label{fig:sounddesign}
+\end{figure}
+
+\subsection{Navigation}
+- Adaption of real world music player menu
+- Figure showing levels of menu
+- Navigation
+- Head gestures
+- Activating menu
+- Feedback when gesture recognized
+- Nod = yes
+
+Several studies show that circular auditory menus are the way to go because of horizontally positioned sounds (ref?)
+
+
+\section{Experimental Prototype}
+...
+
+Challenge: introducing untraditional way of interacting, human-centred approach
+
+Two menu interaction modes, distance/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% OLD - Use some parts here and move some to introduction method section
+\begin{comment}
+
 This chapter first explains the design methods used and the most important design activities and choices made in the design process. Based on this process the final prototype design is presented at the end of the chapter.
 
 \section{Design model and methods}
@@ -34,14 +135,6 @@ When looking at the different related auditory menu designs we needed to find a 
 
 [TODO: Image/prototype sketch?]
 
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/sounddesign.png}
-		\rule{35em}{0.5pt}
-	\caption[Soundscape Design]{Soundscape Design - Visualising how the circular auditory menu surrounds a person (viewed from the persons back)}
-	\label{fig:sounddesign}
-\end{figure}
-
 % Circular menu design, head gestures
 While placing music streams in a circular way around a users audio space we needed a way of navigating to and chosing a specific track. The Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} system uses directed nods to choose an item but this limits the number of items to 4 (1 for every 90 degrees) as a nod in 45 degrees
 
@@ -56,58 +149,11 @@ For navigating and choosing menu items
 [TODO]
 In this project multiple audio sources (music tracks) are presented for the user at the same time but none of them requires a respond i.e. the focus is on selective-attention tasks.
 
-\subsection{Fixed head position experiment}
-
-\subsection{Dynamic head position experiment}
-
-\subsection{Head gestures}
-
-Recording user gestures
-
-Navigating the menu
-
-Adjusting sensor data input - accelerometer problem when biking
-
-
-\section{Final prototype design}
-
-% \subsection{Audio menu structure}
-
-%Several studies show that circular auditory menus are the way to go because of horizontally positioned sounds , HRTF, 3D audio...
-
-%Human head normally can be rotated about 140 degrees for shaking and 100 degrees for nodding \cite{lopresti_neck_2000}.
-
-%\subsection{Navigation controls}
-
-% prototyping, iterative design process
-
-TODO: New suggestion for sections
-
-Design space
-- Requirements
-- Pros/cons with different design choices
-
-Soundscape design
-- Music
-- Horizontal argument
-- Simultanous sounds, exploring, cocktail party effect argument
-- Experimental design, sounds perceived, zoom effect, user should detect sound direction (which track)
-
-Menu
-- Navigation
-- Head gestures
-- Activating menu
-- Figure showing levels of menu
-- Feedback when gesture recognized
+\end{comment}
 
 
 
 
 
-
-% OLD STUFF
-%An experimental prototype should be developed and tested. 3 types of menus where a test user should perform head gesture interaction to solve small tasks. User is observed and feedback should be given.
-
-%A final prototype should be designed with knowledge from the experimental evaluation. This prototype will go through a "real life" evaluation. It will be evaluated through several days where the user will use the new head gesture based music application and the traditional music application while biking. Again small task could be performed and it could be tested through the users normal use of his/her music application, ending up in a comparison of the traditional vs the new interaction system.
 
 
