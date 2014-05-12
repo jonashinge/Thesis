@@ -25,7 +25,8 @@ Thomas questions
 - Menu design, evaluation with 3 tracks, could I also describe evaluation with multiple tracks (not part of the final evaluation, maybe more design process or?)
 - Footnote vs cite
 - Design chapter intro - a good model to introduce the chapter with? (that fits in my case)
-- Evaluation intro
+- Limitation and scope of system, should I mention this in design or implementation section?
+
 
 
 OLD

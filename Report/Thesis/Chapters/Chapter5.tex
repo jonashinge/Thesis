@@ -1,16 +1,18 @@
 \lhead{\emph{Evaluation}}
 \chapter{Evaluation}
 % Intro
-As mentioned in section TODO:ref the scope of the implementation in this thesis is limited to study the effects of exploring and navigating to music tracks. To study whether the Spatial Music Menu could compete with a touch and vision-based music player interface we designed and conducted an experiment where users should navigate to specific music tracks while using the biking simulation system described in section TODO:ref. The experiment was conducted on both types of systems.
+As mentioned in section TODO:ref the scope of the implementation in this thesis is limited to study the effects of exploring and navigating to music tracks. To study whether the Spatial Music Menu could compete with a touch and vision-based music player interface we designed and conducted a closed lab experiment where users should navigate to specific music tracks while using the Biking Simulation System described in section TODO:ref. The experiment was conducted on both types of systems.
+
+% TODO: Maybe something about the choice of a closed lab experiment?
 
 To validate the design of the Spatial Music Menu the following hypotheses were derived for the experiment:
 
 \begin{description}
-\item[Hypthesis 1:] Replacing the input/output modalities of touch and vision with head gestures and audio (respectively) in a music player interface will increase the users ability to monitor and detect the surroundings in a biking scenario.
+\item[Hypothesis 1:] Replacing the input/output modalities of touch and vision with head gestures and audio (respectively) in a music player interface will increase the users ability to monitor and detect the surroundings in a biking scenario.
 \end{description}
 
 \begin{description}
-\item[Hypothesis 2:] Spatial audio can provide an effective way of exploring content in form of non-speech sounds (music tracks) and combined with head gestures it can compete with a touch and vision-based interface in terms of navigation and usability.
+\item[Hypothesis 2:] An auditory menu using spatial audio can provide an effective way of exploring content in form of music tracks and can compete with a touch and vision-based music player in terms of navigation and usability.
 \end{description}
 
 
@@ -24,7 +26,10 @@ To validate the design of the Spatial Music Menu the following hypotheses were d
 
 
 \section{Experiment Setup}
-- stationary bike, big screen, detection button, python script
+The physical setup consisted of a stationary bike and in front of that a giant screen (4 x 40 inch HD screens) that should simulate a road. To make the view as realistic as possible an image of an actual traffic road was showed on the screen \footnotemark[1]. To simulate obstacles that the user should be aware of or respond to in a real world biking scenario, 3 different shapes with random colors were displayed in random positions on the screen in a random time interval; between 0.3 and 1 second displaying the shape in 0.8 seconds. The shapes were circles, triangles and squares and the job for the person riding the bike was to detect the circles. This was done by pushing a button attached close to the users non-preferred hand on the steer, in this case a Playstation 3 joystick strapped with tape. The reason for the button placement at the non-preferred hand was, that the preferred hand should be used for navigating the touch and vision-based music player. To give the user feedback the circle was removed when detected. The screen simulation software were developed in Python 3 running on a Mac (OSX 10.9). The simulation system is illustrated in figure TODO:ref.
+
+% Footnotes
+\footnotetext[1]{Traffic road from the streets of New York borrowed from: http://timsklyarov.com/new-york-through-the-eyes-of-a-road-bicycle/}
 
 
 \section{Method}
@@ -38,20 +43,12 @@ Task traditional: Pick phone from pocket, activate, navigate, deactivate, back i
 % Prerequisites
 Before starting the experiment the user were instructed in how the Spatial Music Menu works i.e. which head gestures to use for navigating and how the menu structure looks. They then got a chance to try out the system both standing still and while riding the stationary bike. In the standing still scenario the user was allowed to look at the menu envisioned on the iPad screen to get a sense of the menu structure and interaction feedback. Besides trying out the Spatial Music Menu the user also got to try out a traditional music player (Deezer, TODO: ref)
 
-\subsection{User performance}
-% Number of circles, safety
-The most important task for the user during testing is to detect as many circles as possible. The number of circles shown and the number of circles detected were logged during execution of tasks. This will give a quantitative analysis of whether the user is able to monitor the surroundings while interacting with the systems and contribute to the safety problem focus.
-
-% System, track exploring
-For measuring the content (music track) exploring part of the Spatial Music Menu all navigation information were logged on the iPad. 
-
-% System, task time
+\subsection{Logging}
+Throughout the experiment several data were logged. This includes data from the Biking Simulation System: Task start/end, circles shown, circles detections, error detections - and data from the Spatial Music Menu: Gestures detected, navigation steps including track info, headset connection status. Every log subject has a timestamp and as logging were performed on two different systems - iOS and OSX (python script) clocks were synchronized before comparison.
 
 
-\subsection{Measuring workload}
-Subjective workload was measured using the NASA Task Load Index (TLX) scales \cite{hart_workload_1990}. The scales includes mental demand, physical demand, temporal demand, performance, effort and frustration in which each participant should rate after testing (for both the Spatial Music Menu and the touch and vision-based music player). 
-
-The user ratings gives a qualitative analysis of the system and the perceived workload is linked with the general usability of the system. It can give an indication of how much of the users physical and mental resources is required by the system during interaction and thereby an indication of the resources left for monitoring and navigating the surroundings when biking i.e. a safety parameter.
+\subsection{NASA Task Load Index}
+Subjective workload was measured using the NASA Task Load Index (TLX) scales \cite{hart_workload_1990}. The scales includes mental demand, physical demand, temporal demand, performance, effort and frustration in which each participant should rate after testing. The user ratings gives a qualitative analysis of the system and the perceived workload is linked with the general usability of the system.
 
 
 \section{Participants}
@@ -62,7 +59,13 @@ The user ratings gives a qualitative analysis of the system and the perceived wo
 ...
 
 \subsection{User performance}
-...
+% Number of circles, safety
+The most important task for the user during testing is to detect as many circles as possible. The number of circles shown and the number of circles detected were logged during execution of tasks. This will give a quantitative analysis of whether the user is able to monitor the surroundings while interacting with the systems and contribute to the safety problem focus.
+
+% System, track exploring
+For measuring the content (music track) exploring part of the Spatial Music Menu all navigation information were logged on the iPad. 
+
+% System, task time
 
 Circles detected, figure \ref{fig:resultscircles}
 
@@ -86,7 +89,7 @@ Task time execution, figure \ref{fig:resultstasktime}
 \end{figure}
 
 \subsection{Workload}
-...
+... it can give an indication of how much of the users physical and mental resources is required by the system during interaction and thereby an indication of the resources left for monitoring and navigating the surroundings when biking i.e. a safety parameter.
 
 Nasa TLX scores, figure \ref{fig:resultsnasatlx}
 
