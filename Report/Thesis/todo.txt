@@ -19,7 +19,9 @@ Thomas questions
 
 - Limitation and scope of system, should I mention this in design or implementation section?
 
-- Target group in design?
+- Target group in design, in general which design methods (envisionment)?
+
+- Do I need to mention (maybe add a figure) the iterative deisng process? And where?
 
 
 

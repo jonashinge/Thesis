@@ -1,9 +1,13 @@
 \lhead{\emph{Implementation}}
 \chapter{Implementation}
-This chapter describes the different components of the Spatial Music Menu system. The main components includes a headset interface, an iOS application controlling the headset and finally a virtual biking application build for testing mobile music players.
+This chapter describes the different components of the Spatial Music Menu system. The main components includes a headset interface and an iOS application controlling the headset.
 
 \section{Headset}
-The headset interface used in this project is the Intelligent Headset (IHS) \cite{gn_store_nord_intelligent_2013}. The headset is a stereo headset but can also deliver 3D audio. 4 sensors are built into the headset; GPS, compass, gyroscope and accelerometer - making it possible to track head rotation and location of the user wearing it. Connection to the headset is accessible via Bluetooth or wire. The headset is shown in figure?
+The headset interface used in this project is the Intelligent Headset (IHS)\footnote{\url{https://intelligentheadset.com/}}. The headset is a stereo headset but can also deliver 3D audio. 4 sensors are built into the headset; GPS, compass, gyroscope and accelerometer - making it possible to track head rotation and location of the user wearing it. Connection to the headset is accessible via Bluetooth or wire. The headset is shown in figure?
+
+[TODO: image]
+
+
 
 The headset features can be exploited through mobile applications using an included SDK targeting the iOS and Android platform (iOS SDK currently at version 1.82 and an Android SDK running verson 1.21 \footnote{Version information from 05-05-2014. Developer site: https://developer.intelligentheadset.com/our-sdk/}). The platform used in this project is Apples iOS. The main reason for using this platform is that when this project started the Intelligent Headset only provided an SDK compatible with iOS and still - though accessible for the Android platform today - the iOS SDK is running a higher version number making it more mature i.e. stable.
 
@@ -19,6 +23,8 @@ Sensor data
 
 \section{Music}
 ...
+
+\subsection{}
 
 
 \section{Head Gestures Recognition}
@@ -38,7 +44,7 @@ Gyroscope + accelerometer data, 1 observation, 1 sequence
 ...
 The iOS is a mature OS currently at version 7.1. The Spatial Music Menu are running version 6+ and optimized for the iPad.
 
-As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal \cite{apple_apple_2014} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most important functionality of the Spatial Music Menu.
+As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most important functionality of the Spatial Music Menu.
 
 \subsection{Overview}
 An overview of the application architecture is shown in figure \ref{fig:apparchitecture}.
@@ -51,16 +57,15 @@ An overview of the application architecture is shown in figure \ref{fig:apparchi
 	\label{fig:apparchitecture}
 \end{figure}
 
+TODO: describe the architecture
 
-\section{Biking Simulation System}
-In order to test the music player interfaces a biking simulation system was developed.
+- Singleton approach, iOS MVC pattern
 
-\subsection{Apparatus}
-A stationary bike, big screen
+\subsection{Settings views}
+- TODO: show screenshots of iPad 3 views
 
-\subsection{Application}
 
-Python app
+
 
 
 
