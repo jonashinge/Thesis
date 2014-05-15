@@ -7,7 +7,7 @@ The headset interface used in this project is the Intelligent Headset (IHS)\foot
 
 [TODO: image of headset including button (2 images)]
 
-The headset features can be exploited through mobile applications using an included SDK targeting the iOS and Android platform (iOS SDK currently at version 1.82 and an Android SDK running verson 1.21 \footnote{Version information from 05-05-2014. Developer site: https://developer.intelligentheadset.com/our-sdk/}). The platform used in this project is Apples iOS. The main reason for using this platform is that when this project started the Intelligent Headset only provided an SDK compatible with iOS and still - though accessible for the Android platform today - the iOS SDK is running a higher version number making it more mature i.e. stable.
+The headset features can be exploited through mobile applications using an included SDK targeting the iOS and Android platform (iOS SDK currently at version 1.82 and an Android SDK running verson 1.21 \footnote{Version information from 05-05-2014. Developer site: \url{https://developer.intelligentheadset.com/our-sdk/}}). The platform used in this project is Apples iOS. The main reason for using this platform is that when this project started the Intelligent Headset only provided an SDK compatible with iOS and still - though accessible for the Android platform today - the iOS SDK is running a higher version number making it more mature i.e. stable.
 
 The SDK is implemented in the Spatial Music Menu application. The Intelligent Headset API (Application Programming Interface) provides features like reading the raw sensor data from all sensors, button events and functions for headset connectivity and 3D audio handling. An overview of the components and their communication is shown in figure \ref{fig:implementationoverview}.
 
@@ -19,10 +19,11 @@ The SDK is implemented in the Spatial Music Menu application. The Intelligent He
 	\label{fig:implementationoverview}
 \end{figure}
 
-\section{Music}
-...
 
-\subsection{}
+\section{Music}
+We used Deezer\footnote{\url{https://www.deezer.com/}} as a music provider in the implementation. Deezer is a music streaming service and provides an iOS SDK for accessing different kinds of information through their API e.g. track info, user playlists, albums, streaming urls, etc.
+
+The primary reason for choosing Deezer was that they provide previews of all music tracks (30 second clip). This is very convinient as it is not possible to spatialise audio streams using the IHS SDK. Instead the IHS SDK is quite limited in that the only way to place sound sources in the spatial audio space is to use 16-bit wav format. Deezers preview tracks comes in MP3 format so every track needed conversion to 16-bit wav before use. Download and conversion of music tracks was handled dynamically inside the Spatial Music Menu iOS application making it easier to add, remove and switch tracks. Basically one could add music tracks to the application by creating a Deezer playlist which is then synchronized by the iOS application. A synchronization operation is simply: 1) Getting the preview tracks MP3 url; 2) download all MP3 tracks and save on device; 3) convert all tracks to 16-bit wav and save on device. Besides preview audio the synchronization also included basic track information e.g. artist name, track name and album.
 
 
 \section{Head Gestures Recognition}
