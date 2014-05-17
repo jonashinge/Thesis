@@ -7,21 +7,41 @@ TODO
 ---------------------
 Thomas questions
 ---------------------
-- Change problem statement to reflect new "focus" (safety in traffic)?, Also I want to describe that exploring the content/music is important (spatial audio)...
+Change problem statement to reflect new "focus" (safety in traffic)?, Also I want to describe that exploring the content/music is important (spatial audio)...
+- General problem, mobile devices can not be configured while on the move, then move on to the specific biking problem, stick to just mentioning the problem, interaction on the move statement ref to paper, the goal of this thesis is to design a user interface that uses other modalities whil on the move and interacting
+- be general, do not mention music scenario
+- In goal description be more specific, bike scenario, maybe mention headset in the goal
+- make a bridge between problem statement and goal, start with: "a very common scenario is biking and listening to music..." maybe find some statistical info
+- goal: list exactly what to measure, put something about safety in the goal description
 
-- Menu design, evaluation with 3 tracks, could I also describe evaluation with multiple tracks (not part of the final evaluation, maybe more design process or?)
 
-- Gestures design, should I mention that I evaluated the system with several gestures but ended up with 1?
 
-- Footnote vs cite, example in chapter 1 intro
+(Footnote vs cite, example in chapter 1 intro)
 
-- Design chapter intro - a good model to introduce the chapter with? (that fits in my case)
+Design chapter intro - a good model to introduce the chapter with? (that fits in my case)
+- Start with interaction on the move, what is it that you can do while biking?
+- Design is just an idea
+- Formative evaluation - guide the design in design section (my iterative design process)
+- Intro, cognition and attention
 
-- Limitation and scope of system, should I mention this in design or implementation section?
+Limitation and scope of system, should I mention this in design or implementation section?
+- Design mention several gestures, argue for why only 1 in implementation, repeat this in discussion section
 
-- Target group in design, in general which design methods (envisionment)?
+Target group in design, in general which design methods (envisionment)?
 
-- Do I need to mention (maybe add a figure) the iterative deisng process? And where?
+Do I need to mention (maybe add a figure) the iterative design process? And where?
+
+Gestures design, should I mention that I evaluated the system with several gestures but ended up with 1?
+
+Menu design, evaluation with 3 tracks, could I also describe evaluation with multiple tracks (not part of the final evaluation, maybe more design process or?)
+- Yes, but mention factors that can make it difficult (in the wild)
+- 5 items to 3 is more a design decision, refer to intro (cognition and attention)
+
+Method section could be more precise/concrete and do forward references
+
+Put an image to the introduction of the evaluation to help the reader getting into context
+
+
 
 
 

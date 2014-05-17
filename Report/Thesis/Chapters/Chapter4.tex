@@ -11,6 +11,9 @@ The headset features can be exploited through mobile applications using an inclu
 
 The SDK is implemented in the Spatial Music Menu application. The Intelligent Headset API (Application Programming Interface) provides features like reading the raw sensor data from all sensors, button events and functions for headset connectivity and 3D audio handling. An overview of the components and their communication is shown in figure \ref{fig:implementationoverview}.
 
+\subsection{3D audio handling}
+...
+
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/implementation_overview.png}
@@ -27,16 +30,19 @@ The primary reason for choosing Deezer was that they provide previews of all mus
 
 
 \section{Head Gestures Recognition}
+To recognize head gestures we used DTW (Dynamic Time Warping) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007}. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. The interested reader is referred to one of these articles for a detailed description of the classic DTW algorithm, as this is out of this thesis scope.
 
-DTW - Dynamic Time Warping 
+A sequence consists of observations and an observation is a set of accelerometer data from the headset which is read through the IHS SDK. A preview of such a sequence example could look like this:
 
-Dynamic Time Warping \cite{salvador_toward_2007}
+TODO: sequence example
 
-Accelerometer-based DTW \cite{akl_accelerometer-based_2010}
+%Essentially the DTW algorithm works by compairing two sequences each consisting of observations of length N and M (in this case an observation is a set of accelerometer data). For each observation comparison a local cost (distance) is calculated and a cost matrix is created. If there exists a path (warping path) from point (1,1) to (N,M) in the cost matrix that has an overall cost that is less than a predefined cost, then there is a match.
 
-Start and end noise removal
+TODO: describe gestures recording
 
-Gyroscope + accelerometer data, 1 observation, 1 sequence
+- Start and end noise removal
+
+- Screenshot of recording view
 
 
 \section{iOS Application}
