@@ -76,6 +76,16 @@
     // Add persisted gestures
     NSArray *gestures = [APP_DELEGATE.persistencyManager getGestures];
     [APP_DELEGATE.smmDeviceManager updateGestures:gestures];
+    
+    // TEMP, save gesture data
+    /*for (Gesture *gest in gestures) {
+        //[APP_DELEGATE.persistencyManager writeGestureData:[NSString stringWithFormat:@"Gesture %@",gest.label]];
+        for (int i=0; i<[gest.data count]; i++) {
+            NSArray *obs = [gest.data objectAtIndex:i];
+            NSString *obsString = [NSString stringWithFormat:@"%d;%@;%@;%@",i,[obs objectAtIndex:0],[obs objectAtIndex:1],[obs objectAtIndex:2]];
+            [APP_DELEGATE.persistencyManager writeGestureData:obsString];
+        }
+    }*/
 }
 
 - (void)didReceiveMemoryWarning

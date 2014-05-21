@@ -4,10 +4,12 @@
 Mobile and wearable devices has been a growing area in computing in recent years. Compaired to desktop computers these devices have introduced new standards for when and how people interact with especially mobile applications. Suddenly people are able to check the news, navigate via interactive maps, post social messages, listen to music, etc., while they are on the move. However, most mobile systems are not designed for interaction in motion \cite{marshall_mobile_2013}. Instead they are primarily based around users stopping and interacting with the device. This is caused by the main communication channel between the user and device - the touchscreen interface. This interface requires the eyes of the users to perceive the information displayed on the screen and at least one hand for touch-based input. Many applications delivers information through non-visual communications channels like audio. In many cases however this information is presented in a one way transfer approach e.g. navigation instructions, music or the audio of an incoming phonecall where users still needs to interact with the touchscreen to respond e.g. type in destination location, answer the phonecall or switch music track. To solve this many especially older devices have dedicated buttons for such respond tasks and also many headsets include controllers (attached on the wire of the headset). However though such physical buttons can be used while moving without looking at any screen, the number of actions to perform are often quite limited like in the PocketMenu \cite{pielot_pocketmenu:_2012} which is a music player interface that provides "pocket interaction" with simple controls like volume, next/previous track, play and pause.
 
 % Usage of this interface problems
-It can not be assumed that people stop and visually attend a touchscreen interface everytime they wish to interact. In most cases people use the "stop-to-interact" design while they are in motion making interaction awkward and challenging. For instance, although screen resolutions and physical sizes of mobile devices are increasing, the visual work space is limited i.e. screens easily becomes cluttered with information and the input keyboard can be challenging when moving e.g. small buttons or non-responding touch interfaces. More importantly, when moving around e.g. in the traffic, interacting with a mobile device in this way could reduce the users ability to perceive and react to the surroundings because of the eyes or hands being occupied by the touchscreen. In the worst case this would cause accidents. Motivated by this problem fines are introduced (in Denmark) for people interacting with their mobile device while biking\footnote{\url{http://www.cyklistforbundet.dk/Alt-om-cykling/Love-og-regler/boedetakster}}. Fines are also being introduced in the U.S. for texting while biking e.g. in California\footnote{\url{http://blogs.lawyers.com/2011/08/there-oughta-be-a-law-california-may-ban-texting-while-biking/?test=400}} and Charleston\footnote{\url{http://www.postandcourier.com/apps/pbcs.dll/article?AID=/20131008/PC16/131009426}}. As Charleston law suggests there are exceptions: \textit{"The exception would be for a device that can be worked hands-free."}. However hands-free interfaces do not neccesarily improve other human aspects like cognitive load. For example interaction through auditory interfaces e.g. hands-free phone talking while driving, is prohibited in several countries.
+It can not be assumed that people stop and visually attend a touchscreen interface everytime they wish to interact. In most cases people use the "stop-to-interact" design while they are in motion making interaction awkward and challenging. People can not easily devote their visual attention to an interface while walking, running or driving \cite{brewster_overcoming_2002}. For instance, although screen resolutions and physical sizes of mobile devices are increasing, the visual work space is limited i.e. screens easily becomes cluttered with information and the input keyboard can be challenging when moving e.g. small buttons or non-responding touch interfaces. More importantly, when moving around e.g. in the traffic, interacting with a mobile device in this way could reduce the users ability to perceive and react to the surroundings because of the eyes or hands being occupied by the touchscreen. In the worst case this would cause accidents. Motivated by this problem fines are introduced for example in Denmark for people interacting with their mobile device while biking\footnote{\url{http://www.cyklistforbundet.dk/Alt-om-cykling/Love-og-regler/boedetakster}}. %Fines are also being introduced in the U.S. for texting while biking e.g. in California\footnote{\url{http://blogs.lawyers.com/2011/08/there-oughta-be-a-law-california-may-ban-texting-while-biking/?test=400}} and Charleston\footnote{\url{http://www.postandcourier.com/apps/pbcs.dll/article?AID=/20131008/PC16/131009426}}. As Charleston law suggests there are exceptions: \textit{"The exception would be for a device that can be worked hands-free."}.
+This could indicate that hands-free mobile interfaces will solve the problem. Much of the interface work in wearable computing are focusing on visual displays, often presented through headmounted displays \cite{barfield_fundamentals_2000}. However these interfaces can be hard to use in bright daylight and they occupy the users visual attention \cite{geelhoed_safety_2000}. Also that an interface is eyes and hands-free doesn't neccesarily mean that it improves other human aspects like cognitive load. For example interaction through auditory interfaces e.g. hands-free phone talking while driving, is prohibited in several countries.
 
 % Research
-As the usage of mobile applications are increasing\footnote{\url{http://mashable.com/2014/01/14/mobile-app-use-2013/}} - 113\% in 2013 - the need for better system designs grows. Several research areas in the HCI community have targeted to support interaction while in motion. Using alternative and multiple interaction modalities like speech, gesture and gaze tracking (multimodal interaction) can not only help developing hands- or eyes-free interfaces but it has also been shown to decrease the perception and cognition problems mentioned above.
+%As the usage of mobile applications are increasing\footnote{\url{http://mashable.com/2014/01/14/mobile-app-use-2013/}} - 113\% in 2013 - the need for better system designs grows. 
+Several research areas in the HCI community have targeted to support interaction while in motion. Using alternative and multiple interaction modalities like speech, gesture and gaze tracking (multimodal interaction) can not only help developing hands- or eyes-free interfaces but it has also been shown to decrease the perception and cognition problems mentioned above.
 
 \newpage
 
@@ -15,25 +17,36 @@ As the usage of mobile applications are increasing\footnote{\url{http://mashable
 Using mobile devices while moving around in physical demanding environments implies extra cognitive and perceptual load and there exists only few systems today that are designed to handle this. However interfaces that allows communication with mobile applications through other modalities than touch and vision are showing up like the Intelligent Headset\footnote{\url{https://intelligentheadset.com/}} which is based on head gestures and 3D audio.
 
 % Question
-Inspired by the fact that such interface could liberate the eyes and hands when interacting while in motion, the following question is asked: Can a user interface based on head gestures and 3D audio compete with existing stop-to-interact user interfaces (touch and vision-based) with respect to:
+Inspired by the fact that such interface could liberate the eyes and hands when interacting while in motion and that gestures and audio modalities have shown to improve usability of mobile devices under eyes-free mobile conditions \cite{brewster_multimodaleyes-freeinteraction_2003} - the following question is asked: Can a user interface based on head gestures and 3D audio compete with existing "stop-to-interact" user interfaces (touch and vision-based) with respect to:
 
 \begin{description}
-\item[1] General usability (cognitive/perceptual load)
-\item[2] Navigating and exploring application content
+\item[1] General usability (cognitive/perceptual load).
+\item[2] Task performance efficiency (navigation and exploration of application content).
 \end{description}
 
 
 \section{Goal}
-To answer the research questions we have looked at a very common scenario where people interact with a device, while they are performing a physical activity that would require the use of eyes and hands: Biking while listening to music - or more concretely the subscenario: Biking while switching music track. This scenario is inspired from the fact that mobile music listening on smartphones has increased dramatically\footnote{\url{http://www.emarketer.com/Article/Music-Goes-Mobile-More-Smartphone-Users-Stream-Songs/1010126}} and the leading music streaming smartphone applications today are designed by the stop-to-interact model. The goals of this thesis are defined as follows:
+\label{sec:goal}
+To answer the research questions we will look at a very common scenario where people interact with a device, while they are performing a physical activity that would require the use of eyes and hands: Biking while listening to music - or more concretely the subscenario: Biking while switching music track.
+
+This scenario is inspired from the fact that the leading mobile music applications today are designed by the "stop-to-interact" model and although there exists eyes-free music player interfaces these are limited to simple controls. The goals of this thesis are defined as follows:
+
+%This scenario is inspired from the fact that mobile music listening on smartphones has increased dramatically\footnote{\url{http://www.emarketer.com/Article/Music-Goes-Mobile-More-Smartphone-Users-Stream-Songs/1010126}} and the leading music streaming smartphone applications today are designed by the "stop-to-interact" model. The goals of this thesis are defined as follows:
+
+%Motivation:
+%... audio feedback can decrease cognitive load
+%... spatial audio can deliver more advanced feedback
+%... current hands-free music players are limited in control features
+
 
 \begin{description}
 \item[1] Design and develop a mobile music player interface based on head gestures and 3D audio that allows a user to explore and select music tracks.
-\item[2] Evaluate the final user interface in a simulated biking scenario and compare it with an existing touch and vision-based music player user interface in terms of usability (cognitive and perceptual load).
+\item[2] Evaluate the final user interface in a simulated biking scenario and compare it with an existing touch and vision-based music player user interface in terms of general usability and task performance efficiency.
 \end{description}
 
 
 \section{Method}
-In short the method is to design, implement and evaluate a system that achieves the goals of this project. The first system prototype is designed from related research theory and chosen specific related system designs. This prototype will then go into an iterative process where test users evaluate the system and based on their feedback new modifications to the design will be implemented and evaluated again etc. This will result in a final prototype that will be the model for a bigger evaluation. The activities during this thesis are shown in figure \ref{fig:triangulation}.
+In short the method is to design, implement and evaluate a system that achieves the goals of this project. We start in chapter \ref{sec:relatedwork} by researching 3 areas; Mobile HCI, Multimodal Interaction and Mobile Audio Interfaces, which all are related to this thesis focus. The related systems designs from \ref{sec:mobileaudiointerfaces} will, by comparing with thesis goals and related research, inspire to a first system design. By taking a human-centred approach \cite{benyon_designing_2010}, users will evaluate the first system design and this will enable specifications to emerge and lead to a final design. To help users to understand the system a hi-fi prototype is used for envisionment \cite{benyon_designing_2010} during the design process. The system design and process is described in chapter \ref{sec:design}. The final system is evaluated in a controlled lab experiment and is described in chapter \ref{sec:evaluation}. The thesis process and activities are shown in figure \ref{fig:triangulation}.
 
 \begin{figure}[htbp]
 	\centering
@@ -42,8 +55,6 @@ In short the method is to design, implement and evaluate a system that achieves 
 	\caption[Triangulation]{Mapping of thesis activities and process using the triangulation framework proposed by Mackay and Fayard \cite{mackay_hci_1997}}
 	\label{fig:triangulation}
 \end{figure}
-
-[TODO: maybe add something about user-centred design process approach]
 
 
 

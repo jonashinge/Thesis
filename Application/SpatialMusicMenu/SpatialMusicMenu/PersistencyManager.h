@@ -36,6 +36,7 @@
 - (NSArray *)getGestures;
 
 - (void)writeToLog:(NSString *)content;
+- (void)writeGestureData:(NSString *)content;
 
 @end
 

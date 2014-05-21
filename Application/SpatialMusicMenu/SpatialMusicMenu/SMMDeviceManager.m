@@ -177,6 +177,9 @@ const int WINDOW_SIZE = 30;
     for (Gesture *gest in gestures) {
         [_recognizer addKnownSequence:gest.data WithLabel:gest.label];
     }
+    
+    // TEMP, accuracy
+    DEBUGLog(@"DTW Accuracy: %f",[_recognizer outputAccuracy]);
 }
 
 

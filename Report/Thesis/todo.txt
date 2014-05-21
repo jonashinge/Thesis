@@ -2,6 +2,9 @@
 TODO
 ---------------------
 
+- Record 3 diff gestures data set and calculate precision (80/20 split)
+- Setup bike for pictures
+- Std dev on graphs
 
 
 ---------------------

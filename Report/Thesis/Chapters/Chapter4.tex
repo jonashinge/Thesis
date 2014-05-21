@@ -2,6 +2,9 @@
 \chapter{Implementation}
 This chapter describes the different components of the Spatial Music Menu system. The main components includes a headset interface and an iOS application controlling the headset.
 
+TODO: Scope and limitations
+- only using 1 gesture, we examined multiple gestures in pilot study (accuracy), too much noise in biking scenario: Unwanted activation of systems, too much learning, not important for measuring tasks
+
 \section{Headset}
 The headset interface used in this project is the Intelligent Headset (IHS)\footnote{\url{https://intelligentheadset.com/}}. The headset uses HRTF technology and can deliver spatial audio. 4 sensors are built into the headset; GPS, compass, gyroscope and accelerometer - making it possible to track head rotation and location of the user wearing it. The headset also includes 2 buttons - one in the outer center on each speaker. Connection to the headset is accessible via Bluetooth or wire. The headset is shown in figure?
 
@@ -36,11 +39,15 @@ A sequence consists of observations and an observation is a set of accelerometer
 
 TODO: sequence example
 
+\subsection{Training data}
+
 %Essentially the DTW algorithm works by compairing two sequences each consisting of observations of length N and M (in this case an observation is a set of accelerometer data). For each observation comparison a local cost (distance) is calculated and a cost matrix is created. If there exists a path (warping path) from point (1,1) to (N,M) in the cost matrix that has an overall cost that is less than a predefined cost, then there is a match.
 
 TODO: describe gestures recording
 
 - Start and end noise removal
+
+- Cross validation, accuracy of classifier (training set), maybe in evaluation discussion?
 
 - Screenshot of recording view
 

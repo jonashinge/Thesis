@@ -1,13 +1,7 @@
 \lhead{\emph{Related work}}
 \chapter{Related work}
 \label{sec:relatedwork}
-% intro, current state on mobile music players
-The rise of the smartphone and the introduction of music streaming services e.g. Spotify, Deezer, Pandora, WIMP and more have resulted in an increase in mobile music listening - in fact the number of mobile music listeners has more than doubled from 30 million active users in 2011 to over 70 million in 2013 according to a study in U.S. \cite{emarketer_music_2014}. Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, a similarity still remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in todays "typical" smartphone music application.
-
-% typical interfaces, challenges
-Todays "typical" music player user interface could cause interaction challenges when a user is on the move. Imagine a biking scenario where the user wants to change music track in a smartphone music application. This would require: Fetching the device e.g. from a pocket, switching the screen on, maybe unlocking the screen with a password, navigating through the music application GUI, switch the screen of, put smartphone back in pocket. Also the smartphone touch interface requires bare fingers for input recognition so removing gloves (in winter season) could also be a step in the process. A process that happens while the user is navigating through traffic. Studies show that while a user is doing an activity a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}.
-
-Two research areas covers a great part of this kind of mobile interaction and they are presented in this chapter; Mobile HCI and Multimodal Interaction. Finally specific mobile systems that uses an alternative interaction form including mobile music players are presented in the last section. A graphical overview is shown in fig. \ref{fig:venn}.
+This chapter will give an overview of the key concepts and systems related to this thesis focus. As mentioned in \ref{sec:goal} the goal of this thesis is to design a music player interface based on head gestures and 3D audio that is suitable for for an interaction while in motion scenario like biking. Two research areas covers a great part of this kind of mobile interaction and they are presented in this chapter; Mobile HCI and Multimodal Interaction. Finally specific mobile systems including mobile music players, that uses related modalities like gestures and audio, are presented in the last section. A graphical overview is shown in fig. \ref{fig:venn}.
 
 \begin{figure}[htbp]
 	\centering
@@ -110,7 +104,7 @@ The user required attention can be difficult to control. Specific user needs and
 
 \subsection{Spatial audio}
 % intro - what is spatial audio, HRTF
-Spatial audio or 3D audio is constructed using binaural recordings, HRTF (Head Related Transfer Function), FIR (Finite Impulse Response) filters and other advanced signal processing techniques \cite{begault_3dd_1994}. The word "binaural" literally just means "using both ears" and binaural recordings are reproductions of sound the way the human ear hears it. The sounds are recorded by placing microhones in both ears of a dummy head or a real person. These recordings are compared with the original sounds to compute a persons head-related transfer function. HRTF technology uses advanced signal processing techniques and takes into account many of the cues humans use to localize sound. It uses pairs of FIR filters, one filter for the left ear and on for the right, from specific sound positions. Then, to place a sound in a specific position in a persons virtual space, the filter pair which correspond to the position is applied to the incoming sound. The sound then appear as if it is coming from anywhere in space around a listener and this is also called spatial audio. In short this is an attempt to present sound as we normally hear it in the real world. The technology is implemented in many soundcards today.
+Spatial audio or 3D audio is constructed using binaural recordings, HRTF (Head Related Transfer Function), FIR (Finite Impulse Response) filters and other advanced signal processing techniques \cite{begault_3dd_1994}. The word "binaural" literally just means "using both ears" and binaural recordings are reproductions of sound the way the human ear hears it. The sounds are recorded by placing microhones in both ears of a dummy head or a real person. These recordings are compared with the original sounds to compute a persons head-related transfer function. HRTF technology uses advanced signal processing techniques and takes into account many of the cues humans use to localize sound. It uses pairs of FIR filters, one filter for the left ear and one for the right, from specific sound positions. Then, to place a sound in a specific position in a persons virtual space, the filter pair which correspond to the position is applied to the incoming sound. The sound then appear as if it is coming from anywhere in space around a listener and this is also called spatial audio. In short this is an attempt to present sound as we normally hear it in the real world. The technology is implemented in many soundcards today.
 
 % Multiple sound sources, cognitive load effect
 Spatialisation of the audio can be helpful in segregating multiple audio streams taking advantage of the "Cocktail Party Effect". Different models of spatialisation can overcome the limit of three simultanously audio streams mentioned in \ref{sec:audiomodality} by allowing listeners to easily switch between channels and pull an audio stream into focus, as well as by allowing sufficient time to fully fuse the audio streams \cite{bronkhorst_cocktail_2000}. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} shows in a study that when users must be able to direct their attention selectively to each individual audio stream representing a task (selective-attention task) - spatial audio had a great effect. In this case the cognitive load was kept low.
@@ -127,13 +121,18 @@ Spatial audio has also shown to be effective in other several aspects. William W
 
 
 \section{Mobile Audio User Interfaces}
+\label{sec:mobileaudiointerfaces}
 This section describes the systems that are most related to this project. Alternative mobile music player user interfaces are presented first - alternative in the sense that the interaction form is different from the traditional way (touch input and visual output). Also other systems - not music related - are presented. These systems uses an interaction form that is close to the desired one in this project. Finally all systems properties are compaired and visualised in a table.
 
-\subsection{Alternative music player interfaces}
+\subsection{Music player interfaces}
 \label{sec:alternativemusicuis}
-There exists music player interfaces that attempts to use eyes-free interaction when listening to music on the go and they are presented in this section.
+% intro, current state on mobile music players
+The rise of the smartphone and the introduction of music streaming services e.g. Spotify\footnote{\url{https://www.spotify.com}} and Deezer\footnote{\url{https://www.deezer.com/}} and more have resulted in an increase in mobile music listening - in fact the number of mobile music listeners has more than doubled from 30 million active users in 2011 to over 70 million in 2013 according to a study in U.S.\footnote{\url{http://www.emarketer.com/Article/Music-Goes-Mobile-More-Smartphone-Users-Stream-Songs/1010126}}. Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, a similarity still remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in todays "typical" smartphone music application.
 
-% headset controller
+Imagine a biking scenario where the user wants to change music track in a smartphone music application. This would require: Fetching the device e.g. from a pocket, switching the screen on, maybe unlocking the screen with a password, navigating through the music application GUI, switch the screen of, put smartphone back in pocket. Also the smartphone touch interface requires bare fingers for input recognition so removing gloves (in winter season) could also be a step in the process. A process that happens while the user is navigating through traffic. Studies show that while a user is doing an activity a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}. There exists however several music player interfaces that attempts to use eyes-free interaction targeting the interaction while in motion scenario.
+
+\textbf{Headset controllers}
+
 Headset music controllers are physical buttons attached to the wire between headset and device (see figure \ref{fig:nokia}). This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
 
 \begin{figure}[htbp]
@@ -144,12 +143,14 @@ Headset music controllers are physical buttons attached to the wire between head
 	\label{fig:nokia}
 \end{figure}
 
-% voice recognition
+\textbf{Voice recognition}
+
 Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could express simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
 
 % good ref about speech recognition challenges \cite{sawhney_nomadic_2000}
 
-% other alternatives
+\textbf{Gesture based}
+
 Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. The systems are shown in figure \ref{fig:bodyandleg}.
 
 \begin{figure}[htbp]
@@ -236,38 +237,58 @@ The system was tested with up to 12 number items and results showed that 2D grid
 
 
 \subsection{Systems properties overview}
-For this project specific properties of the system are required. Related systems that contains these properties can contain valuable input for this project. To give an overview and a better comparison - these properties are presented in table \ref{tab:related}.
+The above mentioned system have been chosen because they outline the current state on systems that are closest to the kind of system this thesis aims for. The goal properties of the system are based on related research concepts.
+
+\begin{description}
+\item[In-motion interaction]
+The system is designed for interaction in motion.
+
+\item[Head gestures]
+The system uses sensor based head gestures as input modality.
+
+\item[Spatial audio]
+The system gives feedback in form of spatial audio. Does not mean that all audio is spatialised.
+
+\item[Dynamic auditory menu content]
+Navigating the audio menu is not depending on static audio items - the audio stream can change depending on user defined content.
+
+\item[Simultanous audio]
+The system is exploiting the "Cocktail party effect" and can present simultanous audio streams. This is depending on whether the system supports spatial audio as it is hard to conduct otherwise.
+
+\item[Music Application]
+System is designed as a music player interface.
+\end{description}
+
+Related systems that contains these properties can contain valuable input for this project. To give an overview and a better comparison - these properties are presented in table \ref{tab:related}.
 
 \begin{table}[h] 
 \scriptsize
 \caption{Related systems properties comparison} % title name of the table 
 %\centering % centering table
-
-
 \begin{tabular}{L{2.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.8cm}C{1.5cm}} \toprule
-	Systems & In-motion interaction focus & Head gestures as input modality & Spatial audio as output modality & Dynamic auditory menu content & Simultanous audio (exploiting "Cocktail party effect") & Music application \\ \midrule
+	Systems & In-motion interaction focus & Head gestures & Spatial audio & Dynamic auditory menu content & Simultanous audio & Music application \\ \midrule
     %Properties & System 1 & System 2 & System 3 & System 4 \\ \midrule
-    Voice recognition system \cite{stewart_boling_voice_2013}   & yes & no & no & no & no & yes \\
+    Voice recognition system \cite{stewart_boling_voice_2013}   & x &  &  &  &  & x \\
     \\
-	Leg gesture system \cite{smus_running_2010}   & yes & no & no & no & no & yes \\ %\midrule
+	Leg gesture system \cite{smus_running_2010}   & x &  &  &  &  & x \\ %\midrule
 	\\
-	Body pose system \cite{strachan_bodyspace_2007}   & no & (yes) & no & no & no & yes \\
+	Body pose system \cite{strachan_bodyspace_2007}   &  & (x) &  &  &  & x \\
 	\\
-	Touch gesture system \cite{pirhonen_gestural_2002}   & yes & no & (yes, simulated) & no & no & yes \\
+	Touch gesture system \cite{pirhonen_gestural_2002}   & x &  & (x) &  &  & x \\
 	\\
-	Free-hand gesture system \cite{kajastila_interaction_2013}   & no & no & yes & no & no & no \\
+	Free-hand gesture system \cite{kajastila_interaction_2013}   &  &  & x &  &  &  \\
 	\\
-	Head gesture system, Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003}   & yes & yes & yes & yes & (yes) & no  \\
+	Head gesture system, Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003}   & x & x & x & x & (x) &   \\
 	\\
-	Head gesture system, Park et. al \cite{park_gaze-directed_2011}   & yes & yes & yes & no & no & no \\
+	Head gesture system, Park et. al \cite{park_gaze-directed_2011}   & x & x & x &  &  &  \\
 	\\
-	This thesis system (Spatial Music Menu)   & yes & yes & yes & yes & yes & yes \\ \bottomrule
+	This thesis system (Spatial Music Menu)   & x & x & x & x & x & x \\ \bottomrule
 \end{tabular}
 
 \label{tab:related} 
 \end{table}
 
-TODO: Add parameter Auditory menu with multiple levels (2D)
+We see that no system supports all properties
 
 
 

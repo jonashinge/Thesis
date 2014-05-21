@@ -54,6 +54,44 @@
     [self.labels addObject:label];
 }
 
+- (double)outputAccuracy
+{
+    NSArray *testSeqences = [NSArray arrayWithObjects:
+                             [_sequences objectAtIndex:2],
+                             [_sequences objectAtIndex:4],
+                             [_sequences objectAtIndex:6],
+                             [_sequences objectAtIndex:8],
+                             [_sequences objectAtIndex:10], nil];
+    
+    NSMutableArray *trainingSequences = [NSMutableArray arrayWithArray:_sequences];
+    [trainingSequences removeObjectsInArray:testSeqences];
+    
+    double accuracy = 0;
+    
+    for (NSArray *testSeq in testSeqences) {
+        
+        CGFloat minDist = INFINITY;
+        for(int i=0; i<[trainingSequences count]; i++)
+        {
+            NSArray *example = [trainingSequences objectAtIndex:i];
+            if([self euclDist:[testSeq objectAtIndex:[testSeq count]-1] :[example objectAtIndex:[example count]-1]] < self.firstThreshold)
+            {
+                CGFloat d = [self dtw:testSeq :example] / [example count];
+                if(d < minDist)
+                {
+                    minDist = d;
+                }
+            }
+        }
+        if(minDist < self.globalThreshold)
+        {
+            accuracy += 1;
+        }
+    }
+    return accuracy/[testSeqences count];
+    //return accuracy;
+}
+
 - (NSDictionary *)recognizeSequence:(NSArray *)seq
 {
     CGFloat minDist = INFINITY;

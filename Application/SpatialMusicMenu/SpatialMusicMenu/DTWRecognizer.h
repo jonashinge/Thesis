@@ -15,4 +15,6 @@
 - (NSDictionary *)recognizeSequence:(NSArray *)seq;
 - (void)clearAllKnownSequences;
 
+- (double)outputAccuracy;
+
 @end

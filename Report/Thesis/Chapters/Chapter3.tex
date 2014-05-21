@@ -1,5 +1,6 @@
 \lhead{\emph{Design}}
 \chapter{Design}
+\label{sec:design}
 In this chapter the design of the system is described. This is done by first describing a design rationale based on the concepts and related work from chapter \ref{sec:relatedwork} and next how the actual system was designed.
 
 \section{Design Rationale}
@@ -17,16 +18,34 @@ Before choosing a design for a system different factors needs to be considered e
 % Ubicomp challenges
 When designing for ubicomp new aspects needs to be taken into consideration which increase the complexity of the system e.g. different devices, mobile users and changing environment and context \cite{barfield_fundamentals_2000}. Also we note that we are not only designing user interfaces but also the interactions between a user and the system through artifacts embedded in the environment \cite{beaudouin-lafon_designing_2004}. Furthermore it should be taken into account whether the interaction happens whilst the user is in motion as this introduces even more complexity as decribed earlier in section \ref{sec:interactioninmotion}.
 
-In this project we have defined the following requirements of the system: A user should navigate a music player using head gestures and audio feedback while biking. In other words we have a user interacting with artifacts, consisting of a headmounted interface and a mobile device, while biking in a traffic environment implying user awareness of road conditions, cars, other bikers, etc.
+In this project we have defined the following requirements of the system: A user should navigate a music player, or more precisely explore and select music tracks, using head gestures and audio feedback while biking. In other words we have a user interacting with artifacts, consisting of a headmounted interface and a mobile device, while biking in a traffic environment implying user awareness of road conditions, cars, other bikers, etc.
 
-\subsection{Devices}
-- Head gestures, sensors on head, headset for audio, mention gaze tracking solution
+% Thomas comment:
+% i recommend to start the system design discussion from the constraints emerging from human capabilties to interact with a system while biking. all possible input and output modalities should be explored and then, finally, you should land in suggesting a head-gesture based UI.
+
+% Biking scenario:
+% Human constraints: Physical, Mental, Environment
+
+% Modalities in biking scenario, pros, cons:
+% Vision: HMDs, Gaze tracking
+% Speech: Speech recognition, simple commands, environmental noise
+% Gestures: Hand, Head, Leg, Body pose
+% Audio
 
 \subsection{User}
+% intro
+Several constraints emerge from a humans capabilities to interact with a system while biking, both physically and mentally. Seen from a physical perspective the person riding the bike needs to have both hands on the handlebars in order to dodge any sudden obstructions e.g. an inattentive car. For the same reasons, and more importantly, the persons eyes needs to focus on the road. The latter is of more importance from the fact that people can not easily divide their visual attention between tasks \cite{brewster_overcoming_2002} but two hands can work independently from each other, dedicating one for steering and one for the interface. This does not mean that one hand can steer a bike perfectly - this is subjective, and we must assume that both hands for steering is preferable.
+
+% alternatives, visual
+
+
 - Physical constrains: Head rotation, Human head normally can be rotated about 140 degrees for shaking and 100 degrees for nodding \cite{lopresti_neck_2000}
 - Workload
 - Perceptive load
 - Mental model
+
+\subsection{Devices}
+- Head gestures, sensors on head, headset for audio, mention gaze tracking solution
 
 \subsection{Environment}
 - Unintentional behaviour e.g. activating menu biking over a bump or a sudden need for rotating head because of obstacles
@@ -35,6 +54,7 @@ In this project we have defined the following requirements of the system: A user
 
 
 \section{Spatial Music Menu}
+Mention human-centred approach - getting feedback from some features from the system
 
 \subsection{Soundscape}
 - Music, strength of recognizing artist/track through listening vs seeing the text on a screen
