@@ -2,8 +2,6 @@
 \chapter{Implementation}
 This chapter describes the different components of the Spatial Music Menu system. The main components includes a headset interface and an iOS application controlling the headset.
 
-TODO: Scope and limitations
-- only using 1 gesture, we examined multiple gestures in pilot study (accuracy), too much noise in biking scenario: Unwanted activation of systems, too much learning, not important for measuring tasks
 
 \section{Headset}
 The headset interface used in this project is the Intelligent Headset (IHS)\footnote{\url{https://intelligentheadset.com/}}. The headset uses HRTF technology and can deliver spatial audio. 4 sensors are built into the headset; GPS, compass, gyroscope and accelerometer - making it possible to track head rotation and location of the user wearing it. The headset also includes 2 buttons - one in the outer center on each speaker. Connection to the headset is accessible via Bluetooth or wire. The headset is shown in figure?
@@ -17,9 +15,9 @@ The SDK is implemented in the Spatial Music Menu application. The Intelligent He
 \subsection{3D audio handling}
 ...
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/implementation_overview.png}
+		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/implementation_overview.png}
 		\rule{35em}{1pt}
 	\caption[Implementation overview]{An overview of the components of the implementation and their communication}
 	\label{fig:implementationoverview}
@@ -33,7 +31,11 @@ The primary reason for choosing Deezer was that they provide previews of all mus
 
 
 \section{Head Gestures Recognition}
-To recognize head gestures we used DTW (Dynamic Time Warping) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007}. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. The interested reader is referred to one of these articles for a detailed description of the classic DTW algorithm, as this is out of this thesis scope.
+To recognize head gestures we used DTW (Dynamic Time Warping) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007}. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. 
+
+Essentially the DTW algorithm works by compairing two sequences each consisting of observations of length N and M. For each observation comparison a local cost (distance) is calculated and a cost matrix is created (using dynamic programming). If there exists a path (warping path) from point (1,1) to (N,M) in the cost matrix that has an overall cost that is less than a predefined cost, then there is a match.
+
+%The interested reader is referred to one of these articles for a detailed description of the classic DTW algorithm, as this is out of this thesis scope.
 
 A sequence consists of observations and an observation is a set of accelerometer data from the headset which is read through the IHS SDK. A preview of such a sequence example could look like this:
 
@@ -41,7 +43,7 @@ TODO: sequence example
 
 \subsection{Training data}
 
-%Essentially the DTW algorithm works by compairing two sequences each consisting of observations of length N and M (in this case an observation is a set of accelerometer data). For each observation comparison a local cost (distance) is calculated and a cost matrix is created. If there exists a path (warping path) from point (1,1) to (N,M) in the cost matrix that has an overall cost that is less than a predefined cost, then there is a match.
+
 
 TODO: describe gestures recording
 
@@ -53,17 +55,12 @@ TODO: describe gestures recording
 
 
 \section{iOS Application}
-...
-The iOS is a mature OS currently at version 7.1. The Spatial Music Menu are running version 6+ and optimized for the iPad.
-
-As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most important functionality of the Spatial Music Menu.
-
-... following Apples best practice iOS design patterns\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}}
+The Spatial Music Menu appliation were developed for an iPad Mini running iOS 7.1. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most important functionality of the Spatial Music Menu.
 
 \subsection{Overview}
 An overview of the application architecture is shown in figure \ref{fig:apparchitecture}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/app-architecture.pdf}
 		\rule{35em}{1pt}

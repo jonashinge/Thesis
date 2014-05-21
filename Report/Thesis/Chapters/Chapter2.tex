@@ -3,7 +3,7 @@
 \label{sec:relatedwork}
 This chapter will give an overview of the key concepts and systems related to this thesis focus. As mentioned in \ref{sec:goal} the goal of this thesis is to design a music player interface based on head gestures and 3D audio that is suitable for for an interaction while in motion scenario like biking. Two research areas covers a great part of this kind of mobile interaction and they are presented in this chapter; Mobile HCI and Multimodal Interaction. Finally specific mobile systems including mobile music players, that uses related modalities like gestures and audio, are presented in the last section. A graphical overview is shown in fig. \ref{fig:venn}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{./Figures/venn.png}
 		\rule{35em}{0.5pt}
@@ -135,7 +135,7 @@ Imagine a biking scenario where the user wants to change music track in a smartp
 
 Headset music controllers are physical buttons attached to the wire between headset and device (see figure \ref{fig:nokia}). This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/nokia-headset.png}
 		\rule{35em}{0.5pt}
@@ -153,7 +153,7 @@ Voice recognition could also be used for navigating a music application \cite{st
 
 Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. The systems are shown in figure \ref{fig:bodyandleg}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{./Figures/bodyposeandleg.png}
 		\rule{35em}{0.5pt}
@@ -169,7 +169,7 @@ Other systems - though not all mobile music players - uses gesture based input m
 % 1, Gestural and Audio Metaphors As a Means of Control for Mobile Devices
 Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile music player that uses touch gestures and non-speech spatial audio to play/stop track, switch track and control volume. The device was an old pocket PC clipped to the users belt (device shown in figure \ref{fig:pirhonen}).
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/pirhonen-system.png}
 		\rule{35em}{0.5pt}
@@ -185,7 +185,7 @@ An evaluation of the system showed significant usability improvements using gest
 % 2, Interaction with eyes-free and gestural interfaces
 Kajastila and Lokki \cite{kajastila_interaction_2013} also compaired auditory and visual menus but in this case they experimented with an input modality that was based on free-hand gestures. The free-hand gestures was detected by a camera and by moving the hand round in a circle the hand position mapped a sound item in the users spatial audio space i.e. a virtual circle around the users head. An illustration is shown in figure \ref{fig:kajastila}. The sound items were provided as speech-audio i.e. speech recorded numbers.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{./Figures/kajastila-system.png}
 		\rule{35em}{0.5pt}
@@ -199,7 +199,7 @@ The system was evaluated by users selecting specific numbers with free-hand gest
 % 3, Multimodal'eyes-free'interaction techniques for wearable devices
 Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} developed and evaluated an eyes-free wearable system that uses head gestures as input modality and 3D audio as output modality. The systems hardware setup consists of headphones delivering 3D audio and a sensor attached for detecting the head orientation. These two hardware parts are connected via cables to a belt-mounted PDA running software that processes 3D audio and recognizes head gestures. The physical system is shown in figure \ref{fig:brewster}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/brewster-system.png}
 		\rule{35em}{0.5pt}
@@ -215,7 +215,7 @@ Evaluation of the system showed that sound and gesture can significantly improve
 % 4, Gaze-Directed Hands-Free Interface for Mobile Interaction
 Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture input and audio output (though not spatial audio) but in this project focus was on the menu design. The hardware setup is custom build like the before mentioned system as a sensor is attached in this case to a cap for detecting head movement combined with headphones illustrated in figure \ref{fig:park}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/park-system.png}
 		\rule{35em}{0.5pt}
@@ -225,7 +225,7 @@ Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture i
 
 The interaction design consists of different menus; a 1D horizontal/vertical, 2D grid and 2D circular menu and to navigate these menus different gesture models were tested as well. An illustration of this is showed in figure \ref{fig:park-menus}. As audio output the system uses speech audio to notify which item number is chosen.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/park-menus.png}
 		\rule{35em}{0.5pt}
@@ -237,7 +237,7 @@ The system was tested with up to 12 number items and results showed that 2D grid
 
 
 \subsection{Systems properties overview}
-The above mentioned system have been chosen because they outline the current state on systems that are closest to the kind of system this thesis aims for. The goal properties of the system are based on related research concepts.
+Table \ref{tab:related} shows a comparison between the related systems mentioned above. They outline the current state on systems that are closest to this thesis system (Spatial Music Menu). The properties are based on the related systems and research concepts:
 
 \begin{description}
 \item[In-motion interaction]
@@ -259,9 +259,7 @@ The system is exploiting the "Cocktail party effect" and can present simultanous
 System is designed as a music player interface.
 \end{description}
 
-Related systems that contains these properties can contain valuable input for this project. To give an overview and a better comparison - these properties are presented in table \ref{tab:related}.
-
-\begin{table}[h] 
+\begin{table}[t] 
 \scriptsize
 \caption{Related systems properties comparison} % title name of the table 
 %\centering % centering table
@@ -287,8 +285,6 @@ Related systems that contains these properties can contain valuable input for th
 
 \label{tab:related} 
 \end{table}
-
-We see that no system supports all properties
 
 
 
