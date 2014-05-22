@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  22 MAY 2014 17:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  22 MAY 2014 23:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1349,73 +1349,73 @@ oes-[]Mobile-[]More-[]Smartphone-[]Users-[]Stream-[]Songs /
 File: ./Figures/nokia-headset.png Graphic file (type png)
 
 <use ./Figures/nokia-headset.png>
-Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 130.
+Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 132.
 (pdftex.def)             Requested size: 250.48254pt x 114.51855pt.
  [13 <./Figures/nokia-headset.png>]
-<./Figures/bodyposeandleg.png, id=621, 792.9625pt x 461.725pt>
+<./Figures/bodyposeandleg.png, id=620, 792.9625pt x 461.725pt>
 File: ./Figures/bodyposeandleg.png Graphic file (type png)
 
 <use ./Figures/bodyposeandleg.png>
-Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 150.
+Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 152.
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
 
-<./Figures/pirhonen-system.png, id=628, 418.56375pt x 231.86626pt>
+<./Figures/pirhonen-system.png, id=627, 418.56375pt x 231.86626pt>
 File: ./Figures/pirhonen-system.png Graphic file (type png)
 
 <use ./Figures/pirhonen-system.png>
-Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 167.
+Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 169.
 (pdftex.def)             Requested size: 250.48235pt x 138.7564pt.
  [14 <./Figures/bodyposeandleg.png (PNG copy)>] <./Figures/kajastila-system.png
 , id=639, 792.9625pt x 461.725pt>
 File: ./Figures/kajastila-system.png Graphic file (type png)
 
 <use ./Figures/kajastila-system.png>
-Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 183.
+Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 185.
 
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
- [15 <./Figures/pirhonen-system.png (PNG copy)> <./Figures/kajastila-system.png
- (PNG copy)>]
-<./Figures/brewster-system.png, id=649, 690.58pt x 219.82124pt>
+ [15 <./Figures/pirhonen-system.png (PNG copy)>] <./Figures/brewster-system.png
+, id=648, 690.58pt x 219.82124pt>
 File: ./Figures/brewster-system.png Graphic file (type png)
 
 <use ./Figures/brewster-system.png>
-Package pdftex.def Info: ./Figures/brewster-system.png used on input line 197.
+Package pdftex.def Info: ./Figures/brewster-system.png used on input line 199.
 (pdftex.def)             Requested size: 375.73166pt x 119.60062pt.
- [16 <./Figures/brewster-system.png (PNG copy)>] <./Figures/park-system.png, id
-=659, 666.49pt x 292.09125pt>
+ [16 <./Figures/kajastila-system.png (PNG copy)> <./Figures/brewster-system.png
+ (PNG copy)>]
+<./Figures/park-system.png, id=658, 666.49pt x 292.09125pt>
 File: ./Figures/park-system.png Graphic file (type png)
 
 <use ./Figures/park-system.png>
-Package pdftex.def Info: ./Figures/park-system.png used on input line 212.
+Package pdftex.def Info: ./Figures/park-system.png used on input line 214.
 (pdftex.def)             Requested size: 375.73363pt x 164.66638pt.
 
-<./Figures/park-menus.png, id=663, 745.78625pt x 297.11pt>
+<./Figures/park-menus.png, id=662, 745.78625pt x 297.11pt>
 File: ./Figures/park-menus.png Graphic file (type png)
 
 <use ./Figures/park-menus.png>
-Package pdftex.def Info: ./Figures/park-menus.png used on input line 222.
+Package pdftex.def Info: ./Figures/park-menus.png used on input line 228.
 (pdftex.def)             Requested size: 375.7144pt x 149.67894pt.
- [17 <./Figures/park-system.png (PNG copy)> <./Figures/park-menus.png>]
-Overfull \hbox (1.1229pt too wide) in paragraph at lines 259--259
+ [17 <./Figures/park-system.png (PNG copy)>]
+Overfull \hbox (1.1229pt too wide) in paragraph at lines 265--265
  []|\OT1/cmr/m/n/8 Exploration 
  []
 
 
-Overfull \hbox (2.9382pt too wide) in paragraph at lines 259--259
+Overfull \hbox (2.9382pt too wide) in paragraph at lines 265--265
  []|\OT1/cmr/m/n/8 Simultanous 
  []
 
 
-Overfull \hbox (1.71596pt too wide) in paragraph at lines 259--259
+Overfull \hbox (1.71596pt too wide) in paragraph at lines 265--265
  []|\OT1/cmr/m/n/8 Hierarchical 
  []
 
 
-Overfull \hbox (28.49583pt too wide) in paragraph at lines 258--281
+Overfull \hbox (28.49583pt too wide) in paragraph at lines 264--287
 [][] 
  []
 
-) (./Chapters/Chapter3.tex [18] [19]
+) (./Chapters/Chapter3.tex [18 <./Figures/park-menus.png>] [19]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Design
@@ -1563,7 +1563,7 @@ live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
 ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texliv
 e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Thesis.pdf (49 pages, 6801362 bytes).
+Output written on Thesis.pdf (49 pages, 6802125 bytes).
 PDF statistics:
  958 PDF objects out of 1000 (max. 8388607)
  838 compressed objects within 9 object streams

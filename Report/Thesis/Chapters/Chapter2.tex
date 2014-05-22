@@ -119,6 +119,8 @@ This section describes the systems that are most related to this project. First 
 % intro, current state on mobile music players
 The rise of the smartphone and the introduction of music streaming services e.g. Spotify\footnote{\url{https://www.spotify.com}} and Deezer\footnote{\url{https://www.deezer.com/}} and more have resulted in an increase in mobile music listening - in fact the number of mobile music listeners has more than doubled from 30 million active users in 2011 to over 70 million in 2013 according to a study in U.S.\footnote{\url{http://www.emarketer.com/Article/Music-Goes-Mobile-More-Smartphone-Users-Stream-Songs/1010126}}. Although mobile audio players have developed since the first portable cassette player by Sony in 1979 towards todays digital audio players with storage capacity e.g. smartphones, a similarity still remains - the way in which we interact with the device. E.g. like we needed the hands and eyes for rewinding or turning the tape on a cassette player, we need them as well for swiping to the preferred track in todays "typical" smartphone music application.
 
+Todays mobile music player interfaces provides a rich list of navigational features. Taking the Spotify application as an example there exists multiple ways for a user to explore saved and also new music e.g. exploring by an artist, album, related songs, friends songs, music charts, genre radio streams and the list goes on. These interfaces however depends heavily on a users visual attention.
+
 Imagine a biking scenario where the user wants to change music track in a smartphone music application. This would require: Fetching the device e.g. from a pocket, switching the screen on, maybe unlocking the screen with a password, navigating through the music application GUI, switch the screen of, put smartphone back in pocket. Also the smartphone touch interface requires bare fingers for input recognition so removing gloves (in winter season) could also be a step in the process. A process that happens while the user is navigating through traffic. Studies show that while a user is doing an activity a vital factor is to minimize the amount of distraction for interaction modes \cite{pascoe_using_2000}. There exists however several music player interfaces that attempts to use eyes-free interaction targeting the interaction while in motion scenario.
 
 \textbf{Headset controllers}
@@ -139,9 +141,9 @@ Voice recognition could also be used for navigating a music application. Google 
 
 \textbf{Gesture based}
 
-Research shows other alternative interfaces that uses motion sensors to control a music player. One system uses foot gestures to change music tracks \cite{smus_running_2010}. The system is designed for people that are running while listening to music. With a sensor (Wii remote) attached to the "controlling" leg of the user, it is possible to change track by skipping once on that leg (making two one-footed jumps instead of one full stride). The study showed that this was a highly efficient way of interacting while running.
+Research shows other alternative interfaces that have evaluated motion sensors to control a music player. One system used foot gestures to change music tracks \cite{smus_running_2010}. The system were designed for people that are running while listening to music. With a sensor (Wii remote) attached to the "controlling" leg of the user, it was possible to change track by skipping once on that leg (making two one-footed jumps instead of one full stride). The study showed that this was a highly efficient way of interacting while running.
 
-Another system \cite{strachan_bodyspace_2007} uses device tilting based on specific positions on the body to control a music player. More precisely by moving the device to the left ear, tilting will change music track. By moving the device to the left hip, tilting will control the volume of the music player.
+Another system \cite{strachan_bodyspace_2007} used device tilting based on specific positions on the body to control a music player. More precisely by moving the device to the left ear, tilting would change music track. By moving the device to the left hip, tilting would control the volume of the music player.
 
 Both motion gesture based music player systems are illustrated in figure \ref{fig:bodyandleg}.
 
@@ -157,10 +159,10 @@ Both motion gesture based music player systems are illustrated in figure \ref{fi
 
 \subsection{Auditory gesture-based menus}
 \label{sec:auditorygesturebasedmenus}
-Other systems - though not all mobile music players - uses gesture based input modalities and audio as output modality and they can contribute to this projects final system in form of e.g. menu and audio design, navigation, etc.
+Other systems - though not all mobile music players - have evaluated gesture based input modalities and audio as output modality and they can contribute to this projects final system in form of e.g. menu and audio design, navigation, etc.
 
 % 1, Gestural and Audio Metaphors As a Means of Control for Mobile Devices
-Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile music player that uses touch gestures and non-speech spatial audio to play/stop track, switch track and control volume. The device was an old pocket PC clipped to the users belt (device shown in figure \ref{fig:pirhonen}).
+Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile music player that used touch gestures and non-speech spatial audio to play/stop track, switch track and control volume. The device was an old pocket PC clipped to the users belt (device shown in figure \ref{fig:pirhonen}).
 
 \begin{figure}[t]
 	\centering
@@ -170,42 +172,42 @@ Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile m
 	\label{fig:pirhonen}
 \end{figure}
 
-The menu is designed so that swiping a finger in different directions on the touch screen results in an action e.g. changing to next track by swiping to the right. Non-speech audio was used to give feedback on swipe gestures - a sound increased in pitch when swiping to the right (next track) and a decreased sound when swiping left (previous track). The sounds used a simulated (no HRTF) spatial effect - panning the next track sound to the right and the previous track sound to the left of the users audio space. While these sounds popup the current chosen track is playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design.
+The menu were designed so that swiping a finger in different directions on the touch screen resulted in an action e.g. changing to next track by swiping to the right. Non-speech audio was used to give feedback on swipe gestures - a sound increased in pitch when swiping to the right (next track) and a decreased sound when swiping left (previous track). The sounds used a simulated (no HRTF) spatial effect - panning the next-track sound to the right and the previous-track sound to the left of the users audio space. While these sounds popup the current chosen track were playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design.
 
 An evaluation of the system showed significant usability improvements using gestures- and audio based interaction compaired to a visual pen-based interaction approach.
 
 
 % 2, Interaction with eyes-free and gestural interfaces
-Kajastila and Lokki \cite{kajastila_interaction_2013} also compaired auditory and visual menus but in this case they experimented with an input modality that was based on free-hand gestures. The free-hand gestures was detected by a camera and by moving the hand round in a circle the hand position mapped a sound item in the users spatial audio space i.e. a virtual circle around the users head. An illustration is shown in figure \ref{fig:kajastila}. The sound items were provided as speech-audio i.e. speech recorded numbers.
+Kajastila and Lokki \cite{kajastila_eyes-free_2013} also compaired auditory and visual menus but in this case they experimented with an input modality that was based on free-hand gestures. The free-hand gestures was detected by a camera and by moving the hand round in a circle containing 12 sound items (one for each 30 degrees) and selecting items were done by simulating a push of a button at the desired item. When moving the hand round the sound items would play in the users audio space (using spatial audio) from the same direction as the hand position in the circle. The sound items were provided as speech-audio i.e. speech recorded numbers. An illustration is shown in figure \ref{fig:kajastila}.
 
 \begin{figure}[t]
 	\centering
 		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{./Figures/kajastila-system.png}
 		\rule{35em}{0.5pt}
-	\caption[Kajastila system]{Figures from Kajastila and Lokki \cite{kajastila_interaction_2013} system showing the free-hand navigation mapped to a users audio space}
+	\caption[Kajastila system]{Figures borrowed from Kajastila and Lokki \cite{kajastila_eyes-free_2013} system showing the free-hand gestures with spatial audio feedback illustration to the left and visual output to the right.}
 	\label{fig:kajastila}
 \end{figure}
 
-The system was evaluated by users selecting specific numbers with free-hand gestures. The majority of the participants felt that an auditory circular menu was faster than a visual based menu.
+The system was evaluated by users selecting specific numbers with free-hand gestures with both the auditory menu feedback described above and also a visual based one. The majority of the participants felt that an auditory circular menu was faster than a visual based menu.
 
 
 % 3, Multimodal'eyes-free'interaction techniques for wearable devices
 Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} developed and evaluated an eyes-free wearable system that uses head gestures as input modality and 3D audio as output modality. The systems hardware setup consists of headphones and a sensor attached for detecting the head orientation. These two hardware parts are connected via cables to a belt-mounted PDA running software that processes 3D audio and recognizes head gestures. The physical system is shown in figure \ref{fig:brewster}.
 
-\begin{figure}[t]
+\begin{figure}[b]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/brewster-system.png}
 		\rule{35em}{0.5pt}
-	\caption[Brewster system]{Figures from Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} system showing hardware setup (to the left) and interaction illustration (to the right)}
+	\caption[Brewster system]{Figures from Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} system showing hardware setup (to the left) and interaction illustration (to the right).}
 	\label{fig:brewster}
 \end{figure}
 
-By experimenting with the spatial audio presentations two auditory menu design were evaluated. A circular egocentric design illustrated in figure \ref{fig:brewster} and a horizontal exocentric menu design. In the egocentric design audio sources are represented by 4 different audio streams positioned at the 4 cardinal points around the user (every 90 degrees from the users nose). The sound items play for 2 seconds each and play in order rotating clockwise around the head. The audio streams present different kind of information: 1) Weather sounds e.g. rain, lightening, etc., 2) a news clip from tv, 3) a sport quiz and 4) traffical sounds e.g. cars, horns, etc. The user can then nod at a specific task to select it and it will appear in the front of the users audio space while the other sounds will go to the rear of the audio space. In the exocentric design the same 4 audio streams are represented in a horizontal line with a 40 degree distance between each audio item. The user can then select an audio item by turning the head and nodding when the desired item is in the front.
+By experimenting with the spatial audio presentations two auditory menu design were evaluated. A circular egocentric design illustrated in figure \ref{fig:brewster} and a horizontal exocentric menu design. In the egocentric design audio sources were represented by 4 different audio streams positioned at the 4 cardinal points around the user (every 90 degrees from the users nose). The sound items played for 2 seconds each and play in order rotating clockwise around the head. The audio streams presented different kind of information: 1) Weather sounds e.g. rain, lightening, etc., 2) a news clip from tv, 3) a sport quiz and 4) traffical sounds e.g. cars, horns, etc. The user could then nod at a specific task to select it and it would appear in the front of the users audio space while the other sounds would go to the rear of the audio space. In the exocentric design the same 4 audio streams were represented in a horizontal line with a 40 degree distance between each audio item. The user could then select an audio item by turning the head and nodding when the desired item were in the front.
 
 Evaluation of the system showed that sound and gesture can significantly improve the usability of a wearable device in particular under eyes-free mobile conditions and that head gestures was a successful interaction technique with the circular egocentric soundscape design the most effective.
 
 % 4, Gaze-Directed Hands-Free Interface for Mobile Interaction
-Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture input and audio output (though not spatial audio) but in this project focus was on the menu design in relation to the head gestures. The hardware setup is custom build like the before mentioned system as a sensor is attached in this case to a cap for detecting head movement combined with headphones illustrated in figure \ref{fig:park}.
+Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture input and audio output (though not spatial audio) but in this project focus was on the menu design in relation to the head gestures. The hardware setup were custom built like the aboved mentioned system as a sensor is attached in this case to a cap for detecting head movement combined with headphones illustrated in figure \ref{fig:park}.
 
 \begin{figure}[t]
 	\centering
@@ -215,7 +217,11 @@ Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture i
 	\label{fig:park}
 \end{figure}
 
-The interaction design consists of different menus; a 1D horizontal/vertical, 2D grid and 2D circular menu and to navigate these menus different gesture models were tested as well. An illustration of this is showed in figure \ref{fig:park-menus}. As audio output the system uses speech audio to notify which item number is chosen.
+The interaction design consists of different menus; a 1D horizontal/vertical, 2D grid and 2D circular menu.
+
+TODO: explain in more details...
+
+....and to navigate these menus different gesture models were tested as well. An illustration of this is showed in figure \ref{fig:park-menus}. As audio output the system uses speech audio to notify which item number is chosen.
 
 \begin{figure}[t]
 	\centering
