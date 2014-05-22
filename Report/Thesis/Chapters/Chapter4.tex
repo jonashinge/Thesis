@@ -29,6 +29,8 @@ We used Deezer\footnote{\url{https://www.deezer.com/}} as a music provider in th
 
 The primary reason for choosing Deezer was that they provide previews of all music tracks (30 second clip). This is very convinient as it is not possible to spatialise audio streams using the IHS SDK. Instead the IHS SDK is quite limited in that the only way to place sound sources in the spatial audio space is to use 16-bit wav format. Deezers preview tracks comes in MP3 format so every track needed conversion to 16-bit wav before use. Download and conversion of music tracks was handled dynamically inside the Spatial Music Menu iOS application making it easier to add, remove and switch tracks. Basically one could add music tracks to the application by creating a Deezer playlist which is then synchronized by the iOS application. A synchronization operation is simply: 1) Getting the preview tracks MP3 url; 2) download all MP3 tracks and save on device; 3) convert all tracks to 16-bit wav and save on device. Besides preview audio the synchronization also included basic track information e.g. artist name, track name and album.
 
+TODO: explain how a playlist is turning in to a artist-album-track menu
+
 
 \section{Head Gestures Recognition}
 To recognize head gestures we used DTW (Dynamic Time Warping) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007}. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. 

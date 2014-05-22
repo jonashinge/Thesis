@@ -1,7 +1,8 @@
 \lhead{\emph{Design}}
 \chapter{Design}
 \label{sec:design}
-In this chapter the design of the system is described. This is done by first describing a design rationale based on the concepts and related work from chapter \ref{sec:relatedwork} and next how the actual system was designed.
+In this chapter the design of the system is described. Although we have decided from the beginning to design a system based on head gestures and audio modalities we will still discuss how alternative modalities based on existing systems and related research from chapter \ref{sec:relatedwork} would fit in a biking scenario as this could contribute to the design of specific features for our final system. This is part of the design rationale and covers the first part of this chapter. In the second part the final system design is presented.
+
 
 \section{Design Rationale}
 
@@ -32,6 +33,15 @@ In this project we have defined the following requirements of the system: A user
 % Gestures: Hand, Head, Leg, Body pose
 % Audio
 
+% Related systems
+
+% Headset controller: 
+% This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of menu is 1-dimensional in the sense that tracks needs to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
+
+% Voice recognition:
+% ...In this application example the user could express simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
+% - good ref about speech recognition challenges \cite{sawhney_nomadic_2000}
+
 \subsection{User}
 % intro
 Several constraints emerge from a humans capabilities to interact with a system while biking, both physically and mentally. Seen from a physical perspective the person riding the bike needs to have both hands on the handlebars in order to dodge any sudden obstructions e.g. an inattentive car. For the same reasons, and more importantly, the persons eyes needs to focus on the road. The latter is of more importance from the fact that people can not easily divide their visual attention between tasks \cite{brewster_overcoming_2002} but two hands can work independently from each other, dedicating one for steering and one for the interface. This does not mean that one hand can steer a bike perfectly - this is subjective, and we must assume that both hands for steering is preferable.
@@ -59,6 +69,7 @@ Mention human-centred approach - getting feedback from some features from the sy
 \subsection{Soundscape}
 - Music, strength of recognizing artist/track through listening vs seeing the text on a screen
 - Horizontal argument
+- Selective attention task
 - Simultanous sounds, exploring, cocktail party effect argument
 - Experimental design, sounds perceived, zoom effect, user should detect sound direction (which track)
 

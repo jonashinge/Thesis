@@ -32,15 +32,8 @@ Paas et. al \cite{paas_cognitive_2004} distinguishes between three types of cogn
 % from the systems point of view
 From a mobile interactive systems point of view the cognitive load could depend on environmental factors or the movement activity in which the user is performing e.g. walking a plane ground vs. climbing stairs (extranous/germane load). And if the person at the same time is forced to actively attend or respond to the system e.g. answering an important phone call, this would add another activity/interaction to the users working memory and possibly increase cognitive load (intrinsic load).
 
-%can change over time. If a person is forced to actively attend or respond to the system the cognitive load is increased while a passive output from the system can decrease the cogntitive load.
-
-% environment
-%The cognitive load can also depend on environmental factors e.g. the movement activity in which the user is performing. Physical challenges e.g. walking a plane ground vs. climbing stairs can effect the mental demand of the user i.e. increase the cognitive load.
-
-%It should be noted that the cognitive load research area is extensive. The theory described here is brief but sufficient for the focus of this thesis.
-
 \item[Physical Constraints]
-Mobile systems and user movement activities can both add constraints on the body position which could lead to a conflict making it hard or even impossible to interact. E.g. as mentioned earlier biking physically needs the hands for steering and eyes on the road while both of these body parts are used in the traditional smartphone interaction form (eyes on the screen, hands for touch gestures). This has been identified to be a major barrier to the use of mobile system whilst moving \cite{pielot_pocketmenu:_2012}.
+Mobile systems and user movement activities can both add constraints on the body position which could lead to a conflict making it hard or even impossible to interact. E.g. biking physically needs the legs for cycling, hands for steering and eyes on the road while both of the last mentioned body parts are used in the traditional smartphone interaction form (eyes on the screen, hands for touch gestures). This has been identified to be a major barrier to the use of mobile system whilst moving \cite{pielot_pocketmenu:_2012}.
 
 \item[Terrain]
 The terrain is described by the enviroment around a person while moving and interacting. Studies have shown that while running and interacting the terrain over which a person was running made a big difference in the interaction experience and the ability to concentrate on the output of the system \cite{marshall_using_2011}.
@@ -48,9 +41,7 @@ The terrain is described by the enviroment around a person while moving and inte
 Physical terrain can be dynamic i.e. it can change over time while moving around different environments e.g. road obsticles, traffic, light level, rain, sound, etc. This could not only affect the user interaction experience but also the electronic device e.g. water or extreme cold/heat.
 
 \item[Other people]
-This class relates to other people during an interaction. For example in a crowded place the user needs to take care of people passing by while interacting with the mobile device. Or When biking the user needs to take care of people making an overhaul, communicating or waving back to a friend on the sidewalk. The social aspect of the environment a person is in can also have an impact on the device interaction e.g. in a quiet place a person would probably not use speech commands to interact with a device as this would be socially impolite.
-
-TODO: Maybe add something about how other people can affect/limit gestures as they are maybe not socially accepted/normal
+This class relates to other people during an interaction. For example in a crowded place the user needs to take care of people passing by while interacting with the mobile device. Or when biking the user needs to take care of people making an overhaul, communicating or waving back to a friend on the sidewalk. The social aspect of the environment a person is in can also have an impact on the device interaction e.g. in a quiet place a person would probably not use speech commands to interact with a device as this would be socially impolite.
 \end{description}
 
 
@@ -75,9 +66,13 @@ Eyes-free interfaces are not limited to specific modalities. As mentioned in \re
 \subsection{Head gestures as input modality}
 
 % intro - alternative head tracking methods
+There has been little use of head gestures for input when on the move \cite{brewster_multimodaleyes-freeinteraction_2003} although such gestures are advantageous as a person do not need to look at a display to interact.
+
 There exists different kinds of approaches when it comes to controlling a system with head gestures. Using cameras it is possible to effectively track head movements via facial recognition \cite{morimoto_recognition_1996} and gaze tracking makes it possible to control an object by fixating the eyes on that object while moving the head \cite{vspakov_enhanced_2012}. Thus these techniques do not require any hardware sensors e.g. accelerometer and gyroscope but in return a camera placed in front of the user. Although this method has been conducted for mobile devices \cite{mardanbegi_eye-based_2012} the setup will still require the eyes in a combination with head gestures as an input modality.
 
-Sensor based detection of head movements could also be used e.g. accelerometer and gyroscope for head rotation. Both Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} and Park et. al \cite{park_gaze-directed_2011} have evaluated systems using this kind of sensor based head gesture input. There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010}.
+Sensor based detection of head movements could also be used e.g. accelerometer and gyroscope for head rotation. This would require some kind of headmounted interface with sensors installed. Both Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} and Park et. al \cite{park_gaze-directed_2011} have evaluated systems using this kind of sensor based head gesture input. Their systems will be described in \ref{sec:auditorygesturebasedmenus}.
+
+%There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010}.
 
 \subsection{Audio as output modality}
 \label{sec:audiomodality}
@@ -91,6 +86,8 @@ Audio output can in general be divided into two categories \cite{rocchesso_sound
 \end{description}
 
 The chosen audio output depends on the kind of information that is required by the system e.g. presenting a news feed would be clumsy with non-speech sound. However non-speech audio have advantages over speech audio in that they are faster and language independent. Several studies have shown non-speech audio to be effective when used for interaction in mobile environments although some of the systems uses a combination of both non-speech and speech audio \cite{pirhonen_gestural_2002, sawhney_nomadic_2000, brewster_using_2000}.
+
+TODO: egocentric vs exocentric audio
 
 When presenting the audio it's important to consider the attention which is required by the user while this can have a great impact on the cognitive load. Studies \cite{vazquez-alvarez_eyes-free_2011, shinn-cunningham_selective_2004} discusses to kinds of attention-tasks:
 
@@ -107,22 +104,15 @@ The user required attention can be difficult to control. Specific user needs and
 Spatial audio or 3D audio is constructed using binaural recordings, HRTF (Head Related Transfer Function), FIR (Finite Impulse Response) filters and other advanced signal processing techniques \cite{begault_3dd_1994}. The word "binaural" literally just means "using both ears" and binaural recordings are reproductions of sound the way the human ear hears it. The sounds are recorded by placing microhones in both ears of a dummy head or a real person. These recordings are compared with the original sounds to compute a persons head-related transfer function. HRTF technology uses advanced signal processing techniques and takes into account many of the cues humans use to localize sound. It uses pairs of FIR filters, one filter for the left ear and one for the right, from specific sound positions. Then, to place a sound in a specific position in a persons virtual space, the filter pair which correspond to the position is applied to the incoming sound. The sound then appear as if it is coming from anywhere in space around a listener and this is also called spatial audio. In short this is an attempt to present sound as we normally hear it in the real world. The technology is implemented in many soundcards today.
 
 % Multiple sound sources, cognitive load effect
-Spatialisation of the audio can be helpful in segregating multiple audio streams taking advantage of the "Cocktail Party Effect". Different models of spatialisation can overcome the limit of three simultanously audio streams mentioned in \ref{sec:audiomodality} by allowing listeners to easily switch between channels and pull an audio stream into focus, as well as by allowing sufficient time to fully fuse the audio streams \cite{bronkhorst_cocktail_2000}. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} shows in a study that when users must be able to direct their attention selectively to each individual audio stream representing a task (selective-attention task) - spatial audio had a great effect. In this case the cognitive load was kept low.
-
-%Simultaneous Listening. It is possible for listeners to attend to multiple background processes via the auditory channel as long as the sounds representing each process are distinguishable. This well known cognitive phenomenon, called the "Cocktail Party Effect" [Arons 1992], provides the justification that humans can in fact monitor several audio streams simultaneously, selectively focusing on any one and placing the rest in the background. A good model of the head-related transfer functions (HRTF) permits effective localization and externalization of sound sources [Wenzel 1992]. However experiments show that increasing the number of channels beyond three causes an increase in cognitive overload and hence a degradation in comprehension. Arons [1992] suggests that the effect of spatialization can be improved by allowing listeners to easily switch between channels and pull an audio stream into focus, as well as by allowing sufficient time to fully fuse the audio streams. We will demonstrate how such techniques can be used for browsing and rapidly scanning audio messages.
-
-%Previous research has also shown that spatial audio is a successful technique for segregating multiple audio streams \cite{schmandt_audiostreamer:_1995, walker_spatial_2000}.  as described in \ref{sec:audiomodality}.
+Spatialisation of the audio can be helpful in segregating multiple audio streams taking advantage of the "Cocktail Party Effect". Different models of spatialisation can overcome the limit of three simultanously audio streams mentioned in \ref{sec:audiomodality} by allowing listeners to easily switch between channels and pull an audio stream into focus, as well as by allowing sufficient time to fully fuse the audio streams \cite{bronkhorst_cocktail_2000}. Brewster et. al \cite{vazquez-alvarez_eyes-free_2011} shows in a study that when users must be able to direct their attention selectively to each individual non-speech audio stream representing a task (selective-attention task) - spatial audio had a great effect. In this case the cognitive load was kept low. However same study showed that in a divided-attention task (higher cognitive load) with speech audio streams, spatial audio did not have the same effect, on the contrary cognitive load was further increased.
 
 % Advantages refs
 Spatial audio has also shown to be effective in other several aspects. William W. Gaver, a pioneer in audio interfaces, has explored the intuitiveness of presenting complex information to users in the form of audio \cite{gaver_sonicfinder:_1989}. Similarly Graham explores the advantages in reaction time when using "auditory icons" \cite{graham_use_1999}. Gaver presents the use of spatial sound icons \cite{gaver_auditory_1986}. In doing so, he draws forward the unutilized potential of creating natural interaction (hearing sounds and navigating through them as we would normally do in the real world) through spatial audio.
 
 
-%with multiple audio streams, spatial sound can increase cognitive load if used improperly \cite{vazquez-alvarez_eyes-free_2011}
-
-
 \section{Mobile Audio User Interfaces}
 \label{sec:mobileaudiointerfaces}
-This section describes the systems that are most related to this project. Alternative mobile music player user interfaces are presented first - alternative in the sense that the interaction form is different from the traditional way (touch input and visual output). Also other systems - not music related - are presented. These systems uses an interaction form that is close to the desired one in this project. Finally all systems properties are compaired and visualised in a table.
+This section describes the systems that are most related to this project. First the current state on mobile music player interfaces are presented followed by alternative music interfaces - alternative in the sense that the interaction form is different from the traditional way (touch input and visual output). Also other systems - not music related - are presented. These systems uses an interaction form that is close to the desired one in this project. Finally all systems properties are compaired and visualised in a table.
 
 \subsection{Music player interfaces}
 \label{sec:alternativemusicuis}
@@ -133,7 +123,7 @@ Imagine a biking scenario where the user wants to change music track in a smartp
 
 \textbf{Headset controllers}
 
-Headset music controllers are physical buttons attached to the wire between headset and device (see figure \ref{fig:nokia}). This controller typically includes play, stop, next track, previous track and volume buttons. Such a controller would require only one hand from the user to interact with a music application. This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of menu is 1-dimensional in the sense that numbers have to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
+Headset music controllers are physical buttons attached to the wire between headset and device (see figure \ref{fig:nokia}). This controller typically includes limited controls like play, stop, next track, previous track and volume. Such a controller would provide eyes-free interaction and requires only one hand from the user to interact with a music application. These controller interfaces are typically designed for specific smartphone models but can work with all mobile specific music applications as long as their system is designed to handle the control events.
 
 \begin{figure}[t]
 	\centering
@@ -145,13 +135,15 @@ Headset music controllers are physical buttons attached to the wire between head
 
 \textbf{Voice recognition}
 
-Voice recognition could also be used for navigating a music application \cite{stewart_boling_voice_2013}. In this application example the user could express simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
-
-% good ref about speech recognition challenges \cite{sawhney_nomadic_2000}
+Voice recognition could also be used for navigating a music application. Google provides an advanced search system for the Android platform where it is possible to control application features with voice commands\footnote{\url{http://www.google.com/mobile/search/}}. This system provides voice controls for music applications as well. These controls are still quite limited but it is possible to search for a specific artist e.g. speaking "play Coldplay" will play a random Coldplay song. On the contrary the system does not support simple commands like "next song" or "stop".
 
 \textbf{Gesture based}
 
-Other more alternative music player interaction modes also exists using motion sensors. A system that use foot gestures for changing music track has been developed and shows a highly efficient way of interacting while running \cite{smus_running_2010}. Another system also using gesture recognition controls a music player by placing a device on different body parts e.g. placing it by side of the head while nodding changes the music track \cite{strachan_bodyspace_2007}. The systems are shown in figure \ref{fig:bodyandleg}.
+Research shows other alternative interfaces that uses motion sensors to control a music player. One system uses foot gestures to change music tracks \cite{smus_running_2010}. The system is designed for people that are running while listening to music. With a sensor (Wii remote) attached to the "controlling" leg of the user, it is possible to change track by skipping once on that leg (making two one-footed jumps instead of one full stride). The study showed that this was a highly efficient way of interacting while running.
+
+Another system \cite{strachan_bodyspace_2007} uses device tilting based on specific positions on the body to control a music player. More precisely by moving the device to the left ear, tilting will change music track. By moving the device to the left hip, tilting will control the volume of the music player.
+
+Both motion gesture based music player systems are illustrated in figure \ref{fig:bodyandleg}.
 
 \begin{figure}[t]
 	\centering
@@ -161,9 +153,10 @@ Other more alternative music player interaction modes also exists using motion s
 	\label{fig:bodyandleg}
 \end{figure}
 
-All these systems have in common that they avoid the users visual attention but they are all limited to basic controls such as play, stop, next/previous track, volume up/down.
+%All these systems have in common that they avoid the users visual attention but they are all limited to basic controls such as play, stop, next/previous track, volume up/down.
 
 \subsection{Auditory gesture-based menus}
+\label{sec:auditorygesturebasedmenus}
 Other systems - though not all mobile music players - uses gesture based input modalities and audio as output modality and they can contribute to this projects final system in form of e.g. menu and audio design, navigation, etc.
 
 % 1, Gestural and Audio Metaphors As a Means of Control for Mobile Devices
@@ -177,7 +170,7 @@ Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile m
 	\label{fig:pirhonen}
 \end{figure}
 
-The menu is designed so that swiping a finger in different directions on the touch screen results in an action e.g. changing to next track by swiping to the right. Non-speech audio was used to give feedback on swipe gestures - a sound increased in pitch when swiping to the right (next track) and a decreased sound when swiping left (previous track). The sounds used a simulated (no HRTF used) spatial effect - panning the next track sound to the right and the previous track sound to the left of the users audio space. While these sounds popup the current chosen track is playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design.
+The menu is designed so that swiping a finger in different directions on the touch screen results in an action e.g. changing to next track by swiping to the right. Non-speech audio was used to give feedback on swipe gestures - a sound increased in pitch when swiping to the right (next track) and a decreased sound when swiping left (previous track). The sounds used a simulated (no HRTF) spatial effect - panning the next track sound to the right and the previous track sound to the left of the users audio space. While these sounds popup the current chosen track is playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design.
 
 An evaluation of the system showed significant usability improvements using gestures- and audio based interaction compaired to a visual pen-based interaction approach.
 
@@ -197,7 +190,7 @@ The system was evaluated by users selecting specific numbers with free-hand gest
 
 
 % 3, Multimodal'eyes-free'interaction techniques for wearable devices
-Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} developed and evaluated an eyes-free wearable system that uses head gestures as input modality and 3D audio as output modality. The systems hardware setup consists of headphones delivering 3D audio and a sensor attached for detecting the head orientation. These two hardware parts are connected via cables to a belt-mounted PDA running software that processes 3D audio and recognizes head gestures. The physical system is shown in figure \ref{fig:brewster}.
+Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} developed and evaluated an eyes-free wearable system that uses head gestures as input modality and 3D audio as output modality. The systems hardware setup consists of headphones and a sensor attached for detecting the head orientation. These two hardware parts are connected via cables to a belt-mounted PDA running software that processes 3D audio and recognizes head gestures. The physical system is shown in figure \ref{fig:brewster}.
 
 \begin{figure}[t]
 	\centering
@@ -207,13 +200,12 @@ Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} developed an
 	\label{fig:brewster}
 \end{figure}
 
-The interaction design also illustrated in figure \ref{fig:brewster} consists of a 3D audio radial pie that uses head gestures for selecting items. More specifically audio sources are placed at positions in space around the user. The audio sources represents e.g. a phone-call, a news feed or stock market news and the user can then nod at a specific task to select it and drag it to the front of the audio space. Audio sources that the user finds less important can then be dragged to the rear of the audio space.
+By experimenting with the spatial audio presentations two auditory menu design were evaluated. A circular egocentric design illustrated in figure \ref{fig:brewster} and a horizontal exocentric menu design. In the egocentric design audio sources are represented by 4 different audio streams positioned at the 4 cardinal points around the user (every 90 degrees from the users nose). The sound items play for 2 seconds each and play in order rotating clockwise around the head. The audio streams present different kind of information: 1) Weather sounds e.g. rain, lightening, etc., 2) a news clip from tv, 3) a sport quiz and 4) traffical sounds e.g. cars, horns, etc. The user can then nod at a specific task to select it and it will appear in the front of the users audio space while the other sounds will go to the rear of the audio space. In the exocentric design the same 4 audio streams are represented in a horizontal line with a 40 degree distance between each audio item. The user can then select an audio item by turning the head and nodding when the desired item is in the front.
 
-Evaluation of the system showed that sound and gesture can significantly improve the usability of a wearable device in particular under eyes-free mobile conditions and that head gestures was a successful interaction technique with egocentric sounds the most effective.
-
+Evaluation of the system showed that sound and gesture can significantly improve the usability of a wearable device in particular under eyes-free mobile conditions and that head gestures was a successful interaction technique with the circular egocentric soundscape design the most effective.
 
 % 4, Gaze-Directed Hands-Free Interface for Mobile Interaction
-Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture input and audio output (though not spatial audio) but in this project focus was on the menu design. The hardware setup is custom build like the before mentioned system as a sensor is attached in this case to a cap for detecting head movement combined with headphones illustrated in figure \ref{fig:park}.
+Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture input and audio output (though not spatial audio) but in this project focus was on the menu design in relation to the head gestures. The hardware setup is custom build like the before mentioned system as a sensor is attached in this case to a cap for detecting head movement combined with headphones illustrated in figure \ref{fig:park}.
 
 \begin{figure}[t]
 	\centering
@@ -237,7 +229,7 @@ The system was tested with up to 12 number items and results showed that 2D grid
 
 
 \subsection{Systems properties overview}
-Table \ref{tab:related} shows a comparison between the related systems mentioned above. They outline the current state on systems that are closest to this thesis system (Spatial Music Menu). The properties are based on the related systems and research concepts:
+Table \ref{tab:related} shows a comparison between the related systems mentioned above. They outline the current state on systems that are closest to what this thesis aims for. The properties are based on the related systems and research concepts:
 
 \begin{description}
 \item[In-motion interaction]
@@ -249,8 +241,8 @@ The system uses sensor based head gestures as input modality.
 \item[Spatial audio]
 The system gives feedback in form of spatial audio. Does not mean that all audio is spatialised.
 
-\item[Dynamic auditory menu content]
-Navigating the audio menu is not depending on static audio items - the audio stream can change depending on user defined content.
+\item[Exploration of content]
+The system gives the opportunity to explore the content before selecting it.
 
 \item[Simultanous audio]
 The system is exploiting the "Cocktail party effect" and can present simultanous audio streams. This is depending on whether the system supports spatial audio as it is hard to conduct otherwise.
@@ -263,33 +255,45 @@ System is designed as a music player interface.
 \scriptsize
 \caption{Related systems properties comparison} % title name of the table 
 %\centering % centering table
-\begin{tabular}{L{2.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.8cm}C{1.5cm}} \toprule
-	Systems & In-motion interaction focus & Head gestures & Spatial audio & Dynamic auditory menu content & Simultanous audio & Music application \\ \midrule
+\begin{tabular}{L{2.2cm}C{1.5cm}C{1.3cm}C{1.3cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}} \toprule
+	Systems & In-motion interaction & Head gestures & Spatial audio & Exploration of content & Simultanous audio & Hierarchical menu & Music application \\ \midrule
     %Properties & System 1 & System 2 & System 3 & System 4 \\ \midrule
-    Voice recognition system \cite{stewart_boling_voice_2013}   & x &  &  &  &  & x \\
+    Current "stop-to-interact" systems   &  &  &  & x &  & x & x \\
     \\
-	Leg gesture system \cite{smus_running_2010}   & x &  &  &  &  & x \\ %\midrule
+    Headset controllers   & x &  &  &  &  &  & x \\
+    \\
+    Voice recognition system (Google Search for Android)   & x &  &  &  &  &  & x \\
+    \\
+	Leg gesture system \cite{smus_running_2010}   & x &  &  &  &  &  & x \\ %\midrule
 	\\
-	Body pose system \cite{strachan_bodyspace_2007}   &  & (x) &  &  &  & x \\
+	Body pose system \cite{strachan_bodyspace_2007}   &  &   &  &  &  &  & x \\
 	\\
-	Touch gesture system \cite{pirhonen_gestural_2002}   & x &  & (x) &  &  & x \\
+	Touch gesture system \cite{pirhonen_gestural_2002}   & x &  & x &  &  &  & x \\
 	\\
-	Free-hand gesture system \cite{kajastila_interaction_2013}   &  &  & x &  &  &  \\
+	Free-hand gesture system \cite{kajastila_interaction_2013}   &  &  & x &  &  &  &  \\
 	\\
-	Head gesture system, Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003}   & x & x & x & x & (x) &   \\
+	Head gesture system, Park et. al \cite{park_gaze-directed_2011}   & x & x & x & x &  &  &  \\
 	\\
-	Head gesture system, Park et. al \cite{park_gaze-directed_2011}   & x & x & x &  &  &  \\
+	Head gesture system, Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003}   & x & x & x & x & x &  &   \\
 	\\
-	This thesis system (Spatial Music Menu)   & x & x & x & x & x & x \\ \bottomrule
+	Goals of this thesis system   & x & x & x & (x) & (x) & (x) & x \\ \bottomrule
 \end{tabular}
 
 \label{tab:related} 
 \end{table}
 
+We see that no system supports all properties. The mark (x) specified at this thesis system goals means that although not a required property, maybe related work has shown good results by using these concepts e.g. the Brewster \cite{brewster_multimodaleyes-freeinteraction_2003} system using dynamic auditory menu content and simultanous audio, or else just a desired property e.g. hierachical menu.
 
 
 
 
 
+% OLD
+
+%Simultaneous Listening. It is possible for listeners to attend to multiple background processes via the auditory channel as long as the sounds representing each process are distinguishable. This well known cognitive phenomenon, called the "Cocktail Party Effect" [Arons 1992], provides the justification that humans can in fact monitor several audio streams simultaneously, selectively focusing on any one and placing the rest in the background. A good model of the head-related transfer functions (HRTF) permits effective localization and externalization of sound sources [Wenzel 1992]. However experiments show that increasing the number of channels beyond three causes an increase in cognitive overload and hence a degradation in comprehension. Arons [1992] suggests that the effect of spatialization can be improved by allowing listeners to easily switch between channels and pull an audio stream into focus, as well as by allowing sufficient time to fully fuse the audio streams. We will demonstrate how such techniques can be used for browsing and rapidly scanning audio messages.
+
+%Previous research has also shown that spatial audio is a successful technique for segregating multiple audio streams \cite{schmandt_audiostreamer:_1995, walker_spatial_2000}.  as described in \ref{sec:audiomodality}.
+
+%with multiple audio streams, spatial sound can increase cognitive load if used improperly \cite{vazquez-alvarez_eyes-free_2011}
 
 
