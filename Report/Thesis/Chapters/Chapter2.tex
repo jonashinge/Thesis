@@ -72,8 +72,6 @@ There exists different kinds of approaches when it comes to controlling a system
 
 Sensor based detection of head movements could also be used e.g. accelerometer and gyroscope for head rotation. This would require some kind of headmounted interface with sensors installed. Both Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} and Park et. al \cite{park_gaze-directed_2011} have evaluated systems using this kind of sensor based head gesture input. Their systems will be described in \ref{sec:auditorygesturebasedmenus}.
 
-%There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010}.
-
 \subsection{Audio as output modality}
 \label{sec:audiomodality}
 Replacing visual with audio output has shown to have a positive effect when interacting in motion. Brewster showed, by compairing visual and audio feedback when pushing buttons on the same GUI, that it was difficult for users to devote all their visual attention to an interface while walking, running og driving and that the interaction workload decreased with audio feedback \cite{brewster_overcoming_2002}.
@@ -155,8 +153,6 @@ Both motion gesture based music player systems are illustrated in figure \ref{fi
 	\label{fig:bodyandleg}
 \end{figure}
 
-%All these systems have in common that they avoid the users visual attention but they are all limited to basic controls such as play, stop, next/previous track, volume up/down.
-
 \subsection{Auditory gesture-based menus}
 \label{sec:auditorygesturebasedmenus}
 Other systems - though not all mobile music players - have evaluated gesture based input modalities and audio as output modality and they can contribute to this projects final system in form of e.g. menu and audio design, navigation, etc.
@@ -207,7 +203,7 @@ By experimenting with the spatial audio presentations two auditory menu design w
 Evaluation of the system showed that sound and gesture can significantly improve the usability of a wearable device in particular under eyes-free mobile conditions and that head gestures was a successful interaction technique with the circular egocentric soundscape design the most effective.
 
 % 4, Gaze-Directed Hands-Free Interface for Mobile Interaction
-Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture input and audio output (though not spatial audio) but in this project focus was on the menu design in relation to the head gestures. The hardware setup were custom built like the aboved mentioned system as a sensor is attached in this case to a cap for detecting head movement combined with headphones illustrated in figure \ref{fig:park}.
+Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture input and audio output (though not spatial audio) but in this project focus was on the menu design and its suitability for head gesture movement. The hardware setup were custom built like the aboved mentioned system as a sensor is attached in this case to a cap for detecting head movement combined with headphones illustrated in figure \ref{fig:park}.
 
 \begin{figure}[t]
 	\centering
@@ -217,11 +213,7 @@ Park et. al \cite{park_gaze-directed_2011} also experimented with head gesture i
 	\label{fig:park}
 \end{figure}
 
-The interaction design consists of different menus; a 1D horizontal/vertical, 2D grid and 2D circular menu.
-
-TODO: explain in more details...
-
-....and to navigate these menus different gesture models were tested as well. An illustration of this is showed in figure \ref{fig:park-menus}. As audio output the system uses speech audio to notify which item number is chosen.
+The interaction design consists of different menus; a 1D horizontal/vertical, 2D grid and 2D circular menu as illustrated in figure \ref{fig:park-menus}. The 1D menus were tested with up to 8 sound items and 2D menus up to 12. Items were speech sounds i.e. speech recorded numbers and played when the users head were directed towards the item. Each menu were coupled with different head movements: The 1D menus were simple 2-way movements, the 2D grid had 4-way and the 2D circular menu had a multi-way wheel i.e. 360 directed selection (also shown in figure \ref{fig:park-menus}). A selection of an item could be done by doing a "long stare" at the desired item - the 2D menu items could also be selected with a "round trip" i.e. directing the head at the current item (in the center) and then towards the desired item and back again.
 
 \begin{figure}[t]
 	\centering
@@ -231,7 +223,7 @@ TODO: explain in more details...
 	\label{fig:park-menus}
 \end{figure}
 
-The system was tested with up to 12 number items and results showed that 2D grid menus was the most effective and had the lowest selection errors.
+Evaluation of the system showed that the 2D grid menu was the most effective and had the lowest selection errors.
 
 
 \subsection{Systems properties overview}
@@ -295,6 +287,10 @@ We see that no system supports all properties. The mark (x) specified at this th
 
 
 % OLD
+
+%All these systems have in common that they avoid the users visual attention but they are all limited to basic controls such as play, stop, next/previous track, volume up/down.
+
+%There exists advanced algorithms for recognizing motion gestures \cite{lu_head_2005, kratz_combining_2013, akl_accelerometer-based_2010}.
 
 %Simultaneous Listening. It is possible for listeners to attend to multiple background processes via the auditory channel as long as the sounds representing each process are distinguishable. This well known cognitive phenomenon, called the "Cocktail Party Effect" [Arons 1992], provides the justification that humans can in fact monitor several audio streams simultaneously, selectively focusing on any one and placing the rest in the background. A good model of the head-related transfer functions (HRTF) permits effective localization and externalization of sound sources [Wenzel 1992]. However experiments show that increasing the number of channels beyond three causes an increase in cognitive overload and hence a degradation in comprehension. Arons [1992] suggests that the effect of spatialization can be improved by allowing listeners to easily switch between channels and pull an audio stream into focus, as well as by allowing sufficient time to fully fuse the audio streams. We will demonstrate how such techniques can be used for browsing and rapidly scanning audio messages.
 

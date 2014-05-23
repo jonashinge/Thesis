@@ -2,19 +2,27 @@
 \chapter{Evaluation}
 \label{sec:evaluation}
 % Intro
+[TODO: rewrite]
 As mentioned in section [TODO: ref implementation section] the scope of the implementation in this thesis is limited to study the effects of exploring and navigating to music tracks. To study whether the Spatial Music Menu could compete with a touch and vision-based music player interface we designed and conducted an experiment where users should perform mental and physical demanding tasks while interacting with the interfaces.
 
-TODO: Scope and limitations
-- only using 1 gesture, we examined multiple gestures in pilot study (accuracy), too much noise in biking scenario: Unwanted activation of systems, too much learning, not important for measuring tasks
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{./Figures/evaluation_spatial.jpg}
+		\rule{35em}{1pt}
+	\caption[Evaluation Spatial Music Menu]{Participant performing a task using the Spatial Music Menu}
+	\label{fig:evalspatial}
+\end{figure}
 
-[TODO: rewrite]
 
-- Only 5 participants, no statistical arguments but just hints
-Regarding
+\section{Pilot Study}
 
-- Possibly biased participants (friends) wants to perform good
+% Challenge: introducing untraditional way of interacting, human-centred approach
 
-- Limited measurement parameters e.g. not biking speed
+% only using 1 gesture, we examined multiple gestures in pilot study (accuracy), too much noise in biking scenario: Unwanted activation of systems, too much learning, not important for measuring tasks
+
+% Gesture recognizer accuracy
+
+% Number of items
 
 
 \section{Experiment Design}
@@ -49,9 +57,15 @@ This section describes the different methods used for conducting the experiment.
 \subsection{Task}
 Throughout the experiment the participants will be given some tasks. A task is basically defined as a music track in which the user should navigate to. The music track (artist - title) is shown on the top left of the screen and when it does the user should start the navigation task. So in the case of the Spatial Music Menu the user should activate the menu by pushing the right button on the headset and explore and select the tracks with head gestures. If the user selects a wrong album or track the menu must be activated again (going to the HOME state). In the case of the touch and vision-based music application the user must pick the device from a pocket, activate/unlock screen, navigate to the music track, deactivate screen and put the device back in the pocket.
 
-As we wanted to compaire the two systems the menu structure needed to be aligned as much as possible. Figure ? shows how the states (HOME and ALBUM) in the two different menus corresponds to each other.
+As we wanted to compaire the two systems the menu structure needed to be aligned as much as possible. Figure \ref{fig:menustates} shows how the states (HOME and ALBUM) in the two different menus corresponds to each other.
 
-TODO: figure
+\begin{figure}[t]
+	\centering
+		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/menustates.png}
+		\rule{35em}{1pt}
+	\caption[Menu states comparison]{The HOME and ALBUM menu states definitions for each system.}
+	\label{fig:menustates}
+\end{figure}
 
 TODO: Spatial effect enforcement
 
@@ -69,14 +83,6 @@ instructions, preparation, favourite tracks
 - choosing music tracks in Deezer app
 
 User performing a task using the Spatial Music Menu is shown in figure \ref{fig:evalspatial}
-
-\begin{figure}[t]
-	\centering
-		\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{./Figures/evaluation_spatial.jpg}
-		\rule{35em}{1pt}
-	\caption[Evaluation Spatial Music Menu]{Participant performing a task using the Spatial Music Menu}
-	\label{fig:evalspatial}
-\end{figure}
 
 User performing a task using a touch and vision-based music player is shown in figure \ref{fig:evalspatial}
 
@@ -151,11 +157,25 @@ Nasa TLX scores, figure \ref{fig:resultsnasatlx}
 	\label{fig:resultsnasatlx}
 \end{figure}
 
+\subsection{Observation and user feedback}
+...
+
 \subsection{Discussion}
 ...
 
+% Something about the number of participants, only 5 participants, no statistical arguments but just hints
+
+% Possibly biased participants (friends) wants to perform good
+
+% System drifting problem
+
+
 Challenges:\\
 - Spatial sound through headphones depend on the HRTF recorded and might not fit to all persons as the ear constructions are different (Brewster chapter 12 "Non-Speech Auditory Output" \cite{brewster_human-computer_2003})
+
+
+
+- Limited measurement parameters e.g. not biking speed
 
 
 

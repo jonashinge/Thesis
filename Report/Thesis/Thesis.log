@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  22 MAY 2014 23:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  23 MAY 2014 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1320,18 +1320,18 @@ Chapter 1.
 
 
 
-] [2] [3] <./Figures/triangulation.pdf, id=430, 963.6pt x 562.1pt>
+] [2] [3] <./Figures/triangulation.pdf, id=437, 963.6pt x 562.1pt>
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
-Package pdftex.def Info: ./Figures/triangulation.pdf used on input line 53.
+Package pdftex.def Info: ./Figures/triangulation.pdf used on input line 43.
 (pdftex.def)             Requested size: 417.47174pt x 243.52518pt.
 ) (./Chapters/Chapter2.tex [4 <./Figures/triangulation.pdf>]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Related work
 ------------------------------------------------------------------------------
-<./Figures/venn.png, id=468, 501.875pt x 501.875pt>
+<./Figures/venn.png, id=475, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
 Package pdftex.def Info: ./Figures/venn.png used on input line 8.
@@ -1340,78 +1340,78 @@ Package pdftex.def Info: ./Figures/venn.png used on input line 8.
 [5
 
 ] [6 <./Figures/venn.png (PNG copy)>] [7] [8] [9] [10] [11]
-Overfull \hbox (9.02213pt too wide) in paragraph at lines 120--120
+Overfull \hbox (9.02213pt too wide) in paragraph at lines 118--118
 [][][][]$\OT1/cmtt/m/n/9 http : / / www . emarketer . com / Article / Music-[]G
 oes-[]Mobile-[]More-[]Smartphone-[]Users-[]Stream-[]Songs /
  []
 
-[12] <./Figures/nokia-headset.png, id=604, 586.19pt x 268.00125pt>
+[12] <./Figures/nokia-headset.png, id=611, 586.19pt x 268.00125pt>
 File: ./Figures/nokia-headset.png Graphic file (type png)
 
 <use ./Figures/nokia-headset.png>
-Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 132.
+Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 130.
 (pdftex.def)             Requested size: 250.48254pt x 114.51855pt.
  [13 <./Figures/nokia-headset.png>]
-<./Figures/bodyposeandleg.png, id=620, 792.9625pt x 461.725pt>
+<./Figures/bodyposeandleg.png, id=627, 792.9625pt x 461.725pt>
 File: ./Figures/bodyposeandleg.png Graphic file (type png)
 
 <use ./Figures/bodyposeandleg.png>
-Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 152.
+Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 150.
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
 
-<./Figures/pirhonen-system.png, id=627, 418.56375pt x 231.86626pt>
+<./Figures/pirhonen-system.png, id=634, 418.56375pt x 231.86626pt>
 File: ./Figures/pirhonen-system.png Graphic file (type png)
 
 <use ./Figures/pirhonen-system.png>
-Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 169.
+Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 165.
 (pdftex.def)             Requested size: 250.48235pt x 138.7564pt.
  [14 <./Figures/bodyposeandleg.png (PNG copy)>] <./Figures/kajastila-system.png
-, id=639, 792.9625pt x 461.725pt>
+, id=646, 792.9625pt x 461.725pt>
 File: ./Figures/kajastila-system.png Graphic file (type png)
 
 <use ./Figures/kajastila-system.png>
-Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 185.
+Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 181.
 
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [15 <./Figures/pirhonen-system.png (PNG copy)>] <./Figures/brewster-system.png
-, id=648, 690.58pt x 219.82124pt>
+, id=655, 690.58pt x 219.82124pt>
 File: ./Figures/brewster-system.png Graphic file (type png)
 
 <use ./Figures/brewster-system.png>
-Package pdftex.def Info: ./Figures/brewster-system.png used on input line 199.
+Package pdftex.def Info: ./Figures/brewster-system.png used on input line 195.
 (pdftex.def)             Requested size: 375.73166pt x 119.60062pt.
  [16 <./Figures/kajastila-system.png (PNG copy)> <./Figures/brewster-system.png
  (PNG copy)>]
-<./Figures/park-system.png, id=658, 666.49pt x 292.09125pt>
+<./Figures/park-system.png, id=665, 666.49pt x 292.09125pt>
 File: ./Figures/park-system.png Graphic file (type png)
 
 <use ./Figures/park-system.png>
-Package pdftex.def Info: ./Figures/park-system.png used on input line 214.
+Package pdftex.def Info: ./Figures/park-system.png used on input line 210.
 (pdftex.def)             Requested size: 375.73363pt x 164.66638pt.
 
-<./Figures/park-menus.png, id=662, 745.78625pt x 297.11pt>
+<./Figures/park-menus.png, id=670, 745.78625pt x 297.11pt>
 File: ./Figures/park-menus.png Graphic file (type png)
 
 <use ./Figures/park-menus.png>
-Package pdftex.def Info: ./Figures/park-menus.png used on input line 228.
+Package pdftex.def Info: ./Figures/park-menus.png used on input line 220.
 (pdftex.def)             Requested size: 375.7144pt x 149.67894pt.
  [17 <./Figures/park-system.png (PNG copy)>]
-Overfull \hbox (1.1229pt too wide) in paragraph at lines 265--265
+Overfull \hbox (1.1229pt too wide) in paragraph at lines 257--257
  []|\OT1/cmr/m/n/8 Exploration 
  []
 
 
-Overfull \hbox (2.9382pt too wide) in paragraph at lines 265--265
+Overfull \hbox (2.9382pt too wide) in paragraph at lines 257--257
  []|\OT1/cmr/m/n/8 Simultanous 
  []
 
 
-Overfull \hbox (1.71596pt too wide) in paragraph at lines 265--265
+Overfull \hbox (1.71596pt too wide) in paragraph at lines 257--257
  []|\OT1/cmr/m/n/8 Hierarchical 
  []
 
 
-Overfull \hbox (28.49583pt too wide) in paragraph at lines 264--287
+Overfull \hbox (28.49583pt too wide) in paragraph at lines 256--279
 [][] 
  []
 
@@ -1422,120 +1422,127 @@ Chapter 3.
 ------------------------------------------------------------------------------
 [20
 
-] [21] <./Figures/sounddesign.png, id=704, 803.0pt x 453.695pt>
+] [21] [22] <./Figures/sounddesign.png, id=720, 803.0pt x 453.695pt>
 File: ./Figures/sounddesign.png Graphic file (type png)
 
 <use ./Figures/sounddesign.png>
-Package pdftex.def Info: ./Figures/sounddesign.png used on input line 82.
+Package pdftex.def Info: ./Figures/sounddesign.png used on input line 90.
 (pdftex.def)             Requested size: 250.48354pt x 141.5232pt.
-) (./Chapters/Chapter4.tex [22 <./Figures/sounddesign.png (PNG copy)>]
+) (./Chapters/Chapter4.tex [23 <./Figures/sounddesign.png (PNG copy)>]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-[23
+[24
 
 ]
-<./Figures/implementation_overview.png, id=723, 727.71875pt x 231.86626pt>
+<./Figures/implementation_overview.png, id=740, 727.71875pt x 231.86626pt>
 File: ./Figures/implementation_overview.png Graphic file (type png)
 
 <use ./Figures/implementation_overview.png>
 Package pdftex.def Info: ./Figures/implementation_overview.png used on input li
 ne 20.
 (pdftex.def)             Requested size: 375.72873pt x 119.71494pt.
- [24 <./Figures/implementation_overview.png (PNG copy)>] [25]
-<./Figures/app-architecture.pdf, id=746, 711.65875pt x 558.085pt>
+ [25 <./Figures/implementation_overview.png (PNG copy)>] [26]
+<./Figures/app-architecture.pdf, id=762, 711.65875pt x 558.085pt>
 File: ./Figures/app-architecture.pdf Graphic file (type pdf)
 
 <use ./Figures/app-architecture.pdf>
 Package pdftex.def Info: ./Figures/app-architecture.pdf used on input line 67.
 (pdftex.def)             Requested size: 417.46432pt x 327.37682pt.
-) (./Chapters/Chapter5.tex [26 <./Figures/app-architecture.pdf>]
+) (./Chapters/Chapter5.tex [27 <./Figures/app-architecture.pdf>]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Evaluation
 ------------------------------------------------------------------------------
-[27
-
-] [28] [29]
-<./Figures/evaluation_spatial.jpg, id=800, 3276.24pt x 2457.18pt>
+<./Figures/evaluation_spatial.jpg, id=792, 3276.24pt x 2457.18pt>
 File: ./Figures/evaluation_spatial.jpg Graphic file (type jpg)
 
 <use ./Figures/evaluation_spatial.jpg>
-Package pdftex.def Info: ./Figures/evaluation_spatial.jpg used on input line 75
+Package pdftex.def Info: ./Figures/evaluation_spatial.jpg used on input line 10
 .
 (pdftex.def)             Requested size: 292.19934pt x 219.1495pt.
+ [28
 
-<./Figures/evaluation_normal.jpg, id=802, 3276.24pt x 2457.18pt>
+ <./Figures/evaluation_spatial.jpg>]
+[29] <./Figures/menustates.png, id=813, 803.0pt x 803.0pt>
+File: ./Figures/menustates.png Graphic file (type png)
+
+<use ./Figures/menustates.png>
+Package pdftex.def Info: ./Figures/menustates.png used on input line 64.
+(pdftex.def)             Requested size: 375.73143pt x 375.73143pt.
+ [30]
+<./Figures/evaluation_normal.jpg, id=820, 3276.24pt x 2457.18pt>
 File: ./Figures/evaluation_normal.jpg Graphic file (type jpg)
 
 <use ./Figures/evaluation_normal.jpg>
-Package pdftex.def Info: ./Figures/evaluation_normal.jpg used on input line 85.
+Package pdftex.def Info: ./Figures/evaluation_normal.jpg used on input line 91.
 
 (pdftex.def)             Requested size: 292.19934pt x 219.1495pt.
- [30 <./Figures/evaluation_spatial.jpg>]
-<./Figures/results_circles.png, id=809, 592.2125pt x 372.39125pt>
+ [31 <./Figures/menustates.png (PNG copy)>] [32 <./Figures/evaluation_normal.jp
+g>]
+<./Figures/results_circles.png, id=832, 592.2125pt x 372.39125pt>
 File: ./Figures/results_circles.png Graphic file (type png)
 
 <use ./Figures/results_circles.png>
-Package pdftex.def Info: ./Figures/results_circles.png used on input line 122.
+Package pdftex.def Info: ./Figures/results_circles.png used on input line 128.
 (pdftex.def)             Requested size: 375.73448pt x 236.26694pt.
 
-<./Figures/results_task_time.png, id=812, 602.25pt x 372.39125pt>
+<./Figures/results_task_time.png, id=835, 602.25pt x 372.39125pt>
 File: ./Figures/results_task_time.png Graphic file (type png)
 
 <use ./Figures/results_task_time.png>
-Package pdftex.def Info: ./Figures/results_task_time.png used on input line 133
+Package pdftex.def Info: ./Figures/results_task_time.png used on input line 139
 .
 (pdftex.def)             Requested size: 375.73448pt x 232.32915pt.
- [31 <./Figures/evaluation_normal.jpg>]
-[32 <./Figures/results_circles.png> <./Figures/results_task_time.png>]
-<./Figures/results_nasatlx.png, id=825, 579.16376pt x 372.39125pt>
+ [33 <./Figures/results_circles.png>]
+<./Figures/results_nasatlx.png, id=843, 579.16376pt x 372.39125pt>
 File: ./Figures/results_nasatlx.png Graphic file (type png)
 
 <use ./Figures/results_nasatlx.png>
-Package pdftex.def Info: ./Figures/results_nasatlx.png used on input line 148.
+Package pdftex.def Info: ./Figures/results_nasatlx.png used on input line 154.
 (pdftex.def)             Requested size: 375.71848pt x 241.57982pt.
-) (./Chapters/Chapter6.tex [33 <./Figures/results_nasatlx.png>]
+ [34 <./Figures/results_task_time.png> <./Figures/results_nasatlx.png>]) (./Cha
+pters/Chapter6.tex [35]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Conclusion
 ------------------------------------------------------------------------------
-) (./Appendices/AppendixA.tex [34
+) (./Appendices/AppendixA.tex [36
 
 ]
 Appendix A.
 ------------------------------------------------------------------------------
  A An Appendix
 ------------------------------------------------------------------------------
-[35
+[37
 
-]) [36]
+]) [38]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(./Thesis.bbl [37
+(./Thesis.bbl [39
 
 
-] [38] [39] [40]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 297.
+] [40] [41] [42]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 290.
 
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 297.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 290.
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
- [41]
+ [43]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
 
 (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 096E690A6DC58492D5BEC53415C6A8B2;9518.
+(rerunfilecheck)             Checksum: E84F1D92F7525878F1AA5707E4A4DB7C;9915.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1543,13 +1550,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
  ) 
 Here is how much of TeX's memory you used:
- 22117 strings out of 493315
- 397427 string characters out of 6137903
- 442571 words of memory out of 5000000
- 25018 multiletter control sequences out of 15000+600000
+ 22128 strings out of 493315
+ 397623 string characters out of 6137903
+ 443571 words of memory out of 5000000
+ 25024 multiletter control sequences out of 15000+600000
  16851 words of font info for 64 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,12n,45p,1806b,1015s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,1894b,1013s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1563,10 +1570,10 @@ live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
 ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texliv
 e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Thesis.pdf (49 pages, 6802125 bytes).
+Output written on Thesis.pdf (51 pages, 6928256 bytes).
 PDF statistics:
- 958 PDF objects out of 1000 (max. 8388607)
- 838 compressed objects within 9 object streams
- 198 named destinations out of 1000 (max. 500000)
- 566 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 981 PDF objects out of 1000 (max. 8388607)
+ 858 compressed objects within 9 object streams
+ 202 named destinations out of 1000 (max. 500000)
+ 579 words of extra memory for PDF output out of 10000 (max. 10000000)
 
