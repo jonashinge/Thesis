@@ -137,7 +137,32 @@ Headset music controllers are physical buttons attached to the wire between head
 
 Voice recognition could also be used for navigating a music application. Google provides an advanced search system for the Android platform where it is possible to control application features with voice commands\footnote{\url{http://www.google.com/mobile/search/}}. This system provides voice controls for music applications as well. These controls are still quite limited but it is possible to search for a specific artist e.g. speaking "play Coldplay" will play a random Coldplay song. On the contrary the system does not support simple commands like "next song" or "stop".
 
-\textbf{Gesture based}
+\textbf{Touch based}
+
+% 1, Gestural and Audio Metaphors As a Means of Control for Mobile Devices
+Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile music player that used touch gestures and non-speech spatial audio to play/stop track, switch track and control volume. The device was an old pocket PC clipped to the users belt (device shown in figure \ref{fig:pirhonen}).
+
+\begin{figure}[t]
+	\centering
+		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/pirhonen-system.png}
+		\rule{35em}{0.5pt}
+	\caption[Pirhonen system]{Figures from Pirhonen et. al \cite{pirhonen_gestural_2002} system showing the touch device (to the left) and touch menu (to the right)}
+	\label{fig:pirhonen}
+\end{figure}
+
+The menu were designed so that swiping a finger in different directions on the touch screen resulted in an action e.g. changing to next track by swiping to the right. Non-speech audio was used to give feedback on swipe gestures - a sound increased in pitch when swiping to the right (next track) and a decreased sound when swiping left (previous track). The sounds used a simulated (no HRTF) spatial effect - panning the next-track sound to the right and the previous-track sound to the left of the users audio space. While these sounds popup the current chosen track were playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design. An evaluation of the system showed significant usability improvements using gestures- and audio based interaction compaired to a visual pen-based interaction approach.
+
+The PocketMenu \cite{pielot_pocketmenu:_2012} also used touch based input via touch screen to control a music player but as output they experimented with two modalities (simultanous approach) - speech audio and tactile feedback. The menu were supposed to be controlled from a users pocket hence the name and were targeting interaction while moving scenarios. The menu layout was designed so that items were positioned vertically along the border of the screen. To browse the menu the user had to slide a finger along the screen. Tactile feedback was given at borders between menu items. Also speech audio was used to indicate which item was currently in focus (speaking the menu item action). By lifting the finger navigation was cancelled and swiping to the right would select the focused item. An illustration of this is shown in figure \ref{fig:asdf}. Menu controls were volume, next/previous track and play/stop. In an evalution of the system the PocketMenu outperformed Apples iPhone VoiceOver system when interacting on the move.
+
+\begin{figure}[t]
+	\centering
+		\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{./Figures/pocketmenu.png}
+		\rule{35em}{0.5pt}
+	\caption[Pirhonen system]{Figure borrowed from the PocketMenu system \cite{pielot_pocketmenu:_2012} showing their menu layout and browsing/selecting model}
+	\label{fig:pocketmenu}
+\end{figure}
+
+\textbf{Motion gesture based}
 
 Research shows other alternative interfaces that have evaluated motion sensors to control a music player. One system used foot gestures to change music tracks \cite{smus_running_2010}. The system were designed for people that are running while listening to music. With a sensor (Wii remote) attached to the "controlling" leg of the user, it was possible to change track by skipping once on that leg (making two one-footed jumps instead of one full stride). The study showed that this was a highly efficient way of interacting while running.
 
@@ -157,24 +182,8 @@ Both motion gesture based music player systems are illustrated in figure \ref{fi
 \label{sec:auditorygesturebasedmenus}
 Other systems - though not all mobile music players - have evaluated gesture based input modalities and audio as output modality and they can contribute to this projects final system in form of e.g. menu and audio design, navigation, etc.
 
-% 1, Gestural and Audio Metaphors As a Means of Control for Mobile Devices
-Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile music player that used touch gestures and non-speech spatial audio to play/stop track, switch track and control volume. The device was an old pocket PC clipped to the users belt (device shown in figure \ref{fig:pirhonen}).
-
-\begin{figure}[t]
-	\centering
-		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/pirhonen-system.png}
-		\rule{35em}{0.5pt}
-	\caption[Pirhonen system]{Figures from Pirhonen et. al \cite{pirhonen_gestural_2002} system showing the touch device (to the left) and touch menu (to the right)}
-	\label{fig:pirhonen}
-\end{figure}
-
-The menu were designed so that swiping a finger in different directions on the touch screen resulted in an action e.g. changing to next track by swiping to the right. Non-speech audio was used to give feedback on swipe gestures - a sound increased in pitch when swiping to the right (next track) and a decreased sound when swiping left (previous track). The sounds used a simulated (no HRTF) spatial effect - panning the next-track sound to the right and the previous-track sound to the left of the users audio space. While these sounds popup the current chosen track were playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design.
-
-An evaluation of the system showed significant usability improvements using gestures- and audio based interaction compaired to a visual pen-based interaction approach.
-
-
 % 2, Interaction with eyes-free and gestural interfaces
-Kajastila and Lokki \cite{kajastila_eyes-free_2013} also compaired auditory and visual menus but in this case they experimented with an input modality that was based on free-hand gestures. The free-hand gestures was detected by a camera and by moving the hand round in a circle containing 12 sound items (one for each 30 degrees) and selecting items were done by simulating a push of a button at the desired item. When moving the hand round the sound items would play in the users audio space (using spatial audio) from the same direction as the hand position in the circle. The sound items were provided as speech-audio i.e. speech recorded numbers. An illustration is shown in figure \ref{fig:kajastila}.
+Kajastila and Lokki \cite{kajastila_eyes-free_2013} compaired auditory and visual menus - in this case they experimented with an input modality that was based on free-hand gestures. The free-hand gestures was detected by a camera and by moving the hand round in a circle containing 12 sound items (one for each 30 degrees) and selecting items were done by simulating a push of a button at the desired item. When moving the hand round the sound items would play in the users audio space (using spatial audio) from the same direction as the hand position in the circle. The sound items were provided as speech-audio i.e. speech recorded numbers. An illustration is shown in figure \ref{fig:kajastila}.
 
 \begin{figure}[t]
 	\centering
@@ -185,7 +194,6 @@ Kajastila and Lokki \cite{kajastila_eyes-free_2013} also compaired auditory and 
 \end{figure}
 
 The system was evaluated by users selecting specific numbers with free-hand gestures with both the auditory menu feedback described above and also a visual based one. The majority of the participants felt that an auditory circular menu was faster than a visual based menu.
-
 
 % 3, Multimodal'eyes-free'interaction techniques for wearable devices
 Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} developed and evaluated an eyes-free wearable system that uses head gestures as input modality and 3D audio as output modality. The systems hardware setup consists of headphones and a sensor attached for detecting the head orientation. These two hardware parts are connected via cables to a belt-mounted PDA running software that processes 3D audio and recognizes head gestures. The physical system is shown in figure \ref{fig:brewster}.
@@ -224,7 +232,6 @@ The interaction design consists of different menus; a 1D horizontal/vertical, 2D
 \end{figure}
 
 Evaluation of the system showed that the 2D grid menu was the most effective and had the lowest selection errors.
-
 
 \subsection{Systems properties overview}
 Table \ref{tab:related} shows a comparison between the related systems mentioned above. They outline the current state on systems that are closest to what this thesis aims for. The properties are based on the related systems and research concepts:
@@ -267,6 +274,8 @@ System is designed as a music player interface.
 	Body pose system \cite{strachan_bodyspace_2007}   &  &   &  &  &  &  & x \\
 	\\
 	Touch gesture system \cite{pirhonen_gestural_2002}   & x &  & x &  &  &  & x \\
+	\\
+	The PocketMenu \cite{pielot_pocketmenu:_2012}   & x &  & x &  &  &  & x \\
 	\\
 	Free-hand gesture system \cite{kajastila_interaction_2013}   &  &  & x &  &  &  &  \\
 	\\
