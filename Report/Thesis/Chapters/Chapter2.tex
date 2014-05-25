@@ -152,7 +152,7 @@ Pirhonen et. al \cite{pirhonen_gestural_2002} developed and evaluated a mobile m
 
 The menu were designed so that swiping a finger in different directions on the touch screen resulted in an action e.g. changing to next track by swiping to the right. Non-speech audio was used to give feedback on swipe gestures - a sound increased in pitch when swiping to the right (next track) and a decreased sound when swiping left (previous track). The sounds used a simulated (no HRTF) spatial effect - panning the next-track sound to the right and the previous-track sound to the left of the users audio space. While these sounds popup the current chosen track were playing in the center. Users perceived the menu through audio feedback as shown in figure \ref{fig:pirhonen} which almost matched the actual menu design. An evaluation of the system showed significant usability improvements using gestures- and audio based interaction compaired to a visual pen-based interaction approach.
 
-The PocketMenu \cite{pielot_pocketmenu:_2012} also used touch based input via touch screen to control a music player but as output they experimented with two modalities (simultanous approach) - speech audio and tactile feedback. The menu were supposed to be controlled from a users pocket hence the name and were targeting interaction while moving scenarios. The menu layout was designed so that items were positioned vertically along the border of the screen. To browse the menu the user had to slide a finger along the screen. Tactile feedback was given at borders between menu items. Also speech audio was used to indicate which item was currently in focus (speaking the menu item action). By lifting the finger navigation was cancelled and swiping to the right would select the focused item. An illustration of this is shown in figure \ref{fig:asdf}. Menu controls were volume, next/previous track and play/stop. In an evalution of the system the PocketMenu outperformed Apples iPhone VoiceOver system when interacting on the move.
+The PocketMenu \cite{pielot_pocketmenu:_2012} also used touch based input via touch screen to control a music player but as output they experimented with two modalities (simultanous approach) - speech audio and tactile feedback. The menu were supposed to be controlled from a users pocket hence the name and were targeting interaction while moving scenarios. The menu layout was designed so that items were positioned vertically along the border of the screen. To browse the menu the user had to slide a finger along the screen. Tactile feedback was given at borders between menu items. Also speech audio was used to indicate which item was currently in focus (speaking the menu item action). By lifting the finger navigation was cancelled and swiping to the right would select the focused item. An illustration of this is shown in figure \ref{fig:pocketmenu}. Menu controls were volume, next/previous track and play/stop. In an evalution of the system the PocketMenu outperformed Apples iPhone VoiceOver system when interacting on the move.
 
 \begin{figure}[t]
 	\centering
@@ -252,6 +252,9 @@ The system gives the opportunity to explore the content before selecting it.
 \item[Simultanous audio]
 The system is exploiting the "Cocktail party effect" and can present simultanous audio streams. This is depending on whether the system supports spatial audio as it is hard to conduct otherwise.
 
+\item[Hierarchical menu]
+The menu has a depth - at least 1 sublevel.
+
 \item[Music Application]
 System is designed as a music player interface.
 \end{description}
@@ -273,11 +276,11 @@ System is designed as a music player interface.
 	\\
 	Body pose system \cite{strachan_bodyspace_2007}   &  &   &  &  &  &  & x \\
 	\\
+	The PocketMenu \cite{pielot_pocketmenu:_2012}   & x &  &  &  &  &  & x \\
+	\\
 	Touch gesture system \cite{pirhonen_gestural_2002}   & x &  & x &  &  &  & x \\
 	\\
-	The PocketMenu \cite{pielot_pocketmenu:_2012}   & x &  & x &  &  &  & x \\
-	\\
-	Free-hand gesture system \cite{kajastila_interaction_2013}   &  &  & x &  &  &  &  \\
+	Free-hand gesture system \cite{kajastila_interaction_2013}   &  &  & x & x &  &  &  \\
 	\\
 	Head gesture system, Park et. al \cite{park_gaze-directed_2011}   & x & x & x & x &  &  &  \\
 	\\

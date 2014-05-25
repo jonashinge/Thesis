@@ -11,22 +11,22 @@ Before choosing a design for a system different factors needs to be considered e
 % Ubicomp challenges
 When designing for ubicomp new aspects needs to be taken into consideration which increase the complexity of the system e.g. different devices, mobile users and changing environment and context \cite{barfield_fundamentals_2000}. Also we note that we are not only designing user interfaces but also the interactions between a user and the system through artifacts embedded in the environment \cite{beaudouin-lafon_designing_2004}. Furthermore it should be taken into account whether the interaction happens while the user is in motion as this introduces even more complexity as decribed earlier in section \ref{sec:interactioninmotion}.
 
-In this project we have defined the following requirements of the system: A user should navigate a music player, or more precisely explore and select music tracks, using head gestures and audio feedback while biking. In other words we have a user interacting with artifacts, consisting of a headmounted interface and a mobile device, while biking in a traffic environment implying user awareness of road conditions, cars, other bikers, etc.
+In this project we have defined the following requirements of the system: A user should navigate a music player, or more precisely explore and select music tracks, while biking. In other words we have a user interacting with artifacts while biking in a traffic environment, implying user awareness of road conditions, cars, other bikers, etc.
 
-As a consequence of these requirements, we will in the next sections discuss the constraints emitting from a scenario like that and how modality combinations could fit in the design of such a system, which will lead to a discussion on related systems, that uses the audio modality as interaction form. Last we will dwelve further into specific related audio interfaces and look at different auditory menu designs.
+As a consequence of these requirements, we will in the next sections discuss the constraints emitting from a scenario like that and how modality combinations could fit in the design of such a system. This will result in a discussion on related systems, that uses the audio modality as interaction form. Last we will delve further into specific related audio interfaces and look at different auditory menu designs.
 
 \subsection{Biking scenario constraints}
 % intro, physical and mental constraints
-Several constraints emerge from a humans capabilities to interact with a system while biking, both physically and mentally. Seen from a physical perspective the person riding the bike needs to have both hands on the handlebars in order to dodge any sudden obstructions e.g. an inattentive car. For the same reasons, and more importantly, the persons eyes needs to focus on the road. The latter is of more importance from the fact that people can not easily divide their visual attention between tasks \cite{brewster_overcoming_2002} but two hands can work independently from each other, dedicating one for steering and one for the interface. This does not mean that one hand can steer a bike perfectly - this is subjective, and we must assume that both hands for steering is preferable. Lastly biking requires the legs/feed on the pedals to move forward. From a mental perspective biking is heavily depending on the users attention or percptual load first of all to navigate the road but more importantly to keep the ability to react to traffical events. This perceptual load is complemented by the cognitive load which can increase in a very busy traffical biking scenarios and depends on the users ability to handle such scenarios.
+Several constraints emerge from a humans capabilities to interact with a system while biking, both physically and mentally. Seen from a physical perspective the person riding the bike needs to have both hands on the handlebars in order to dodge any sudden obstructions e.g. an inattentive car. For the same reasons, and more importantly, the persons eyes needs to focus on the road. The latter is of more importance from the fact that people can not easily divide their visual attention between tasks \cite{brewster_overcoming_2002} but two hands can work independently from each other, dedicating one for steering and one for the interface. This does not mean that one hand can steer a bike perfectly - this is subjective, and we must assume that both hands for steering is preferable. Lastly biking requires the legs/feed on the pedals to move forward. From a mental perspective biking is heavily depending on the users attention or perceptual load first of all to navigate the road but more importantly to keep the ability to react to traffical events. This perceptual load is complemented by the cognitive load which can increase in a very busy traffical biking scenarios and depends on the users ability to handle such scenarios.
 
-From a system perspective a biking scenario also implies constraints. First of all interaction with the system should preferably go through some kind of wearable device or at least something easy installable hardware that could be attached to the bike. The system also needs to optimize handling of unintentional interaction during biking e.g. motion gestures when riding a bumpy road. Secondly and most important the system needs to aim for minimizing the workload required by the user - every added feature should be considered i.e. every interaction task should be considering conducted while biking. Also the content presented to the user should be considered in terms of the interaction modality being used e.g. in a visual music player interface artist/track information and a lot of navigation possibilities might be good but if the same information and functionality were to provided via audio this would cause a non-linear effect and add complexity to the system.
+From a system perspective a biking scenario also implies constraints. First of all interaction with the system should preferably go through some kind of wearable device or at least something easy installable hardware that could be attached to the bike. The system also needs to optimize handling of unintentional interaction during biking e.g. motion gestures when riding a bumpy road. Secondly and most important the system needs to aim for minimizing the workload required by the user - every added feature should be considered i.e. every interaction task should be considering conducted while biking. Also the content presented to the user should be considered in terms of the interaction modality being used e.g. in a visual music player interface artist/track information and a lot of navigation possibilities might be good but if the same information and functionality were to provided via audio this would cause a non-linear effect and add too much complexity to the system.
 
 \subsection{Modalities reasoning}
 
 % HMD, Gaze tracking
 \textbf{Visual challenges}
 
-A headmounted visual display like Google Glass would give total hands-freeness when biking but as mentioned in \ref{sec:interactioninmotion} such displays can be hard and obtrusive to use in bright daylight. Also such interface still would require the visual attention from the user \cite{geelhoed_safety_2000}, although the user would not have to change head direction while biking (like when looking down on a traditional stop-to-interact interface). Same arguments follows with a gaze tracking solution. Also such a solution could require some kind of installation on the bike e.g. a camera attached to the handlebars for tracking the eye. Mobile solutions exists \cite{mardanbegi_eye-based_2012} but this will still imply the user to look at the device, and probably hold the device i.e. occupying one hand, while interacting. However the benefit with using visual displays like the headmounted displays in our scenario is, that it's possible to keep the rich visual experience of exploring music tracks before selecting them, linearly translated from the stop-to-interact music player interfaces. It can be argued though, that the experience is not as rich when biking in a traffic environment where attention is divided.
+A headmounted visual display like Google Glass would give total hands-freeness when biking but as mentioned in \ref{sec:interactioninmotion} such displays can be hard and obtrusive to use in bright daylight. Also such interface still would require the visual attention from the user \cite{geelhoed_safety_2000}, although the user would not have to change head direction while biking (like when looking down on a traditional stop-to-interact interface). Same arguments follows with a gaze tracking solution. Also such a solution could require some kind of installation on the bike e.g. a camera attached to the handlebars for tracking the eye. Mobile solutions exists \cite{mardanbegi_eye-based_2012} but this will still imply the user to look at the device, and probably hold the device i.e. occupying one hand, while interacting. However the benefit with using visual displays like the headmounted displays in our scenario is, that it's possible to keep the rich visual experience of exploring music tracks before selecting them - information could be linearly translated from the stop-to-interact music player interfaces. It can be argued though, that the experience is not as rich when biking in a traffic environment where attention is divided.
 
 Studies on multimodal interaction \cite{zhao_shared_2013} have shown that when humans needs to attend a physical visual task and a virtual task at the same time (dual task situation) - they found it significantly distractive to attend to the virtual task in a visual way. Instead audio has shown to be less distractive. The biking while interacting scenario can easily be translated into such a dual task where the physical task is to attend to the road and traffic and virtual task is to explore and select music tracks. Inspired from this and from other studies showing that audio can improve usability with mobile devices in eyes-free mobile conditions \cite{brewster_multimodaleyes-freeinteraction_2003}, systems designs that uses audio modalities should be considered instead.
 
@@ -37,64 +37,22 @@ Studies on multimodal interaction \cite{zhao_shared_2013} have shown that when h
 Using audio both as input and output modality would imply some kind of voice recognition system like the Google Search voice command system for Android mentioned in section \ref{sec:alternativemusicuis}. A good thing about this system is that the hardware requirements are minimal - it would work on all devices supporting Android and with all kinds of headsets. From a physical and workload demanding perspective this could work in a biking scenario e.g. a user would have to pick out the phone (maybe from the pocket) and then place it near the mouth and give the command. The visual attention would still be on the traffical surroundings although picking out the phone could need some attention. By using a headset controller with a mic this possible "hand attention problem" could be avoided. This interface however have some challenges \cite{sawhney_nomadic_2000} especially in noisy environments, where voice commands can be hard to recognize by the system, making it tedious and frustrating for the user to keep repeating the command. This frustration and also that the user is doing a physical activity like biking (increasing heart rate), can change the voice and affect the systems recognition abilities. At the same time these commands are limited i.e. navigation is limited. Too many commands would add heavy complexity to the system e.g. imagine a stop-to-interact music player interface like Spotify to translate just 10 of their navigation features to a voice command system. This will create a non-linear effect i.e. the user will have a hard time just remembering the commands and could get lost quickly in the navigation.
 
 % touch based
-Touch and audio based interfaces also suffers from limited navigation controls. Todays headset music controllers however fits well in a biking scenario. Although using one hand while biking to navigate the interface, the time it takes to push a button is short i.e. reducing the time where the bike is controlled with one hand. This short navigation maneuver is also due to the limited possible interface controls. Similar to these head controllers are the touch based interfaces that uses touch screens like \cite{pielot_pocketmenu:_2012, pirhonen_gestural_2002} - controlled from the pocket.
+Touch and audio based interfaces also suffers from limited navigation controls. Todays headset music controllers however fits well in a biking scenario. Although using one hand while biking to navigate the interface, the time it takes to push a button is short i.e. reducing the time where the bike is controlled with one hand. This short navigation maneuver is also due to the limited possible interface controls. Similar to these head controllers are the touch based interfaces that uses touch screens \cite{pielot_pocketmenu:_2012, pirhonen_gestural_2002} - controlled from the pocket. These interfaces however uses more advanced output modalities e.g. audio/tactile simultanous modalities (PocketMenu) and spatial audio feedback, which potentially could be used for richer exploration of menu items but also possibly increase complexity i.e. making it a harder cognitive task. Considering these advanced output modalities spatial audio has shown to be able to present complex information \cite{bronkhorst_cocktail_2000, gaver_sonicfinder:_1989} while keeping the human cognitive load down \cite{vazquez-alvarez_eyes-free_2011} and in combination with gesture input modalities, it was used effectively when navigating an interface in eyes-free mobile conditions. 
 
-% motion gesture based
+Considering combining spatial audio output with a motion gesture input modality, possible available human body parts when biking could be hands (implies biking with one hand) or the head. Although feet as a modality input were evaluated in a running scenario with good results \cite{smus_running_2010}, it would be awkward when biking would require both feet on the pedals to keep moving. Kajastilas free-hand gestures \cite{kajastila_interaction_2013} would imply the same hand interaction challenges discussed above but also a camera installed on the bike to detect the movements. Sensors could be used instead but would require some artefact installed on the hand. Instead it would be more appropriate to install sensors into a headset and use head movements as input modality like \cite{park_gaze-directed_2011, brewster_multimodaleyes-freeinteraction_2003} as this would not add any additional artefacts to the system. When using head gestures it would still be possible to keep the eyes on the road, assuming the head rotation is not too big. Also the human head itself is physically constrained in that it can be rotated 140 degress for shaking and 100 degrees for nodding \cite{lopresti_neck_2000} which should be taken into consideration when designing the auditory menu. Also when biking motion gesture detections could be unintentionally activated e.g. an accelerometer sensor value increases when moving forward.
 
-
-
-
-TODO: End this subsection with talking about the limited controls from discussed interfaces
-
-
-% Thomas comment:
-% i recommend to start the system design discussion from the constraints emerging from human capabilties to interact with a system while biking. all possible input and output modalities should be explored and then, finally, you should land in suggesting a head-gesture based UI.
-
-% Biking scenario:
-% Human constraints: Physical, Mental, Environment
-
-% Modalities in biking scenario, pros, cons:
-% Vision: HMDs, Gaze tracking
-% Speech: Speech recognition, simple commands, environmental noise
-% Gestures: Hand, Head, Leg, Body pose
-% Audio
-
-% Related systems
-
-% From theory:
-% - Modality replacement linear effect (from visual overview to ?)
-
-% Headset controller: 
-% This kind of interaction though assumes the user has created a playlist and knows in which order the tracks follows to navigate efficiently to the wanted track. Also this kind of menu is 1-dimensional in the sense that tracks needs to be placed in a sequence missing the opportunity to go into a submenu e.g. an album of an artist. It should also be taken into account that although only using one hand for interaction this could still create challenges e.g. when steering or hitting the breakes while biking could require both hands on the steering.
-
-% Voice recognition:
-% ...In this application example the user could express simple commands like play, stop, next/previous track and queue. Voice recognition however introduces accuracy and stability challenges especially in mobile noisy environments. At the same time speech commands are limited - it would introduce even more complexity if the system should be able to interpret detailed commands e.g. an artist name or even a track title.
-% - good ref about speech recognition challenges \cite{sawhney_nomadic_2000}
-
-
-%- Unintentional behaviour e.g. activating menu biking over a bump or a sudden need for rotating head because of obstacles
-%- Weather conditions, too much wind disrupting the audio, rain on headset
-%- Noise can disrupt audio
-
+With the chosen modalities of head gestures and spatial audio we will next compaire auditory menu designs that uses these modalities and discuss their customizability in a music listening biking scenario.
 
 \subsection{Auditory menus}
-...
+To achieve the first goal of this thesis that is, to design a mobile music player interface based on head gestures and 3D audio that allows a user to explore and select music tracks, we have discussed the interaction scenario constraints above and the suitability of modality choices, but we also need to consider the minimum requirements of the system: The exploration and selection of music tracks. This is more related to the content of the system and how it is presented. To compete with existing "stop-to-interact" music player interfaces in terms of this, we need to translate as much of the visual information into audio feedback without causing any non-linear effects.
+
+One advantage with using a multimodality combination of head gestures and spatial audio is that it can provide natural interaction \cite{gaver_auditory_1986} i.e. hearing sounds as we would normally do in the real world in relation to head direction. Another advantage with spatial audio is that it can enable the "cocktail party effect" \cite{bronkhorst_cocktail_2000} i.e. people can segregate multiple simultanous playing sounds. Imagining if exploring simultanous playing music tracks is feasible, that could provide a rich exploration factor to our music player interface - allowing the user to hear tracks before selecting them.
+
+Although Park et. al \cite{park_gaze-directed_2011} showed good results with a 2D grid menu it is hard to localize vertically positioned sounds compaired if they were aligned horizontally - especially if they play simultanously. A circular egocentric menu layout showed the best evaluation results in the head gesture system by Brewster et. al \cite{brewster_multimodaleyes-freeinteraction_2003} but they were limited to 4 sound items because of head movement constraints (a nod in 45 degrees is hard for a human to conduct). Although same study showed that an exocentric layout were slower it would give a more natural selection (directing the head against an item and selecting it) and provide the opportunity for more than 4 sound items.
 
 
 \section{Spatial Music Menu}
-This section contains a description of the system design. The design is inspired from related systems based on gestures and audio, and with the thesis goal in mind, that it should compete with existing stop-to-interact music player interfaces.
-
-\subsection{Soundscape}
-- Music, strength of recognizing artist/track through listening vs seeing the text on a screen
-- Horizontal argument
-- Two menu interaction modes, distance/
-- Selective attention task
-- Simultanous sounds, exploring, cocktail party effect argument
-- Experimental design, sounds perceived, zoom effect, user should detect sound direction (which track)
-
-Metaphor: Carousel
-
-Soundscape design illustration, figure \ref{fig:sounddesign}
+This section contains a description of the system design. The physical design of the system assumes artefacts in form of a headset, which can detect head gestures by using built-in motion sensors and deliver 3D audio feedback, that communicates with a mobile device put in the users pocket during biking.
 
 \begin{figure}[t]
 	\centering
@@ -104,25 +62,27 @@ Soundscape design illustration, figure \ref{fig:sounddesign}
 	\label{fig:sounddesign}
 \end{figure}
 
+\subsection{Soundscape}
+Sound items (music tracks) are layed out in a horizontal circular way within 80-140 degrees in front of the user, see figure \ref{fig:sounddesign}. The number of music tracks are between 3 and 10 depending on user settings, they are spatially positioned and are playing simultanously. The menu uses exocentric interaction so by turning the head toward a music track, it will move in the center of the users front audio space. It is easier to describe by using a metaphor: Imagine a carousel turning while different koncerts play around it. The user should then imagine standing in the middle of the carousel looking out. The menu design provides another interaction variant of this which includes a zoom effect. In this case the user should imagine standing near the edge of a carousel looking out. This will bring more focus to the music track in which the user is "looking" at. These two interaction mdoes are illustrated in figure \ref{fig:interactionmodes}. Parameters like the rotation degrees (80-140), music tracks (3-10) and distance (e.g. carousel size) can be adjusted according to the user preferences.
+
+\begin{figure}[t]
+	\centering
+		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/interactionmodes.png}
+		\rule{35em}{0.5pt}
+	\caption[Interaction modes]{The system consists of two different interaction modes - with (to the right) and without (to the left) zoom feature. The user is illustrated by an elephant looking at the sound items.}
+	\label{fig:interactionmodes}
+\end{figure}
+
 \subsection{Navigation}
-- Adaption of real world music player menu
-- Figure showing levels of menu
-- Navigation
-- Head gestures
-- Activating menu
-- Feedback when gesture recognized
-- Nod = yes
-
-Several studies show that circular auditory menus are the way to go because of horizontally positioned sounds (ref?)
 
 
-
-
-
-
-
-
-
+%- Adaption of real world music player menu
+%- Figure showing levels of menu
+%- Navigation
+%- Head gestures
+%- Activating menu
+%- Feedback when gesture recognized
+%- Nod = yes
 
 
 
@@ -144,6 +104,39 @@ Several studies show that circular auditory menus are the way to go because of h
 
 
 % OLD - Use some parts here and move some to introduction method section
+
+
+%The design is based on the following parameters: 
+
+%\begin{itemize}
+%\item Simultanous sounds (music tracks) spatially positioned
+%\item Horizontal circular menu layout with music tracks as menu items
+%\item Non-speech sound items in form of music tracks
+%\item Simple speech sound feedback indicating menu level
+%\end{itemize}
+
+%- Music, strength of recognizing artist/track through listening vs seeing the text on a screen
+%- Horizontal argument
+%- Two menu interaction modes, distance/
+%- Selective attention task
+%- Simultanous sounds, exploring, cocktail party effect argument
+%- Experimental design, sounds perceived, zoom effect, user should detect sound direction (which track)
+
+% Horiontal alignment
+
+% Circular
+
+% non-speech sound
+
+% selective-attention
+
+% exocentric
+
+% Head gestures, nod=yes
+
+
+
+
 \begin{comment}
 
 This chapter first explains the design methods used and the most important design activities and choices made in the design process. Based on this process the final prototype design is presented at the end of the chapter.
