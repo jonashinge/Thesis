@@ -62,8 +62,8 @@ This section contains a description of the system design. The physical design of
 	\label{fig:sounddesign}
 \end{figure}
 
-\subsection{Soundscape}
-Sound items (music tracks) are layed out in a horizontal circular way within 80-140 degrees in front of the user, see figure \ref{fig:sounddesign}. The number of music tracks are between 3 and 10 depending on user settings, they are spatially positioned and are playing simultanously. The menu uses exocentric interaction so by turning the head toward a music track, it will move in the center of the users front audio space. It is easier to describe by using a metaphor: Imagine a carousel turning while different koncerts play around it. The user should then imagine standing in the middle of the carousel looking out. The menu design provides another interaction variant of this which includes a zoom effect. In this case the user should imagine standing near the edge of a carousel looking out. This will bring more focus to the music track in which the user is "looking" at. These two interaction mdoes are illustrated in figure \ref{fig:interactionmodes}. Parameters like the rotation degrees (80-140), music tracks (3-10) and distance (e.g. carousel size) can be adjusted according to the user preferences.
+\subsection{Soundscape design}
+Non-speech sound items (music tracks) are layed out in a horizontal circular way within 140 degrees in front of the user, see figure \ref{fig:sounddesign}. The number of music tracks are spatially positioned and are playing simultanously. The menu uses exocentric interaction - by turning the head towards a music track, it will move in the center of the users front audio space. We conducted a small pilot study where 2 kinds of design were tested. The two designs can best be described by imagining a carousel turning, while different koncerts play around it. In the first design the user stands in the center of the carousel looking out and in the second the user stands on the edge of the carousel looking out. These two interaction modes are illustrated in figure \ref{fig:interactionmodes}.
 
 \begin{figure}[t]
 	\centering
@@ -73,16 +73,47 @@ Sound items (music tracks) are layed out in a horizontal circular way within 80-
 	\label{fig:interactionmodes}
 \end{figure}
 
+The purpose of the pilot study was to give qualitative feedback and specify appropriate parameters like max number of simultanous playing music tracks, the preferred degree for head rotation and the distance between the user and the music items. Although not neccesary for the final design, we developed a hifi-prototype \cite{benyon_designing_2010} that visualised the actual soundscape design. This envisionment technique gave the users in the pilot study a quicker and better understanding of the design. Figure \ref{fig:pilotstudy} shows a user testing the design and the hifi-prototype.
+
+\begin{figure}[b]
+	\centering
+		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/pilotstudy.jpg}
+		\rule{35em}{0.5pt}
+	\caption[Pilot study]{Pilot study showing a user testing the design and the visual prototype.}
+	\label{fig:pilotstudy}
+\end{figure}
+
+The pilot study consisted of 5 participants, 4 males and 1 female. The music tracks used in the test were added by the users to make sure they knew the tracks. The experiment were conducted by observation and semi-structured interviewing \cite{benyon_designing_2010}. Both interaction modes were tested by starting laying out 3 sound items and then adding 1 until the user found it to hard to recognize the music tracks. Distance and head rotation parameters were adjusted to match the user preferences every time sound items were added. The users preferred the interaction mode with zoom effect and they felt comfortable with 6-8 simultanous playing music tracks compaired to the other mode where \textgreater 4 simultanous music tracks were hard to segregate. Users preferred a smaller head rotation degree with the zoom effect of 80-100 degrees compaired to the other mode where 120-140 degrees were preferred. The feedback results are shown in table \ref{tab:pilotresults}.
+
+\begin{table}[t] 
+\scriptsize
+\centering
+\caption{Pilot study feedback} % title name of the table 
+%\centering % centering table
+\begin{tabular}{L{3cm}C{3cm}C{3cm}} \toprule
+	 & Direction based & Direction based with zoom effect \\ \midrule
+    Max number of music tracks   & 3-5 & 6-8 \\
+    \\
+    Preferred head rotation degree   & 120-140 & 80-100 \\ \bottomrule
+\end{tabular}
+
+\label{tab:pilotresults} 
+\end{table}
+
 \subsection{Navigation}
+The menu was designed with a 2 level exploring part that utilizes the soundscape design and a final level for playing the music track (simple playback). The idea is that the exploring starts by selecting an artist (HOME), then moving down a level to select a track from that artist (ALBUM) and then finally playing it (PLAYING TRACK). This menu hierachy (reversed) is illustrated in figure \ref{fig:navigation}.
 
+\begin{figure}[b]
+	\centering
+		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{./Figures/navigation.png}
+		\rule{35em}{0.5pt}
+	\caption[Menu Hierachy]{The menu consists of 2 exploring levels and 1 level for playing track.}
+	\label{fig:navigation}
+\end{figure}
 
-%- Adaption of real world music player menu
-%- Figure showing levels of menu
-%- Navigation
-%- Head gestures
-%- Activating menu
-%- Feedback when gesture recognized
-%- Nod = yes
+To navigate between levels simple head gestures were designed: A forward nod for going up one level, a backward nod for going back one level and a right sideways nod for activating the menu. Activating the menu would the case where a music track is playing and the user wish to change track - it will take the user to the HOME level. When entering a level, audio feedback is given in form of speech recorded sounds telling what level the user is in e.g. "Home", "Album" and "Playing track". These head gestures and the ability to navigate between menu levels were evaluated in a second part of the pilot study mentioned above. Participants started by recording the three gestures to get some training data. Then the participants simply tried to choose tracks by navigating between levels using the gestures. The system seemed to react to undesired gestures (true negatives) when participants were rotating the head which affected the navigation experience. Backward and sideways nods were removed and instead to go up one level or to activate the menu a simple push on a button on the headset were introduced. This helped in several ways - the user only needed to focus on 1 gesture which they also reported was the easiest one to conduct. For the systems point of view the nod is the most important gesture in that it is the actual selection of an item. We assume users to most of the time select the desired music track, and therefore going back a level would at least not be as neccesary as selecting i.e. we would not expect a lot of button push activity. Same theory goes for activating, this will be a 1 time push for every time the user wishes to change track. An accuracy test were conducted for nod selections by observing the user and the system response registering true postitives, true negatives and false positives, see table ??
+
+TODO: table and short resume of accuracy results
 
 
 
