@@ -2,9 +2,10 @@
 TODO
 ---------------------
 
-- Record 3 diff gestures data set and calculate precision (80/20 split)
-- Setup bike for pictures
+- Appendix, what should it consist of
 - Std dev on graphs
+- Abstract
+- mit.itu project base, should the text for project be changed?
 
 
 ---------------------

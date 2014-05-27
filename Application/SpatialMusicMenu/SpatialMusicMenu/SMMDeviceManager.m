@@ -286,11 +286,13 @@ const int WINDOW_SIZE = 30;
         //DEBUGLog(@"Fusion data: %@",obs);
         _accDataCounter += 1;
         
+        DEBUGLog(@"Observation: %@",obs);
+        
         // Record gesture
         if(_isRecordingGesture)
         {
             _accDataCounter = 0;
-            DEBUGLog(@"Fusion data: %@",obs);
+            DEBUGLog(@"Observation: %@",obs);
             [_recording addObject:obs];
         }
         // Recognize gesture
