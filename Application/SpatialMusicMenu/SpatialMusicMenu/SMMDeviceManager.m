@@ -286,7 +286,7 @@ const int WINDOW_SIZE = 30;
         //DEBUGLog(@"Fusion data: %@",obs);
         _accDataCounter += 1;
         
-        DEBUGLog(@"Observation: %@",obs);
+        //DEBUGLog(@"Observation: %@",obs);
         
         // Record gesture
         if(_isRecordingGesture)
@@ -306,7 +306,7 @@ const int WINDOW_SIZE = 30;
             }
             if(_accDataCounter == WINDOW_SIZE)
             {
-                DEBUGLog(@"WINDOW_SIZE reached and acc data count:%d - now recognizing...",[_accData count]);
+                //DEBUGLog(@"WINDOW_SIZE reached and acc data count:%d - now recognizing...",[_accData count]);
                 NSDictionary *result = [_recognizer recognizeSequence:_accData];
                 NSString *classResult = [result objectForKey:@"class"];
                 if(![classResult isEqual: @"__UNKNOWN"])

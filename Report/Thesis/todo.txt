@@ -2,8 +2,7 @@
 TODO
 ---------------------
 
-- Appendix, what should it consist of
-- Std dev on graphs
+- Appendix, what should be included?
 - Abstract
 - mit.itu project base, should the text for project be changed?
 

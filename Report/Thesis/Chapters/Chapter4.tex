@@ -117,26 +117,30 @@ The possible pause between pushing the start/stop recording button and the start
 
 
 \section{iOS Application}
-The Spatial Music Menu appliation were developed for an iPad Mini running iOS 7.1. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most important functionality of the Spatial Music Menu.
+The Spatial Music Menu appliation were developed for an iPad Mini running iOS 7.1. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most the important functionality of the Spatial Music Menu.
 
-\subsection{Overview}
-An overview of the application architecture is shown in figure \ref{fig:apparchitecture}.
+An overview of the application architecture is shown in figure \ref{fig:apparchitecture}. The figure highlights the different relationships between application state, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}} e.g. Model-View-Controller and delegation patterns.
 
 \begin{figure}[t]
-	\centering
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/app-architecture.pdf}
-		\rule{35em}{1pt}
-	\caption[App architecture]{iOS app architecture overview}
-	\label{fig:apparchitecture}
+  \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/app-architecture.pdf}
+    \rule{35em}{1pt}
+  \caption[App architecture]{iOS app architecture overview}
+  \label{fig:apparchitecture}
 \end{figure}
 
-TODO: describe the architecture
-- Singleton approach, iOS MVC pattern
+\subsection{Application state management}
+... Singleton approach
 
-\subsection{Models and persistent storage}
+\subsection{Headset events handling}
+...
 
-\subsection{Settings views}
+\subsection{View controller logic}
 - TODO: show screenshots of iPad 3 views
+
+\subsection{Models and persistency storage}
+...
+
 
 
 

@@ -111,9 +111,22 @@ The menu was designed with a 2 level exploring part that utilizes the soundscape
 	\label{fig:navigation}
 \end{figure}
 
-To navigate between levels simple head gestures were designed: A forward nod for going up one level, a backward nod for going back one level and a right sideways nod for activating the menu. Activating the menu would be the case where a music track is playing and the user wish to change track - it will take the user to the HOME level. When entering a level, audio feedback is given in form of speech recorded sounds telling what level the user is in e.g. "Home", "Album" and "Playing track". These head gestures and the ability to navigate between menu levels were evaluated in a second part of the pilot study mentioned above. Participants started by recording the three gestures (3x3) to get some training data. Then the participants simply tried to choose tracks by navigating between levels using the gestures. The system seemed to react to undesired gestures (true negatives) when participants were rotating the head which affected the navigation experience negatively. Backward and sideways nods were removed and instead to go up one level or to activate the menu a simple push on a button on the headset were introduced. This helped in several ways - the user only needed to focus on 1 gesture which they also reported was the easiest gesture to conduct. For the systems point of view the nod is the most important gesture in that it is the actual selection of an item. We assume users most of the time to select the desired music track, and therefore going back a level would at least not be as neccesary as selecting i.e. we would not expect a lot of button push activity. Same theory goes for activating, this will be a 1 time push for every time the user wishes to change track. An accuracy test were conducted for nod selections by observing the user and the system response registering true postitives, true negatives and false positives, see table ??
+To navigate between levels simple head gestures were designed: A forward nod for going up one level, a backward nod for going back one level and a right sideways nod for activating the menu. Activating the menu would be the case where a music track is playing and the user wish to change track - it will take the user to the HOME level. When entering a level, audio feedback is given in form of speech recorded sounds telling what level the user is in e.g. "Home", "Album" and "Playing track". These head gestures and the ability to navigate between menu levels were evaluated in a second part of the pilot study mentioned above. Participants started by recording the three gestures (3x3) to get some training data. Then the participants simply tried to choose tracks by navigating between levels using the gestures. The system seemed to react to undesired gestures (false positives) when participants were rotating the head which affected the navigation experience negatively. Backward and sideways nods were removed and instead to go up one level or to activate the menu a simple push on a button on the headset were introduced. This helped in several ways - the user only needed to focus on 1 gesture which they also reported was the easiest gesture to conduct. For the systems point of view the nod is the most important gesture in that it is the actual selection of an item. We assume users most of the time to select the desired music track, and therefore going back a level would at least not be as neccesary as selecting i.e. we would not expect a lot of button push activity. Same theory goes for activating, this will be a 1 time push for every time the user wishes to change track. An accuracy test were conducted for nod selections by observing a user and the system response registering true postitives (nod performed and detected), true negatives (nod performed but not detected) and false positives (nod detected but not performed). The participant simply performed nods while turning the head in different directions in between and every event, whether it was a performed nod or a detected nod by the system, were noted down. Table \ref{tab:accuracytest} shows the results of 200 registered events - 100 from two different users.
 
-TODO: table and short resume of accuracy results
+\begin{table}[h] 
+\scriptsize
+\centering
+\caption{Nod gesture accuracy test} % title name of the table 
+%\centering % centering table
+\begin{tabular}{|C{3cm}|C{3cm}|C{3cm}|}
+	\hline
+	True Positive & True Negative & False Positive \\ \hline
+    163 & 35 & 2 \\ \hline
+\end{tabular}
+\label{tab:accuracytest} 
+\end{table}
+
+163 of 200 events were executed correctly so we end up with an accuracy of $\sim$ 82\%. Decreasing the number of gestures had the desired effect and the false positives were reduced to only 2 detections during the 200 events.
 
 
 
