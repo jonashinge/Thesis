@@ -3,8 +3,11 @@ TODO
 ---------------------
 
 - Appendix, what should be included?
+- Add image of bike with ps3 controller to the simulation screen
 - Abstract
+- Deezer app or Touch and vision based?
 - mit.itu project base, should the text for project be changed?
+
 
 
 ---------------------

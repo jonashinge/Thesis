@@ -13,6 +13,7 @@
 
 \usepackage[utf8]{inputenc}
 
+\usepackage{pdfpages}
 
 % for tables
 \usepackage{amsfonts}
@@ -60,6 +61,19 @@
 
 %% ----------------------------------------------------------------
 \begin{document}
+%\includepdf[pages={1}]{itufront.pdf}
+%\includepdf[pages=-,scale=.8,pagecommand={}]{file}
+\includepdf[pages=1,
+            pagecommand={\thispagestyle{empty}},
+            %width=\textwidth,
+            %height=\textheight,     
+            keepaspectratio,
+            %offset=0pt 0pt,     %letter, oneside    => misaligned by .x pt
+            offset=60pt -60pt,  %letter, twoside    => misaligned by .x pt
+            %offset=0pt 0pt,    %a4paper, oneside   => misaligned by 1.x pt
+            %offset=-25pt 0pt,  %a4paper, twoside   => misaligned by 1.x pt
+            ]{itufront.pdf}
+
 \frontmatter      % Begin Roman style (i, ii, iii, iv...) page numbering
 
 % Set up the Title Page

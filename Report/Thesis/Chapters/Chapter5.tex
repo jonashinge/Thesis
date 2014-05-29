@@ -1,9 +1,7 @@
 \lhead{\emph{Evaluation}}
 \chapter{Evaluation}
 \label{sec:evaluation}
-% Intro
-[TODO: rewrite]
-As mentioned in section [TODO: ref implementation section] the scope of the implementation in this thesis is limited to study the effects of exploring and navigating to music tracks. To study whether the Spatial Music Menu could compete with a touch and vision-based music player interface we designed and conducted an experiment where users should perform mental and physical demanding tasks while interacting with the interfaces.
+To study whether the implemented Spatial Music Menu could compete with a touch and vision-based music player interface, we designed and conducted an experiment where users should perform mental and physical demanding tasks while interacting with the interfaces. This aimed to simulate the "biking while interacting with a music player" scenario.
 
 \begin{figure}[h]
 	\centering
@@ -13,27 +11,37 @@ As mentioned in section [TODO: ref implementation section] the scope of the impl
 	\label{fig:evalspatial}
 \end{figure}
 
+% Scope
+Although we in the explorative design process in \ref{sec:designsoundscape} evaluated that users could segregate 6-8 music tracks with the Spatial Music Menu, we reduced the number of tracks to 3 in this final experiment. An evaluation of the max number of simultanous playing music tracks while biking is out of this thesis scope and referred to a future study.
+
 
 \section{Experiment Design}
-The experiment was designed and conducted as a controlled lab experiment. Controlled experiments are appropriate when comparing one design to another to see which is better \cite{benyon_designing_2010} and in this case we are compairing the Spatial Music Menu with a touch and vision-based music player. As the focus is on compairing and study the effects of these interfaces in an interaction in motion scenario i.e. biking, we designed a evaluation system simulating a trafficked biking scenario.
+The experiment was designed and conducted as a controlled lab experiment. Controlled experiments are appropriate when comparing one design to another to see which is better \cite{benyon_designing_2010} and in this case we are compairing the Spatial Music Menu with a touch and vision-based music player. As the focus is on compairing and study the effects of these interfaces in an interaction in motion scenario i.e. biking, we designed an evaluation system simulating a trafficked biking scenario.
 
-\subsection{Biking simulation setup}
-A stationary bike was put in front of a giant screen (4 x 40 inch HD screens) that should simulate a road. To make the view as realistic as possible an image of an actual trafficked road\footnote{New York street: \url{http://timsklyarov.com/new-york-through-the-eyes-of-a-road-bicycle/}} was showed on the screen. To simulate obstacles that the user should be aware of or respond to in a real world biking scenario, 3 different shapes with random colors were displayed in random positions on the screen in a random time interval; between 0.3 and 1 second displaying the shape in 0.8 seconds. The shapes were circles, triangles and squares and the job for the person riding the bike was to detect the circles. This was done by pushing a button attached close to the users non-preferred hand on the steer, in this case a Playstation 3 joystick strapped with tape. The reason for the button placement at the non-preferred hand was, that the preferred hand should be used for navigating the touch and vision-based music player. To give the user feedback the circle was removed when detected. The screen simulation software is developed in Python 3 running on a Mac (OSX 10.9). The simulation system is illustrated in figure [TODO: ref].
+\subsection{Biking simulation}
+A stationary bike was put in front of a giant screen (4 x 40 inch HD screens) that should simulate a road. To make the view as realistic as possible an image of an actual trafficked road\footnote{New York street: \url{http://timsklyarov.com/new-york-through-the-eyes-of-a-road-bicycle/}} was showed on the screen. To simulate obstacles that the user should be aware of or respond to in a real world biking scenario, 3 different shapes with random colors were displayed in random positions on the screen in a random time interval; between 0.3 and 1 second displaying the shape in 0.8 seconds. The shapes were circles, triangles and squares and the job for the person riding the bike was to detect the circles. This was done by pushing a button attached close to the users non-preferred hand on the steer, in this case a Playstation 3 joystick strapped with tape. The reason for the button placement at the non-preferred hand was, that the preferred hand should be used for navigating the touch and vision-based music player. To give the user feedback the circle was removed when detected. The screen simulation software is developed in Python 3 running on a Mac (OSX 10.9). The simulation system is illustrated in figure \ref{fig:simulationsystem}.
 
-[TODO: figure of biking simulation system]
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/simulation_system.png}
+		\rule{35em}{1pt}
+	\caption[Simulation screen]{The screen were to simulate a road and circles were obstacles that the user should respond to (detect) by pushing a button.}
+	\label{fig:simulationsystem}
+\end{figure}
 
 \subsection{Touch and vision-based music player}
-To represent a touch and vision-based music player we chose the music streaming service Deezer\footnote{\url{https://www.deezer.com/}}. Their Android application\footnote{\url{https://play.google.com/store/apps/details?id=deezer.android.app}} was installed on a Google Nexus 4 running Android 4.3. The same headset as for the Spatial Music Menu was used but this time connected through a wire.
+To represent a touch and vision-based music player we chose the music streaming service Deezer also used in the implementation (\ref{sec:implementationmusic}). Their Android application\footnote{\url{https://play.google.com/store/apps/details?id=deezer.android.app}} was installed on a Google Galaxy Nexus running Android 4.3. The same headset as for the Spatial Music Menu was used but this time connected through a wire.
 
 \subsection{Hypotheses}
-Based on the related work theory behind the design choices for the Spatial Music Menu we derived the following hypotheses for the experiment:
+\label{sec:evaluationhypothesis}
+Based on the related research theory and work laying ground for the design choices of the Spatial Music Menu, we derived the following hypotheses for the experiment:
 
 \begin{description}
 \item[Hypothesis 1:] The users ability to detect circles while executing tasks in the biking simulation will increase with the Spatial Music Menu interface compaired to the touch and vision-based music player interface.
 \end{description}
 
 \begin{description}
-\item[Hypothesis 2:] The users performance when executing tasks in the biking simulation using the Spatial Music Menu can compete with the touch and vision-based music player interface in terms of general usability (workload).
+\item[Hypothesis 2:] The users performance when executing tasks in the biking simulation using the Spatial Music Menu can compete with the touch and vision-based music player interface in terms of general usability (workload) and task completion time.
 \end{description}
 
 
@@ -43,8 +51,8 @@ This section describes the different methods used for conducting the experiment.
 \subsection{Participants}
 5 persons (all male) were chosen for the evaluation. They all have in common that they listens to music while biking regularly. The participants had an average age of 30 years.
 
-\subsection{Task}
-Throughout the experiment the participants will be given some tasks. A task is basically defined as a music track in which the user should navigate to. The music track (artist - title) is shown on the top left of the screen and when it does the user should start the navigation task. So in the case of the Spatial Music Menu the user should activate the menu by pushing the right button on the headset and explore and select the tracks with head gestures. If the user selects a wrong album or track the menu must be activated again (going to the HOME state). In the case of the touch and vision-based music application the user must pick the device from a pocket, activate/unlock screen, navigate to the music track, deactivate screen and put the device back in the pocket.
+\subsection{System task}
+Besides the task of detecting circles on the simulation screen the participants were given some tasks that refer to the system usage. Such a task is basically defined as a music track in which the user should navigate to. The music track (artist - title) is shown on the top left of the screen and when it does the user should start the navigation task. So in the case of the Spatial Music Menu the user should activate the menu by pushing the right button on the headset and explore and select the tracks with head gestures. If the user selects a wrong album or track the menu must be activated again (going to the HOME state). In the case of the Deezer music application the user must pick the device from a pocket, activate/unlock screen, navigate to the music track, deactivate screen and put the device back in the pocket.
 
 As we wanted to compaire the two systems the menu structure needed to be aligned as much as possible. Figure \ref{fig:menustates} shows how the states (HOME and ALBUM) in the two different menus corresponds to each other.
 
@@ -56,41 +64,36 @@ As we wanted to compaire the two systems the menu structure needed to be aligned
 	\label{fig:menustates}
 \end{figure}
 
-TODO: Spatial effect enforcement
+The Deezer interface could imply an extra challenge in the ALBUM level, in that the entire album is showing on the screen compaired with the Spatial Music Menu where only 3 tracks appear per level. As an attempt to justify this we created an extra challenge in shuffling the 3 tracks on both levels in the Spatial Music Menu preventing the user to create a virtual map of the tracks. This would also enforce the spatialisation effect if users were still able to select and explore tracks efficiently.
 
 \subsection{Procedure}
 % Before test
-instructions, preparation, favourite tracks
-... before starting the experiment the user were instructed in how the Spatial Music Menu works i.e. which head gestures to use for navigating and how the menu structure looks. They then got a chance to try out the system both standing still and while riding the stationary bike. In the standing still scenario the user was allowed to look at the menu envisioned on the iPad screen to get a sense of the menu structure and interaction feedback...
+As an intitial requirement for the experiment the participants had to select some of their favourite music tracks to be used in the systems - more specifically they had to choose 3 tracks from the same album for 3 different artists i.e. 9 tracks in total. The users were told that the music tracks should be very familiar e.g. hearing the song should trigger the artist name and song title.
 
-% Procedure
+Before starting the experiment the user were instructed in how the Spatial Music Menu works i.e. which head gestures to use for navigating and how the menu structure looks. They then got a chance to try out the system both standing still and while riding the stationary bike. In the standing still scenario the user was allowed to look at the menu envisioned on the iPad screen to get a sense of the menu structure and interaction feedback.
 
-- Artist - Album - Track
+When the user felt ready the experiment started. The user started riding the bike and detecting the circles on the screen while listening to a chosen music track. While the gyroscope in the Intelligent Headset requires calibration - the first 10 seconds of the experiment were used for this. During the experiment 9 different system tasks were given to the user and when a task was done the user raised the right hand and a timestamp was registered in the simulation system (simple push of a button by the observer). The user were to detect circles at the same time throughout the experiment.
 
-- task traditional: Pick phone from pocket, activate, navigate, deactivate, back in pocket
-
-- choosing music tracks in Deezer app
-
-User performing a task using the Spatial Music Menu is shown in figure \ref{fig:evalspatial}
-
-User performing a task using a touch and vision-based music player is shown in figure \ref{fig:evalspatial}
+A user conducted this procedure for both the Spatial Music Menu and the Deezer music application and the order of which system was evaluated first were split so that 3 participants started with the Spatial Music Menu and 2 started with the Deezer application. Figure \ref{fig:evalspatial} and \ref{fig:evalnormal} shows a user performing a task using the Spatial Music Menu and the Deezer music player respectively.
 
 \begin{figure}[t]
 	\centering
 		\includegraphics[width=0.7\textwidth,height=\textheight,keepaspectratio]{./Figures/evaluation_normal.jpg}
 		\rule{35em}{1pt}
 	\caption[Evaluation touch and vision-based interface]{Participant performing a task using a touch and vision-based music player}
-	\label{fig:evalspatial}
+	\label{fig:evalnormal}
 \end{figure}
 
 \subsection{Logging}
-Throughout the experiment several data were logged. This includes data from the Biking Simulation System: Task start/end, circles shown, circles detections, error detections - and data from the Spatial Music Menu: Gestures detected, navigation steps including track info, headset connection status. Every log subject has a timestamp and as logging were performed on two different systems - iOS and OSX (python script) clocks were synchronized before comparison.
+Throughout the experiment several data were logged. This includes data from the Biking Simulation System: Task start/end, circles shown, circles detections, error detections - and data from the Spatial Music Menu: Gestures detected, navigation steps including track info, headset connection status. Every log subject has a timestamp and as logging was performed on two different systems - iOS and OSX (python script) clocks were synchronized before comparison.
 
 
 \subsection{NASA Task Load Index}
 Subjective workload was measured using the NASA Task Load Index (TLX) scales \cite{hart_workload_1990}. The scales includes mental demand, physical demand, temporal demand, performance, effort and frustration in which each participant should rate after testing. The user ratings gives a qualitative analysis of the system and the perceived workload is linked with the general usability of the system.
 
-\subsection{Observing and semi-structured interview}
+TODO: Appendix?
+
+\subsection{Observing}
 
 - Monitoring interaction via iPad screen, calibrating center direction
 
@@ -98,28 +101,23 @@ Subjective workload was measured using the NASA Task Load Index (TLX) scales \ci
 
 
 \section{Results}
-[TODO: intro]
+This section presents the results of the experiment which were collected from logged data and the NASA TLX scales. Each participant did 9 tasks each, that is 45 tasks in total for each system and each participant filled out the NASA TLX scales for both systems.
 
-\subsection{User performance}
-[TODO]
-% Number of circles, safety
-%The most important task for the user during testing is to detect as many circles as possible. The number of circles shown and the number of circles detected were logged during execution of tasks. This will give a quantitative analysis of whether the user is able to monitor the surroundings while interacting with the systems and contribute to the safety problem focus.
+\subsection{User attention}
+We measured circle detection rate as an indicator of the users ability to attend to surroundings while interacting. The circle detection rate is the circles detected out of the circles shown during one task (in percent). Figure \ref{fig:resultscircles} shows the average rate for all 9 tasks for each participant using both systems.
 
-% System, track exploring
-%For measuring the content (music track) exploring part of the Spatial Music Menu all navigation information were logged on the iPad. 
-
-% System, task time
-
-Circles detected, figure \ref{fig:resultscircles}
-
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/results_circledetections.png}
 		\rule{35em}{1pt}
-	\caption[Results circle detections]{Percentage of circles detected for the participants}
+	\caption[Results Circle Detection Rate]{Average circle detection rate for each participant}
 	\label{fig:resultscircles}
 \end{figure}
 
+To verify hypothesis 1 (page \pageref{sec:evaluationhypothesis}) we used a t-test to compaire circle detection rate between the two systems. The statistical test showed that there was a significant difference in the scores for the Spatial Music Menu (M=0.76, SD=0.06) and the touch and vision-based music player (M=0.65, SD=0.09) conditions; t(88)=1.66, p = 0.028 $<$ 0.05. In other words the circle detection rate is significantly higher when interacting with the Spatial Music Menu while biking.
+
+\subsection{User performance}
+...
 
 Task time execution, figure \ref{fig:resultstasktime}
 
@@ -131,12 +129,8 @@ Task time execution, figure \ref{fig:resultstasktime}
 	\label{fig:resultstasktime}
 \end{figure}
 
-\subsection{Workload}
-[TODO]
 
-... it can give an indication of how much of the users physical and mental resources is required by the system during interaction and thereby an indication of the resources left for monitoring and navigating the surroundings when biking i.e. a safety parameter.
-
-Nasa TLX scores, figure \ref{fig:resultsnasatlx}
+Nasa TLX scores, figure \ref{fig:resultsnasatlx} - usability!
 
 \begin{figure}[t]
 	\centering
@@ -146,10 +140,8 @@ Nasa TLX scores, figure \ref{fig:resultsnasatlx}
 	\label{fig:resultsnasatlx}
 \end{figure}
 
-\subsection{Observation and user feedback}
-...
 
-\subsection{Discussion}
+\section{Discussion}
 ...
 
 % Something about the number of participants, only 5 participants, no statistical arguments but just hints
@@ -160,15 +152,25 @@ Nasa TLX scores, figure \ref{fig:resultsnasatlx}
 
 % Music genre type and quality made an impact
 
-
-Challenges:\\
-- Spatial sound through headphones depend on the HRTF recorded and might not fit to all persons as the ear constructions are different (Brewster chapter 12 "Non-Speech Auditory Output" \cite{brewster_human-computer_2003})
+% the shuffling in the Spatial Music Menu is maybe making a to big difference (time), the user can still "map" tracks in the Deezer app though > 3 tracks. At the same time this enforces the spatial effect.
 
 
+% Spatial sound through headphones depend on the HRTF recorded and might not fit to all persons as the ear constructions are different (Brewster chapter 12 "Non-Speech Auditory Output" \cite{brewster_human-computer_2003})
 
-- Limited measurement parameters e.g. not biking speed
 
 
+
+
+
+
+% OLD
+% Number of circles, safety
+%The most important task for the user during testing is to detect as many circles as possible. The number of circles shown and the number of circles detected were logged during execution of tasks. This will give a quantitative analysis of whether the user is able to monitor the surroundings while interacting with the systems and contribute to the safety problem focus.
+
+% System, track exploring
+%For measuring the content (music track) exploring part of the Spatial Music Menu all navigation information were logged on the iPad. 
+
+% System, task time
 
 
 

@@ -45,40 +45,16 @@ Where $r$ is the radius, $cx$,$cy$ the origin, and $a$ the angle from $0$ to $2\
 	\label{fig:circlepositions}
 \end{figure}
 
+
 \section{Music}
-We used Deezer\footnote{\url{https://www.deezer.com/}} as a music provider in the implementation. Deezer is a music streaming service and provides an iOS SDK for accessing different kinds of information through their REST API e.g. track info, user playlists, albums, streaming urls, etc. This information is provided as JSON - a track item from a playlist could look like this:
+\label{sec:implementationmusic}
+We used Deezer\footnote{\url{https://www.deezer.com/}} as a music provider in the implementation. Deezer is a music streaming service and provides an iOS SDK for accessing different kinds of information through their REST API e.g. track info, user playlists, albums, streaming urls, etc.
 
-\begin{lstlisting}
-"tracks": {
-    "data": [
-      {
-        "id": "1152226",
-        "readable": true,
-        "title": "Darkroom",
-        "link": "http://www.deezer.com/track/1152226",
-        "duration": "271",
-        "preview": "http://cdn-preview-6.deezer.com/stream/6452dbcd46c90a70cb1147666ffd91ae-0.mp3",
-        "artist": {
-          "id": "1334",
-          "name": "Archive",
-          "link": "http://www.deezer.com/artist/1334",
-          "tracklist": "https://api.deezer.com/artist/1334/top?limit=50",
-          "type": "artist"
-        },
-        "album": {
-          "id": "123427",
-          "title": "Londinium",
-          "cover": "https://api.deezer.com/album/123427/image",
-          "tracklist": "https://api.deezer.com/album/123427/tracks",
-          "type": "album"
-        },
-        "type": "track"
-      },
-\end{lstlisting}
+The auditory menu items are music track samples with lengths of 30 seconds provided by Deezer. The fact that Deezer provides these downloadable sample clips of all their music was one of the main reason for using their services. This is very convinient as it is not possible to spatialise audio streams using the IHS SDK. Instead the IHS SDK is quite limited in that the only way to place sound sources in the spatial audio space is to use 16-bit wav format. Deezers track samples comes in MP3 format so every track needed conversion to 16-bit wav before use.
 
-A track represents an artist in the first level of the menu (HOME level) and by selecting a track (going up to ALBUM level) only tracks associated with the chosen tracks album id will appear. The final selection is simply the chosen album track (PLAYING TRACK level). The audio is provided by the "preview" urls which is pointing to 30 seconds preview clips. The fact that Deezer provides these preview clips of all their music was one of the main reason for using their services. This is very convinient as it is not possible to spatialise audio streams using the IHS SDK. Instead the IHS SDK is quite limited in that the only way to place sound sources in the spatial audio space is to use 16-bit wav format. Deezers preview tracks comes in MP3 format so every track needed conversion to 16-bit wav before use. 
+A track represents an artist in the first level of the menu (HOME level) and by selecting a track (going up to ALBUM level) only tracks that are from the same album as the chosen track will appear. The final selection is simply the chosen album track (PLAYING TRACK level).
 
-All music information, download of preview tracks and conversion of audio was handled dynamically inside the Spatial Music Menu iOS application making it easier to add, remove and switch tracks. Basically one could add music tracks to the application by creating a Deezer playlist which is then synchronized by the iOS application. A synchronization operation is simply: 1) Getting and saving all track information from playlists including the preview tracks MP3 url; 2) download all MP3 tracks and save on device; 3) convert all tracks to 16-bit wav and save on device.
+All music information, download of preview tracks and conversion of audio was handled dynamically inside the Spatial Music Menu iOS application making it easier to add, remove and switch tracks. Basically one could add music tracks to the application by creating a Deezer playlist which is then synchronized by the iOS application. A synchronization operation is simply: 1) Getting and saving all track information from playlists; 2) download all MP3 tracks and save on device; 3) convert all tracks to 16-bit wav and save on device.
 
 
 \section{Head Gestures Recognition}
@@ -119,7 +95,7 @@ The possible pause between pushing the start/stop recording button and the start
 \section{iOS Application}
 The Spatial Music Menu appliation were developed for an iPad Mini running iOS 7.1. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most the important functionality of the Spatial Music Menu.
 
-An overview of the application architecture is shown in figure \ref{fig:apparchitecture}. The figure highlights the different relationships between application state, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}} e.g. Model-View-Controller and delegation patterns.
+An overview of the application architecture is shown in figure \ref{fig:apparchitecture}. The figure highlights the different relationships between application state, music client, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple, where some of the frequently used patterns are Model-View-Controller and Delegation\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}}.
 
 \begin{figure}[t]
   \centering
@@ -130,7 +106,105 @@ An overview of the application architecture is shown in figure \ref{fig:apparchi
 \end{figure}
 
 \subsection{Application state management}
-... Singleton approach
+For handling application state and events we use a singleton approach. Every iOS app have exactly one instance of an application object and this is guaranteed to live (exist in memory) as long as the app is running. This singleton object has an application delegate (AppDelegate class) object where application state transitions are being handled like when an app is launched or closed (put in to the background). This delegate is also used for handling custom application events and we use it to hold exactly one instance of each 3 main classes: PersistencyManager (local storage), DeezerClient (music events) and SMMDeviceManager (headset events). 
+
+\subsection{Models and persistency storage}
+\label{sec:modelsandpersistency}
+We are saving different kinds of information and objects throughout the application. Every iOS app have a sandbox - an application folder for file writing and reading. We use this folder to save music tracks and also data files containing information like playlists, tracks and recorded gestures (training data). Other simple user preferences like menu settings or headset device information are saved in a user default system which is provided by every app and designed for this in particular.
+
+Tracks, albums and gestures data consists of model objects e.g. Album, Track and Gesture. We used Mantle\footnote{\url{https://github.com/Mantle/Mantle}}, a model layer library, to easy serialize/deserialize the objects into/from binary files. We saved log data in a textfile - a log event was simply the event (as a string) and a timestamp. A music track is saved as both an MP3 and a WAV file due to the needed conversion for spatialisation usage (as mentioned above). This process of downloading, converting and saving a track is handled by a TrackArchiver object and is running in a background queue not blocking the main thread i.e. avoiding the app freezing.
+
+As illustrated in figure \ref{fig:apparchitecture} the PersistencyManager is part of a notifier/observer pattern. Using the iOS NSNotificationCenter it is possible to dispatch and listen to custom events. The PersistencyManager dispatches an event when track data has been changed (TRACK\_DATA\_CHANGED) which is the listened to by objects that needs update like for example the audio menu (AudioMenu ViewController).
+
+An example of using model objects, track archiving and notifications is shown is this example where track data is synchronized for a playlist:
+
+\begin{lstlisting}
+- (void)syncTrackDataForPlaylistWithId:(NSString *)itemId
+{
+  dispatch_queue_t myQueue = dispatch_queue_create("Playlist Queue",NULL);
+  dispatch_async(myQueue, ^{
+        
+    // Perform long running process
+    Playlist *pl;
+    for (int i=0; i<[_playlists count]; i++) {
+        pl = [_playlists objectAtIndex:i];
+        if([pl.itemId isEqualToString:itemId])
+        {
+          // Tracks
+          for (int j=0; j<[pl.tracks count]; j++)
+          {
+            if(j < kTrackLimit)
+            {
+              Track *track = [pl.tracks objectAtIndex:j];
+              TrackArchiver *archiver = [[TrackArchiver alloc] init];
+              [archiver archiveTrack:track];
+              
+              archiver = nil;
+            }
+          }
+        }
+    }
+    // finished
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // E.g. update the UI
+        [[NSNotificationCenter defaultCenter] 
+            postNotificationName:DEEZER_PLAYLIST_DATA_UPDATED 
+                          object:self 
+                        userInfo:nil];
+    });
+  });
+}
+\end{lstlisting}
+
+\subsection{Music client}
+The DeezerClient object is handling functionality and events associated with the music content. It uses the Deezer SDK library classes to first of all establish a connection to Deezer and then to make HTTP requests to their API. Acting as a delegate it receives events for Deezer connection state and request responses. The response results are returned as JSON and could look like this (track example):
+
+
+\begin{lstlisting}
+"tracks": {
+    "data": [
+      {
+        "id": "1152226",
+        "readable": true,
+        "title": "Darkroom",
+        "link": "http://www.deezer.com/track/1152226",
+        "duration": "271",
+        "preview": "http://cdn-preview-6.deezer.com/stream/6452dbcd46c90a70cb1147666ffd91ae-0.mp3",
+        "artist": {
+          "id": "1334",
+          "name": "Archive",
+          "link": "http://www.deezer.com/artist/1334",
+          "tracklist": "https://api.deezer.com/artist/1334/top?limit=50",
+          "type": "artist"
+        },
+        "album": {
+          "id": "123427",
+          "title": "Londinium",
+          "cover": "https://api.deezer.com/album/123427/image",
+          "tracklist": "https://api.deezer.com/album/123427/tracks",
+          "type": "album"
+        },
+        "type": "track"
+      },
+\end{lstlisting}
+
+Another reason for using the Mantle model layer mentioned in \ref{sec:modelsandpersistency} is that it can serialize JSON into model objects with a few steps. The track data above is serialized into a Track object with the following properties:
+
+\begin{lstlisting}
+@interface Track : MTLModel <MTLJSONSerializing>
+
+@property (nonatomic, copy, readonly) NSString *itemId;
+@property (nonatomic, copy, readonly) NSString *artist;
+@property (nonatomic, copy, readonly) NSString *title;
+@property (nonatomic, copy, readonly) NSURL *preview;
+@property (nonatomic, copy, readonly) NSString *stream;
+@property (nonatomic, copy, readonly) NSString *albumId;
+@property (nonatomic, copy, readonly) NSString *albumName;
+
+@end
+\end{lstlisting}
+
+The DeezerClient also takes care of music playback for the PLAYING TRACK level in the menu simply using the saved MP3 track sample (downloaded from preview url). Thus the application do not depend on an internet connection for playback - only when synchronizing music.
 
 \subsection{Headset events handling}
 ...
@@ -138,8 +212,7 @@ An overview of the application architecture is shown in figure \ref{fig:apparchi
 \subsection{View controller logic}
 - TODO: show screenshots of iPad 3 views
 
-\subsection{Models and persistency storage}
-...
+
 
 
 
