@@ -76,7 +76,7 @@ As an intitial requirement for the experiment the participants had to select som
 
 Before starting the experiment the user were instructed in how the Spatial Music Menu works i.e. which head gestures to use for navigating and how the menu structure looks. They then got a chance to try out the system both standing still and while riding the stationary bike. In the standing still scenario the user was allowed to look at the menu envisioned on the iPad screen to get a sense of the menu structure and interaction feedback.
 
-When the user felt ready the experiment started. The user started riding the bike and detecting the circles on the screen while listening to a chosen music track. While the gyroscope in the Intelligent Headset requires calibration - the first 10 seconds of the experiment were used for this. During the experiment 9 different system tasks were given to the user and when a task was done the user raised the right hand and a timestamp was registered in the simulation system (simple push of a button by the observer). The user were to detect circles at the same time throughout the experiment.
+When the user felt ready the experiment started. The user started riding the bike and detecting the circles on the screen while listening to a chosen music track. While the gyroscope in the Intelligent Headset requires up to 10 seconds on application startup to calibrate we waited 10 seconds and then calibrated it again only this time with our system (aligning the center of the menu, described in \ref{sec:implementationviewsandcontrollers}). During the experiment 9 different system tasks were given to the user and when a task was done the user raised the right hand and a timestamp was registered in the simulation system (simple push of a button by the observer). The user were to detect circles at the same time throughout the experiment.
 
 A user conducted this procedure for both the Spatial Music Menu and the Deezer music application and the order of which system was evaluated first were split so that 3 participants started with the Spatial Music Menu and 2 started with the Deezer application. Figure \ref{fig:evalspatial} and \ref{fig:evalnormal} shows a user performing a task using the Spatial Music Menu and the Deezer music player respectively.
 
@@ -93,13 +93,10 @@ Throughout the experiment several data were logged. This includes data from the 
 
 
 \subsection{NASA Task Load Index}
-Subjective workload was measured using the NASA Task Load Index (TLX) scales \cite{hart_workload_1990}. The scales includes mental demand, physical demand, temporal demand, performance, effort and frustration in which each participant should rate after testing. The user ratings gives a qualitative analysis of the system and the perceived workload is linked with the general usability of the system.
-
-TODO: Appendix?
+Subjective workload was measured using the NASA Task Load Index (TLX) scales \cite{hart_workload_1990}. The scales includes mental demand, physical demand, temporal demand, performance, effort and frustration in which each participant should rate after testing (Appendix \ref{sec:appendixnasatlx}). The user ratings gives a qualitative analysis of the system and the perceived workload is linked with the general usability of the system.
 
 \subsection{Observation}
-
-TODO: Monitoring interaction via iPad screen, calibrating center direction, user moves
+Participants were observed during the experiment to make sure they followed the instructions and to check and possibly prevent any kind of system obstruction. For example in between navigation tasks, when the user were listening to a selected track (PLAYING TRACK level), we made sure that the gyroscope was calibrated properly by compairing the direction on the iPad screen and the actual users head direction (using the calibrate button if neccesary, explained in \ref{sec:implementationviewsandcontrollers}). Also this observation gave us a chance to notice any particular repeating patterns in the way the users interacting with the systems, though we will not conclude anything from this in the results.
 
 
 \section{Results}
@@ -164,12 +161,6 @@ TODO: Spatial sound through headphones depend on the HRTF recorded and might not
 
 
 
-% Music genre type and quality made an impact
-
-% the shuffling in the Spatial Music Menu is maybe making a to big difference (time), the user can still "map" tracks in the Deezer app though > 3 tracks. At the same time this enforces the spatial effect.
-
-
-
 
 
 
@@ -186,7 +177,9 @@ TODO: Spatial sound through headphones depend on the HRTF recorded and might not
 
 % System, task time
 
+% Music genre type and quality made an impact
 
+% the shuffling in the Spatial Music Menu is maybe making a to big difference (time), the user can still "map" tracks in the Deezer app though > 3 tracks. At the same time this enforces the spatial effect.
 
 % Maybe comfort as a measurement?
 %(Taken from Brewster article)

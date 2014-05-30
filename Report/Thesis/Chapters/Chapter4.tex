@@ -227,7 +227,8 @@ APP_DELEGATE.smmDeviceManager.delegate = self;
 \end{lstlisting}
 
 \subsection{Views and controller logic}
-All application feedback is presented in views. Although the auditory menu of the Spatial Music Menu aims to use no visual feedback, the auditory output is still being considered a "view" in an application context i.e. audiovisual feedback. Also the fact that we used envisionment to show the auditory menu on screen makes the auditory menu view both "screen visual" and audiovisual. This view is the main view of the application and is referred to as the AudioMenu in the architectural diagram. The two other views in the application are the Music view showing music content information and the Gestures view showing gesture related controls e.g. recording gestures button. The view controllers takes care of creating and updating the views and are also handling the interaction logic e.g. 3D audio handling and navigating between menu levels. This code snippet example is from the for AudioMenu ViewController class:
+\label{sec:implementationviewsandcontrollers}
+All application feedback is presented in views. Although the auditory menu of the Spatial Music Menu aims to use no visual feedback, the auditory output is still being considered a "view" in an application context i.e. audiovisual feedback. Also the fact that we used envisionment to show the auditory menu on screen makes the auditory menu view both "screen visual" and audiovisual. This is the main view of the application and is referred to as the AudioMenu in the architectural diagram. There exists two other views in the application, which are mainly used for preference settings, and they are the Music view showing music content information and the Gestures view showing gesture related controls e.g. recording gestures button. The view controllers takes care of creating and updating the views and are also handling the interaction logic e.g. 3D audio handling and navigating between menu levels. This code snippet example is from the for AudioMenu view controller class:
 
 \begin{lstlisting}
 - (void)changeAudioMenuState:(int)state
@@ -265,15 +266,18 @@ All application feedback is presented in views. Although the auditory menu of th
 
 The code snippet shows selected features of a method that handles the different menu levels - in this case HOME level actions are highlighted.
 
-The views are aligned in a horizontal way with the main view, the AudioMenu, in the center and the Music view to the left and Gesture view to the right. A simple swipe to on of the sides would show the view. Figure \ref{fig:implementationviews} shows the 3 different views.
+The views are aligned in a horizontal way with the main view, the AudioMenu, in the center and the Music and Gestures view to the left and right respectively. A simple swipe to on of the sides would reveal the specific view (taking up half of the screen width). Figure \ref{fig:implementationviews} shows the 3 different views. For full size sceenshots the interested reader is referred to appendix \ref{sec:appendixviews}.
 
 \begin{figure}[t]
   \centering
-    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/views.png}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/views_2.png}
     \rule{35em}{1pt}
   \caption[iOS views]{3 different views presents the visual feedback on an iPad. Music view to the left, AudioMenu view in the middle and Gestures view to the right.}
   \label{fig:implementationviews}
 \end{figure}
+
+The Music view provides setting features like playlist selection, number of tracks, connecting to the Deezer music service and synchronizing playlist and tracks. The Gestures view provides one funtion and that is recording of gestures. It also shows a list of recorded gestures and highlights the gesture item on the list that is being recognized. The main AudioMenu view provides menu settings like distance, max rotation degree, interaction modes (with or without zoom effect), a home button (takes the user to the HOME level) and a calibrate button which is used for aligning the center of the menu with the users center head direction.
+
 
 
 
