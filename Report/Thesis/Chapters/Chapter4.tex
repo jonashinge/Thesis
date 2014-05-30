@@ -58,6 +58,7 @@ All music information, download of preview tracks and conversion of audio was ha
 
 
 \section{Head Gestures Recognition}
+\label{sec:implementationgesturerecognition}
 To recognize head gestures we used DTW (Dynamic Time Warping) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007}. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. 
 
 Essentially the DTW algorithm works by compairing two sequences of length N and M. A sequence consists of observations and an observation is a set of accelerometer data from the headset. For each observation comparison a local cost is calculated and a cost matrix is created (using dynamic programming). If there exists a path (warping path) from point (1,1) to (N,M) in the cost matrix that has an overall cost that is less than a predefined cost, then there is a match. The local cost of an observation is calculated from the sum of the euclidean squared distances of each observation value. A squared euclidean distance places progressively greater weight on objects that are farther apart. The total cost is then simply the sum of all the observation distances.
@@ -95,13 +96,13 @@ The possible pause between pushing the start/stop recording button and the start
 \section{iOS Application}
 The Spatial Music Menu appliation were developed for an iPad Mini running iOS 7.1. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most the important functionality of the Spatial Music Menu.
 
-An overview of the application architecture is shown in figure \ref{fig:apparchitecture}. The figure highlights the different relationships between application state, music client, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple, where some of the frequently used patterns are Model-View-Controller and Delegation\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}}.
+An overview of the application architecture is shown in figure \ref{fig:apparchitecture} and will be used for referencing the different classes throughout this chapter. The figure highlights the different relationships between application state, music client, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple, where some of the frequently used patterns are Model-View-Controller and Delegation\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}}.
 
 \begin{figure}[t]
   \centering
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/app-architecture.pdf}
     \rule{35em}{1pt}
-  \caption[App architecture]{iOS app architecture overview}
+  \caption[App architecture]{Spatial Music Menu iOS app architecture overview}
   \label{fig:apparchitecture}
 \end{figure}
 
@@ -207,10 +208,26 @@ Another reason for using the Mantle model layer mentioned in \ref{sec:modelsandp
 The DeezerClient also takes care of music playback for the PLAYING TRACK level in the menu simply using the saved MP3 track sample (downloaded from preview url). Thus the application do not depend on an internet connection for playback - only when synchronizing music.
 
 \subsection{Headset events handling}
+All functionality related to head movement is handled by the SMMDeviceManager. This manager is a delegate for the connection, sensor and button events received by the Intelligent Headset (IHSDevice class). The class is wrapping the proper headset events and sensor data readings into a minimum set of relevant events needed by the application. These are events triggered when changes occur in device connection, heading, right button press and gesture recognition. The manager has an instance of the DTWRecognizer object which is the actual DTW algorithm (page \pageref{sec:implementationgesturerecognition}). Other objects can act as delegate for the SMMDeviceManager to receive these events e.g. the AudioMenu ViewController is the main delegate as it implements the actual menu. To receive event information the class simply needs to 1) implement the delegation class, 2) set itself as the delegate and 3) use the proper event method. An example of getting gesture recognition events from the AudioMenu ViewController could look like this:
+
+\begin{lstlisting}
+@interface AudioMenuViewController () <SMMDeviceManagerDelegate>
+
 ...
 
+APP_DELEGATE.smmDeviceManager.delegate = self;
+
+...
+
+- (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSDictionary *)result
+{
+  // E.g. go to sublevel
+  ...
+}
+\end{lstlisting}
+
 \subsection{View controller logic}
-- TODO: show screenshots of iPad 3 views
+
 
 
 

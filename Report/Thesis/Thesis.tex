@@ -15,6 +15,8 @@
 
 \usepackage{pdfpages}
 
+\usepackage{graphicx}
+
 % for tables
 \usepackage{amsfonts}
 \usepackage{booktabs}
@@ -61,8 +63,7 @@
 
 %% ----------------------------------------------------------------
 \begin{document}
-%\includepdf[pages={1}]{itufront.pdf}
-%\includepdf[pages=-,scale=.8,pagecommand={}]{file}
+% ITU front page (required)
 \includepdf[pages=1,
             pagecommand={\thispagestyle{empty}},
             %width=\textwidth,
@@ -77,7 +78,7 @@
 \frontmatter      % Begin Roman style (i, ii, iii, iv...) page numbering
 
 % Set up the Title Page
-\title  {A music player user interface based on head-gestures and 3D audio feedback}
+\title  {A music player user interface based on head gestures and 3D audio feedback}
 \authors  {\texorpdfstring
             {\href{your web site or email address}{Jonas Hinge}}
             {Author Name}
@@ -122,15 +123,16 @@
 \abstract{
 \addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
 
-Music applications on smartphones makes listening to your favourite music accessible and mobile. Although the possibility of listening to music at any time and place immediately seems like a positive development this could introduce other challenges. E.g. biking and controlling a music application will conflict in the sense that biking demands hands on the handlebars and eyes on the road, and a smartphone application demands hands (or at least one hand) and eyes for navigating resulting in an increase of the users cognitive load.
+% Thomas comments
+%regarding the abstract which you are about to write, i recommend you to have a look on the lecture slides from the lecture on "documenting your ubicomp project" lecture on the pervasive computing project course the past year. for a master thesis, the abstract should be half a page to a full page (shorter is better) and contain, in this specific order,
 
-At the same time emerging accessories with built in sensor hardware e.g. Google Glass or Intelligent Headset (http://intelligentheadset.com/developer/) offer alternate ways of using gestures in form of GPS location, rotation, acceleration, speech etc.
-
-Encouraged by the biking scenario challenge and todays emerging and accessible mobile technology - alternative ways of controlling a music application should be explored. In this project an alternative way of navigating using head gestures and audio feedback is explored.
-
-Results?...
-
-Conclusion?...\ldots
+%1) a couple of sentences introducing the reader to the problem domain,
+%2) ~one sentence highlighting the main problem you are adressing
+%3) ~one sentence explaining your specific approach in adressing the problem
+%4) ~one sentence describing your prototype system
+%5) ~one sentence describing your final evaluation procedure and setup
+%6) ~one sentence describing the main findings from the final evaluation
+%7) ~one sentence that is a kind of outlook: what does the results from your work mean for the future?
 
 }
 
@@ -165,15 +167,15 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 \listoftables  % Write out the List of Tables
 
 %% ----------------------------------------------------------------
-\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
-\clearpage  % Start a new page
-\lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
-\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
-{
+%\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
+%\clearpage  % Start a new page
+%\lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
+%\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
+%{
 % \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-\textbf{HCI} & \textbf{H}uman \textbf{C}omputer \textbf{I}nteraction \\
+%\textbf{HCI} & \textbf{H}uman \textbf{C}omputer \textbf{I}nteraction \\
 
-}
+%}
 
 %% ----------------------------------------------------------------
 % End of the pre-able, contents and lists of things

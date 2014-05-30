@@ -12,7 +12,11 @@ To study whether the implemented Spatial Music Menu could compete with a touch a
 \end{figure}
 
 % Scope
+\textbf{Limitations and scope}
+
 Although we in the explorative design process in \ref{sec:designsoundscape} evaluated that users could segregate 6-8 music tracks with the Spatial Music Menu, we reduced the number of tracks to 3 in this final experiment. An evaluation of the max number of simultanous playing music tracks while biking is out of this thesis scope and referred to a future study.
+
+The participants used in the evaluation are acquaintances of us, so we are aware of the possibility that they might be biased in the sense that they want to "perform good". Throughout the experiment we tried to our best ability to be as objective as possible when explaining and instructing the systems.
 
 
 \section{Experiment Design}
@@ -93,11 +97,9 @@ Subjective workload was measured using the NASA Task Load Index (TLX) scales \ci
 
 TODO: Appendix?
 
-\subsection{Observing}
+\subsection{Observation}
 
-- Monitoring interaction via iPad screen, calibrating center direction
-
-- General user feedback at the end of tests
+TODO: Monitoring interaction via iPad screen, calibrating center direction, user moves
 
 
 \section{Results}
@@ -114,48 +116,60 @@ We measured circle detection rate as an indicator of the users ability to attend
 	\label{fig:resultscircles}
 \end{figure}
 
-To verify hypothesis 1 (page \pageref{sec:evaluationhypothesis}) we used a t-test to compaire circle detection rate between the two systems. The statistical test showed that there was a significant difference in the scores for the Spatial Music Menu (M=0.76, SD=0.06) and the touch and vision-based music player (M=0.65, SD=0.09) conditions; t(88)=1.66, p = 0.028 $<$ 0.05. In other words the circle detection rate is significantly higher when interacting with the Spatial Music Menu while biking.
+To verify \textit{Hypothesis 1} (page \pageref{sec:evaluationhypothesis}) we used a t-test to compaire circle detection rate between the two systems. The statistical test showed that there was a significant difference in the scores for the Spatial Music Menu (M=0.76) and the touch and vision-based music player (M=0.65) conditions; t(88)=1.66, p = 0.028 $<$ 0.05. In other words the circle detection rate is significantly higher when interacting with the Spatial Music Menu while biking.
 
 \subsection{User performance}
-...
+Two measurements should give indications of the user performance. The first one is the task completion time - simply the time it took for a user to complete one task. Figure \ref{fig:resultstasktime} shows the average task completion time for all 9 tasks for each participant using both systems.
 
-Task time execution, figure \ref{fig:resultstasktime}
-
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/results_tasktime.png}
 		\rule{35em}{1pt}
-	\caption[Results task time]{Time taken (in seconds) in average to execute a task for the participants}
+	\caption[Results task time]{Time taken (in seconds) in average to execute a task for the participants.}
 	\label{fig:resultstasktime}
 \end{figure}
 
+To verify \textit{Hypothesis 2} (page \pageref{sec:evaluationhypothesis}) in terms of task performance efficiency we used again a t-test to compaire the task completion time between the two systems. The statistical test showed that there was a significant difference in the scores for the Spatial Music Menu (M=30.53) and the touch and vision-based music player (M=24.13) conditions; t(88)=1.66, p = 0.003 $<$ 0.05. So in short the time it takes to complete a task, or navigate to a music track, is significantly higher in the Spatial Music Menu compaired to the touch and vision-based system.
 
-Nasa TLX scores, figure \ref{fig:resultsnasatlx} - usability!
+To verify \textit{Hypothesis 2} in terms of the systems general usability we gathered qualitative data in form of participant ratings from the NASA TLX scales. The average of the participants scores for each of the 6 subscales are shown in figure \ref{fig:resultsnasatlx}.
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/results_taskloadindex.png}
 		\rule{35em}{1pt}
-	\caption[Results NASA TLX Score]{NASA TLX overall workload score for the participants (less is better)}
+	\caption[Results NASA TLX Score]{NASA TLX overall workload score for the participants (lower is better).}
 	\label{fig:resultsnasatlx}
 \end{figure}
 
+The results show lower scores for the Spatial Music Menu in Physical Demand, Effort and Frustration while Mental Demand, Temporal Demand and Performance scores are more or less the same for both systems. The average of the participants total workload was 55.5 for the Spatial Music Menu and 65.4 for the touch and vision-based system.
+
 
 \section{Discussion}
-...
+The results from the evaulation verified the first hypothesis, that participants were able to detect more circles interacting with the Spatial Music Menu comparied to the touch and vision-based. The main reason for this is that the visual focus can stay only on the screen (road) using the Spatial Music Menu while it is attending two visual tasks with the touch and vision-based system. It should be noted however that some participants during some tasks actually moved the eyes in the direction their head was pointing - however the chance of detecting a circle in the corner of the eye is still greater than when looking down on a screen.
 
-% Something about the number of participants, only 5 participants, no statistical arguments but just hints
+The verification of the second hypothesis had mixed results. The task completion time for the Spatial Music Menu were significantly slower than the touch and vision-based system i.e. in terms of task performance efficiency the Spatial Music Menu could not compete with the touch and vision-based music player. If we look at figure \ref{fig:resultscircles} we notice a high spread for the Spatial Music Menu while the touch and vision-based system generally has a lower one making it more stable. However while the Spatial Music Menu shows that there exists challenges in that some tasks took a very long time to complete, it also shows a potential in that tasks can be performed very fast - faster than the touch and vision-based system.
 
-% Possibly biased participants (friends) wants to perform good
+However in terms of usability the Spatial Music Menu showed an overall lower workload score than the touch and vision-based music player. We are aware that these scores are only qualitative indications and that more than 5 participants could provide us with a more realistic picture.
 
-% System drifting problem
+\subsection{Challenges}
+During the evaluation we observed a few challenges that could affect the results. First of all the headset gyroscope was a bit challenging in that it sometimes during execution of tasks "drifted" i.e. causing the menus center position moved a bit to the left/right. We did our best to calibrate the gyroscope in between tasks but this could affect a users task performance and workload.
+
+Secondly some of the participants complained about some music tracks being higher in volume than others. This is due to the fact that the quality of music tracks provided by the Deezer music service variate.
+
+TODO: shuffling tracks in spatial musicmenu maybe a greater challenge than the $>$ 3 album tracks, user can still create a virtual map
+
+TODO: Spatial sound through headphones depend on the HRTF recorded and might not fit to all persons as the ear constructions are different (Brewster chapter 12 "Non-Speech Auditory Output" \cite{brewster_human-computer_2003})
+
+
+
+
 
 % Music genre type and quality made an impact
 
 % the shuffling in the Spatial Music Menu is maybe making a to big difference (time), the user can still "map" tracks in the Deezer app though > 3 tracks. At the same time this enforces the spatial effect.
 
 
-% Spatial sound through headphones depend on the HRTF recorded and might not fit to all persons as the ear constructions are different (Brewster chapter 12 "Non-Speech Auditory Output" \cite{brewster_human-computer_2003})
+
 
 
 
