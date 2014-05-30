@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  30 MAY 2014 14:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.13)  30 MAY 2014 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1370,7 +1370,7 @@ Chapter 1.
 
 
 
-] [2] [3] <./Figures/triangulation.pdf, id=477, 963.6pt x 562.1pt>
+] [2] [3] <./Figures/triangulation.pdf, id=479, 963.6pt x 562.1pt>
 File: ./Figures/triangulation.pdf Graphic file (type pdf)
 
 <use ./Figures/triangulation.pdf>
@@ -1381,7 +1381,7 @@ Chapter 2.
 ------------------------------------------------------------------------------
  2 Related work
 ------------------------------------------------------------------------------
-<./Figures/venn.png, id=516, 501.875pt x 501.875pt>
+<./Figures/venn.png, id=518, 501.875pt x 501.875pt>
 File: ./Figures/venn.png Graphic file (type png)
  <use ./Figures/venn.png>
 Package pdftex.def Info: ./Figures/venn.png used on input line 8.
@@ -1395,35 +1395,35 @@ Overfull \hbox (9.02213pt too wide) in paragraph at lines 118--118
 oes-[]Mobile-[]More-[]Smartphone-[]Users-[]Stream-[]Songs /
  []
 
-[12] <./Figures/nokia-headset.png, id=652, 586.19pt x 268.00125pt>
+[12] <./Figures/nokia-headset.png, id=654, 586.19pt x 268.00125pt>
 File: ./Figures/nokia-headset.png Graphic file (type png)
 
 <use ./Figures/nokia-headset.png>
 Package pdftex.def Info: ./Figures/nokia-headset.png used on input line 130.
 (pdftex.def)             Requested size: 250.48254pt x 114.51855pt.
  [13 <./Figures/nokia-headset.png>]
-<./Figures/pirhonen-system.png, id=666, 418.56375pt x 231.86626pt>
+<./Figures/pirhonen-system.png, id=668, 418.56375pt x 231.86626pt>
 File: ./Figures/pirhonen-system.png Graphic file (type png)
 
 <use ./Figures/pirhonen-system.png>
 Package pdftex.def Info: ./Figures/pirhonen-system.png used on input line 147.
 (pdftex.def)             Requested size: 250.48235pt x 138.7564pt.
 
-<./Figures/pocketmenu.png, id=672, 713.66624pt x 343.2825pt>
+<./Figures/pocketmenu.png, id=674, 713.66624pt x 343.2825pt>
 File: ./Figures/pocketmenu.png Graphic file (type png)
 
 <use ./Figures/pocketmenu.png>
 Package pdftex.def Info: ./Figures/pocketmenu.png used on input line 159.
 (pdftex.def)             Requested size: 292.2239pt x 140.56339pt.
  [14 <./Figures/pirhonen-system.png (PNG copy)>]
-<./Figures/bodyposeandleg.png, id=682, 792.9625pt x 461.725pt>
+<./Figures/bodyposeandleg.png, id=684, 792.9625pt x 461.725pt>
 File: ./Figures/bodyposeandleg.png Graphic file (type png)
 
 <use ./Figures/bodyposeandleg.png>
 Package pdftex.def Info: ./Figures/bodyposeandleg.png used on input line 175.
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [15 <./Figures/pocketmenu.png>]
-<./Figures/kajastila-system.png, id=695, 792.9625pt x 461.725pt>
+<./Figures/kajastila-system.png, id=697, 792.9625pt x 461.725pt>
 File: ./Figures/kajastila-system.png Graphic file (type png)
 
 <use ./Figures/kajastila-system.png>
@@ -1432,21 +1432,21 @@ Package pdftex.def Info: ./Figures/kajastila-system.png used on input line 190.
 (pdftex.def)             Requested size: 333.98575pt x 194.47272pt.
  [16 <./Figures/bodyposeandleg.png (PNG copy)> <./Figures/kajastila-system.png 
 (PNG copy)>]
-<./Figures/brewster-system.png, id=704, 690.58pt x 219.82124pt>
+<./Figures/brewster-system.png, id=706, 690.58pt x 219.82124pt>
 File: ./Figures/brewster-system.png Graphic file (type png)
 
 <use ./Figures/brewster-system.png>
 Package pdftex.def Info: ./Figures/brewster-system.png used on input line 203.
 (pdftex.def)             Requested size: 375.73166pt x 119.60062pt.
  [17 <./Figures/brewster-system.png (PNG copy)>] <./Figures/park-system.png, id
-=715, 666.49pt x 292.09125pt>
+=717, 666.49pt x 292.09125pt>
 File: ./Figures/park-system.png Graphic file (type png)
 
 <use ./Figures/park-system.png>
 Package pdftex.def Info: ./Figures/park-system.png used on input line 218.
 (pdftex.def)             Requested size: 375.73363pt x 164.66638pt.
 
-<./Figures/park-menus.png, id=720, 745.78625pt x 297.11pt>
+<./Figures/park-menus.png, id=722, 745.78625pt x 297.11pt>
 File: ./Figures/park-menus.png Graphic file (type png)
 
 <use ./Figures/park-menus.png>
@@ -1480,40 +1480,40 @@ Chapter 3.
 [21
 
 ] [22] [23] [24] [25]
-<./Figures/sounddesign.png, id=796, 803.0pt x 453.695pt>
+<./Figures/sounddesign.png, id=798, 803.0pt x 453.695pt>
 File: ./Figures/sounddesign.png Graphic file (type png)
 
 <use ./Figures/sounddesign.png>
 Package pdftex.def Info: ./Figures/sounddesign.png used on input line 59.
 (pdftex.def)             Requested size: 250.48354pt x 141.5232pt.
 
-<./Figures/interactionmodes.png, id=799, 777.90625pt x 419.5675pt>
+<./Figures/interactionmodes.png, id=801, 777.90625pt x 419.5675pt>
 File: ./Figures/interactionmodes.png Graphic file (type png)
 
 <use ./Figures/interactionmodes.png>
-Package pdftex.def Info: ./Figures/interactionmodes.png used on input line 73.
+Package pdftex.def Info: ./Figures/interactionmodes.png used on input line 71.
 (pdftex.def)             Requested size: 375.72913pt x 202.6513pt.
 
-<./Figures/pilotstudy.jpg, id=802, 776.9025pt x 501.875pt>
+<./Figures/pilotstudy.jpg, id=804, 776.9025pt x 501.875pt>
 File: ./Figures/pilotstudy.jpg Graphic file (type jpg)
 
 <use ./Figures/pilotstudy.jpg>
-Package pdftex.def Info: ./Figures/pilotstudy.jpg used on input line 83.
+Package pdftex.def Info: ./Figures/pilotstudy.jpg used on input line 81.
 (pdftex.def)             Requested size: 375.73035pt x 242.71985pt.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 89.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 87.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 89.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 87.
  [26 <./Figures/sounddesign.png (PNG copy)>] [27 <./Figures/interactionmodes.pn
 g (PNG copy)> <./Figures/pilotstudy.jpg>]
-<./Figures/navigation.png, id=815, 712.6625pt x 431.6125pt>
+<./Figures/navigation.png, id=817, 712.6625pt x 431.6125pt>
 File: ./Figures/navigation.png Graphic file (type png)
 
 <use ./Figures/navigation.png>
-Package pdftex.def Info: ./Figures/navigation.png used on input line 113.
+Package pdftex.def Info: ./Figures/navigation.png used on input line 111.
 (pdftex.def)             Requested size: 333.97273pt x 202.26517pt.
  [28 <./Figures/navigation.png (PNG copy)>])
 (./Chapters/Chapter4.tex [29]
@@ -1521,7 +1521,7 @@ Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-<./Figures/headset.jpg, id=830, 749.80125pt x 398.48875pt>
+<./Figures/headset.jpg, id=832, 749.80125pt x 398.48875pt>
 File: ./Figures/headset.jpg Graphic file (type jpg)
 
 <use ./Figures/headset.jpg>
@@ -1534,7 +1534,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [30
 
 ]
-<./Figures/implementation_overview.png, id=842, 727.71875pt x 231.86626pt>
+<./Figures/implementation_overview.png, id=844, 727.71875pt x 231.86626pt>
 File: ./Figures/implementation_overview.png Graphic file (type png)
 
 <use ./Figures/implementation_overview.png>
@@ -1543,7 +1543,7 @@ ne 23.
 (pdftex.def)             Requested size: 375.72873pt x 119.71494pt.
  [31 <./Figures/headset.jpg> <./Figures/implementation_overview.png (PNG copy)>
 ]
-<./Figures/circlepositions.png, id=848, 490.83376pt x 476.78125pt>
+<./Figures/circlepositions.png, id=850, 490.83376pt x 476.78125pt>
 File: ./Figures/circlepositions.png Graphic file (type png)
 
 <use ./Figures/circlepositions.png>
@@ -1555,7 +1555,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--99
 referencelibrary / GettingStarted / RoadMapiOS /
  []
 
-<./Figures/app-architecture.pdf, id=896, 711.65875pt x 563.10374pt>
+<./Figures/app-architecture.pdf, id=898, 711.65875pt x 563.10374pt>
 File: ./Figures/app-architecture.pdf Graphic file (type pdf)
 
 <use ./Figures/app-architecture.pdf>
@@ -1575,22 +1575,28 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 130.
  [37]
-[38]) (./Chapters/Chapter5.tex [39]
+[38] [39] [40] <./Figures/views.png, id=1081, 911.405pt x 382.42876pt>
+File: ./Figures/views.png Graphic file (type png)
+
+<use ./Figures/views.png>
+Package pdftex.def Info: ./Figures/views.png used on input line 272.
+(pdftex.def)             Requested size: 417.48521pt x 175.17825pt.
+) (./Chapters/Chapter5.tex [41 <./Figures/views.png (PNG copy)>]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Evaluation
 ------------------------------------------------------------------------------
-<./Figures/evaluation_spatial.jpg, id=1041, 3276.24pt x 2457.18pt>
+<./Figures/evaluation_spatial.jpg, id=1087, 3276.24pt x 2457.18pt>
 File: ./Figures/evaluation_spatial.jpg Graphic file (type jpg)
 
 <use ./Figures/evaluation_spatial.jpg>
 Package pdftex.def Info: ./Figures/evaluation_spatial.jpg used on input line 8.
 
 (pdftex.def)             Requested size: 292.19934pt x 219.1495pt.
- [40
+ [42
 
  <./Figures/evaluation_spatial.jpg>]
-<./Figures/simulation_system.png, id=1051, 1196.47pt x 671.50874pt>
+<./Figures/simulation_system.png, id=1097, 1196.47pt x 671.50874pt>
 File: ./Figures/simulation_system.png Graphic file (type png)
 
 <use ./Figures/simulation_system.png>
@@ -1601,23 +1607,23 @@ Package pdftex.def Info: ./Figures/simulation_system.png used on input line 30.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41] [42 <./Figures/simulation_system.png>]
-<./Figures/menustates.png, id=1067, 717.68124pt x 602.25pt>
+[43] [44 <./Figures/simulation_system.png>]
+<./Figures/menustates.png, id=1112, 717.68124pt x 602.25pt>
 File: ./Figures/menustates.png Graphic file (type png)
 
 <use ./Figures/menustates.png>
 Package pdftex.def Info: ./Figures/menustates.png used on input line 65.
 (pdftex.def)             Requested size: 375.72606pt x 315.29459pt.
- [43 <./Figures/menustates.png (PNG copy)>]
-<./Figures/evaluation_normal.jpg, id=1074, 3276.24pt x 2457.18pt>
+ [45 <./Figures/menustates.png (PNG copy)>]
+<./Figures/evaluation_normal.jpg, id=1119, 3276.24pt x 2457.18pt>
 File: ./Figures/evaluation_normal.jpg Graphic file (type jpg)
 
 <use ./Figures/evaluation_normal.jpg>
 Package pdftex.def Info: ./Figures/evaluation_normal.jpg used on input line 85.
 
 (pdftex.def)             Requested size: 292.19934pt x 219.1495pt.
- [44] [45 <./Figures/evaluation_normal.jpg>] <./Figures/results_circledetection
-s.png, id=1087, 682.55pt x 358.33875pt>
+ [46] [47 <./Figures/evaluation_normal.jpg>] <./Figures/results_circledetection
+s.png, id=1132, 682.55pt x 358.33875pt>
 File: ./Figures/results_circledetections.png Graphic file (type png)
 
 <use ./Figures/results_circledetections.png>
@@ -1625,7 +1631,7 @@ Package pdftex.def Info: ./Figures/results_circledetections.png used on input l
 ine 113.
 (pdftex.def)             Requested size: 375.72652pt x 197.25642pt.
 
-<./Figures/results_tasktime.png, id=1090, 680.5425pt x 349.305pt>
+<./Figures/results_tasktime.png, id=1135, 680.5425pt x 349.305pt>
 File: ./Figures/results_tasktime.png Graphic file (type png)
 
 <use ./Figures/results_tasktime.png>
@@ -1636,61 +1642,61 @@ Package pdftex.def Info: ./Figures/results_tasktime.png used on input line 126.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[46 <./Figures/results_circledetections.png>]
-<./Figures/results_taskloadindex.png, id=1097, 680.5425pt x 359.3425pt>
+[48 <./Figures/results_circledetections.png>]
+<./Figures/results_taskloadindex.png, id=1142, 680.5425pt x 359.3425pt>
 File: ./Figures/results_taskloadindex.png Graphic file (type png)
 
 <use ./Figures/results_taskloadindex.png>
 Package pdftex.def Info: ./Figures/results_taskloadindex.png used on input line
  138.
 (pdftex.def)             Requested size: 375.72217pt x 198.39017pt.
- [47 <./Figures/results_tasktime.png> <./Figures/results_taskloadindex.png>] [4
-8]) (./Chapters/Chapter6.tex [49]
+ [49 <./Figures/results_tasktime.png> <./Figures/results_taskloadindex.png>] [5
+0]) (./Chapters/Chapter6.tex [51]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Conclusion
 ------------------------------------------------------------------------------
-) (./Appendices/AppendixA.tex [50
+) (./Appendices/AppendixA.tex [52
 
 ]
 Appendix A.
 ------------------------------------------------------------------------------
  A Evaluation
 ------------------------------------------------------------------------------
-<Figures/appendix_nasatlx.png, id=1118, 980.66376pt x 680.5425pt>
+<Figures/appendix_nasatlx.png, id=1162, 980.66376pt x 680.5425pt>
 File: Figures/appendix_nasatlx.png Graphic file (type png)
 
 <use Figures/appendix_nasatlx.png>
 Package pdftex.def Info: Figures/appendix_nasatlx.png used on input line 5.
 (pdftex.def)             Requested size: 417.47307pt x 289.7096pt.
-) [51
+) [53
 
  <./Figures/appendix_nasatlx.png>]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(./Thesis.bbl [52
+(./Thesis.bbl [54
 
 
-] [53] [54] [55]
+] [55] [56] [57]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 297.
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 232.
- [56]
+ [58]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 232.
  (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 232.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 232.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 477A6855FC78F276F7160DE2C74453A9;10433.
+(rerunfilecheck)             Checksum: A961F5A3C4DD4BCEAC3F0DCDE1EEFEC8;10461.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 232.
  ) 
 Here is how much of TeX's memory you used:
- 24226 strings out of 493315
- 424517 string characters out of 6137903
+ 24292 strings out of 493315
+ 425531 string characters out of 6137903
  626677 words of memory out of 5000000
- 26964 multiletter control sequences out of 15000+600000
+ 26994 multiletter control sequences out of 15000+600000
  16851 words of font info for 64 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,18n,45p,2312b,2804s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1710,10 +1716,10 @@ e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
 13/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
 3/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Thesis.pdf (64 pages, 14291439 bytes).
+Output written on Thesis.pdf (66 pages, 14364247 bytes).
 PDF statistics:
- 1272 PDF objects out of 1440 (max. 8388607)
- 1116 compressed objects within 12 object streams
- 332 named destinations out of 1000 (max. 500000)
- 650 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1323 PDF objects out of 1440 (max. 8388607)
+ 1164 compressed objects within 12 object streams
+ 367 named destinations out of 1000 (max. 500000)
+ 655 words of extra memory for PDF output out of 10000 (max. 10000000)
 

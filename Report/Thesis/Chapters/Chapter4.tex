@@ -85,7 +85,7 @@ Observation: (
 ...
 \end{lstlisting}
 
-The values are 3-axis accelerometer data (in order) x, y and z. An sensor observation occurs $\sim$ 30 times per second. To avoid overloading the device CPU by trying to recognise gestures for every new observation we only run the gesture recognizer for every 30 observations i.e. every second. All gesture sequences are below 100 observations so we used a window size of 100 for the testing sequence. I.e. every second the last 100 observations are tested for possible gestures.
+The values are 3-axis accelerometer data (in order) x, y and z. A sensor observation occurs $\sim$ 30 times per second. To avoid overloading the device CPU by trying to recognise gestures for every new observation we only run the gesture recognizer for every 30 observations i.e. every second. All gesture sequences are below 100 observations so we used a window size of 100 for the testing sequence. I.e. every second the last 100 observations are tested for possible gestures.
 
 \subsection{Training data}
 Compaired with other long motion gestures e.g. running or climbing stairs, our head gestures were short events. For obtaining training data these gestures were recorded per event so a simple view containing a start/stop record button was implemented. Also to identify which class the gesture belonged to, the view had a list of labels with the specific gesture type that was to be chosen before recording the specific gesture.
@@ -96,7 +96,7 @@ The possible pause between pushing the start/stop recording button and the start
 \section{iOS Application}
 The Spatial Music Menu appliation were developed for an iPad Mini running iOS 7.1. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most the important functionality of the Spatial Music Menu.
 
-An overview of the application architecture is shown in figure \ref{fig:apparchitecture} and will be used for referencing the different classes throughout this chapter. The figure highlights the different relationships between application state, music client, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple, where some of the frequently used patterns are Model-View-Controller and Delegation\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}}.
+An overview of the application architecture is shown in figure \ref{fig:apparchitecture} and this diagram will function as a reference throughout the presentation of the iOS application in this section. The figure highlights the different relationships between application state, music client, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple, where some of the frequently used patterns are Model-View-Controller and Delegation\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}}.
 
 \begin{figure}[t]
   \centering
@@ -111,7 +111,7 @@ For handling application state and events we use a singleton approach. Every iOS
 
 \subsection{Models and persistency storage}
 \label{sec:modelsandpersistency}
-We are saving different kinds of information and objects throughout the application. Every iOS app have a sandbox - an application folder for file writing and reading. We use this folder to save music tracks and also data files containing information like playlists, tracks and recorded gestures (training data). Other simple user preferences like menu settings or headset device information are saved in a user default system which is provided by every app and designed for this in particular.
+We are saving different kinds of information and objects throughout the application. Every iOS app have a sandbox - an application folder for file writing and reading. We use this folder to save music tracks and also data files containing information like playlists, tracks and recorded gestures (training data). Other simple user preferences like menu settings or headset device information are saved in a user default system which is provided with every iOS app and designed for this in particular.
 
 Tracks, albums and gestures data consists of model objects e.g. Album, Track and Gesture. We used Mantle\footnote{\url{https://github.com/Mantle/Mantle}}, a model layer library, to easy serialize/deserialize the objects into/from binary files. We saved log data in a textfile - a log event was simply the event (as a string) and a timestamp. A music track is saved as both an MP3 and a WAV file due to the needed conversion for spatialisation usage (as mentioned above). This process of downloading, converting and saving a track is handled by a TrackArchiver object and is running in a background queue not blocking the main thread i.e. avoiding the app freezing.
 
@@ -221,16 +221,59 @@ APP_DELEGATE.smmDeviceManager.delegate = self;
 
 - (void)smmDeviceManager:(SMMDeviceManager *)manager gestureRecognized:(NSDictionary *)result
 {
-  // E.g. go to sublevel
+  // E.g. nod = go to sublevel
   ...
 }
 \end{lstlisting}
 
-\subsection{View controller logic}
+\subsection{Views and controller logic}
+All application feedback is presented in views. Although the auditory menu of the Spatial Music Menu aims to use no visual feedback, the auditory output is still being considered a "view" in an application context i.e. audiovisual feedback. Also the fact that we used envisionment to show the auditory menu on screen makes the auditory menu view both "screen visual" and audiovisual. This view is the main view of the application and is referred to as the AudioMenu in the architectural diagram. The two other views in the application are the Music view showing music content information and the Gestures view showing gesture related controls e.g. recording gestures button. The view controllers takes care of creating and updating the views and are also handling the interaction logic e.g. 3D audio handling and navigating between menu levels. This code snippet example is from the for AudioMenu ViewController class:
 
+\begin{lstlisting}
+- (void)changeAudioMenuState:(int)state
+{
+  _audioMenuState = state;
+  
+  DEBUGLog(@"Changing state to: %d", _audioMenuState);
+  
+  switch (state) {
+    case MENU_HOME:
+    {
+      Playlist *pl = [APP_DELEGATE.persistencyManager getActivePlaylist];
+      _selectedPlaylistTracks = [APP_DELEGATE.persistencyManager getAlbumdistinctRandomTracksFromPlaylist:pl];
+      [self initMenuWithTracks:_selectedPlaylistTracks 
+                      AndLimit:APP_DELEGATE.persistencyManager.trackNumber];
+      [APP_DELEGATE.deezerClient pausePlayback];
+      [_lblState setText:@"Home"];
+      [self playSystemSoundWithName:@"home"];
+      [APP_DELEGATE.smmDeviceManager playAudio];
+      break;
+    }
+    case MENU_ALBUM:
+    {
+      ...
+    }
+    case PLAYING_TRACK:
+    {
+      ...
+    }
+    default:
+      break;
+  }
+}
+\end{lstlisting}
 
+The code snippet shows selected features of a method that handles the different menu levels - in this case HOME level actions are highlighted.
 
+The views are aligned in a horizontal way with the main view, the AudioMenu, in the center and the Music view to the left and Gesture view to the right. A simple swipe to on of the sides would show the view. Figure \ref{fig:implementationviews} shows the 3 different views.
 
+\begin{figure}[t]
+  \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/views.png}
+    \rule{35em}{1pt}
+  \caption[iOS views]{3 different views presents the visual feedback on an iPad. Music view to the left, AudioMenu view in the middle and Gestures view to the right.}
+  \label{fig:implementationviews}
+\end{figure}
 
 
 
