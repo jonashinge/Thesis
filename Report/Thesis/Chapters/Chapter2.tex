@@ -96,6 +96,7 @@ When presenting the audio it's important to consider the attention which is requ
 The user required attention can be difficult to control. Specific user needs and context can constrain the choice of audio representation e.g. a phone call entering might have to stop all other audio output to prevent a possible divided attention. Also it is not always possible for the user to selectively choose which audio channel to devote the attention against - the audio representations needs to be distinguishable. In the case where they are distinguishable the user selectively choose an audio channel and pushes the other in the background and this cognitive phenomenon is called the "Cocktail Party Effect" \cite{bronkhorst_cocktail_2000}. The number of audio channels is limited however - experiments show that increasing the number of channels beyond three affects the cognitive load (overload) \cite{bronkhorst_cocktail_2000}.
 
 \subsection{Spatial audio}
+\label{sec:relatedworkspatialaudio}
 % intro - what is spatial audio, HRTF
 Spatial audio or 3D audio is constructed using binaural recordings, HRTF (Head Related Transfer Function), FIR (Finite Impulse Response) filters and other advanced signal processing techniques \cite{begault_3dd_1994}. The word "binaural" literally just means "using both ears" and binaural recordings are reproductions of sound the way the human ear hears it. The sounds are recorded by placing microhones in both ears of a dummy head or a real person. These recordings are compared with the original sounds to compute a persons head-related transfer function. HRTF technology uses advanced signal processing techniques and takes into account many of the cues humans use to localize sound. It uses pairs of FIR filters, one filter for the left ear and one for the right, from specific sound positions. Then, to place a sound in a specific position in a persons virtual space, the filter pair which correspond to the position is applied to the incoming sound. The sound then appear as if it is coming from anywhere in space around a listener and this is also called spatial audio. In short this is an attempt to present sound as we normally hear it in the real world. The technology is implemented in many soundcards today.
 
@@ -290,7 +291,7 @@ System is designed as a music player interface.
 \label{tab:related} 
 \end{table}
 
-We see that no system supports all properties. The mark (x) specified at this thesis system goals means that although not a required property, maybe related work has shown good results by using these concepts e.g. the Brewster \cite{brewster_multimodaleyes-freeinteraction_2003} system using dynamic auditory menu content and simultanous audio, or else just a desired property e.g. hierachical menu.
+The mark (x) means that although not a predefined property of this thesis final system, we will consider it when designing the system. This is based on good results from related systems that have implemented these properties e.g. the Brewster \cite{brewster_multimodaleyes-freeinteraction_2003} system which allows exploration of content and simultanous audio or todays mobile music players (mentioned above) that provides a rich presentation of content with hierachical menus.
 
 
 

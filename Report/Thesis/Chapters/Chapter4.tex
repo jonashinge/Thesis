@@ -4,7 +4,7 @@ This chapter describes the different components of the Spatial Music Menu system
 
 
 \section{Headset}
-The headset interface used in this project is the Intelligent Headset (IHS)\footnote{\url{https://intelligentheadset.com/}}. The headset uses HRTF technology and can deliver spatial audio. 4 sensors are built into the headset; GPS, compass, gyroscope and accelerometer - making it possible to track head rotation and location of the user wearing it. The headset also includes 2 buttons - one in the outer center on each speaker. Connection to the headset is accessible via Bluetooth or wire. The headset is shown in \ref{fig:headset}.
+The headset interface used in this project is the Intelligent Headset (IHS)\footnote{\url{https://intelligentheadset.com/}}. The headset uses HRTF (Head Related Transfer Functions, described in section \ref{sec:relatedworkspatialaudio}) technology and can deliver spatial audio. 4 sensors are built into the headset; GPS, compass, gyroscope and accelerometer - making it possible to track head rotation and location of the user wearing it. The headset also includes 2 buttons - one in the outer center on each speaker. Connection to the headset is accessible via Bluetooth or wire. The headset is shown in \ref{fig:headset}.
 
 \begin{figure}[h]
 	\centering
@@ -59,7 +59,7 @@ All music information, download of preview tracks and conversion of audio was ha
 
 \section{Head Gestures Recognition}
 \label{sec:implementationgesturerecognition}
-To recognize head gestures we used DTW (Dynamic Time Warping) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007}. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. 
+To recognize head gestures we used DTW (Dynamic Time Warping) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007} - in this case sequences of sensor data. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. 
 
 Essentially the DTW algorithm works by compairing two sequences of length N and M. A sequence consists of observations and an observation is a set of accelerometer data from the headset. For each observation comparison a local cost is calculated and a cost matrix is created (using dynamic programming). If there exists a path (warping path) from point (1,1) to (N,M) in the cost matrix that has an overall cost that is less than a predefined cost, then there is a match. The local cost of an observation is calculated from the sum of the euclidean squared distances of each observation value. A squared euclidean distance places progressively greater weight on objects that are farther apart. The total cost is then simply the sum of all the observation distances.
 
@@ -278,7 +278,15 @@ The views are aligned in a horizontal way with the main view, the AudioMenu, in 
 
 The Music view provides setting features like playlist selection, number of tracks, connecting to the Deezer music service and synchronizing playlist and tracks. The Gestures view provides one funtion and that is recording of gestures. It also shows a list of recorded gestures and highlights the gesture item on the list that is being recognized. The main AudioMenu view provides menu settings like distance, max rotation degree, interaction modes (with or without zoom effect), a home button (takes the user to the HOME level) and a calibrate button which is used for aligning the center of the menu with the users center head direction.
 
+The application in action, with headset and iPad screen showing the visualised auditory menu (AudioMenu view), is illustrated in figure \ref{fig:implementationsystem}.
 
+\begin{figure}[t]
+  \centering
+    \includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/system_final.jpg}
+    \rule{35em}{1pt}
+  \caption[Final system in action]{The system in action with iOS application running on iPad and the Intelligent Headset.}
+  \label{fig:implementationsystem}
+\end{figure}
 
 
 
