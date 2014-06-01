@@ -1,6 +1,6 @@
 \lhead{\emph{Implementation}}
 \chapter{Implementation}
-This chapter describes the different components of the Spatial Music Menu system. The main components includes a headset interface and an iOS application controlling the headset.
+This chapter describes the different components of the Spatial Music Menu system. The main components include a headset interface and an iOS application controlling the headset.
 
 
 \section{Headset}
@@ -15,7 +15,7 @@ The headset interface used in this project is the Intelligent Headset (IHS)\foot
 	\label{fig:headset}
 \end{figure}
 
-The headset features can be exploited through mobile applications using an included SDK targeting the iOS and Android platform (iOS SDK currently at version 1.82 and an Android SDK running verson 1.21 \footnote{Version information from 05-05-2014. Developer site: \url{https://developer.intelligentheadset.com/our-sdk/}}). The platform used in this project is Apples iOS. The main reason for using this platform is that when this project started the Intelligent Headset only provided an SDK compatible with iOS and still - though accessible for the Android platform today - the iOS SDK is running a higher version number making it more mature i.e. stable.
+The headset features can be exploited through mobile applications using an included SDK targeting the iOS and Android platform (iOS SDK currently at version 1.82 and an Android SDK running verson 1.21 \footnote{Version information from 05-05-2014. Developer site: \url{https://developer.intelligentheadset.com/our-sdk/}}). The platform used in this project is Apples iOS. The main reason for using this platform is that when this project started the Intelligent Headset only provided an SDK compatible with iOS and still - though accessible for the Android platform today - the iOS SDK is running a higher version number making it more mature i.e. larger number of bugs could exist in early versions.
 
 The SDK is implemented in the Spatial Music Menu application. The Intelligent Headset API (Application Programming Interface) provides features like reading the raw sensor data from all sensors, button events and functions for headset connectivity and 3D audio handling. An overview of the components and their communication is shown in figure \ref{fig:implementationoverview}.
 
@@ -60,7 +60,7 @@ All music information, download of preview tracks and conversion of audio was ha
 
 \section{Head Gestures Recognition}
 \label{sec:implementationgesturerecognition}
-To recognize head gestures we used DTW (Dynamic Time Warping) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007} - in this case sequences of sensor data. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. 
+To recognize head gestures we used Dynamic Time Warping (DTW) which is a well-known technique to find an optimal alignment between two time dependent sequences \cite{muller_dynamic_2007} - in this case sequences of sensor data. Due to the simple gestures (short sequences) defined in the system design we used a classic simple DTW although there exists several techniques for speeding up the algorithm \cite{muller_dynamic_2007,salvador_toward_2007,akl_accelerometer-based_2010}. 
 
 Essentially the DTW algorithm works by compairing two sequences of length N and M. A sequence consists of observations and an observation is a set of accelerometer data from the headset. For each observation comparison a local cost is calculated and a cost matrix is created (using dynamic programming). If there exists a path (warping path) from point (1,1) to (N,M) in the cost matrix that has an overall cost that is less than a predefined cost, then there is a match. The local cost of an observation is calculated from the sum of the euclidean squared distances of each observation value. A squared euclidean distance places progressively greater weight on objects that are farther apart. The total cost is then simply the sum of all the observation distances.
 
@@ -91,11 +91,11 @@ The values are 3-axis accelerometer data (in order) x, y and z. A sensor observa
 \subsection{Training data}
 Compaired with other long motion gestures e.g. running or climbing stairs, our head gestures were short events. For obtaining training data these gestures were recorded per event so a simple view containing a start/stop record button was implemented. Also to identify which class the gesture belonged to, the view had a list of labels with the specific gesture type that was to be chosen before recording the specific gesture.
 
-The possible pause between pushing the start/stop recording button and the start or end of the actual gesture would cause some noise in the recorded data. To solve this we removed observations from the start of the recorded sequence until the difference between the start and the following observation were \textgreater 0.01. The same check was done with the end and its preceding observations. This noise cleaning was done after gestures were recorded (in memory) and the cleaned training data was saved to the device storage.
+The possible pause between pushing the start/stop recording button and the start or end of the actual gesture would cause some noise in the recorded data. To solve this we removed observations from the start of the recorded sequence until the difference between the start and the following observation were \textgreater 0.01. The same filtering was done with the end and its preceding observations. This cropping cleaning was done after gestures were recorded (in memory) and the cleaned training data was saved to the device storage.
 
 
 \section{iOS Application}
-The Spatial Music Menu appliation were developed for an iPad Mini running iOS 7.1. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most the important functionality of the Spatial Music Menu.
+The Spatial Music Menu appliation were developed for iOS 7.1 and tested on an iPad Mini. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most the important functionality of the Spatial Music Menu.
 
 An overview of the application architecture is shown in figure \ref{fig:apparchitecture} and this diagram will function as a reference throughout the presentation of the iOS application in this section. The figure highlights the different relationships between application state, music client, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple, where some of the frequently used patterns are Model-View-Controller and Delegation\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}}.
 
