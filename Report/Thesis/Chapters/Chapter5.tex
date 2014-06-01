@@ -23,7 +23,7 @@ The participants used in the evaluation are acquaintances of us, so we are aware
 The experiment was designed and conducted as a controlled lab experiment. Controlled experiments are appropriate when comparing one design to another to see which is better \cite{benyon_designing_2010} and in this case we are compairing the Spatial Music Menu with a touch and vision-based music player. As the focus is on compairing and study the effects of these interfaces in an interaction in motion scenario i.e. biking, we designed an evaluation system simulating a trafficked biking scenario.
 
 \subsection{Biking simulation}
-A stationary bike was put in front of a giant screen (4 x 40 inch HD screens, see figure \ref{fig:evalspatial}) that should simulate a road. To make the view as realistic as possible an image of an actual trafficked road\footnote{New York street: \url{http://timsklyarov.com/new-york-through-the-eyes-of-a-road-bicycle/}} was showed on the screen. To simulate obstacles that the user should be aware of or respond to in a real world biking scenario, 3 different shapes with random colors were displayed in random positions on the screen in a random time interval between 0.3 and 1 second displaying the shape in 0.8 seconds. The shapes were circles, triangles and squares and the job for the person riding the bike was to register whenever they detected a circle. The registration of a circle was done by pushing a button attached close to the users non-preferred hand on the steer, in this case a Playstation 3 joystick strapped with tape (see figure \ref{fig:simulationsystem}). The reason for the button placement at the non-preferred hand was, that the preferred hand should be used for navigating the touch and vision-based music player. To give the user feedback the circle was simply removed when registered. The screen simulation software is developed with Python 3 and Pygame\footnote{\url{http://www.pygame.org/}} running on a Mac (OSX 10.9). The simulation screen is illustrated in figure \ref{fig:simulationsystem}.
+A stationary bike was put in front of a giant screen (4 x 40 inch HD screens, see figure \ref{fig:evalspatial}) that should simulate a road. To make the view as realistic as possible an image of an actual trafficked road\footnote{New York street: \url{http://timsklyarov.com/new-york-through-the-eyes-of-a-road-bicycle/}} was showed on the screen. To simulate obstacles that the user should be aware of or respond to in a real world biking scenario, 3 different shapes with random colors were displayed in random positions on the screen in a random time interval between 0.3 and 1 second displaying the shape in 0.8 seconds. The shapes were circles, triangles and squares and the job for the person riding the bike was to register whenever they detected a circle. The registration of a circle was done by pushing a button attached close to the users non-preferred hand on the steer, in this case a Playstation 3 joystick strapped with tape (see figure \ref{fig:simulationsystem}). The reason for the button placement at the non-preferred hand was, that the preferred hand should be used for navigating the touch and vision-based music player. To give the user feedback the circle was simply removed when registered. The screen simulation software (Appendix \ref{sec:appendixpython}) is developed with Python 3 and Pygame\footnote{\url{http://www.pygame.org/}} running on a Mac (OSX 10.9). The simulation screen is illustrated in figure \ref{fig:simulationsystem}.
 
 \begin{figure}[h]
 	\centering
@@ -67,7 +67,7 @@ This section describes the different methods used for conducting the experiment.
 \label{sec:evaluationmusictask}
 Besides the task of registering circles on the simulation screen while biking, the participants were during the experiment given tasks that refers to the exploring and selection of music tracks. Such a task is basically defined as a music track in which the user should navigate to. The music track (artist - title) is shown on the top left of the screen (see figure \ref{fig:simulationmusictask}) and when it does the user should start the navigation task. So in the case of the Spatial Music Menu the user should activate the menu by pushing the right button on the headset (activation step as described in section \ref{sec:designnavigation}) and explore and select the tracks with head gestures. If the user selects a wrong album or track the menu must be activated again (going to the HOME state). In the case of the Deezer Android music application the user must pick the device from a pocket, activate/unlock screen, navigate to the music track, deactivate screen and put the device back in the pocket.
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering
 		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{./Figures/simulation_musictask.jpg}
 		\rule{35em}{1pt}
@@ -77,7 +77,7 @@ Besides the task of registering circles on the simulation screen while biking, t
 
 As we wanted to compaire the two systems the menu structure needed to be aligned as much as possible. Figure \ref{fig:menustates} shows how the menu levels (HOME and ALBUM) in the two different interfaces corresponds to each other.
 
-\begin{figure}[t]
+\begin{figure}[b]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/menustates.png}
 		\rule{35em}{1pt}

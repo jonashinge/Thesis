@@ -19,11 +19,11 @@ The headset features can be exploited through mobile applications using an inclu
 
 The SDK is implemented in the Spatial Music Menu application. The Intelligent Headset API (Application Programming Interface) provides features like reading the raw sensor data from all sensors, button events and functions for headset connectivity and 3D audio handling. An overview of the components and their communication is shown in figure \ref{fig:implementationoverview}.
 
-\begin{figure}[t]
+\begin{figure}[b]
 	\centering
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/implementation_overview.png}
 		\rule{35em}{1pt}
-	\caption[Implementation overview]{An overview of the components of the implementation and their communication}
+	\caption[Implementation overview]{An overview of the components of the implementation and their communication.}
 	\label{fig:implementationoverview}
 \end{figure}
 
@@ -64,6 +64,8 @@ To recognize head gestures we used Dynamic Time Warping (DTW) which is a well-kn
 
 Essentially the DTW algorithm works by compairing two sequences of length N and M. A sequence consists of observations and an observation is a set of accelerometer data from the headset. For each observation comparison a local cost is calculated and a cost matrix is created (using dynamic programming). If there exists a path (warping path) from point (1,1) to (N,M) in the cost matrix that has an overall cost that is less than a predefined cost, then there is a match. The local cost of an observation is calculated from the sum of the euclidean squared distances of each observation value. A squared euclidean distance places progressively greater weight on objects that are farther apart. The total cost is then simply the sum of all the observation distances.
 
+\newpage
+
 A preview of such a sequence example could look like this:
 
 \begin{lstlisting}
@@ -95,7 +97,7 @@ The possible pause between pushing the start/stop recording button and the start
 
 
 \section{iOS Application}
-The Spatial Music Menu appliation were developed for iOS 7.1 and tested on an iPad Mini. As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most the important functionality of the Spatial Music Menu.
+The Spatial Music Menu appliation were developed for iOS 7.1 and tested on an iPad Mini (Appendix \ref{sec:appendixios}). As an overview and introduction of the iOS framework is out of this thesis scope - the interested reader is referred to Apples developer portal\footnote{\url{https://developer.apple.com/}} where a comprehensive documentation on the framework is available. Instead this section will focus on the application architecture, the design patterns and most the important functionality of the Spatial Music Menu.
 
 An overview of the application architecture is shown in figure \ref{fig:apparchitecture} and this diagram will function as a reference throughout the presentation of the iOS application in this section. The figure highlights the different relationships between application state, music client, headset events handling, view (and audio) controller logic and persistency storage. The application aims to use iOS best practice design patterns provided by Apple, where some of the frequently used patterns are Model-View-Controller and Delegation\footnote{\url{https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html}}.
 
@@ -103,7 +105,7 @@ An overview of the application architecture is shown in figure \ref{fig:apparchi
   \centering
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/app-architecture.pdf}
     \rule{35em}{1pt}
-  \caption[App architecture]{Spatial Music Menu iOS app architecture overview}
+  \caption[App architecture]{Spatial Music Menu iOS app architecture overview.}
   \label{fig:apparchitecture}
 \end{figure}
 
@@ -119,6 +121,8 @@ Tracks, albums and gestures data consists of model objects e.g. Album, Track and
 As illustrated in figure \ref{fig:apparchitecture} the PersistencyManager is part of a notifier/observer pattern. Using the iOS NSNotificationCenter it is possible to dispatch and listen to custom events. The PersistencyManager dispatches an event when track data has been changed (TRACK\_DATA\_CHANGED) which is the listened to by objects that needs update like for example the audio menu (AudioMenu ViewController).
 
 An example of using model objects, track archiving and notifications is shown is this example where track data is synchronized for a playlist:
+
+\newpage
 
 \begin{lstlisting}
 - (void)syncTrackDataForPlaylistWithId:(NSString *)itemId
@@ -279,11 +283,13 @@ The views are aligned in a horizontal way with the main view, the AudioMenu, in 
 
 The Music view provides setting features like playlist selection, number of tracks, connecting to the Deezer music service and synchronizing playlist and tracks. The Gestures view provides one funtion and that is recording of gestures. It also shows a list of recorded gestures and highlights the gesture item on the list that is being recognized. The main AudioMenu view provides menu settings like distance, max rotation degree, interaction modes (with or without zoom effect), a home button (takes the user to the HOME level) and a calibrate button which is used for aligning the center of the menu with the users center head direction.
 
+\newpage
+
 The application in action, with headset and iPad screen showing the visualised auditory menu (AudioMenu view), is illustrated in figure \ref{fig:implementationsystem}.
 
-\begin{figure}[t]
+\begin{figure}[h]
   \centering
-    \includegraphics[width=0.6\textwidth,height=\textheight,keepaspectratio]{./Figures/system_final.jpg}
+    \includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{./Figures/system_final.jpg}
     \rule{35em}{1pt}
   \caption[Final system in action]{The system in action with iOS application running on iPad and the Intelligent Headset.}
   \label{fig:implementationsystem}
